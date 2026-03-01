@@ -46,6 +46,29 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
         </div>
       );
 
+    case 'dropdown':
+      const nestedBlocks =
+        Array.isArray(block.children)
+          ? block.children
+          : Array.isArray(block.metadata?.blocks)
+            ? block.metadata.blocks
+            : [];
+
+      return (
+        <details className="my-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <summary className="cursor-pointer text-lg font-semibold text-slate-800 marker:text-slate-500">
+            {block.title || block.content || 'Expand'}
+          </summary>
+          <div className="mt-4 space-y-4 pl-2 border-l-2 border-slate-200">
+            {nestedBlocks.length > 0 ? (
+              nestedBlocks.map((childBlock) => <BlockRenderer key={childBlock.id} block={childBlock} />)
+            ) : (
+              <p className="text-slate-500">No dropdown content available.</p>
+            )}
+          </div>
+        </details>
+      );
+
     case 'image':
       // local images stored in public/images are copied to dist at build time
       // the `content` field should be the filename (e.g. "diagram.png").
