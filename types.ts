@@ -7,6 +7,7 @@ export interface ContentBlock {
   title?: string;
   content: string; // Text content, video URL, or Lab identifier
   metadata?: any;
+  formatdata?: any;
 }
 
 export interface Module {

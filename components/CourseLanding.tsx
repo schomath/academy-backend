@@ -46,7 +46,7 @@ export const CourseLanding: React.FC<CourseLandingProps> = ({ course, currentMod
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+      <div className="max-w-10xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
         {/* Module Sidebar */}
         <aside className="w-full lg:w-80 flex-shrink-0">
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Course Syllabus</h3>

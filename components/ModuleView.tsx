@@ -49,18 +49,35 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
     case 'image':
       // local images stored in public/images are copied to dist at build time
       // the `content` field should be the filename (e.g. "diagram.png").
-      return (
-        <div className="my-8">
-          {/* max-w-full: prevent the image from exceeding its container width */}
-          {/* rounded-2xl: apply large rounded corners to the image */}
-          {/* shadow-xl: add an extra-large box shadow for visual depth */}
-          <img
-            className="max-w-full rounded-2xl shadow-xl"
-            src={`/images/${block.content}`}
-            alt={block.metadata?.alt || ''}
-          />
-        </div>
-      );
+      if (block.metadata?.format === 'no-shadow') {
+        return (
+          <div className="my-8 max-w-3xl">
+            {/* max-w-full: prevent the image from exceeding its container width */}
+            {/* rounded-2xl: apply large rounded corners to the image */}
+            {/* shadow-xl: add an extra-large box shadow for visual depth */}
+            <img
+              className="rounded-2xl"
+              src={`/images/${block.content}`}
+              alt={block.metadata?.alt || ''}
+            />
+          </div>
+        );
+      }
+      else {
+        return (
+          <div className="my-8 max-w-3xl">
+            {/* max-w-full: prevent the image from exceeding its container width */}
+            {/* rounded-2xl: apply large rounded corners to the image */}
+            {/* shadow-xl: add an extra-large box shadow for visual depth */}
+            <img
+              className="rounded-2xl shadow-xl"
+              src={`/images/${block.content}`}
+              alt={block.metadata?.alt || ''}
+            />
+          </div>
+        );
+      }
+      
 
     case 'webimage':
       return (
@@ -135,7 +152,8 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
 
 export const ModuleView: React.FC<ModuleViewProps> = ({ module }) => {
   return (
-    <div className="max-w-4xl mx-auto py-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="max-w-full mx-auto px-2 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    {/* <div className="max-w-4xl mx-auto py-8 animate-in fade-in slide-in-from-bottom-4 duration-500"> */}
       <div className="mb-10">
         <h2 className="text-4xl font-extrabold text-slate-900 mb-4">{module.title}</h2>
         <p className="text-xl text-slate-500">{module.description}</p>
