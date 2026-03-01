@@ -9,6 +9,7 @@ export interface ContentBlock {
   children?: ContentBlock[];
   metadata?: any;
   formatdata?: any;
+  childrenBlocks?: ContentBlock[]; // For dropdowns, the nested blocks
 }
 
 export interface Module {
