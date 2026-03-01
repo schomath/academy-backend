@@ -36,7 +36,7 @@ export const CATEGORIES: Category[] = [
                 {id: 'b7-1', type: 'markdown', content: 'If we wish to provide a 0V connection to ***all connected field devices***, we must provide a 0V connection to **`pin 14`** or **`pin 15`** of the multi-pin header.'},
                 {id: 'b7-2', type: 'image', content: 'plcs_festo_mpvea12m8_0V_example.png', metadata: { alt: 'Example of 0V Connection on FESTO MPV-E-A12-M8', format: 'no-shadow'}}
               ]},
-              {id: 'b8', type: 'markdown', content: '# 📺Video example of FESTO being integrated with a separate PLC'},
+              {id: 'b8', type: 'markdown', content: '# 📺Video example of FESTO being integrated with a separate PLC\n\n*Note, the PLC and the Software are a little different than the Click suite we typically use. However, the pricniples of operations are largely the same!*'},
               {id: 'b9', type: 'video', content: 'https://www.youtube.com/embed/eqwZvAop6L0?si=Y-F_yeXRj71PBX_N'},
             ]
           },
@@ -52,6 +52,8 @@ export const CATEGORIES: Category[] = [
         ] 
       },
 
+
+      // COURSE: Hydraulics & Fluid Power
       { id: 'hydraulics-101',
         title: 'Hydraulics & Fluid Power',
         emoji: '💧',

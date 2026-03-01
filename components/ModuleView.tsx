@@ -37,7 +37,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
     case 'video':
       return (
         <AnimatedBlock>
-          <div className="my-8 aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+          <div className="my-8 aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-200 max-w-xl">
             <iframe
               className="w-full h-full"
               src={block.content}
