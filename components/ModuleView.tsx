@@ -10,17 +10,73 @@ interface ModuleViewProps {
   module: Module;
 }
 
-// Wrapper component to add scroll animation to blocks
+/**
+ * This is a React Functional Component that wraps other content and
+ * animates it when it comes into view while scrolling.
+ * 
+ * COMPONENT DECLARATION:
+ * - `const AnimatedBlock` = We're creating a constant variable named AnimatedBlock
+ * - `: React.FC<{ children: React.ReactNode }>` = TypeScript type annotation
+ *   - React.FC means "React Functional Component"
+ *   - <{ children: React.ReactNode }> defines the "props" (properties) this component accepts
+ *   - "children" is a special prop that represents any content placed inside this component
+ *   - React.ReactNode is a type that means "any valid React content" (text, elements, etc.)
+ * 
+ * ARROW FUNCTION SYNTAX:
+ * - `= ({ children }) =>` is an arrow function (modern JavaScript function syntax)
+ * - `({ children })` uses "destructuring" to extract the 'children' prop from the props object
+ *   - Instead of writing `(props) => { ... props.children ... }`
+ *   - We write `({ children }) => { ... children ... }` - it's a shortcut!
+ */
 const AnimatedBlock: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  
+  // CUSTOM HOOK - useInView():
+  // A "hook" is a special React function that adds functionality to components
+  // This hook detects when an element becomes visible on screen
+  // 
+  // ARRAY DESTRUCTURING:
+  // - `const [ref, isInView]` extracts two values from the array returned by useInView()
+  // - `ref` = A special reference object we attach to our HTML element to track it
+  // - `isInView` = A boolean (true/false) that tells us if the element is visible on screen
   const [ref, isInView] = useInView();
 
+  // RETURN STATEMENT:
+  // Returns JSX (JavaScript XML) - looks like HTML but it's actually JavaScript
+  // React converts this into real HTML elements in the browser
   return (
     <div
+      // REF ATTRIBUTE:
+      // Attaches our 'ref' to this div so useInView() can track when it's visible
+      // Think of it like putting a tracking device on the element
       ref={ref}
+      
+      // CLASSNAME (CSS CLASSES):
+      // Uses template literals (text inside backticks ` `) to dynamically build CSS classes
+      // - `transition-all duration-700` = Always applied - makes changes animate smoothly over 700ms
+      // - `${ ... }` = Template literal syntax to insert dynamic JavaScript expressions
+      // 
+      // TERNARY OPERATOR (conditional expression):
+      // - Format: `condition ? valueIfTrue : valueIfFalse`
+      // - `isInView ? 'animate-fadeInUp opacity-100' : 'opacity-0 translate-y-5'`
+      // - If isInView is TRUE (element is visible): apply fade-in animation and full opacity
+      // - If isInView is FALSE (element not visible yet): make it invisible and shifted down
+      // 
+      // Result: Element starts invisible and down, then animates up and fades in when scrolled into view
       className={`transition-all duration-700 ${
         isInView ? 'animate-fadeInUp opacity-100' : 'opacity-0 translate-y-5'
       }`}
     >
+      {/* 
+        CHILDREN PROP:
+        - {children} renders whatever content is placed inside <AnimatedBlock>...</AnimatedBlock>
+        - The curly braces {} mean "evaluate this JavaScript expression"
+        - For example, if you write:
+          <AnimatedBlock>
+            <p>Hello World</p>
+          </AnimatedBlock>
+        - Then {children} will be replaced with <p>Hello World</p>
+        - This makes AnimatedBlock a reusable wrapper for any content!
+      */}
       {children}
     </div>
   );

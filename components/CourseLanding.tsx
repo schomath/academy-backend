@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Course, Module } from '../types';
 import { ModuleView } from './ModuleView';
 import { useInView } from '../hooks/useInView';
@@ -12,7 +12,26 @@ interface CourseLandingProps {
 }
 
 export const CourseLanding: React.FC<CourseLandingProps> = ({ course, currentModuleId, onSelectModule, onBack }) => {
-  const activeModule = course.modules.find(m => m.id === currentModuleId);
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+  
+  // Get all modules from both flat list and categories
+  const allModules = [
+    ...course.modules,
+    ...(course.moduleCategories?.flatMap(cat => cat.modules) || [])
+  ];
+  const activeModule = allModules.find(m => m.id === currentModuleId);
+  
+  const toggleCategory = (categoryId: string) => {
+    setExpandedCategories(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(categoryId)) {
+        newSet.delete(categoryId);
+      } else {
+        newSet.add(categoryId);
+      }
+      return newSet;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -52,32 +71,90 @@ export const CourseLanding: React.FC<CourseLandingProps> = ({ course, currentMod
         <aside className="w-full lg:w-80 flex-shrink-0 animate-slideInLeft">
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Course Syllabus</h3>
           <div className="space-y-2">
-            {course.modules.length > 0 ? (
-              course.modules.map((m, idx) => (
-                <button
-                  key={m.id}
-                  onClick={() => onSelectModule(m.id)}
-                  className={`w-full text-left p-4 rounded-2xl transition-all duration-300 border-2 active:scale-95 hover:shadow-md ${
-                    currentModuleId === m.id 
-                      ? 'border-indigo-600 bg-indigo-50 shadow-sm animate-scaleIn'
-                      : 'border-transparent hover:bg-slate-50 text-slate-600 hover:border-slate-200'
-                  }`}
-                  style={{ animationDelay: `${idx * 0.05}s` }}
-                >
-                  <div className="flex items-start gap-3">
-                    <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                      currentModuleId === m.id ? 'bg-indigo-600 text-white scale-110' : 'bg-slate-200 text-slate-500'
-                    }`}>
-                      {idx + 1}
-                    </span>
-                    <div>
-                      <div className={`font-bold transition-colors ${currentModuleId === m.id ? 'text-indigo-900' : 'text-slate-900'}`}>{m.title}</div>
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-1">{m.description}</p>
-                    </div>
+            {/* Render flat modules first */}
+            {course.modules.length > 0 && course.modules.map((m, idx) => (
+              <button
+                key={m.id}
+                onClick={() => onSelectModule(m.id)}
+                className={`w-full text-left p-4 rounded-2xl transition-all duration-300 border-2 active:scale-95 hover:shadow-md ${
+                  currentModuleId === m.id 
+                    ? 'border-indigo-600 bg-indigo-50 shadow-sm animate-scaleIn'
+                    : 'border-transparent hover:bg-slate-50 text-slate-600 hover:border-slate-200'
+                }`}
+                style={{ animationDelay: `${idx * 0.05}s` }}
+              >
+                <div className="flex items-start gap-3">
+                  <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                    currentModuleId === m.id ? 'bg-indigo-600 text-white scale-110' : 'bg-slate-200 text-slate-500'
+                  }`}>
+                    {idx + 1}
+                  </span>
+                  <div>
+                    <div className={`font-bold transition-colors ${currentModuleId === m.id ? 'text-indigo-900' : 'text-slate-900'}`}>{m.title}</div>
+                    <p className="text-xs text-slate-500 mt-1 line-clamp-1">{m.description}</p>
                   </div>
-                </button>
-              ))
-            ) : (
+                </div>
+              </button>
+            ))}
+            
+            {/* Render categorized modules */}
+            {course.moduleCategories && course.moduleCategories.map((category, catIdx) => {
+              const isExpanded = expandedCategories.has(category.id);
+              const categoryModuleCount = category.modules.length;
+              
+              return (
+                <div key={category.id} className="animate-fadeInUp" style={{ animationDelay: `${(course.modules.length + catIdx) * 0.05}s` }}>
+                  {/* Category Header */}
+                  <button
+                    onClick={() => toggleCategory(category.id)}
+                    className="w-full text-left p-4 rounded-2xl transition-all duration-300 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 bg-white group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        {category.emoji && <span className="text-lg">{category.emoji}</span>}
+                        <div>
+                          <div className="font-bold text-slate-900 group-hover:text-slate-700 transition-colors">{category.title}</div>
+                          <p className="text-xs text-slate-400">{categoryModuleCount} module{categoryModuleCount !== 1 ? 's' : ''}</p>
+                        </div>
+                      </div>
+                      <span className={`text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>▼</span>
+                    </div>
+                  </button>
+                  
+                  {/* Category Modules */}
+                  {isExpanded && (
+                    <div className="mt-2 ml-4 space-y-2 border-l-2 border-slate-200 pl-2">
+                      {category.modules.map((m, modIdx) => (
+                        <button
+                          key={m.id}
+                          onClick={() => onSelectModule(m.id)}
+                          className={`w-full text-left p-4 rounded-2xl transition-all duration-300 border-2 active:scale-95 hover:shadow-md ${
+                            currentModuleId === m.id 
+                              ? 'border-indigo-600 bg-indigo-50 shadow-sm'
+                              : 'border-transparent hover:bg-slate-50 text-slate-600 hover:border-slate-200'
+                          }`}
+                        >
+                          <div className="flex items-start gap-3">
+                            <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                              currentModuleId === m.id ? 'bg-indigo-600 text-white scale-110' : 'bg-slate-200 text-slate-500'
+                            }`}>
+                              {modIdx + 1}
+                            </span>
+                            <div>
+                              <div className={`font-bold transition-colors ${currentModuleId === m.id ? 'text-indigo-900' : 'text-slate-900'}`}>{m.title}</div>
+                              <p className="text-xs text-slate-500 mt-1 line-clamp-1">{m.description}</p>
+                            </div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            
+            {/* Empty state */}
+            {course.modules.length === 0 && (!course.moduleCategories || course.moduleCategories.length === 0) && (
               <p className="text-sm text-slate-400 italic">No modules published yet.</p>
             )}
           </div>

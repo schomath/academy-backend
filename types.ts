@@ -19,12 +19,20 @@ export interface Module {
   blocks: ContentBlock[];
 }
 
+export interface ModuleCategory {
+  id: string;
+  title: string;
+  emoji?: string;
+  modules: Module[];
+}
+
 export interface Course {
   id: string;
   title: string;
   emoji: string;
   description: string;
   modules: Module[];
+  moduleCategories?: ModuleCategory[];
 }
 
 export interface Category {
