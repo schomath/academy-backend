@@ -82,6 +82,43 @@ const AnimatedBlock: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   );
 };
 
+/**
+ * TooltipWrapper component
+ * Displays a tooltip with nested content blocks when hovering over the wrapped content
+ */
+const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: ContentBlock[] }> = ({ children, tooltipBlocks }) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  return (
+    <span 
+      className="relative inline-block"
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+      style={{ zIndex: isVisible ? 100 : 'auto' }}
+    >
+      <span className="cursor-help border-b-2 border-dotted border-blue-500 hover:border-blue-700 hover:bg-blue-50 transition-all duration-200 px-1">
+        {children}
+      </span>
+      {isVisible && (
+        <div className="fixed animate-fadeIn" style={{
+          zIndex: 9999,
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          maxWidth: '90vw',
+          maxHeight: '80vh'
+        }}>
+          <div className="bg-white rounded-lg shadow-2xl border-2 border-blue-200 p-4 overflow-y-auto max-h-[80vh]">
+            {tooltipBlocks.map((block) => (
+              <BlockRenderer key={block.id} block={block} />
+            ))}
+          </div>
+        </div>
+      )}
+    </span>
+  );
+};
+
 const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
   switch (block.type) {
     case 'text':
@@ -167,6 +204,39 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
         <AnimatedBlock>
           <div className="my-6 overflow-x-auto rounded-xl bg-white p-4 border border-slate-200 hover:shadow-md hover:border-slate-300 transition-all duration-300">
             <div className="flex justify-center text-slate-900 [&_.katex]:text-3xl" dangerouslySetInnerHTML={{ __html: html }} />
+          </div>
+        </AnimatedBlock>
+      );
+    }
+
+    case 'latextooltip': {
+      const parts = block.metadata?.parts || [];
+      const displayMode = Boolean(block.metadata?.displayMode);
+
+      return (
+        <AnimatedBlock>
+          <div className="my-6 rounded-xl bg-white p-6 border border-slate-200 hover:shadow-md hover:border-slate-300 transition-all duration-300">
+            <div className="flex justify-center items-baseline text-slate-900 [&_.katex]:text-3xl" style={{ position: 'relative', overflow: 'visible' }}>
+              {parts.map((part: any, idx: number) => {
+                const partHtml = katex.renderToString(part.expression || '', {
+                  throwOnError: false,
+                  displayMode: false,
+                  output: 'html',
+                });
+                
+                // If this part has tooltip blocks, wrap it
+                if (part.blocks && part.blocks.length > 0) {
+                  return (
+                    <TooltipWrapper key={idx} tooltipBlocks={part.blocks}>
+                      <span className="inline-flex items-baseline" dangerouslySetInnerHTML={{ __html: partHtml }} />
+                    </TooltipWrapper>
+                  );
+                }
+                
+                // Otherwise, just render the expression
+                return <span key={idx} className="inline-flex items-baseline" dangerouslySetInnerHTML={{ __html: partHtml }} />;
+              })}
+            </div>
           </div>
         </AnimatedBlock>
       );
@@ -267,6 +337,74 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
           </div>
         </AnimatedBlock>
       );
+
+    case 'codetooltip': {
+      const parts = block.metadata?.parts || [];
+      const language = block.metadata?.language || '';
+      
+      // Function to render code with inline tooltips
+      const renderCodeWithTooltips = () => {
+        if (parts.length === 0) {
+          return <code className="text-green-400 font-mono text-lg">{block.content}</code>;
+        }
+
+        let remainingCode = block.content;
+        const elements: React.ReactNode[] = [];
+        
+        parts.forEach((part: any, idx: number) => {
+          const partText = part.text || '';
+          const partIndex = remainingCode.indexOf(partText);
+          
+          if (partIndex !== -1) {
+            // Add text before this part
+            if (partIndex > 0) {
+              elements.push(
+                <span key={`text-${idx}`} className="text-green-400">
+                  {remainingCode.substring(0, partIndex)}
+                </span>
+              );
+            }
+            
+            // Add the hoverable part
+            if (part.blocks && part.blocks.length > 0) {
+              elements.push(
+                <TooltipWrapper key={`tooltip-${idx}`} tooltipBlocks={part.blocks}>
+                  <span className="text-yellow-300">{partText}</span>
+                </TooltipWrapper>
+              );
+            } else {
+              elements.push(
+                <span key={`part-${idx}`} className="text-green-400">{partText}</span>
+              );
+            }
+            
+            // Update remaining code
+            remainingCode = remainingCode.substring(partIndex + partText.length);
+          }
+        });
+        
+        // Add any remaining code
+        if (remainingCode.length > 0) {
+          elements.push(
+            <span key="remaining" className="text-green-400">
+              {remainingCode}
+            </span>
+          );
+        }
+        
+        return <code className="font-mono text-lg">{elements}</code>;
+      };
+
+      return (
+        <AnimatedBlock>
+          <div className="my-6 rounded-xl bg-slate-900 p-6 border border-slate-700 hover:shadow-lg hover:border-slate-600 transition-all duration-300">
+            <pre style={{ position: 'relative', overflow: 'visible' }}>
+              {renderCodeWithTooltips()}
+            </pre>
+          </div>
+        </AnimatedBlock>
+      );
+    }
 
     default:
       return null;

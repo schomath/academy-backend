@@ -178,12 +178,66 @@ export const CATEGORIES: Category[] = [
             description: 'Utilize gradient descent for optimizing machine learning models.',
             blocks: [
               { id: 'b1', type: 'markdown', content: '# Introduction to Gradient Descent\n\nGradient descent is an optimization algorithm used to minimize the cost function in machine learning models by iteratively adjusting the model parameters.\n\nLet\'s start by examining a model we\'d like to optimize:' },
-              { id: 'b3', type: 'latex', content: 'f_\\theta(x) = \\theta_1x + sin(\\theta_2x)'},
-              { id: 'b4', type: 'markdown', content: 'Here, we find that `theta_1` and `theta_2` are the parameters we want to optimize. We can use gradient descent to find the optimal values for these parameters that minimize our cost function. Recall that our **cost function** is defined as the MSE, or rather...' },
+              { id: 'b2', type: 'latextooltip', content: '', metadata: {
+                displayMode: true,
+                parts: [
+                  { expression: 'f_\\theta(x) = ' },
+                  {
+                    expression: '\\theta_1',
+                    blocks: [
+                      { id: 'theta1-1', type: 'text', content: 'θ₁ is the first parameter we want to optimize - it controls the linear scaling of x.' },
+                      { id: 'theta1-2', type: 'note', content: 'This parameter is updated during each iteration of gradient descent.' }
+                    ]
+                  },
+                  { expression: 'x + ' },
+                  {
+                    expression: '\\sin(',
+                    blocks: [
+                      { id: 'sin-1', type: 'text', content: 'The sine function introduces non-linearity to our model, allowing it to fit more complex patterns.' },
+                      { id: 'sin-2', type: 'latex', content: '\\frac{d}{dx}\\sin(\\theta_2x) = \\theta_2\\cos(\\theta_2x)', metadata: { displayMode: true } }
+                    ]
+                  },
+                  {
+                    expression: '\\theta_2',
+                    blocks: [
+                      { id: 'theta2-1', type: 'text', content: 'θ₂ is the second parameter - it controls the frequency of the sine wave.' },
+                      { id: 'theta2-2', type: 'markdown', content: '**Initial value**: Randomly initialized\n\n**Update rule**: θ₂ = θ₂ - α·∂J/∂θ₂' }
+                    ]
+                  },
+                  { expression: 'x)' }
+                ]
+              }},
+              { id: 'b4', type: 'markdown', content: 'Hover directly over the colored terms in the equation above to see detailed explanations! Notice how `theta_1` and `theta_2` are the parameters we want to optimize. We can use gradient descent to find the optimal values for these parameters that minimize our cost function. Recall that our **cost function** is defined as the MSE, or rather...' },
               { id: 'b5', type: 'latex', content: 'MSE = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y_i})^2 \\space where \\space \\hat{y_i} = f_\\theta(x_i)' },
-              { id: 'b6', type: 'markdown', content: 'where...'},
-              { id: 'b7', type: 'latex', content: '\\hat{y_i} = f_\\theta(x_i)x' },
-              { id: 'bv', type: 'video', content: 'https://www.youtube.com/embed/eI8M9MEA5lA?si=TCNQV2trdCHNY_T3' },
+              { id: 'b6', type: 'markdown', content: 'Now let\'s implement this in code. Here\'s a simple gradient descent update step:'},
+              { id: 'b7', type: 'codetooltip', content: 'theta = theta - learning_rate * gradient', metadata: {
+                language: 'python',
+                parts: [
+                  {
+                    text: 'theta',
+                    blocks: [
+                      { id: 'theta-code-1', type: 'text', content: 'The parameter vector we\'re optimizing (θ₁ and θ₂ in our case).' },
+                      { id: 'theta-code-2', type: 'note', content: 'Updated iteratively to minimize the cost function.' }
+                    ]
+                  },
+                  {
+                    text: 'learning_rate',
+                    blocks: [
+                      { id: 'lr-1', type: 'markdown', content: '**Learning Rate (α)**: Controls how big each step is.\n- Too large: May overshoot the minimum\n- Too small: Slow convergence' },
+                      { id: 'lr-2', type: 'text', content: 'Typical values: 0.001 to 0.1' }
+                    ]
+                  },
+                  {
+                    text: 'gradient',
+                    blocks: [
+                      { id: 'grad-1', type: 'text', content: 'The gradient ∇J(θ) is the vector of partial derivatives of the cost function with respect to each parameter.' },
+                      { id: 'grad-2', type: 'latex', content: '\\nabla J(\\theta) = \\begin{bmatrix} \\frac{\\partial J}{\\partial \\theta_1} \\\\ \\frac{\\partial J}{\\partial \\theta_2} \\end{bmatrix}', metadata: { displayMode: true } }
+                    ]
+                  }
+                ]
+              }},
+              { id: 'b8', type: 'markdown', content: 'Hover directly over the terms in the code above to see detailed explanations! The gradient tells us which direction to move our parameters to reduce the cost.' },
+              { id: 'b9', type: 'video', content: 'https://www.youtube.com/embed/eI8M9MEA5lA?si=TCNQV2trdCHNY_T3' },
             ]
           }
         ]
