@@ -13,7 +13,6 @@ export const CATEGORIES: Category[] = [
 
     // COURSES
     courses: [
-      
 
       // COURSE: PLCs & Industrial Automation
       { id: 'plcs',
@@ -22,8 +21,7 @@ export const CATEGORIES: Category[] = [
         description: 'Industrial automation using standard logic controllers.',
         modules: [],
         moduleCategories: [
-          {
-            id: 'plcs-click',
+          { id: 'plcs-click',
             title: 'CLICK PLC Documentation',
             emoji: '📟',
             modules: [
@@ -43,8 +41,7 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          {
-            id: 'plcs-festo',
+          { id: 'plcs-festo',
             title: 'FESTO Hardware Basics',
             emoji: '🏭',
             modules: [
