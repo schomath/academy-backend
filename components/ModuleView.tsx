@@ -86,7 +86,7 @@ const AnimatedBlock: React.FC<{ children: React.ReactNode }> = ({ children }) =>
  * TooltipWrapper component
  * Displays a tooltip with nested content blocks when hovering over the wrapped content
  */
-const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: ContentBlock[] }> = ({ children, tooltipBlocks }) => {
+const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: ContentBlock[]; showUnderline?: boolean }> = ({ children, tooltipBlocks, showUnderline = true }) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [tooltipPos, setTooltipPos] = React.useState({ top: 0, left: 0 });
   const triggerRef = React.useRef<HTMLSpanElement>(null);
@@ -113,7 +113,11 @@ const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: Conte
     >
       <span 
         ref={triggerRef}
-        className="cursor-help border-b-2 border-dotted border-blue-500 hover:border-blue-700 hover:bg-blue-50 transition-all duration-200 px-1"
+        className={`cursor-help transition-all duration-200 px-1 ${
+          showUnderline 
+            ? 'border-b-2 border-dotted border-blue-500 hover:border-blue-700 hover:bg-blue-50' 
+            : 'hover:bg-blue-50'
+        }`}
       >
         {children}
       </span>
@@ -272,7 +276,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
                 // If this part has tooltip blocks, wrap it
                 if (part.blocks && part.blocks.length > 0) {
                   return (
-                    <TooltipWrapper key={idx} tooltipBlocks={part.blocks}>
+                    <TooltipWrapper key={idx} tooltipBlocks={part.blocks} showUnderline={false}>
                       <span className="inline-flex items-baseline" dangerouslySetInnerHTML={{ __html: partHtml }} />
                     </TooltipWrapper>
                   );
