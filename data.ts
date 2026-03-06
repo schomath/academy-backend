@@ -183,6 +183,8 @@ export const CATEGORIES: Category[] = [
     description: 'Building the brains and bodies of the future.',
     color: 'purple',
     courses: [
+
+      // COURSE: Data Science and Preprocessing
       { id: 'ds-processing',
         title: 'Data Structures and Pre-Processing',
         emoji: '🌳',
@@ -190,8 +192,39 @@ export const CATEGORIES: Category[] = [
         modules: [],
         moduleCategories: [
           {
+            id: 'robai-visualization',
+            title: 'Data Visualization for AI & Robotics',
+            emoji: '📊',
+            modules: [
+              { id: 'robai-vis-1',
+                title: 'Matplotlib & basic plotting',
+                description: 'Learn how to use Matplotlib to create basic plots.',
+                blocks: [
+
+                ]
+              },
+
+              { id: 'robai-vis-2',
+                title: 'Advanced Visualization with Seaborn',
+                description: 'Create more complex and informative visualizations using Seaborn.',
+                blocks: [
+
+                ]
+              },
+
+              { id: 'robai-vis-3',
+                title: 'Interactive Visualizations with Plotly',
+                description: 'Build interactive plots and dashboards using Plotly.',
+                blocks: [
+
+                ]
+              }
+            ]
+          },
+
+          {
             id: 'robai-algos',
-            title: 'Robotics AI Algorithms',
+            title: 'A Brief Introduction to Machine Learning Algorithms',
             emoji: '🧠',
             modules: [
               { id: 'robai-algo-gd',
@@ -278,7 +311,7 @@ export const CATEGORIES: Category[] = [
                       { expression: ')', blocks: [] },
                       { expression: '= -'},
                       { expression: '\\sum_{i=1}^{k}', blocks: [{id: 'sum', type: 'markdown', content: 'Effectively a **for** loop where we *add the results together*.\nHere, we itterate over all **labels** in the dataset and *perform the following operation...'}] },
-                      { expression: 'p_i \\log_2(p_i)', blocks: [{id: 'pi', type: 'latex', content: 'p_i = \\frac{|C_i|}{|S|}'}, {id: 'pi-2', type: 'markdown', content: '\`p_i`\ is a ratio of label i to the total number of examples (*or datapoints*) in S.'}] },
+                      { expression: 'p_i \\log_2(p_i)', blocks: [{id: 'pi', type: 'latex', content: 'p_i = \\frac{|l_i|}{|S|}'}, {id: 'pi-2', type: 'markdown', content: '\`p_i`\ is a ratio of label i to the total number of examples (*or datapoints*) in S. For example, if we had a dataset where the \`labels\` column was...\n\`[\'high\',\'high\',\'low\']\`\n, then \`p_{high} = \\frac{2}{3}\` and \`p_{low} = \\frac{1}{3}\`.'}] },
                     ]
                   }},
                   {id: 'b4', type: 'markdown', content: 'The value we get for entropy corresponds directly to how pure or impure our dataset is. Specifically, if the **\`labels\`** of our dataset are all the same or vary wildly. A few specific examples:\n- If all labels are the same (e.g. all examples are class A), then the entropy is 0, indicating a pure dataset.\n- If the labels are evenly distributed (e.g. 50% class A and 50% class B), then the entropy is at its maximum, indicating a highly impure dataset.'},
@@ -305,11 +338,51 @@ export const CATEGORIES: Category[] = [
         ]
       },
 
+      // COURSE: Architecture of Robots
       { id: 'robot-arch', 
         title: 'Architecture of Robots', 
         emoji: '🏛️', 
-        description: 'Kinematics, power distribution, and structural design.', 
-        modules: []
+        description: 'Kinematics, Structural Design, and Principles of Robotics.', 
+        modules: [],
+        moduleCategories: [
+          { id: '',
+            title: 'Mathematics Review for Robotics',
+            emoji: '➗',
+            modules: [
+              { id: 'robai-arch-math-1',
+                title: 'Trigonometry Review',
+                description: 'Sine, cosine, and tangent functions in robotic motion and control.',
+                blocks: [
+                  
+                ]
+              },
+
+              { id: 'robai-arch-math-2',
+                title: 'Linear Algebra for Robotics',
+                description: 'Vectors, matrices, and transformations in robotic systems.',
+                blocks: [
+                  
+                ]
+              },
+            ]
+          },
+
+          { id: '',
+            title: 'Kinematics of Robotic Arms',
+            emoji: '🦾',
+            modules: [
+
+            ]
+          },
+
+          { id: '',
+            title: 'Structural Design Principles',
+            emoji: '🏗️',
+            modules: [
+
+            ]
+          }
+        ]
       }
     ]
   },
