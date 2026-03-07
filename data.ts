@@ -220,8 +220,7 @@ export const CATEGORIES: Category[] = [
         description: 'Efficiently handling sensor data and decision trees in real-time.',
         modules: [],
         moduleCategories: [
-          {
-            id: 'robai-visualization',
+          { id: 'robai-visualization',
             title: 'Data Visualization for AI & Robotics',
             emoji: '📊',
             modules: [
@@ -251,8 +250,7 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          {
-            id: 'robai-algos',
+          { id: 'robai-algos',
             title: 'A Brief Introduction to Machine Learning Algorithms',
             emoji: '🧠',
             modules: [
