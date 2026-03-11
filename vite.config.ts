@@ -25,7 +25,8 @@ export default defineConfig(({ mode }) => {
         tailwindcss(),
         viteStaticCopy({
         targets: [
-          { src: 'images/*', dest: 'images' }   // copy dev/images → dist/images
+          { src: 'images/*', dest: 'images' },
+          { src: 'plotly/*', dest: 'plotly' }
         ]
       })
       ],

@@ -2,6 +2,7 @@ import React from 'react';
 import { Module, ContentBlock } from '../types';
 import { LabRenderer } from './InteractiveLabs';
 import ReactMarkdown from 'react-markdown';
+import Plot from 'react-plotly.js';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import { useInView } from '../hooks/useInView';
@@ -9,6 +10,13 @@ import { useInView } from '../hooks/useInView';
 interface ModuleViewProps {
   module: Module;
 }
+
+type PlotlyFigure = {
+  data?: any[];
+  layout?: Record<string, any>;
+  frames?: any[];
+  config?: Record<string, any>;
+};
 
 /**
  * This is a React Functional Component that wraps other content and
@@ -165,6 +173,114 @@ const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: Conte
         </div>
       )}
     </span>
+  );
+};
+
+const PlotlyFigureBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
+  const requestedFigure = block.content.trim();
+  const normalizedFigure = requestedFigure.endsWith('.json') ? requestedFigure : `${requestedFigure}.json`;
+  const [figure, setFigure] = React.useState<PlotlyFigure | null>(null);
+  const [loadError, setLoadError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    let isActive = true;
+
+    setFigure(null);
+    setLoadError(null);
+
+    fetch(`./plotly/${normalizedFigure}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        return response.json();
+      })
+      .then((json: PlotlyFigure) => {
+        if (isActive) {
+          setFigure(json);
+        }
+      })
+      .catch(() => {
+        if (isActive) {
+          setLoadError(`Unable to load Plotly figure: ${normalizedFigure}`);
+        }
+      });
+
+    return () => {
+      isActive = false;
+    };
+  }, [normalizedFigure]);
+
+  if (loadError) {
+    return (
+      <AnimatedBlock>
+        <div className="my-6 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-700">
+          {loadError}
+        </div>
+      </AnimatedBlock>
+    );
+  }
+
+  if (!figure) {
+    return (
+      <AnimatedBlock>
+        <div className="my-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-600">
+          Loading Plotly figure...
+        </div>
+      </AnimatedBlock>
+    );
+  }
+
+  if (!Array.isArray(figure.data)) {
+    return (
+      <AnimatedBlock>
+        <div className="my-6 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-700">
+          Invalid Plotly figure format: {normalizedFigure}
+        </div>
+      </AnimatedBlock>
+    );
+  }
+
+  const requestedHeight = Number(block.metadata?.height);
+  const height = Number.isFinite(requestedHeight) && requestedHeight > 0 ? requestedHeight : 700;
+  const layout: Record<string, any> = {
+    ...(figure.layout || {}),
+    autosize: true,
+  };
+
+  delete layout.width;
+  if (block.metadata?.height) {
+    layout.height = height;
+  }
+
+  const config: Record<string, any> = {
+    ...(figure.config || {}),
+    responsive: true,
+  };
+
+  if (typeof block.metadata?.showModeBar === 'boolean') {
+    config.displayModeBar = block.metadata.showModeBar;
+  }
+
+  return (
+    <AnimatedBlock>
+      <div className="my-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl">
+        {block.title ? (
+          <h4 className="mb-4 text-xl font-semibold text-slate-800">{block.title}</h4>
+        ) : null}
+        <div className="w-full overflow-x-auto rounded-xl border border-slate-200 bg-white">
+          <Plot
+            data={figure.data}
+            layout={layout}
+            frames={Array.isArray(figure.frames) ? figure.frames : undefined}
+            config={config}
+            useResizeHandler
+            style={{ width: '100%', height: `${height}px`, minWidth: '320px' }}
+          />
+        </div>
+      </div>
+    </AnimatedBlock>
   );
 };
 
@@ -625,6 +741,9 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
         </AnimatedBlock>
       );
     }
+
+    case 'plotly':
+      return <PlotlyFigureBlock block={block} />;
 
     default:
       return null;

@@ -1,11 +1,13 @@
 
 import { Category } from './types';
 
+// To improve readability in VS Code, you can collapse all regions by pressing:
+// Ctrl + K, then Ctrl + 0 (zero).
+
 export const CATEGORIES: Category[] = [
 
   // CATEGORY: Mechatronics
-  {
-    id: 'mechatronics',
+  { id: 'mechatronics',
     title: 'Mechatronics',
     emoji: '⚙️',
     description: 'Blending mechanical engineering, electronics, and computing.',
@@ -336,6 +338,19 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
+              {
+                id: 'robai-algo-cluster',
+                title: 'Clustering Algorithms',
+                description: 'Applying clustering techniques for unsupervised learning in robotics.',
+                blocks: [
+                  { id: 'b1', type: 'markdown', content: '# Introduction to Clustering Algorithms\n\nClustering algorithms are a type of unsupervised learning technique used to group similar data points together based on their features. These algorithms are particularly useful in robotics for tasks such as object recognition, anomaly detection, and environment mapping.' },
+                  { id: 'b2', type: 'markdown', content: '## K-Means Clustering\n\nK-Means is a popular clustering algorithm that partitions the data into K distinct clusters based on feature similarity. The algorithm works by initializing K centroids randomly, assigning each data point to the nearest centroid, and then updating the centroids based on the mean of the assigned points. This process is repeated until convergence.' },
+                  { id: 'b3', type: 'plotly', title: 'Interactive K-Means Animation', content: 'kmeans_animation.json', metadata: { height: 700, showModeBar: true } },
+                  // { id: 'b3', type: 'markdown', content: '## DBSCAN (Density-Based Spatial Clustering of Applications with Noise)\n\nDBSCAN is a density-based clustering algorithm that groups together points that are closely packed together, while marking points that lie alone in low-density regions as outliers. It is particularly effective for clustering data with noise and varying densities.' },
+                  
+                ]
+              },
+
               // Decision Trees
               { id: 'robai-algo-dt',
                 title: 'Decision Trees',
@@ -504,8 +519,7 @@ export const CATEGORIES: Category[] = [
   },
 
   // CATEGORY: Computer Science
-  {
-    id: 'computer-science',
+  { id: 'computer-science',
     title: 'Computer Science',
     emoji: '💻',
     description: 'The foundation of modern software systems.',
@@ -561,4 +575,5 @@ export const CATEGORIES: Category[] = [
       },
     ]
   }
+
 ];
