@@ -270,6 +270,7 @@ export const CATEGORIES: Category[] = [
             title: 'A Brief Introduction to Machine Learning Algorithms',
             emoji: '🧠',
             modules: [
+              // TOPIC: Gradient Descent
               { id: 'robai-algo-gd',
                 title: 'Gradient Descent',
                 description: 'Utilize gradient descent for optimizing machine learning models.',
@@ -338,20 +339,21 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'robai-algo-cluster',
+              // TOPIC: Clustering
+              { id: 'robai-algo-cluster',
                 title: 'Clustering Algorithms',
                 description: 'Applying clustering techniques for unsupervised learning in robotics.',
                 blocks: [
                   { id: 'b1', type: 'markdown', content: '# Introduction to Clustering Algorithms\n\nClustering algorithms are a type of unsupervised learning technique used to group similar data points together based on their features. These algorithms are particularly useful in robotics for tasks such as object recognition, anomaly detection, and environment mapping.' },
                   { id: 'b2', type: 'markdown', content: '## K-Means Clustering\n\nK-Means is a popular clustering algorithm that partitions the data into K distinct clusters based on feature similarity. The algorithm works by initializing K centroids randomly, assigning each data point to the nearest centroid, and then updating the centroids based on the mean of the assigned points. This process is repeated until convergence.' },
-                  { id: 'b3', type: 'plotly', title: 'Interactive K-Means Animation', content: 'kmeans_animation.json', metadata: { height: 700, showModeBar: true } },
+                  { id: 'b3', type: 'markdown', content: 'The K-Means algorithm can be visualized as follows:\n\n1. ' },
+                  { id: 'b4', type: 'plotly', title: 'Interactive K-Means Animation', content: 'kmeans_animation.json', metadata: { height: 700, showModeBar: true } },
                   // { id: 'b3', type: 'markdown', content: '## DBSCAN (Density-Based Spatial Clustering of Applications with Noise)\n\nDBSCAN is a density-based clustering algorithm that groups together points that are closely packed together, while marking points that lie alone in low-density regions as outliers. It is particularly effective for clustering data with noise and varying densities.' },
                   
                 ]
               },
 
-              // Decision Trees
+              // TOPIC: Decision Trees
               { id: 'robai-algo-dt',
                 title: 'Decision Trees',
                 description: 'Implementing decision trees for classification tasks in robotics.',
@@ -410,7 +412,15 @@ export const CATEGORIES: Category[] = [
                 title: 'Configuration Space',
                 description: 'Understanding the configuration space (C-space) for robot motion planning.',
                 blocks: [
-                
+                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies \& Representing Robots\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as \`**joints**\`.', metadata: 
+                    { 'parts' : [
+                      {
+                        text: 'rigid bodies',
+                        blocks: [{type: 'markdown', content: 'A single solid object that does not deform under stress. In robotics, we model components like arms, grippers, and sensors as rigid bodies. *Essentially, anything that maintains its shape under normal operating conditions.*'}]
+                      },
+                      
+                    ]
+                  }},
                 ]
               },
 
