@@ -12,6 +12,8 @@
     "deploy": "rm -rf node_modules/.cache && gh-pages -d dist"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "@tailwindcss/vite": "^4.2.1",
     "gh-pages": "^6.3.0",
     "katex": "^0.16.33",
@@ -20,7 +22,8 @@
     "react-dom": "^19.2.4",
     "react-markdown": "^10.1.0",
     "react-plotly.js": "^2.6.0",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.2.1",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

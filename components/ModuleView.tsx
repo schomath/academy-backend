@@ -6,6 +6,12 @@ import Plot from 'react-plotly.js';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import { useInView } from '../hooks/useInView';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF, Environment, Html, Center, Bounds } from '@react-three/drei';
+
+// Pre-register all markdown files so Vite can statically analyze the glob.
+// At runtime we look up the specific file by key.
+const markdownModules = import.meta.glob('../markdownfiles/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
 
 interface ModuleViewProps {
   module: Module;
@@ -278,6 +284,83 @@ const PlotlyFigureBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
             useResizeHandler
             style={{ width: '100%', height: `${height}px`, minWidth: '320px' }}
           />
+        </div>
+      </div>
+    </AnimatedBlock>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Model3DBlock — renders a .glb file inside a three.js canvas
+// ---------------------------------------------------------------------------
+
+// Simple class-based error boundary so a failed model load shows a message
+// instead of drei's frowny-face or a white screen.
+class Model3DErrorBoundary extends React.Component<
+  { children: React.ReactNode; fallback: React.ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) return this.props.fallback;
+    return this.props.children;
+  }
+}
+
+const GLBModel: React.FC<{ url: string }> = ({ url }) => {
+  const { scene } = useGLTF(url);
+  return (
+    <Center>
+      <primitive object={scene} />
+    </Center>
+  );
+};
+
+const Model3DBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
+  const fileName = block.content.trim();
+  const modelUrl = `./3dmodels/${fileName}`;
+  const height = block.metadata?.height ?? 400;
+  const autoRotate = block.metadata?.autoRotate !== false; // default true
+
+  const errorFallback = (
+    <div className="flex items-center justify-center h-full text-rose-500 text-sm gap-2">
+      <span>⚠️</span>
+      <span>Could not load 3D model: <code className="font-mono">{fileName}</code></span>
+    </div>
+  );
+
+  return (
+    <AnimatedBlock>
+      <div className="my-8 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+        {block.title && (
+          <div className="px-4 pt-4">
+            <h4 className="text-xl font-semibold text-slate-800">{block.title}</h4>
+          </div>
+        )}
+        <div style={{ height: `${height}px` }}>
+          <Model3DErrorBoundary fallback={errorFallback}>
+            <React.Suspense fallback={
+              <div className="flex items-center justify-center h-full text-slate-500">
+                Loading 3D model…
+              </div>
+            }>
+              <Canvas camera={{ position: [0, 1.5, 4], fov: 50, near: 0.01 }}>
+                <ambientLight intensity={0.6} />
+                <directionalLight position={[5, 5, 5]} intensity={1} />
+                <Bounds fit clip observe>
+                  <GLBModel url={modelUrl} />
+                </Bounds>
+                <OrbitControls autoRotate={autoRotate} enablePan={false} />
+                <Environment preset="city" background={false} />
+              </Canvas>
+            </React.Suspense>
+          </Model3DErrorBoundary>
         </div>
       </div>
     </AnimatedBlock>
@@ -641,13 +724,15 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       );
     }
 
-    case 'markdownfile':
+    case 'markdownfile': {
       const [mdContent, setMdContent] = React.useState<string>('');
   
       React.useEffect(() => {
-        import(`../markdownfiles/${block.content}.md?raw`).then(module => {
-          setMdContent(module.default);
-        });
+        const key = `../markdownfiles/${block.content}.md`;
+        const loader = markdownModules[key];
+        if (loader) {
+          loader().then((content) => setMdContent(content));
+        }
       }, [block.content]);
       
       return (
@@ -671,6 +756,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
           </div>
         </AnimatedBlock>
       );
+    }
 
     case 'codetooltip': {
       const parts = block.metadata?.parts || [];
@@ -744,6 +830,9 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
 
     case 'plotly':
       return <PlotlyFigureBlock block={block} />;
+
+    case 'model3d':
+      return <Model3DBlock block={block} />;
 
     default:
       return null;

@@ -186,7 +186,14 @@ export const CATEGORIES: Category[] = [
             title: 'Hydraulic Valves',
             emoji: '🔧',
             modules: [
-              
+              { id: 'h-valves-manual-cutoff',
+                title: 'Manual On/Off Valve',
+                description: 'Overview of a manual on/off cut valve used in hydraulic systems.',
+                blocks: [
+                  { id: 'v1', type: 'markdown', content: '# Manual On/Off Cut Valve\n\nA manual on/off cut valve is a fundamental component in hydraulic systems. It is used to start or stop the flow of fluid through a circuit by physically turning a handle or lever.' },
+                  { id: 'v2', type: 'model3d', title: 'Manual On/Off Cut Valve', content: 'Valve-ONOFF-Manual-Cut.GLB', metadata: { height: 450, autoRotate: true } },
+                ]
+              }
             ],
           }
         ]

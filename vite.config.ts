@@ -26,7 +26,8 @@ export default defineConfig(({ mode }) => {
         viteStaticCopy({
         targets: [
           { src: 'images/*', dest: 'images' },
-          { src: 'plotly/*', dest: 'plotly' }
+          { src: 'plotly/*', dest: 'plotly' },
+          { src: '3dmodels/*', dest: '3dmodels' }
         ]
       })
       ],
