@@ -180,6 +180,15 @@ export const CATEGORIES: Category[] = [
             ] 
           }
 
+        ],
+        moduleCategories: [
+          { id: 'h-valves',
+            title: 'Hydraulic Valves',
+            emoji: '🔧',
+            modules: [
+              
+            ],
+          }
         ]
       },
 
@@ -412,7 +421,7 @@ export const CATEGORIES: Category[] = [
                 title: 'Configuration Space',
                 description: 'Understanding the configuration space (C-space) for robot motion planning.',
                 blocks: [
-                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies \& Representing Robots\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as \`**joints**\`.', metadata: 
+                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies \& Representing Robots\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **\`joints\`**.', metadata: 
                     { 'parts' : [
                       {
                         text: 'rigid bodies',
