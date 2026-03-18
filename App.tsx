@@ -157,7 +157,7 @@ export default function App() {
           Academy landing page
         </div>
         <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-tight animate-fadeInUp hover:text-slate-800 transition-colors" style={{ animationDelay: '0.1s' }}>
-          Schoen & Shang STEM Repository
+          Schoen's STEM Repository
         </h1>
         <p className="mt-8 text-xl text-slate-500 max-w-2xl mx-auto font-medium animate-fadeInUp hover:text-slate-600 transition-colors" style={{ animationDelay: '0.2s' }}>
           Please choose a course from below to get started.
