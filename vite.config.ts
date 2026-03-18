@@ -15,7 +15,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: 'https://matisha.github.io/academy-backend/',
+      base: 'https://schomath.github.io/academy-backend/',
       server: {
         port: 3000,
         host: '0.0.0.0',
