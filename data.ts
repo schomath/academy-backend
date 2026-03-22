@@ -475,7 +475,17 @@ export const CATEGORIES: Category[] = [
         title: 'Architecture of Robots', 
         emoji: '🏛️', 
         description: 'Kinematics, Structural Design, and Principles of Robotics.', 
-        modules: [],
+        modules: [
+          { id: 'robai-arch-intro',
+            title: 'Introduction to Robot Architecture',
+            description: '',
+            blocks: [
+              {id: 'b1', type: 'markdown', content: '# What is Robot Architecture?\n\nRobot architecture refers to the overall design and structure of a robotic system, encompassing the \`mathematical representation\`, the \`physical construction\`, and the \`control systems\` which make up the robot. It involves the arrangement of sensors, actuators, processors, and communication interfaces to enable the robot to perform its intended tasks effectively.\n\nIn this class, we will focus both on the **mathematical representation** of robotic systems (i.e. how to model a robot\'s structure and movement using mathematical tools) as well as the **physical design** of robotic systems (i.e. how to choose and arrange components to build a functional robot).'},
+              {id: 'b2', type: 'markdown', content: '# Outline of the Course\n\n 1. **Foundations of Spatial Architecture**: Configuration space, Rigid Bodies, and Transformations. \n 2. **Kinematics of Robotic Systems**: Forward Kinematics, Jacobian Matrix, and Inverse Kinematics. \n 3. **Dynamics & Planning**: Dynamics of Open Chains, Trajectory Planning, and Motion Planning. \n 4. **Control Systems for Robotics**: Various control strategies for robots.'},
+              {id: 'b3', type: 'markdown', content: '# Resources\n\n The content in this course is heavily sourced from the fantastic book **[📖Modern Robotics](https://modernrobotics.org/)**, written by *Kevin M. Lynch* and *Frank C. Park*.'}
+            ]
+          }
+        ],
         moduleCategories: [
 
           { id: 'robai-arch-intro',
@@ -486,7 +496,7 @@ export const CATEGORIES: Category[] = [
                 title: 'Configuration Space',
                 description: 'Understanding the configuration space (C-space) for robot motion planning.',
                 blocks: [
-                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies \& Representing Robots\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **\`joints\`**.', metadata: 
+                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **\`joints\`**.', metadata: 
                     { 'parts' : [
                       {
                         text: 'rigid bodies',
@@ -495,6 +505,8 @@ export const CATEGORIES: Category[] = [
                       
                     ]
                   }},
+
+                  { id: 'b2', type: 'markdown', content: '# Robot Joints\n\n- Revolute Joint (R)\n - Prismatic Joint (P)\n- Helical Joint (H) (Screw Joint)\n- Cylindrical Joint (C)\n- Universal Joint (U)\n- Spherical Joint (S) (Ball-and-Socket Joint)'}
                 ]
               },
 
