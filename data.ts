@@ -542,14 +542,24 @@ export const CATEGORIES: Category[] = [
                     ]
                   }},
 
-                  {id: 'grub-3', type: 'dropdown', title: 'Grubler\'s Formula Example 1', content: ''},
-                  
-                  {id: 'grub-4', type: 'dropdown', title: 'Grubler\'s Formula Example 2', content: ''}
+                  {id: 'grub-3', type: 'dropdown', title: 'Grubler\'s Formula Example 1', content: '', children: [
+                    {id: 'grub-3-1', type: 'image', content: 'robarch_dof_ex_1.png', metadata: { alt: 'A planar robotic system with 3 rigid bodies, 3 revolute joints, and 1 prismatic joint. Each joint has 1 DoF, so the system has a total of 1 DoF.', format: 'no-shadow', maxWidth: 'full'}},
+                    {id: 'grub-3-2', type: 'markdown', content: 'Let\'s consider **why** this system has only 1 DoF. Say we put a motor at the bottom-left revolute joint. By moving this motor, all other joints move, including the sliding prismatic joint. This means that we can control the entire system by controlling just 1 joint, which is why the system has 1 DoF.\n\nIf we were to add another motor at the prismatic joint, trying to control both motors at the same time would cause one motor to break, since the prismatic joint might want to move a different direction than the revolute joint.'}
+                  ]},
+
+                  {id: 'grub-4', type: 'dropdown', title: 'Grubler\'s Formula Example 2', content: '', children: [
+                    // {id: 'grub-4-1', type: 'image', content: 'robarch_dof_ex_2.png', metadata: { alt: 'A spatial robotic system with 4 rigid bodies, 4 revolute joints, and 1 cylindrical joint. The system has a total of 6 DoFs.', format: 'no-shadow', maxWidth: 'full'}},
+                    {id: 'grub-4-2', type: 'markdown', content: '... I\'ll finish this later 😴 ... want to add the *delta robot* but if you can\'t wait, check out figure 2.8 in chapter 2 of Lynch and Park\'s book Modern Robotics ...'}
+                  ]},
+
+                  {id: 'cs-1', type: 'markdown', content: '# Configuration Space & Topology\n\n## Configuration Space\n\nThe configuration space, or C-space, is a mathematical representation of all possible configurations of a robotic system. Each point in the C-space corresponds to a unique configuration of the robot, defined by its joint parameters and positions. The C-space is crucial for motion planning, as it allows us to visualize and analyze the robot\'s movement and determine feasible paths from one configuration to another.'},
+
+                  {id: 'cs-2', type: 'plotly', title: '2D Planar configuration Space Example', content: 'robai_robarch_pointonplane.json', metadata: { height: 700, showModeBar: true } },
                 ]
               },
 
               { id: 'robai-arch-intro-rbs',
-                title: 'Rigid Bodies & Rotation Matricies',
+                title: 'Mathematical Representations',
                 description: 'Modeling robot components as rigid bodies and using rotation matrices for orientation.',
                 blocks: [
                 
