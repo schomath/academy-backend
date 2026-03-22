@@ -182,6 +182,52 @@ export const CATEGORIES: Category[] = [
 
         ],
         moduleCategories: [
+          { id: 'h-cat-1',
+            title: 'Introduction',
+            emoji: '⚠️',
+            modules: [
+
+            ]
+          },
+          
+          { id: 'h-basics',
+            title: 'Mathematics',
+            emoji: '📏',
+            modules: [
+              { id: 'h-basics-quant',
+                title: 'Basic Hydraulic Quantities',
+                description: 'Overview of the basic quantities used in hydraulics and physics.',
+                blocks: [
+
+                ]
+              },
+
+              { id: 'h-basics-pascal',
+                title: 'Pascal\'s Law',
+                description: 'Understanding Pascal\'s Law and its applications in hydraulic systems.',
+                blocks: [
+
+                ]
+              },
+
+              { id: 'h-basic-bernoullis',
+                title: 'Bernoulli\'s Equation',
+                description: 'Understanding Bernoulli\'s Equation and its applications in fluid dynamics.',
+                blocks: [
+
+                ]
+              }
+            ]
+          },
+
+          { id: 'h-circuits',
+            title: 'Hydraulic Circuits',
+            emoji: '🔩',
+            modules: [
+              
+            ],
+          }
+
           { id: 'h-valves',
             title: 'Hydraulic Valves',
             emoji: '🔧',
