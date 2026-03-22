@@ -147,7 +147,7 @@ const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: Conte
           onMouseEnter={() => setIsVisible(true)}
           onMouseLeave={() => setIsVisible(false)}
         >
-          <div className="bg-white rounded-lg shadow-2xl border-2 border-blue-200 p-4 overflow-y-auto max-h-96 pointer-events-auto" style={{ width: '320px' }}>
+          <div className="bg-white rounded-lg shadow-2xl border-2 border-blue-200 p-4 overflow-y-auto max-h-96 pointer-events-auto font-normal not-italic" style={{ width: '320px' }}>
             {tooltipBlocks.map((block) => (
               <BlockRenderer key={block.id} block={block} />
             ))}

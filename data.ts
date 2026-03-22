@@ -496,17 +496,31 @@ export const CATEGORIES: Category[] = [
                 title: 'Configuration Space',
                 description: 'Understanding the configuration space (C-space) for robot motion planning.',
                 blocks: [
-                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **\`joints\`**.', metadata: 
+                  // {id: 'bkt', type: 'markdowntooltip', content: '# Key Terms\n\n- Rigid Body\n- Joints\n - Rotation Matrix\n- Homogeneous Transformation Matrix\n- Configuration Space (C-space)\n\n', metadata: { 'parts' : 
+                  //   [
+                  //     {
+                  //         text: 'Rigid Body',
+                  //         blocks: [{type: 'markdown', content: 'A single solid object that does not deform. In robotics, we model components like arms, grippers, and sensors as rigid bodies. *Essentially, anything that maintains its shape under normal operating conditions.*'}]
+                  //     },
+                  //   ]
+                  // }},
+
+                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **joints**.\n\n', metadata: 
                     { 'parts' : [
                       {
                         text: 'rigid bodies',
-                        blocks: [{type: 'markdown', content: 'A single solid object that does not deform under stress. In robotics, we model components like arms, grippers, and sensors as rigid bodies. *Essentially, anything that maintains its shape under normal operating conditions.*'}]
+                        blocks: [{type: 'markdown', content: 'A single solid object that does not deform. In robotics, we model components like arms, grippers, and sensors as rigid bodies. *Essentially, anything that maintains its shape under normal operating conditions.*'}]
                       },
-                      
+                      {
+                        text: 'joints',
+                        blocks: [{type: 'markdown', content: 'The **connections between** rigid bodies that allow for relative motion. Joints are discussed in the following section.'}]
+                      }
                     ]
                   }},
 
-                  { id: 'b2', type: 'markdown', content: '# Robot Joints\n\n- Revolute Joint (R)\n - Prismatic Joint (P)\n- Helical Joint (H) (Screw Joint)\n- Cylindrical Joint (C)\n- Universal Joint (U)\n- Spherical Joint (S) (Ball-and-Socket Joint)'}
+                  {id: 'b2', type: 'markdown', content: 'When discussing robots, '},
+
+                  { id: 'b3', type: 'markdown', content: '# Robot Joints\n\n- Revolute Joint (R)\n - Prismatic Joint (P)\n- Helical Joint (H) (Screw Joint)\n- Cylindrical Joint (C)\n- Universal Joint (U)\n- Spherical Joint (S) (Ball-and-Socket Joint)'}
                 ]
               },
 
