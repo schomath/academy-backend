@@ -17,6 +17,7 @@ import { Category, Course, AppState } from './types';
 // This component renders the full view of a selected course with its modules.
 // We show it when the user has drilled down into a course.
 import { CourseLanding } from './components/CourseLanding';
+import { LandingBackground } from './components/LandingBackground';
 
 // CategoryCard is a reusable component that shows one curriculum category
 // (e.g. "AI" or "Mechatronics"). It can be expanded to reveal the courses
@@ -40,11 +41,11 @@ const CategoryCard: React.FC<{
 
   return (
     // outer card wrapper with margin, shadow, and rounded corners
-    <div className="mb-6 overflow-hidden bg-white rounded-3xl shadow-sm border border-slate-200 hover:shadow-lg transition-all duration-300 active:scale-95">
+    <div className="mb-6 overflow-hidden rounded-3xl bg-white/92 shadow-[0_18px_60px_rgba(15,23,42,0.24)] backdrop-blur-sm hover:shadow-[0_22px_70px_rgba(15,23,42,0.34)] transition-all duration-300 active:scale-95">
       {/* clickable header area */}
       <div 
         onClick={onToggle} // toggle expansion when header is clicked
-        className={`p-8 cursor-pointer flex items-center justify-between bg-gradient-to-r transition-all duration-500 ${isExpanded ? colorMap[category.color] : 'bg-white hover:bg-slate-50'}`}
+        className={`p-8 cursor-pointer flex items-center justify-between bg-gradient-to-r transition-all duration-500 ${isExpanded ? colorMap[category.color] : 'bg-white/70 hover:bg-white/85'}`}
       >
         <div className="flex items-center gap-6">
           {/* emoji/icon representing the category */}
@@ -147,52 +148,50 @@ export default function App() {
     // The outermost <div> ensures our page takes up at least the full height of
     // the screen and adds bottom padding so content doesn't bump into the
     // footer.
-    <div className="min-h-screen pb-20 transition-colors duration-300">
-      {/* Hero Section */}
-      {/* This header is the first thing users see on the homepage. It includes
-          a small label, a big title, and a short description. All styling is
-          done with Tailwind utility classes. */}
-      <header className="px-6 pt-20 pb-16 max-w-6xl mx-auto text-center">
-        <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full border border-indigo-100 animate-slideInLeft">
-          Academy landing page
-        </div>
-        <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-tight animate-fadeInUp hover:text-slate-800 transition-colors" style={{ animationDelay: '0.1s' }}>
-          Schoen's STEM Repository
-        </h1>
-        <p className="mt-8 text-xl text-slate-500 max-w-2xl mx-auto font-medium animate-fadeInUp hover:text-slate-600 transition-colors" style={{ animationDelay: '0.2s' }}>
-          Please choose a course from below to get started.
-        </p>
-      </header>
+    <div className="landing-shell min-h-screen pb-20 transition-colors duration-300">
+      <LandingBackground />
 
-      {/* Categories Grid */}
-      {/* This <main> section lists all the curriculum domains by mapping over the
-          CATEGORIES array and rendering a <CategoryCard> for each one. */}
-      <main className="max-w-6xl mx-auto px-6">
-        <div className="mb-10 flex items-center justify-between animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-          <h2 className="text-sm font-black text-slate-400 uppercase tracking-[0.2em] hover:text-slate-500 transition-colors">Curriculum Domains</h2>
-          {/* Simple visual pager dots, the last one is highlighted */}
-          <div className="flex gap-2">
-            <span className="w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-colors animate-pulse"></span>
-            <span className="w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-colors animate-pulse" style={{ animationDelay: '0.1s' }}></span>
-            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" style={{ animationDelay: '0.2s' }}></span>
+      <div className="landing-content">
+        {/* Hero Section */}
+        {/* This header is the first thing users see on the homepage. It includes
+            a small label, a big title, and a short description. All styling is
+            done with Tailwind utility classes. */}
+        <header className="px-6 pt-20 pb-16 max-w-6xl mx-auto text-center">
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-slate-200 uppercase rounded-full border border-white/10 bg-white/6 backdrop-blur-sm animate-slideInLeft">
+            Academy landing page
           </div>
-        </div>
-        
-        <div className="space-y-4">
-          {CATEGORIES.map((category, idx) => (
-            // For each category we render a card and pass in props that
-            // describe its state and behavior.
-            <div key={category.id} className="animate-fadeInUp" style={{ animationDelay: `${(idx + 3) * 0.1}s` }}>
-              <CategoryCard
-                category={category}
-                isExpanded={expandedCategoryId === category.id}
-                onToggle={() => setExpandedCategoryId(expandedCategoryId === category.id ? null : category.id)}
-                onSelectCourse={handleSelectCourse}
-              />
-            </div>
-          ))}
-        </div>
-      </main>
+          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-tight animate-fadeInUp transition-colors" style={{ animationDelay: '0.1s' }}>
+            Schoen's STEM Repository
+          </h1>
+          <p className="mt-8 text-xl text-slate-300 max-w-2xl mx-auto font-medium animate-fadeInUp transition-colors" style={{ animationDelay: '0.2s' }}>
+            Please choose a course from below to get started.
+          </p>
+        </header>
+
+        {/* Categories Grid */}
+        {/* This <main> section lists all the curriculum domains by mapping over the
+            CATEGORIES array and rendering a <CategoryCard> for each one. */}
+        <main className="max-w-6xl mx-auto px-6">
+          <div className="mb-10 flex items-center animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+            <h2 className="text-sm font-black text-slate-300 uppercase tracking-[0.2em] transition-colors">Curriculum Domains</h2>
+          </div>
+          
+          <div className="space-y-4">
+            {CATEGORIES.map((category, idx) => (
+              // For each category we render a card and pass in props that
+              // describe its state and behavior.
+              <div key={category.id} className="animate-fadeInUp" style={{ animationDelay: `${(idx + 3) * 0.1}s` }}>
+                <CategoryCard
+                  category={category}
+                  isExpanded={expandedCategoryId === category.id}
+                  onToggle={() => setExpandedCategoryId(expandedCategoryId === category.id ? null : category.id)}
+                  onSelectCourse={handleSelectCourse}
+                />
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
 
       {/* Footer / Stats */}
       {/* The bottom of the page includes some branding and statistics. It's

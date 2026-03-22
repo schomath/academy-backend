@@ -226,7 +226,7 @@ export const CATEGORIES: Category[] = [
             modules: [
               
             ],
-          }
+          },
 
           { id: 'h-valves',
             title: 'Hydraulic Valves',
@@ -259,8 +259,20 @@ export const CATEGORIES: Category[] = [
           },
 
           { id: 'mc-cat-2',
-            title: 'Advanced Microcontroller Programming',
+            title: 'Microcontroller Hardware',
             emoji: '🚀',
+            modules: []
+          },
+
+          { id: 'mc-cat-3',
+            title: 'Microcontroller Programming: C/C++',
+            emoji: '💻',
+            modules: []
+          },
+
+          { id: 'mc-cat-4',
+            title: 'Microcontroller Programming: Python',
+            emoji: '🐍',
             modules: []
           }
         ]
