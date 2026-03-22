@@ -505,22 +505,46 @@ export const CATEGORIES: Category[] = [
                   //   ]
                   // }},
 
-                  {id: 'b1', type: 'markdowntooltip', content: '# Rigid Bodies\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **joints**.\n\n', metadata: 
-                    { 'parts' : [
-                      {
-                        text: 'rigid bodies',
-                        blocks: [{type: 'markdown', content: 'A single solid object that does not deform. In robotics, we model components like arms, grippers, and sensors as rigid bodies. *Essentially, anything that maintains its shape under normal operating conditions.*'}]
-                      },
-                      {
-                        text: 'joints',
-                        blocks: [{type: 'markdown', content: 'The **connections between** rigid bodies that allow for relative motion. Joints are discussed in the following section.'}]
-                      }
+                  // Degrees of Freedom
+                  {id: 'dof1', type: 'markdown', content: '# Degrees of Freedom (DoF)\n\nThe **degrees of freedom** of a robotic system refer to the number of independent parameters that define its configuration. In other words, it\'s answering the question of *how many numbers (such as positions, angles, etc.) do we need to specify the exact state of the robot?*\n\nFor example, a simple robotic arm with two joints might have 2 degrees of freedom, while a humanoid robot with multiple limbs and joints could have dozens of degrees of freedom.'},
+
+                  // Rigid Bodies
+                  {id: 'rb1', type: 'markdowntooltip', content: '# Rigid Bodies\n\nIn the broadest terms, robots can best be thought of as one or more solid objects connected together. We refer to these solid objects as **rigid bodies**, and the connections between them as **joints**.\n\n', metadata: { 'parts' : 
+                      [
+                        {
+                          text: 'rigid bodies',
+                          blocks: [{type: 'markdown', content: 'A single solid object that does not deform. In robotics, we model components like arms, grippers, and sensors as rigid bodies. *Essentially, anything that maintains its shape under normal operating conditions.*'}]
+                        },
+                        {
+                          text: 'joints',
+                          blocks: [{type: 'markdown', content: 'The **connections between** rigid bodies that allow for relative motion. Joints are discussed in the following section.'}]
+                        }
+                      ]
+                    }
+                },
+                  {id: 'rb2', type: 'markdown', content: 'When discussing rigid bodies, we must first categorize our bodies as **planar** or **spatial**. A planar rigid body is one in which all motion occurs within a single plane (2D), leading to 3 degrees of freedom (DoFs): two translational \`(x, y)\`, and one rotational \`(θ)\`. A spatial rigid body allows for motion in three-dimensional space (3D), resulting in 6 DoFs: three translational \`(x, y, z)\` and three rotational \`(roll, pitch, yaw)\`.'},
+
+                  {id: 'rb3', type: 'image', content: 'robarch_rb_1.png', metadata: { alt: 'Planar Rigid Body having 3 DoFs, while Spatial Rigid Body has 6 DoFs', format: 'no-shadow', maxWidth: 'full'}},
+
+                  // Robot Joints
+                  { id: 'j-1', type: 'markdown', content: '# Robot Joints\n\nA free-floating square or cube doesn\`t make for a very good robot, which is why we must connect our robot with **joints**. Joints allow for *constrained* motion between rigid bodies. Each type of joint has different mechanical advantages when implemented, but also mathematical implications for kinematics and dynamics. Let\'s explore the common types of joints:\n\n- **Revolute Joint** (R, 1 DoF): Also called a hinge joint, allows for rotation along the hinge axis. In other words, it constrains 5 of the 6 DoFs.\n- **Prismatic Joint** (P, 1 DoF): Allows for translational motion along a single axis, constraining 5 of the 6 DoFs.\n- **Helical Joint** (H, 1 DoF): Sometimes called screw joints, combines rotational and translational motion along a single axis. *While you may think this allows for 2 DoFs, since the rotation and translation are coupled, we only actually have 1 DoF.*\n- **Cylindrical Joint** (C, 2 DoFs): Allows for rotation and translation along a single axis, constraining 2 translational DoFs and 2 rotational DoFs.\n- **Universal Joint** (U, 2 DoFs): Allows for rotation around two perpendicular axes.\n- **Spherical Joint** (S, 3 DoFs): Also called ball-and-socket joints, allows for rotation around all three axes, constraining only the translational DoFs.'},
+
+                  // Grubler's Formula
+                  {id: 'grub-1', type: 'markdown', content: '# Grubler\'s Formula\n\nGrubler\'s formula is a fundamental equation in robotics that helps us determine the degrees of freedom (DoF) of a robotic system based on its configuration of rigid bodies and joints. The formula is given by:'},
+                  {id: 'grub-2', type: 'latextooltip', content: '', metadata: {
+                    displayMode: true,
+                    parts: [
+                      {expression: 'dof = ', blocks: [{id: 'dof', type: 'markdown', content: '\`dof\` stands for degrees of freedom, which represents the number of independent parameters that define the configuration of a robotic system.'}]},
+                      {expression: 'm', blocks: [{id: 'm', type: 'markdown', content: '\`m\` is the number of degrees of freedom of the rigid body.\n\n- \`m = 3\` for planar rigid bodies.\n- \`m = 6\` for spatial rigid bodies.'}]},
+                      {expression: '(N-1-J)', blocks: [{id: 'N', type: 'markdown', content: '\`N\` is the number of rigid bodies or links in the system. *Note, we consider the ground to be a rigid body here*\n\n\`J\` is the number of joints in the system.'}]},
+                      {expression: '-', blocks: []},
+                      {expression: '\\sum_{i=1}^{J} f_i', blocks: [{id: 'sum', type: 'markdown', content: 'Effectively a **for** loop where we *add the results together*.\nHere, we itterate over all **joints** in the system and sum together their \`f_i\`\'s.\n\n\`f_i\` is the number of degrees of freedom that joint \`i\` allows. For example, a revolute joint allows for 1 DoF, while a cylindrical joint allows for 2 DoFs.'}]},
                     ]
                   }},
 
-                  {id: 'b2', type: 'markdown', content: 'When discussing robots, '},
-
-                  { id: 'b3', type: 'markdown', content: '# Robot Joints\n\n- Revolute Joint (R)\n - Prismatic Joint (P)\n- Helical Joint (H) (Screw Joint)\n- Cylindrical Joint (C)\n- Universal Joint (U)\n- Spherical Joint (S) (Ball-and-Socket Joint)'}
+                  {id: 'grub-3', type: 'dropdown', title: 'Grubler\'s Formula Example 1', content: ''},
+                  
+                  {id: 'grub-4', type: 'dropdown', title: 'Grubler\'s Formula Example 2', content: ''}
                 ]
               },
 

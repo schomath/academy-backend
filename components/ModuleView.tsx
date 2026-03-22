@@ -417,6 +417,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       );
 
     case 'dropdown':
+
       const nestedBlocks =
         Array.isArray(block.children)
           ? block.children
