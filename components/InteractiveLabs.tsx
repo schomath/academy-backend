@@ -5,6 +5,31 @@ interface LabProps {
   labId: string;
 }
 
+export const RigidBodyPlanarLab: React.FC = () => {
+  const [rbx, setrbx] = useState(0);
+  const [rby, setrby] = useState(0);
+  return (
+    <div className="p-6 bg-green-50 border border-green-200 rounded-xl">
+      <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+        💧 Fluid Pressure Calculator
+      </h4>
+      <input
+      type="range"
+      min="0" max="100"
+      value={rbx}
+      onChange={(x) => setrbx(Number(x.target.value))}
+      />
+
+      <input
+      type="range"
+      min="0" max="100"
+      value={rby}
+      onChange={(y) => setrby(Number(y.target.value))}
+      />
+    </div>
+  )
+}
+
 export const PressureLab: React.FC = () => {
   const [force, setForce] = useState(10);
   const [area, setArea] = useState(2);
@@ -62,6 +87,7 @@ export const KalmanFilterDemo: React.FC = () => {
 };
 
 const LabRegistry: Record<string, React.FC> = {
+  'rigid-body-planar': RigidBodyPlanarLab,
   'pressure-calculator': PressureLab,
   'kalman-filter-demo': KalmanFilterDemo,
 };

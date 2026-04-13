@@ -832,8 +832,16 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
     case 'plotly':
       return <PlotlyFigureBlock block={block} />;
 
+    case 'lab':
+      return (
+        <AnimatedBlock>
+          <LabRenderer labId={block.content} />
+        </AnimatedBlock>
+      );
+
     case 'model3d':
       return <Model3DBlock block={block} />;
+
 
     default:
       return null;
