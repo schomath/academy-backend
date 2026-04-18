@@ -267,7 +267,30 @@ export const CATEGORIES: Category[] = [
           { id: 'mc-cat-3',
             title: 'Microcontroller Programming: C/C++',
             emoji: '💻',
-            modules: []
+            modules: [
+              { id: "mc-cat-3-1",
+                title: 'Setting Up Your Development Environment',
+                description: 'Guidance on installing necessary software and tools for microcontroller programming.',
+                blocks: []
+              },
+              { id: "mc-cat-3-2",
+                title: "The Initialization, Setup, and Loop Function",
+                description: "Understanding the structure of a microcontroller program, including the initialization, setup, and loop functions.",
+                blocks: []
+              },
+              { id: "mc-cat-3-3",
+                title: "Digital Reading and Writing",
+                description: "Learn how to read from and write to digital pins on a microcontroller.",
+                blocks: [
+                  { id: 'mc-cat-3-3-1', type: 'markdown', content: '# Digital Reading and Writing\n\nDigital reading and writing are fundamental operations in microcontroller programming. They allow you to interact with the physical world by reading inputs from sensors and controlling outputs such as LEDs, motors, and other actuators.' },
+                  { id: 'mc-cat-3-3-2', type: 'markdown', content: '## Digital Reading\n\nTo read a digital input, you typically use a function like `digitalRead(pin)`, where `pin` is the number of the digital pin you want to read from. This function returns a value of `HIGH` or `LOW`, depending on the state of the input.' },
+                  { id: 'mc-cat-3-3-2', type: 'codetooltip', content: 'Example Code for Digital Reading', metadata: {
+                    
+                  } },
+                  { id: 'mc-cat-3-3-3', type: 'markdown', content: '## Digital Writing\n\nTo write a digital output, you use a function like `digitalWrite(pin, value)`, where `pin` is the number of the digital pin you want to write to, and `value` is either `HIGH` or `LOW`. This allows you to control devices such as LEDs, relays, or motors by setting the output pin to the desired state.' },
+                ]
+              }
+            ]
           },
 
           { id: 'mc-cat-4',
