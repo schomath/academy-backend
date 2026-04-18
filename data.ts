@@ -1,4 +1,5 @@
 
+import { text } from 'stream/consumers';
 import { Category } from './types';
 
 // To improve readability in VS Code, you can collapse all regions by pressing:
@@ -252,42 +253,216 @@ export const CATEGORIES: Category[] = [
         description: 'Programming microcontrollers for real-time control and automation.',
         modules: [],
         moduleCategories: [
-          { id: 'mc-cat-1',
+          { id: 'mc-start',
             title: 'Getting Started with Microcontrollers',
             emoji: '🛠️',
             modules: []
           },
 
-          { id: 'mc-cat-2',
+          { id: 'mc-hardware',
             title: 'Microcontroller Hardware',
             emoji: '🚀',
             modules: []
           },
 
-          { id: 'mc-cat-3',
+          { id: 'mc-programming',
             title: 'Microcontroller Programming: C/C++',
             emoji: '💻',
             modules: [
-              { id: "mc-cat-3-1",
-                title: 'Setting Up Your Development Environment',
-                description: 'Guidance on installing necessary software and tools for microcontroller programming.',
-                blocks: []
-              },
-              { id: "mc-cat-3-2",
-                title: "The Initialization, Setup, and Loop Function",
-                description: "Understanding the structure of a microcontroller program, including the initialization, setup, and loop functions.",
-                blocks: []
-              },
-              { id: "mc-cat-3-3",
+              
+              { id: "mc-prog-digio",
                 title: "Digital Reading and Writing",
                 description: "Learn how to read from and write to digital pins on a microcontroller.",
                 blocks: [
-                  { id: 'mc-cat-3-3-1', type: 'markdown', content: '# Digital Reading and Writing\n\nDigital reading and writing are fundamental operations in microcontroller programming. They allow you to interact with the physical world by reading inputs from sensors and controlling outputs such as LEDs, motors, and other actuators.' },
-                  { id: 'mc-cat-3-3-2', type: 'markdown', content: '## Digital Reading\n\nTo read a digital input, you typically use a function like `digitalRead(pin)`, where `pin` is the number of the digital pin you want to read from. This function returns a value of `HIGH` or `LOW`, depending on the state of the input.' },
-                  { id: 'mc-cat-3-3-2', type: 'codetooltip', content: 'Example Code for Digital Reading', metadata: {
-                    
-                  } },
-                  { id: 'mc-cat-3-3-3', type: 'markdown', content: '## Digital Writing\n\nTo write a digital output, you use a function like `digitalWrite(pin, value)`, where `pin` is the number of the digital pin you want to write to, and `value` is either `HIGH` or `LOW`. This allows you to control devices such as LEDs, relays, or motors by setting the output pin to the desired state.' },
+                  { id: 'mc-prog-digio-1', type: 'markdown', content: '# Digital Input \& Output\n\nRecall that **digital** refers to field devices that can only have two states: `on` or `off`. The Arduino programming language can represent a digital state in a number of ways: \n- \`HIGH\` and \`LOW\` \n- \`1\` and \`0\` \n- \`true\` and \`false\` \n\nAll of these mean the same thing, but are simply represented differently in different contexts. For example: we could choose to represent a digital value as either an \`boolean\` or a \`integer\`:' },
+
+                  { id: 'mc-prog-digio-2', type: 'codetooltip', content: 'bool buttonState = HIGH;', metadata: { 
+                    language: 'cpp',
+                    parts: [
+                      { text: 'bool', blocks: [{ id: 'mc-cat-3-3-digio-tip-1', type: 'markdown', content: 'A \`boolean\` is the simplest representation of a digital value.' }]},
+                      { text: 'buttonState', blocks: [{ id: 'mc-cat-3-3-digio-tip-2', type: 'markdown', content: 'The variable name can be anything you choose, but it should be descriptive of the value it holds.' }]},
+                      { text: 'HIGH', blocks: [{ id: 'mc-cat-3-3-digio-tip-3', type: 'markdown', content: '\`HIGH\` is a predefined constant in the Arduino programming language that represents a digital value of 1 or true. \n\nWe could also set this to \`true\` or \`1\` for the same effect!' }]},
+                    ]
+                  }},
+
+                  { id: 'mc-prog-digio-3', type: 'codetooltip', content: 'int buttonState = 1;', metadata: { 
+                    language: 'cpp',
+                    parts: [
+                      { text: 'int', blocks: [{ id: 'mc-cat-3-3-digio-tip-1', type: 'markdown', content: 'An \`int\` can hold values other than 1 and 0, offering more flexibility but can be ambiguous in the context of digital values.' }]},
+                      { text: 'buttonState', blocks: [{ id: 'mc-cat-3-3-digio-tip-2', type: 'markdown', content: 'The variable name can be anything you choose, but it should be descriptive of the value it holds.' }]},
+                      { text: '1', blocks: [{ id: 'mc-cat-3-3-digio-tip-3', type: 'markdown', content: '\`1\` represents a digital value of HIGH or true. \n\nWe could also set this to \`true\` or \`HIGH\` for the same effect! Again, however, we could accidentally set this to a value above 1, which might lead to unexpected behavior.' }]},
+                    ]
+                  }},
+
+                  { id: 'mc-prog-digio-4', type: 'markdown', content: '# Digital Inputs\n\nTo read a digital input (*such as a button*), we utilize the function \`digitalRead(pin)\`, where `pin` is the number of the digital pin you want to read from. This function **returns** a value of `HIGH` or `LOW`, depending on the state of the input.' },
+                  { id: 'mc-prog-digio-2-func', type: 'codetooltip', content: 'sensor_value_read = digitalRead(pin);', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'sensor_value_read', blocks: [{ id: 'mc-cat-3-3-digio-tip-4', type: 'markdown', content: 'This variable will store the value returned by the \`digitalRead()\` function. It\'s value depends on it\'s data type (for example, if \`sensor_value_read\` is an \`int\`, it returns \`1\` or \`0\`, but if it is a \`boolean\`, it returns \`true\` or \`false\`.' }]},
+                      { text: 'digitalRead', blocks: [{ id: 'mc-cat-3-3-digio-tip-5', type: 'markdown', content: '\`digitalRead()\` is a built-in function in the Arduino programming language that reads the value from a specified digital pin. It takes **one argument**: the pin number to read from. It returns either `HIGH` or `LOW`, depending on the state of the input.' }]},
+                      { text: 'pin', blocks: [
+                        { id: 'mc-cat-3-3-digio-tip-6', type: 'markdown', content: 'This is the GPIO pin our input device is connected to.' }, 
+                        { id: 'mc-cat-3-3-digio-tip-7', type: 'note', content: 'Instead of putting the number here, you can use a variable defined at the top of your script so you only have to change the number in one single place.' }
+                      ]},
+                    ]
+                  }},
+
+                  { id: 'mc-prog-digio-5', type: 'dropdown', content: 'Example of Digital Reading Code', children: [
+                    { id: 'mc-programming-digitalio-2-code', type: 'codetooltip', content: 'const int buttonPin = 2;\nint buttonState = LOW;\n\nvoid setup() {\n  pinMode(buttonPin, INPUT_PULLUP);\n}\n\nvoid loop() {\n  buttonState = digitalRead(buttonPin);\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        {
+                          text: 'const int buttonPin = 2;',
+                          blocks: [
+                            { id: 'mc-cat-3-3-read-tip-1', type: 'markdown', content: '**Define your input pin.**\n\n`buttonPin` stores which digital pin the button is wired to.' }
+                          ]
+                        },
+                        {
+                          text: 'int buttonState = LOW;',
+                          blocks: [
+                            { id: 'mc-cat-3-3-read-tip-2', type: 'markdown', content: '**A variable to store the result in.**\n\n`buttonState` will be updated with the value read from the button pin, and can be used later in the code to make decisions based on whether the button is pressed or not.' }
+                          ]
+                        },
+                        {
+                          text: 'pinMode',
+                          blocks: [
+                            { id: 'mc-cat-3-3-read-tip-3', type: 'markdown', content: '**Tells the microcontroller if the pin will be an \`input\` or an \`output\`.**\n\n`pinMode(buttonPin, INPUT_PULLUP)` configures the specified pin to behave as an input with an internal pull-up resistor. This means that when the button is not pressed, the pin will read `HIGH`, and when the button is pressed, it will connect to ground and read `LOW`.'}
+                          ]
+                        },
+                        {
+                          text: 'buttonPin,',
+                          blocks: [
+                            { id: 'mc-cat-3-3-read-tip-4', type: 'markdown', content: '**The pin number to read from.**\n\nThis should match the pin number you defined at the top of your script.' }
+                          ]
+                        },
+                        {
+                          text: 'INPUT_PULLUP', 
+                          blocks: 
+                          [
+                            { id: 'mc-cat-3-3-read-tip-5', type: 'markdown', content: '**Configures the pin as an input with an internal pull-up resistor.**\n\nThis means that when the button is not pressed, the pin will read `HIGH`, and when the button is pressed, it will connect to ground and read `LOW`. We can also configure this pin as a \`INPUT\`, which would require an external pull-down resistor, and the logic would be reversed: the pin would read `LOW` when the button is not pressed, and `HIGH` when it is pressed.' }
+                          ]
+                        },
+
+                        {
+                          text: 'buttonState',
+                          blocks: [
+                            { id: 'mc-cat-3-3-read-tip-6', type: 'markdown', content: '**Stores the value read from the button pin.**\n\nThis variable is updated with the value returned by `digitalRead(buttonPin)`, and can be used later in the code to make decisions based on whether the button is pressed or not.' }
+                          ]
+                        },
+
+                        { text: 'digitalRead(buttonPin);',
+                          blocks: [
+                            { id: 'mc-cat-3-3-read-tip-7', type: 'markdown', content: '**Reads the value from the button pin.**\n\n`digitalRead(buttonPin)` reads the current state of the specified digital pin and returns `HIGH` or `LOW` depending on whether the button is pressed or not.' }
+                          ]
+                        }
+                      ]
+                    } },
+                  ]},
+                  
+                  { id: 'mc-prog-digio-6', type: 'markdown', content: '## Digital Writing\n\nTo write a digital output, you use a function like `digitalWrite(pin, value)`, where `pin` is the number of the digital pin you want to write to, and `value` is either `HIGH` or `LOW`. This allows you to control devices such as LEDs, relays, or motors by setting the output pin to the desired state.' },
+
+                  { id: 'mc-prog-digio-6-func', type: 'codetooltip', content: 'digitalWrite(pin, value);', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'digitalWrite', blocks: [{ id: 'mc-cat-3-3-digio-tip-8', type: 'markdown', content: '\`digitalWrite()\` is a built-in function in the Arduino programming language that sets a digital pin to either `HIGH` or `LOW`. It takes **two arguments**: the pin number to write to, and the value to set it to.' }]},
+                      { text: 'pin', blocks: [
+                        { id: 'mc-cat-3-3-digio-tip-9', type: 'markdown', content: 'This is the GPIO pin our output device is connected to.' }, 
+                        { id: 'mc-cat-3-3-digio-tip-10', type: 'note', content: 'Instead of putting the number here, you can use a variable defined at the top of your script so you only have to change the number in one single place.' }]
+                      },
+                      { text: 'value', blocks: [
+                        { id: 'mc-cat-3-3-digio-tip-11', type: 'markdown', content: 'This is the value you want to set the pin to. It can be either `HIGH` or `LOW`, depending on whether you want to turn the device on or off.' },
+                        { id: 'mc-cat-3-3-digio-tip-12', type: 'note', content: 'You can also use a variable here, which can be useful for toggling the state of a pin or setting it based on some condition in your code.' }
+                      ]}
+                    ]
+                  }},
+
+                  { id: 'mc-prog-digio-7', type: 'dropdown', content: 'Example of Digital Writing Code', children: [
+                    { 
+                      id: 'mc-programming-digitalio-3-code', 
+                      type: 'codetooltip', 
+                      content: 'const int ledPin = 13;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(ledPin, HIGH);\n  delay(1000);\n  digitalWrite(ledPin, LOW);\n  delay(1000);\n}', 
+                      metadata: {
+                        language: 'cpp',
+                        parts: [
+                          { text: 'const int ledPin = 13;',
+                            blocks: [
+                              { id: 'mc-cat-3-3-write-tip-1', type: 'markdown', content: '**Define your output pin.**\n\n`ledPin` stores which digital pin the LED is wired to.' }
+                            ]
+                          },
+                          { text: 'pinMode(ledPin, OUTPUT);',
+                            blocks: [
+                              { id: 'mc-cat-3-3-write-tip-2', type: 'markdown', content: '**Tells the microcontroller this pin will be an output.**\n\n`pinMode(ledPin, OUTPUT)` configures the specified pin to behave as an output, allowing you to control devices connected to that pin.' }
+                            ]
+                          },
+                          { text: 'digitalWrite(ledPin, HIGH);',
+                            blocks: [
+                              { id: 'mc-cat-3-3-write-tip-3', type: 'markdown', content: '**Sets the LED pin to HIGH, turning the LED on.**\n\n`digitalWrite(ledPin, HIGH)` sets the specified pin to a high voltage level, which typically turns on the connected device (in this case, an LED).' },
+                              { id: 'mc-cat-3-3-write-tip-4', type: 'note', content: 'HIGH will output a signal of 3.3V or 5V, depending on your microcontroller. Make sure this voltage is compatible with your output device!' }
+                            ]
+                          },
+                          { text: 'delay(1000);',
+                            blocks: [
+                              { id: 'mc-cat-3-3-write-tip-5', type: 'markdown', content: '**Pauses the program for a specified amount of time.**\n\n`delay(1000)` pauses the execution of the program for 1000 milliseconds (or 1 second) before moving on to the next line of code.' }
+                            ]
+                          },
+                          { text: 'digitalWrite(ledPin, LOW);',
+                            blocks: [
+                              { id: 'mc-cat-3-3-write-tip-6', type: 'markdown', content: '**Sets the LED pin to LOW, turning the LED off.**\n\n`digitalWrite(ledPin, LOW)` sets the specified pin to a low voltage level (0V), which typically turns off the connected device (in this case, an LED).' },
+                              { id: 'mc-cat-3-3-write-tip-7', type: 'note', content: 'LOW will output a signal of 0V, effectively turning off the device connected to that pin.' }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]}
+                ]
+              },
+
+              { id: "mc-prog-cond",
+                title: "Conditional Logic",
+                description: "Conditionals with if, else if, and else statements.",
+                blocks: [
+                  { id: 'mc-prog-cond-1', type: 'markdown', content: '# Simple if statement\n\nConditional statements allow you to execute different blocks of code based on certain conditions. The most common conditional statements in C/C++ are `if`, `else if`, and `else`.\nWe define an if statement using the keyword `if`, followed by the **conditions in parentheses**, and the code to execute in curly braces `{}`. We can use the following **operators** to compare values:\n- `==` means equal to\n- `!=` means not equal to\n- `<` means less than\n- `>` means greater than\n- `<=` means less than or equal to\n- `>=` means greater than or equal to' },
+
+                  { id: 'mc-prog-cond-2', type: 'codetooltip', content: 'if (buttonState == HIGH) {\n  // Code to execute if the button is pressed\n}', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'if', blocks: [{ id: 'mc-cat-3-4-cond-tip-1', type: 'markdown', content: '**Starts a conditional statement.**\n\nThe code inside the curly braces will only execute if the condition in the parentheses is true.' }]},
+                      { text: 'buttonState', blocks: [{ id: 'mc-cat-3-4-cond-tip-2', type: 'markdown', content: 'This is the variable we are checking the value of.' }]},
+                      { text: '==', blocks: [{ id: 'mc-cat-3-4-cond-tip-3', type: 'markdown', content: 'The equality operator checks if `buttonState` is equal to ...' }]},
+                      { text: 'HIGH', blocks: [{ id: 'mc-cat-3-4-cond-tip-4', type: 'markdown', content: '... `HIGH`. If `buttonState` is `HIGH`, the condition is true and the code inside the curly braces will execute.' }, { id: 'mc-cat-3-4-cond-tip-5', type: 'note', content: 'Remember that `HIGH` can also be represented as `1` or `true`, depending on how you defined your variables!' }]},
+                    ]
+                  }},
+
+                  { id: 'mc-prog-cond-3', type: 'markdown', content: '# if-else statement\n\nAn `if-else` statement allows you to execute one block of code if a condition is true, and a different block of code if the condition is false. The structure looks like this:' },
+                  { id: 'mc-prog-cond-4', type: 'codetooltip', content: 'if (buttonState == HIGH) \n{\n  // Code to execute if the button is pressed\n} \nelse \n{\n  // Code to execute if the button is not pressed\n}', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'else', blocks: [{ id: 'mc-cat-3-4-cond-tip-7', type: 'markdown', content: '**Defines the block of code to execute if the condition is false.**\n\nIf the condition in the `if` statement is not met (i.e., if `buttonState` is not `HIGH`), then the code inside the `else` block will execute instead.' }]}
+                    ]
+                  }},
+
+                  { id: 'mc-prog-cond-5', type: 'markdown', content: '# else-if statement\n\nAn `else-if` statement allows you to check multiple conditions in sequence. If the first condition is false, it checks the next condition, and so on. The structure looks like this:' },
+                  { id: 'mc-prog-cond-6', type: 'codetooltip', content: 'if (buttonState == HIGH) \n{\n  // Code to execute if the button is pressed\n} \nelse if (buttonState == LOW) \n{\n  // Code to execute if the button is not pressed\n} \nelse \n{\n  // Code to execute if buttonState is neither HIGH nor LOW\n}', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'if (buttonState == HIGH)', blocks: [{ id: 'mc-cat-3-4-cond-tip-8', type: 'markdown', content: '**First condition to check.**\n\nIf `buttonState` is `HIGH`, the code in this block will execute. If not, we move to the next condition.' }]},
+                      { text: 'else if (buttonState == LOW)', blocks: [{ id: 'mc-cat-3-4-cond-tip-9', type: 'markdown', content: '**Second condition to check.**\n\nIf the first condition is false, we check if `buttonState` is `LOW`. If it is, the code in this block will execute.' }]},
+                      { text: 'else', blocks: [{ id: 'mc-cat-3-4-cond-tip-10', type: 'markdown', content: '**Defines the block of code to execute if all previous conditions are false.**\n\nIf `buttonState` is neither `HIGH` nor `LOW`, then the code inside this `else` block will execute.' }]}
+                    ]
+                  }},
+
+                  { id: 'mc-prog-cond-7', type: 'markdown', content: 'You can have as many `else-if` statements as you need to check for different conditions. Just remember that the program will check each condition in order, and will execute the block of code for the first condition that is true.' },
+
+                  { id: 'mc-prog-cond-8', type: 'markdown', content: '# Examples'},
+                ]
+              },
+
+              { id: "mc-prog-loops",
+                title: "Loops",
+                description: "Using for and while loops to repeat code blocks.",
+                blocks: [
+                  { id: 'mc-prog-loops-1', type: 'markdown', content: '# For Loops\n\nA `for` loop is a control structure that allows you to repeat a block of code a specific number of times. It consists of three parts: the initialization, the condition, and the increment/decrement. The structure looks like this:' },
                 ]
               }
             ]

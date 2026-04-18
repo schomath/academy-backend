@@ -8,6 +8,7 @@ import 'katex/dist/katex.min.css';
 import { useInView } from '../hooks/useInView';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, Html, Center, Bounds } from '@react-three/drei';
+import { renderSyntaxHighlightedCode, tokenizeCodeWithPositions, getTokenClassName } from './codeHighlighting';
 
 // Pre-register all markdown files so Vite can statically analyze the glob.
 // At runtime we look up the specific file by key.
@@ -100,7 +101,7 @@ const AnimatedBlock: React.FC<{ children: React.ReactNode }> = ({ children }) =>
  * TooltipWrapper component
  * Displays a tooltip with nested content blocks when hovering over the wrapped content
  */
-const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: ContentBlock[]; showUnderline?: boolean }> = ({ children, tooltipBlocks, showUnderline = true }) => {
+const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: ContentBlock[]; showUnderline?: boolean; darkTheme?: boolean }> = ({ children, tooltipBlocks, showUnderline = true, darkTheme = false }) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [tooltipPos, setTooltipPos] = React.useState({ top: 0, left: 0 });
   const triggerRef = React.useRef<HTMLSpanElement>(null);
@@ -127,10 +128,18 @@ const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: Conte
     >
       <span 
         ref={triggerRef}
-        className={`cursor-help transition-all duration-200 px-1 ${
-          showUnderline 
-            ? 'border-b-2 border-dotted border-blue-500 hover:border-blue-700 hover:bg-blue-50' 
-            : 'hover:bg-blue-50'
+        className={`cursor-help transition-all duration-200 px-1 rounded-sm ${
+          darkTheme
+            ? (
+              showUnderline
+                ? 'border-b-2 border-dotted border-slate-500 hover:border-slate-300 hover:bg-slate-800/80'
+                : 'hover:bg-slate-800/80'
+            )
+            : (
+              showUnderline
+                ? 'border-b-2 border-dotted border-blue-500 hover:border-blue-700 hover:bg-blue-50'
+                : 'hover:bg-blue-50'
+            )
         }`}
       >
         {children}
@@ -147,7 +156,7 @@ const TooltipWrapper: React.FC<{ children: React.ReactNode; tooltipBlocks: Conte
           onMouseEnter={() => setIsVisible(true)}
           onMouseLeave={() => setIsVisible(false)}
         >
-          <div className="bg-white rounded-lg shadow-2xl border-2 border-blue-200 p-4 overflow-y-auto max-h-96 pointer-events-auto font-normal not-italic" style={{ width: '320px' }}>
+          <div className="bg-white rounded-lg shadow-2xl border-2 border-blue-200 p-4 overflow-y-auto max-h-96 pointer-events-auto font-sans text-base leading-relaxed whitespace-normal font-normal not-italic" style={{ width: '320px' }}>
             {tooltipBlocks.map((block) => (
               <BlockRenderer key={block.id} block={block} />
             ))}
@@ -762,58 +771,123 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
     case 'codetooltip': {
       const parts = block.metadata?.parts || [];
       const language = block.metadata?.language || '';
+
+      type TooltipRange = {
+        id: string;
+        start: number;
+        end: number;
+        blocks: ContentBlock[];
+      };
+
+      const tooltipRanges: TooltipRange[] = [];
+      if (parts.length > 0) {
+        let searchIndex = 0;
+
+        parts.forEach((part: any, idx: number) => {
+          const partText = part?.text || '';
+          if (!partText || !part?.blocks?.length) {
+            return;
+          }
+
+          const partStart = block.content.indexOf(partText, searchIndex);
+          if (partStart === -1) {
+            return;
+          }
+
+          const partEnd = partStart + partText.length;
+          tooltipRanges.push({
+            id: `tooltip-${idx}`,
+            start: partStart,
+            end: partEnd,
+            blocks: part.blocks,
+          });
+
+          searchIndex = partEnd;
+        });
+      }
+
+      const codeTokens = tokenizeCodeWithPositions(block.content, language);
+
+      const renderSegment = (segmentText: string, segmentStart: number, keyPrefix: string): React.ReactNode[] => {
+        if (!segmentText) {
+          return [];
+        }
+
+        const segmentEnd = segmentStart + segmentText.length;
+        const overlappingTokens = codeTokens.filter(
+          (token) => token.end > segmentStart && token.start < segmentEnd
+        );
+
+        const nodes: React.ReactNode[] = [];
+
+        overlappingTokens.forEach((token, index) => {
+          const tokenSliceStart = Math.max(token.start, segmentStart);
+          const tokenSliceEnd = Math.min(token.end, segmentEnd);
+          const relativeStart = tokenSliceStart - segmentStart;
+          const relativeEnd = tokenSliceEnd - segmentStart;
+          const tokenSlice = segmentText.slice(relativeStart, relativeEnd);
+
+          if (!tokenSlice) {
+            return;
+          }
+
+          nodes.push(
+            <span key={`${keyPrefix}-${index}`} className={getTokenClassName(token.type)}>
+              {tokenSlice}
+            </span>
+          );
+        });
+
+        return nodes;
+      };
       
       // Function to render code with inline tooltips
       const renderCodeWithTooltips = () => {
-        if (parts.length === 0) {
-          return <code className="text-green-400 font-mono text-lg">{block.content}</code>;
-        }
-
-        let remainingCode = block.content;
-        const elements: React.ReactNode[] = [];
-        
-        parts.forEach((part: any, idx: number) => {
-          const partText = part.text || '';
-          const partIndex = remainingCode.indexOf(partText);
-          
-          if (partIndex !== -1) {
-            // Add text before this part
-            if (partIndex > 0) {
-              elements.push(
-                <span key={`text-${idx}`} className="text-green-400">
-                  {remainingCode.substring(0, partIndex)}
-                </span>
-              );
-            }
-            
-            // Add the hoverable part
-            if (part.blocks && part.blocks.length > 0) {
-              elements.push(
-                <TooltipWrapper key={`tooltip-${idx}`} tooltipBlocks={part.blocks}>
-                  <span className="text-yellow-300">{partText}</span>
-                </TooltipWrapper>
-              );
-            } else {
-              elements.push(
-                <span key={`part-${idx}`} className="text-green-400">{partText}</span>
-              );
-            }
-            
-            // Update remaining code
-            remainingCode = remainingCode.substring(partIndex + partText.length);
-          }
-        });
-        
-        // Add any remaining code
-        if (remainingCode.length > 0) {
-          elements.push(
-            <span key="remaining" className="text-green-400">
-              {remainingCode}
-            </span>
+        if (tooltipRanges.length === 0) {
+          return (
+            <code className="font-mono text-lg whitespace-pre-wrap">
+              {renderSyntaxHighlightedCode(block.content, language, `${block.id}-full`) }
+            </code>
           );
         }
-        
-        return <code className="font-mono text-lg">{elements}</code>;
+
+        const elements: React.ReactNode[] = [];
+        let cursor = 0;
+
+        tooltipRanges.forEach((range, idx) => {
+          if (range.start > cursor) {
+            const plainSegment = block.content.slice(cursor, range.start);
+            elements.push(
+              <React.Fragment key={`plain-${idx}`}>
+                {renderSegment(plainSegment, cursor, `${block.id}-plain-${idx}`)}
+              </React.Fragment>
+            );
+          }
+
+          const tooltipSegment = block.content.slice(range.start, range.end);
+          const isMultilineChunk = tooltipSegment.includes('\n');
+
+          elements.push(
+            <TooltipWrapper key={range.id} tooltipBlocks={range.blocks} darkTheme>
+              <span className={isMultilineChunk ? 'inline-block align-top whitespace-pre-wrap' : ''}>
+                {renderSegment(tooltipSegment, range.start, `${block.id}-tooltip-${idx}`)}
+              </span>
+            </TooltipWrapper>
+          );
+
+          cursor = range.end;
+        });
+
+        if (cursor < block.content.length) {
+          const remainingSegment = block.content.slice(cursor);
+          elements.push(
+            <React.Fragment key="remaining">
+              {renderSegment(remainingSegment, cursor, `${block.id}-remaining`)}
+            </React.Fragment>
+          );
+        }
+
+        return <code className="font-mono text-lg whitespace-pre-wrap">{elements}</code>;
       };
 
       return (
