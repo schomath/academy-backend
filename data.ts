@@ -1725,7 +1725,7 @@ export const CATEGORIES: Category[] = [
                 title: 'Projects',
                 description: 'Apply your skills to real-world challenges with hands-on projects.',
                 blocks: [
-                  { id: 'mc-pbl-1', type: 'markdown', content: '# Introduction\n\nThis is a small list of example projects for students to work on for their final projects, as well as study to understand the expectations of the final project.\n\n# Temp List:\n\n- Remote control IR TV Control Remote (maybe could use relays).\n\n - Sonar project?\n\n - Does that '},
+                  { id: 'mc-pbl-1', type: 'markdown', content: '# Introduction\n\nThis is a small list of example projects for students to work on for their final projects, as well as study to understand the expectations of the final project.'},
 
                   { id: 'mc-pbl-2', type: 'markdown', content: '# 🌉Model Drawbridge & Traffic Light\n\nIn this project, you will build a model drawbridge that can be raised and lowered using a servo motor. The drawbridge will have traffic lights on either side to indicate when it is safe to cross. You will also use a distance sensor to count the number of objects that pass through the drawbridge.\n\n- **Bridge**: A servo motor controls the raising and lowering of the drawbridge\n- **Traffic Signals**: 3 LEDs act as traffic lights. *The bridge raises on red, then lowers before turning green*.\n- **Extra**: A sonar sensor can be used to count cars passing by.'},
 
@@ -1743,10 +1743,12 @@ export const CATEGORIES: Category[] = [
                 title: 'Wireless Projects',
                 description: 'Projects focused on wireless communication and IoT applications.',
                 blocks: [
-                  { id: 'mc-pbl-w-1', type: 'markdown', content: '# ❗A note on Wireless Projects\n\n'},
-                  { id: 'mc-pbl-w-1a', type: 'note', content: 'Wireless projects can be more difficult to debug and test, especially for beginners. It is recommended that students have a solid understanding of the basics of microcontroller programming and hardware interfacing before attempting wireless projects.\n\nIn addition, wireless projects require a different compiler than our current setup. Please follow the instructions in []() to install the correct compiler for wireless communication on the Raspberry Pi Pico.'},
+                  { id: 'mc-pbl-w-1a', type: 'note', content: 'Wireless projects can be more difficult to debug and test, especially for beginners. It is recommended that students have a solid understanding of the basics of microcontroller programming and hardware interfacing before attempting wireless projects.'},
+                  { id: 'mc-pbl-w-1b', type: 'note', content: 'Wireless projects require a different compiler than our current setup. Please follow the instructions in [🔗Introduction to Wireless Communication & Setup](https://schomath.github.io/academy-backend/?course=microcontrollers&module=mc-wireless-intro) to install the correct compiler for wireless communication on the Raspberry Pi Pico.'},
 
-                  { id: 'mc-pbl-w-2', type: 'markdown', content: ''},
+                  { id: 'mc-pbl-w-2', type: 'markdown', content: '# 🏠Wireless Smarthome App\n\nIn this project, you will create a wireless smart home system using Raspberry Pi Pico W microcontrollers. The system will allow you to control various devices, such as lights, fans, or sensors, remotely via a web interface or mobile app.\n\n- **Wireless Control**: Use the Pico W to connect to a Wi-Fi network and control devices remotely.\n- **Device Integration**: Integrate various sensors and actuators to create a fully functional smart home system.\n- **Web Interface**: Implement a web interface to monitor and control the devices in real-time.'},
+
+                  { id: 'mc-pbl-w-3', type: 'markdown', content: '# 📡Wireless Sensor Transfer\n\nUsing two Picos (a transmitter and receiver), send a UDP package from one Pico (such as accelerometer data) to the other, and have the other Pico control a servo motor based on the position of the accelerometer.\n\n- **Transmitter**: Read sensor data on one Pico and send it wirelessly using UDP.\n- **Receiver**: Receive the packet on the second Pico and map the incoming values to a servo position.\n- **Extra**: Add an LED, buzzer, or display to show when data is being received successfully.'}
                 ]
               }
             ]
