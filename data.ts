@@ -1325,116 +1325,119 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              { id: 'mc-prog-analog', title: 'Analog: Reading and Writing', description: 'Working with analog devices.', blocks: [
-                { id: 'mc-prog-analog-1', type: 'markdown', content: '# True Analog Signals\n\nWhile discrete signals are characterized by either bing *full voltage* (3.3V) or *no voltage* (0V), **analog signals** can take on voltages between these values, providing a continous adjustable range. This allows our microcontrollers to be able to write to and read from more advanced signals that can do more than just `ON` or `OFF`.' },
+              { id: 'mc-prog-analog', 
+                title: 'Analog: Reading and Writing', 
+                description: 'Working with analog devices.', 
+                blocks: [
+                  { id: 'mc-prog-analog-1', type: 'markdown', content: '# True Analog Signals\n\nWhile discrete signals are characterized by either bing *full voltage* (3.3V) or *no voltage* (0V), **analog signals** can take on voltages between these values, providing a continous adjustable range. This allows our microcontrollers to be able to write to and read from more advanced signals that can do more than just `ON` or `OFF`.' },
 
-                { id: 'mc-prog-analog-2', type: 'image', content: 'mc_prog_analog_signal.png', metadata: { alt: 'Graph showing a continuous analog signal varying smoothly between 0V and 3.3V over time, as opposed to a discrete digital signal which only switches between 0V and 3.3V with no intermediate values.', format: 'no-shadow'}},
+                  { id: 'mc-prog-analog-2', type: 'image', content: 'mc_prog_analog_signal.png', metadata: { alt: 'Graph showing a continuous analog signal varying smoothly between 0V and 3.3V over time, as opposed to a discrete digital signal which only switches between 0V and 3.3V with no intermediate values.', format: 'no-shadow'}},
 
-                { id: 'mc-prog-analog-3', type: 'markdown', content: '# 📥Reading Analog Signals\n\nSince our hardware must be specifically *designed* to read an analog signal, we must use GPIO ports that are **tied to the Pico\'s ADC (Analog-Digital Converter)**. You will notice tha these ports correspond to ports `GP26`, `GP27`, and `GP28`.\n\nTo read an analog signal, we use the `analogRead(pin)` function. This function reads the voltage on the specified analog pin and returns a value that represents that voltage. The returned value is typically an integer between `0` and `1023` for a 10-bit ADC (Analog-to-Digital Converter), where `0` corresponds to `0V` and `1023` corresponds to the reference voltage (usually `3.3V` or, in some other models, `5V`).' },
+                  { id: 'mc-prog-analog-3', type: 'markdown', content: '# 📥Reading Analog Signals\n\nSince our hardware must be specifically *designed* to read an analog signal, we must use GPIO ports that are **tied to the Pico\'s ADC (Analog-Digital Converter)**. You will notice tha these ports correspond to ports `GP26`, `GP27`, and `GP28`.\n\nTo read an analog signal, we use the `analogRead(pin)` function. This function reads the voltage on the specified analog pin and returns a value that represents that voltage. The returned value is typically an integer between `0` and `1023` for a 10-bit ADC (Analog-to-Digital Converter), where `0` corresponds to `0V` and `1023` corresponds to the reference voltage (usually `3.3V` or, in some other models, `5V`).' },
 
-                { id: 'mc-prog-analog-3a', type: 'image', content: 'mc_prog_analog_read.png', metadata: { alt: 'Diagram showing how the `analogRead()` function maps a continuous voltage signal to a discrete integer value. The voltage range from 0V to 3.3V is divided into 1024 steps (for a 10-bit ADC), where each step corresponds to an integer value from 0 to 1023. For example, a voltage of approximately 1.65V would correspond to an `analogRead()` value of around 512.', format: 'no-shadow'}},
+                  { id: 'mc-prog-analog-3a', type: 'image', content: 'mc_prog_analog_read.png', metadata: { alt: 'Diagram showing how the `analogRead()` function maps a continuous voltage signal to a discrete integer value. The voltage range from 0V to 3.3V is divided into 1024 steps (for a 10-bit ADC), where each step corresponds to an integer value from 0 to 1023. For example, a voltage of approximately 1.65V would correspond to an `analogRead()` value of around 512.', format: 'no-shadow'}},
 
-                { id: 'mc-prog-analog-3b', type: 'dropdown', content: 'Example: Reading a potentiometer value', children: [
-                  { id: 'mc-prog-analog-3b-code', type: 'codetooltip', content: 'const int potPin = 10;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(potPin, INPUT);\n}\n\nvoid loop() {\n  int potValue = analogRead(potPin);\n  Serial.print("Potentiometer value: ");\n  Serial.println(potValue);\n  delay(1000);\n}', metadata: {
+                  { id: 'mc-prog-analog-3b', type: 'dropdown', content: 'Example: Reading a potentiometer value', children: [
+                    { id: 'mc-prog-analog-3b-code', type: 'codetooltip', content: 'const int potPin = 10;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(potPin, INPUT);\n}\n\nvoid loop() {\n  int potValue = analogRead(potPin);\n  Serial.print("Potentiometer value: ");\n  Serial.println(potValue);\n  delay(1000);\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'const', blocks: [{id: 'mc-cat-3-4-analog-read-ex1-tip-1', type: 'markdown', content: 'This variable will be constant' }]},
+                        { text: 'int', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-2', type: 'markdown', content: 'This variable will be an integer' }
+                        ]},
+                        { text: 'potPin = 10', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-3', type: 'markdown', content: 'We will connect our potentiometer to GPIO 10!' }]},
+                        { text: 'void setup() {', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-4', type: 'markdown', content: 'Remember, setup runs once!' }
+                        ]},
+                        { text: 'Serial.begin(9600);', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-5', type: 'markdown', content: 'Start communication with the computer so we can send it data.'}]},
+                        { text: 'pinMode(potPin, INPUT);', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-6', type: 'markdown', content: 'Set the potentiometer pin as an input so we can read its value.'}]},
+                        { text: 'void loop() {', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-7', type: 'markdown', content: 'Remember, loop runs forever!' }
+                        ]},
+                        { text: 'int potValue', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-8', type: 'markdown', content: 'We declare an `integer` value and label it potValue.\nNote, since we are re-declaring this every time void loop() {...} runs, the previous value is discarded and replaced with the new value.' }
+                        ]},
+                        { text: 'analogRead(potPin)', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex1-tip-9', type: 'markdown', content: 'Read the value from the potentiometer pin. This will be an integer between 0 and 1023, representing the voltage level on that pin.'}]},
+                      ]
+                    }}
+                  ]},
+
+                  { id: 'mc-prog-analog-3c', type: 'dropdown', content: 'Example: Using map to get the voltage from the potentiometer value', children: [
+                    { id: 'mc-prog-analog-3c-code', type: 'codetooltip', content: 'const int potPin = 10;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(potPin, INPUT);  // Don\'t forget to set your potentiometer pin as input!\n}\n\nvoid loop() {\n  int potValue = analogRead(potPin);\n  float voltage = map(potValue, 0, 1023, 0, 3300) / 1000.0;\n  Serial.print("Voltage: ");\n  Serial.print(voltage);\n  Serial.println(" V");\n  delay(1000);\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'pinMode(potPin, INPUT);', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex2-tip-1', type: 'markdown', content: '**Set potentiometer pin as input.**\n\nThis allows us to read the voltage value from the potentiometer.' }
+                        ]},
+                        { text: 'float voltage', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex2-tip-1', type: 'markdown', content: 'We declare a `float` variable to store the voltage value. We use `float` instead of `int` because voltage can have decimal values.' }
+                        ]},
+                        { text: 'analogRead(potPin)', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex2-tip-3', type: 'markdown', content: 'Read the potentiometer value, which is an integer between 0 and 1023.' }
+                        ]},
+                        { text: 'map(potValue, 0, 1023, 0, 3300)', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex2-tip-4', type: 'markdown', content: '**Map potentiometer value to voltage.**\n\nThe `map()` function takes the `potValue` (which ranges from 0 to 1023) and maps it to a new range of 0 to 3300 (representing millivolts). This gives us the voltage in millivolts.' }
+                        ]},
+                        { text: '/ 1000.0', blocks: [
+                          { id: 'mc-cat-3-4-analog-read-ex2-tip-5', type: 'markdown', content: '**Convert millivolts to volts.**\n\nSince the `map()` function gives us the voltage in millivolts, we divide by 1000.0 to convert it to volts.'}
+                        ]}
+                      ]
+                    }}
+                  ]},
+
+                  { id: 'mc-prog-analog-4', type: 'markdown', content: '# 📤Writing Analog Signals with PWM\n\nWhile some microcontrollers have true analog output pins, the Raspberry Pi Pico does not. Instead, we can simulate an analog output using a technique called **Pulse Width Modulation (PWM)**, which we will discuss in the *next section (WIP)*.\n\nTo create an analog signal that varies between `0V` and `3.3V`, we use the `analogWrite()` function, which takes two arguments:' },
+
+                  { id: 'mc-prog-analog-4b', type: 'codetooltip', content: 'analogWrite(pin, level);', metadata: {
                     language: 'cpp',
                     parts: [
-                      { text: 'const', blocks: [{id: 'mc-cat-3-4-analog-read-ex1-tip-1', type: 'markdown', content: 'This variable will be constant' }]},
-                      { text: 'int', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-2', type: 'markdown', content: 'This variable will be an integer' }
-                      ]},
-                      { text: 'potPin = 10', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-3', type: 'markdown', content: 'We will connect our potentiometer to GPIO 10!' }]},
-                      { text: 'void setup() {', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-4', type: 'markdown', content: 'Remember, setup runs once!' }
-                      ]},
-                      { text: 'Serial.begin(9600);', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-5', type: 'markdown', content: 'Start communication with the computer so we can send it data.'}]},
-                      { text: 'pinMode(potPin, INPUT);', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-6', type: 'markdown', content: 'Set the potentiometer pin as an input so we can read its value.'}]},
-                      { text: 'void loop() {', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-7', type: 'markdown', content: 'Remember, loop runs forever!' }
-                      ]},
-                      { text: 'int potValue', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-8', type: 'markdown', content: 'We declare an `integer` value and label it potValue.\nNote, since we are re-declaring this every time void loop() {...} runs, the previous value is discarded and replaced with the new value.' }
-                      ]},
-                      { text: 'analogRead(potPin)', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex1-tip-9', type: 'markdown', content: 'Read the value from the potentiometer pin. This will be an integer between 0 and 1023, representing the voltage level on that pin.'}]},
-                    ]
-                  }}
-                ]},
-
-                { id: 'mc-prog-analog-3c', type: 'dropdown', content: 'Example: Using map to get the voltage from the potentiometer value', children: [
-                  { id: 'mc-prog-analog-3c-code', type: 'codetooltip', content: 'const int potPin = 10;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(potPin, INPUT);  // Don\'t forget to set your potentiometer pin as input!\n}\n\nvoid loop() {\n  int potValue = analogRead(potPin);\n  float voltage = map(potValue, 0, 1023, 0, 3300) / 1000.0;\n  Serial.print("Voltage: ");\n  Serial.print(voltage);\n  Serial.println(" V");\n  delay(1000);\n}', metadata: {
-                    language: 'cpp',
-                    parts: [
-                      { text: 'pinMode(potPin, INPUT);', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex2-tip-1', type: 'markdown', content: '**Set potentiometer pin as input.**\n\nThis allows us to read the voltage value from the potentiometer.' }
-                      ]},
-                      { text: 'float voltage', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex2-tip-1', type: 'markdown', content: 'We declare a `float` variable to store the voltage value. We use `float` instead of `int` because voltage can have decimal values.' }
-                      ]},
-                      { text: 'analogRead(potPin)', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex2-tip-3', type: 'markdown', content: 'Read the potentiometer value, which is an integer between 0 and 1023.' }
-                      ]},
-                      { text: 'map(potValue, 0, 1023, 0, 3300)', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex2-tip-4', type: 'markdown', content: '**Map potentiometer value to voltage.**\n\nThe `map()` function takes the `potValue` (which ranges from 0 to 1023) and maps it to a new range of 0 to 3300 (representing millivolts). This gives us the voltage in millivolts.' }
-                      ]},
-                      { text: '/ 1000.0', blocks: [
-                        { id: 'mc-cat-3-4-analog-read-ex2-tip-5', type: 'markdown', content: '**Convert millivolts to volts.**\n\nSince the `map()` function gives us the voltage in millivolts, we divide by 1000.0 to convert it to volts.'}
-                      ]}
-                    ]
-                  }}
-                ]},
-
-                { id: 'mc-prog-analog-4', type: 'markdown', content: '# 📤Writing Analog Signals with PWM\n\nWhile some microcontrollers have true analog output pins, the Raspberry Pi Pico does not. Instead, we can simulate an analog output using a technique called **Pulse Width Modulation (PWM)**, which we will discuss in the *next section (WIP)*.\n\nTo create an analog signal that varies between `0V` and `3.3V`, we use the `analogWrite()` function, which takes two arguments:' },
-
-                { id: 'mc-prog-analog-4b', type: 'codetooltip', content: 'analogWrite(pin, level);', metadata: {
-                  language: 'cpp',
-                  parts: [
-                    { text: 'analogWrite', blocks: [
-                      { id: 'mc-cat-3-4-analog-write-tip-1', type: 'markdown', content: 'This function is used to write an analog value (PWM signal) to a pin.' }
-                    ]},
-                    { text: 'pin', blocks: [
-                      { id: 'mc-cat-3-4-analog-write-tip-2', type: 'markdown', content: 'The GPIO pin you want to write the signal to. This pin must support PWM output (check your microcontroller\'s datasheet for details).' }
-                    ]},
-                    { text: 'level', blocks: [
-                      { id: 'mc-cat-3-4-analog-write-tip-3', type: 'markdown', content: 'The strength of an analog signal.\nPutting `0` here will give 0V, while putting `255` here will give 3.3V. Values in between will give a corresponding voltage between 0 and 3.3V.'}
-                    ]}
-                  ]
-                }},
-
-                { id: 'mc-prog-analog-4c', type: 'note', content: 'Note, we can **write** an analog signal to any GPIO pin on the Pico. However, on other microcontrollers, some pins may only be designed to work with digital signals. You can find out if your pin on your microcontroller supports analog output by checking the pinout on the datasheet and looking for pins marked with a `~`.'},
-
-                { id: 'mc-prog-analog-4d', type: 'image', content: 'mc_prog_analog_write.png', metadata: { alt: 'Graph showing how Pulse Width Modulation (PWM) simulates an analog signal. The graph depicts a series of square waves with varying duty cycles. A higher duty cycle (more time spent at HIGH voltage) corresponds to a stronger signal, while a lower duty cycle (more time spent at LOW voltage) corresponds to a weaker signal. For example, a 75% duty cycle means the signal is HIGH for 75% of the time and LOW for 25% of the time, simulating a stronger analog output.', format: 'no-shadow'}},
-
-                { id: 'mc-prog-analog-4e', type: 'dropdown', content: 'Example: Gradually Increasing brightness on an LED', children: [
-                  { id: 'mc-prog-analog-4e-code', type: 'codetooltip', content: 'const int ledPin = 9;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  // Fade in the LED\n  for (int brightness = 0; brightness <= 255; brightness++) {\n    analogWrite(ledPin, brightness);\n    delay(10);\n  }\n}', metadata: {
-                    language: 'cpp',
-                    parts: [
-                      { text: 'for', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-1', type: 'markdown', content: 'To increase the brightness, we\'ll use a **for** loop.'},
-                      ]},
-                      { text: 'int brightness = 0;', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-2', type: 'markdown', content: 'We initialize the `brightness` variable to `0`,which means no brightness!' }
-                      ]},
-                      { text: 'brightness <= 255;', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-3', type: 'markdown', content: 'We want to keep increasing brightness until we reach `255`, which is the maximum brightness (corresponding to 3.3V).' }
-                      ]},
-                      { text: 'brightness++', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-4', type: 'markdown', content: 'Each time the **for** loop runs, we increase the `brightness` variable by `1`.'}
-                      ]},
                       { text: 'analogWrite', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-5', type: 'markdown', content: 'We call the `analogWrite` function to tell the microcontroller we\'re going to set a voltage on the LED pin.'}
+                        { id: 'mc-cat-3-4-analog-write-tip-1', type: 'markdown', content: 'This function is used to write an analog value (PWM signal) to a pin.' }
                       ]},
-                      { text: 'ledPin', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-6', type: 'markdown', content: 'This is the pin we connected our LED to.'}
+                      { text: 'pin', blocks: [
+                        { id: 'mc-cat-3-4-analog-write-tip-2', type: 'markdown', content: 'The GPIO pin you want to write the signal to. This pin must support PWM output (check your microcontroller\'s datasheet for details).' }
                       ]},
-                      { text: 'brightness', blocks: [
-                        { id: 'mc-cat-3-4-analog-write-ex1-tip-7', type: 'markdown', content: 'This variable controls the strength of the signal we\'re sending to the LED. As `brightness` increases, the LED will get brighter!'}
+                      { text: 'level', blocks: [
+                        { id: 'mc-cat-3-4-analog-write-tip-3', type: 'markdown', content: 'The strength of an analog signal.\nPutting `0` here will give 0V, while putting `255` here will give 3.3V. Values in between will give a corresponding voltage between 0 and 3.3V.'}
                       ]}
                     ]
                   }},
-                ]}
+
+                  { id: 'mc-prog-analog-4c', type: 'note', content: 'Note, we can **write** an analog signal to any GPIO pin on the Pico. However, on other microcontrollers, some pins may only be designed to work with digital signals. You can find out if your pin on your microcontroller supports analog output by checking the pinout on the datasheet and looking for pins marked with a `~`.'},
+
+                  { id: 'mc-prog-analog-4d', type: 'image', content: 'mc_prog_analog_write.png', metadata: { alt: 'Graph showing how Pulse Width Modulation (PWM) simulates an analog signal. The graph depicts a series of square waves with varying duty cycles. A higher duty cycle (more time spent at HIGH voltage) corresponds to a stronger signal, while a lower duty cycle (more time spent at LOW voltage) corresponds to a weaker signal. For example, a 75% duty cycle means the signal is HIGH for 75% of the time and LOW for 25% of the time, simulating a stronger analog output.', format: 'no-shadow'}},
+
+                  { id: 'mc-prog-analog-4e', type: 'dropdown', content: 'Example: Gradually Increasing brightness on an LED', children: [
+                    { id: 'mc-prog-analog-4e-code', type: 'codetooltip', content: 'const int ledPin = 9;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  // Fade in the LED\n  for (int brightness = 0; brightness <= 255; brightness++) {\n    analogWrite(ledPin, brightness);\n    delay(10);\n  }\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'for', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-1', type: 'markdown', content: 'To increase the brightness, we\'ll use a **for** loop.'},
+                        ]},
+                        { text: 'int brightness = 0;', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-2', type: 'markdown', content: 'We initialize the `brightness` variable to `0`,which means no brightness!' }
+                        ]},
+                        { text: 'brightness <= 255;', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-3', type: 'markdown', content: 'We want to keep increasing brightness until we reach `255`, which is the maximum brightness (corresponding to 3.3V).' }
+                        ]},
+                        { text: 'brightness++', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-4', type: 'markdown', content: 'Each time the **for** loop runs, we increase the `brightness` variable by `1`.'}
+                        ]},
+                        { text: 'analogWrite', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-5', type: 'markdown', content: 'We call the `analogWrite` function to tell the microcontroller we\'re going to set a voltage on the LED pin.'}
+                        ]},
+                        { text: 'ledPin', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-6', type: 'markdown', content: 'This is the pin we connected our LED to.'}
+                        ]},
+                        { text: 'brightness', blocks: [
+                          { id: 'mc-cat-3-4-analog-write-ex1-tip-7', type: 'markdown', content: 'This variable controls the strength of the signal we\'re sending to the LED. As `brightness` increases, the LED will get brighter!'}
+                        ]}
+                      ]
+                    }},
+                  ]}
               ] },
 
               { id: 'mc-prog-pwm', 
@@ -1667,11 +1670,87 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          // { id: 'mc-cat-4',
-          //   title: 'Microcontroller Programming: Python',
-          //   emoji: '🐍',
-          //   modules: []
-          // },
+          { id: 'mc-wireless',
+            title: 'Wireless Communication',
+            emoji: '📡',
+            modules: [
+              { id: 'mc-wireless-intro',
+                title: 'Introduction to Wireless Communication & Setup',
+                description: 'Overview of wireless communication methods for microcontrollers.',
+                blocks: [
+                  { id: 'mc-wireless-intro-1', type: 'markdown', content: '# 📡Introduction to Wireless Communication\n\nWireless communication allows microcontrollers to send and receive data without physical connections. Common methods include Wi-Fi, Bluetooth, and RF modules. Each method has its own advantages and use cases, such as Wi-Fi for internet connectivity, Bluetooth for short-range communication, and RF modules for long-range communication.' },
+
+                  { id: 'mc-wireless-intro-setup', type: 'markdown', content: '# ⚙️Getting the Correct Compiler\n\nTo use wireless communication modules on your **Raspberry Pi Pico**, we have to install a seperate compiler that better supports the wireless hardware on the Pico.\n\nIn your board manager, search for `pico` and install the compiler `Raspberry Pi Pico/RP2040` by **Earle Philhower**.' },
+
+                  { id: 'mc-wireless-intro-setup-2', type: 'image', content: 'mc_prog_wifi_library.png', metadata: { caption: 'Installing the correct library for wireless communication on the Raspberry Pi Pico.' }}
+                ]
+              },
+
+              {
+                id: 'mc-wireless-simplewebapp',
+                title: 'Simple Web App',
+                description: 'Create a simple web application to control your microcontroller remotely.',
+                blocks: [
+                  
+                ]
+              }
+            ]
+          },
+
+          { id: 'mc-ctrlarch',
+            title: 'Control Architectures',
+            emoji: '🏗️',
+            modules: [
+              { id: 'mc-ctrlarch-sched',
+                title: 'Task Scheduling',
+                description: 'Implementing cooperative and preemptive multitasking on microcontrollers.',
+                blocks: [
+                  { id: 'mc-ctrlarch-sched-1', type: 'markdown', content: '# Task Scheduling on Microcontrollers\n\nTask scheduling is a method of managing multiple tasks or processes on a microcontroller. It allows the microcontroller to switch between different tasks, giving the illusion of multitasking. The simplest type of task scheduling is a **timer-based task scheduler**, where each task (*i.e. read a sensor, print a message, update a variable*) is scheduled to run at *regular intervals*' },
+
+                  { id: 'mc-ctrlarch-sched-2', type: 'markdown', content: 'In a timer-based task scheduler, we can use a timer interrupt to trigger the execution of tasks at specific intervals. For example, we might want to read a sensor every 100 milliseconds, update a display every 500 milliseconds, and send data over a network every 1000 milliseconds. By using a timer interrupt, we can ensure that each task runs at the correct time without blocking the main program flow.' },
+
+                  { id: 'mc-ctrlarch-schedu-2', type: 'video', content: 'https://www.youtube.com/embed/hD3cR25MbW8?si=eUPSXj89bMFRRNGf' },
+                ]
+              }
+            ]
+          },
+
+          { id: 'mc-pbl',
+            title: 'Project-Based Learning',
+            emoji: '🔨',
+            modules: [
+              // Project Stuff
+              {
+                id: 'mc-pbl-projects',
+                title: 'Projects',
+                description: 'Apply your skills to real-world challenges with hands-on projects.',
+                blocks: [
+                  { id: 'mc-pbl-1', type: 'markdown', content: '# Introduction\n\nThis is a small list of example projects for students to work on for their final projects, as well as study to understand the expectations of the final project.\n\n# Temp List:\n\n- Remote control IR TV Control Remote (maybe could use relays).\n\n - Sonar project?\n\n - Does that '},
+
+                  { id: 'mc-pbl-2', type: 'markdown', content: '# 🌉Model Drawbridge & Traffic Light\n\nIn this project, you will build a model drawbridge that can be raised and lowered using a servo motor. The drawbridge will have traffic lights on either side to indicate when it is safe to cross. You will also use a distance sensor to count the number of objects that pass through the drawbridge.\n\n- **Bridge**: A servo motor controls the raising and lowering of the drawbridge\n- **Traffic Signals**: 3 LEDs act as traffic lights. *The bridge raises on red, then lowers before turning green*.\n- **Extra**: A sonar sensor can be used to count cars passing by.'},
+
+                  { id: 'mc-pbl-3', type: 'markdown', content: '# 🏠Smart Home System\n\nIn this project, you will create a simple smart home system using an Arduino. The system will include a temperature sensor to monitor the room temperature, a light sensor to detect ambient light levels, and a relay to control a lamp. You will also implement a basic user interface using an LCD display and buttons to allow the user to set temperature thresholds and control the lamp manually.\n\n- **Temperature Monitoring**: Use a temperature sensor to read the current room temperature and display it on the LCD.\n- **Light Detection**: Use a light sensor to measure ambient light levels and display them on the LCD. Alternatively, you could use it to create a nightlight system.\n- **Lamp Control**: Use a relay to turn a lamp on or off based on user input from buttons or automatically based on light levels.'},
+
+                  { id: 'mc-pbl-4', type: 'markdown', content: '# 🛜Remote Control System\n\nIn this project, you will design a remote control system using an Arduino and an infrared (IR) remote. The system will allow you to control various devices, such as LEDs, motors, or a small robot, using the buttons on the IR remote. You will learn how to read signals from the IR remote and use them to trigger different actions on your Arduino.\n\n- **IR Remote Control**: Use an IR receiver to read signals from the remote and decode them.\n- **Device Control**: Map different buttons on the remote to control various devices, such as turning LEDs on/off or controlling motor speed and direction.\n- **Extra**: Implement a feedback mechanism, such as an LCD display, to show which button was pressed or the current state of the devices.\n- **Extra**: Use a relay to control larger devices, such as sending a signal to a PLC or toggling a larger power supply.'},
+
+                  { id: 'mc-pbl-5', type: 'markdown', content: '# 📡Radar System\n\nIn this project, you will build a simple radar system using an ultrasonic sensor and a servo motor. The ultrasonic sensor will be mounted on the servo motor, allowing it to rotate and scan the surrounding area. The system will measure the distance to objects in its path and display the information on an LCD screen or send it to a computer for visualization.\n\n- **Ultrasonic Sensor**: Use an ultrasonic sensor to measure distances to nearby objects.\n- **Servo Motor**: Mount the ultrasonic sensor on a servo motor to allow it to rotate and scan the area.\n- **Data Visualization**: Display the distance measurements on an LCD screen or send them to a computer for real-time visualization using software like Processing or Python.'}
+                ]
+              },
+
+              // Wireless Project Stuff
+              {
+                id: 'mc-pbl-w',
+                title: 'Wireless Projects',
+                description: 'Projects focused on wireless communication and IoT applications.',
+                blocks: [
+                  { id: 'mc-pbl-w-1', type: 'markdown', content: '# ❗A note on Wireless Projects\n\n'},
+                  { id: 'mc-pbl-w-1a', type: 'note', content: 'Wireless projects can be more difficult to debug and test, especially for beginners. It is recommended that students have a solid understanding of the basics of microcontroller programming and hardware interfacing before attempting wireless projects.\n\nIn addition, wireless projects require a different compiler than our current setup. Please follow the instructions in []() to install the correct compiler for wireless communication on the Raspberry Pi Pico.'},
+
+                  { id: 'mc-pbl-w-2', type: 'markdown', content: ''},
+                ]
+              }
+            ]
+          },
 
 
         ]

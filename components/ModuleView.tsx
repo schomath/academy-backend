@@ -416,13 +416,13 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       const noteLabel =
         typeof block.metadata?.noteLabel === 'string' && block.metadata.noteLabel.trim().length > 0
           ? block.metadata.noteLabel.trim()
-          : 'Pro Tip';
+          : '📝Note';
 
       return (
         <AnimatedBlock>
           <div className="my-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg hover:shadow-md hover:bg-yellow-100 transition-all duration-300 cursor-default">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-lg">💡</span>
+              {/* <span className="text-lg">💡</span> */}
               <span className="font-bold text-yellow-800">{noteLabel}</span>
             </div>
             <div className="text-yellow-900">
