@@ -1697,19 +1697,48 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          { id: 'mc-ctrlarch',
+          { id: 'mc-arch',
             title: 'Control Architectures',
             emoji: '🏗️',
             modules: [
-              { id: 'mc-ctrlarch-sched',
-                title: 'Task Scheduling',
+              { id: 'mc-arch-async',
+                title: 'Asynchronous Programming',
                 description: 'Implementing cooperative and preemptive multitasking on microcontrollers.',
                 blocks: [
-                  { id: 'mc-ctrlarch-sched-1', type: 'markdown', content: '# Task Scheduling on Microcontrollers\n\nTask scheduling is a method of managing multiple tasks or processes on a microcontroller. It allows the microcontroller to switch between different tasks, giving the illusion of multitasking. The simplest type of task scheduling is a **timer-based task scheduler**, where each task (*i.e. read a sensor, print a message, update a variable*) is scheduled to run at *regular intervals*' },
+                  { id: 'mc-arch-async-1', type: 'markdown', content: '# Task Scheduling on Microcontrollers\n\nTask scheduling is a method of managing multiple tasks or processes on a microcontroller. It allows the microcontroller to switch between different tasks, giving the illusion of multitasking. This is helpful as it allows us to:\n\n- **Schedule tasks** based on timers, like reading a sensor every 5 seconds.\n- **Prioritize tasks** to ensure critical operations are performed on time.\n- **Optimize resource usage** by preventing tasks from blocking each other.\n\nThis last one is of extreme importance, as taking an asynchronous approach to programming allows us to continue to run the loop at it\'s fasters without waiting on delays or readings to come in every single time the loop runs.' },
 
-                  { id: 'mc-ctrlarch-sched-2', type: 'markdown', content: 'In a timer-based task scheduler, we can use a timer interrupt to trigger the execution of tasks at specific intervals. For example, we might want to read a sensor every 100 milliseconds, update a display every 500 milliseconds, and send data over a network every 1000 milliseconds. By using a timer interrupt, we can ensure that each task runs at the correct time without blocking the main program flow.' },
+                  { id: 'mc-arch-async-2a', type: 'markdown', content: '## ⏲️Timer-Based Tasks\n\nIn a timer-based task scheduler, we can utilize `conditional statement` to **trigger certain tasks** based on a timer schedule (*think "every 5 seconds, I want to read a sensor"*). The code below aims to do the following task: **Blink an LED every 5 seconds, and read a sensor every 100ms.**. Notice how no delays are used - *this means our loop continues to run, and we can freely add more features without interfering with other tasks. The code works in the following fashion:\n\n- `lastLedMillis` and `lastSensorMillis` store the last point in time that a task was ran (*for example, if `lastLedMillis` is `5000000`, that means the LED was toggled 5 seconds after the program started*)\n- `LED_INTERVAL` and `SENSOR_INTERVAL` are constant and store **how often we want each task to trigger** (*5 seconds and 0.1 seconds, in this case*).\n- `unsigned long currentMillis = millis();` creates a variable that stores how long the program has been running for in milliseconds (*for example, if the program has been running for 7 seconds, the value would be `7000000`*).\n- Within the `if()` statements, we\n\t- First calculate the difference between the current time and the time at which the previous task ran (which gives us the **time since the task ran**) using `currentMillis - lastLedMillis`\n\t- Second, see if this number exceeds the interval we wanted to run it last (`currentMillis - lastLedMillis >= LED_INTERVAL`).\n- If the time since the task last ran is greater than the interval, we run it again! *We also make sure to update the last time the task ran using* `lastLedMillis = currentMillis;`' },
 
-                  { id: 'mc-ctrlarch-schedu-2', type: 'video', content: 'https://www.youtube.com/embed/hD3cR25MbW8?si=eUPSXj89bMFRRNGf' },
+                  { id: 'mc-arch-async-2b', type: 'codetooltip', content: 'const int LED_PIN = 13;\nconst int SENSOR_PIN = 28;\n\nbool ledState = LOW;\n\n// Time-keeping variables (stores the point in time when the task was run)\nunsigned long lastLedMillis = 0;\nunsigned long lastSensorMillis = 0;\n\n// Interval variables (stores how often certain tasks should run)\nconst unsigned long LED_INTERVAL = 5000;\nconst unsigned long SENSOR_INTERVAL = 100;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  unsigned long currentMillis = millis();\n\n  if (currentMillis - lastLedMillis >= LED_INTERVAL) {\n    lastLedMillis = currentMillis;\n    ledState = !ledState;\n    digitalWrite(LED_PIN, ledState);\n  }\n\n  if (currentMillis - lastSensorMillis >= SENSOR_INTERVAL) {\n    lastSensorMillis = currentMillis;\n    int sensorValue = analogRead(SENSOR_PIN);\n    Serial.println(sensorValue);\n  }\n}', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'const int LED_PIN = 13;', blocks: [{ id: 'mc-arch-async-2b-tip-0', type: 'markdown', content: 'This declares which GPIO pin is connected to the LED.'}] },
+                      { text: 'const int SENSOR_PIN = 28;', blocks: [{ id: 'mc-arch-async-2b-tip-1', type: 'markdown', content: 'This declares which pin is used to read the analog sensor.'}] },
+                      { text: 'bool ledState = LOW;', blocks: [{ id: 'mc-arch-async-2b-tip-2', type: 'markdown', content: 'This stores whether the LED is currently ON or OFF so we can toggle it each cycle.'}] },
+                      { text: 'unsigned long lastLedMillis = 0;', blocks: [{ id: 'mc-arch-async-2b-tip-3', type: 'markdown', content: 'Tracks the last time the LED task ran.'}] },
+                      { text: 'unsigned long lastSensorMillis = 0;', blocks: [{ id: 'mc-arch-async-2b-tip-4', type: 'markdown', content: 'Tracks the last time the sensor task ran.'}] },
+                      { text: 'const unsigned long LED_INTERVAL = 5000;', blocks: [{ id: 'mc-arch-async-2b-tip-5', type: 'markdown', content: 'Sets the LED task period to **5000 ms** (5 seconds).'}] },
+                      { text: 'const unsigned long SENSOR_INTERVAL = 100;', blocks: [{ id: 'mc-arch-async-2b-tip-6', type: 'markdown', content: 'Sets the sensor read period to **100 ms**.'}] },
+                      { text: 'void setup() {', blocks: [{ id: 'mc-arch-async-2b-tip-7', type: 'markdown', content: 'The setup function runs once at startup.'}] },
+                      { text: 'pinMode(LED_PIN, OUTPUT);', blocks: [{ id: 'mc-arch-async-2b-tip-8', type: 'markdown', content: 'Configures the LED pin as an output so the microcontroller can drive it HIGH/LOW.'}] },
+                      { text: 'Serial.begin(9600);', blocks: [{ id: 'mc-arch-async-2b-tip-9', type: 'markdown', content: 'Starts serial communication so sensor values can be printed to the Serial Monitor.'}] },
+                      { text: 'void loop() {', blocks: [{ id: 'mc-arch-async-2b-tip-10', type: 'markdown', content: 'The loop runs repeatedly and checks whether each scheduled task is due.'}] },
+                      { text: 'unsigned long currentMillis = millis();', blocks: [{ id: 'mc-arch-async-2b-tip-11', type: 'markdown', content: '`millis()` gives elapsed time since startup, used for non-blocking scheduling.'}] },
+                      { text: 'if (currentMillis - lastLedMillis >= LED_INTERVAL) {', blocks: [{ id: 'mc-arch-async-2b-tip-12', type: 'markdown', content: 'If 5 seconds have passed, run the LED task.'}] },
+                      { text: 'lastLedMillis = currentMillis;', blocks: [{ id: 'mc-arch-async-2b-tip-13', type: 'markdown', content: 'Stores the current time as the LED task\'s new reference point.'}] },
+                      { text: 'ledState = !ledState;', blocks: [{ id: 'mc-arch-async-2b-tip-14', type: 'markdown', content: 'Flips the LED state from OFF to ON, or ON to OFF.'}] },
+                      { text: 'digitalWrite(LED_PIN, ledState);', blocks: [{ id: 'mc-arch-async-2b-tip-15', type: 'markdown', content: 'Applies the toggled state to the physical LED pin.'}] },
+                      { text: 'if (currentMillis - lastSensorMillis >= SENSOR_INTERVAL) {', blocks: [{ id: 'mc-arch-async-2b-tip-16', type: 'markdown', content: 'If 100 ms have passed, run the sensor task.'}] },
+                      { text: 'lastSensorMillis = currentMillis;', blocks: [{ id: 'mc-arch-async-2b-tip-17', type: 'markdown', content: 'Stores the current time as the sensor task\'s new reference point.'}] },
+                      { text: 'int sensorValue = analogRead(SENSOR_PIN);', blocks: [{ id: 'mc-arch-async-2b-tip-18', type: 'markdown', content: 'Reads the analog sensor value from pin 28.'}] },
+                      { text: 'Serial.println(sensorValue);', blocks: [{ id: 'mc-arch-async-2b-tip-19', type: 'markdown', content: 'Prints the latest sensor value to the Serial Monitor.'}] }
+                    ]
+                  }},
+
+                  { id: 'mc-arch-async-2c', type: 'markdown', content: 'This code structure allows us to run multiple tasks at different intervals without blocking each other. The loop continuously checks if it\'s time to run each task, and if so, it executes the task and updates the last run time. This way, we can easily add more tasks in the future without worrying about them interfering with each other.\n\nThe video below, created by *Programming Electronics Academy*, provides a visual explanation of this concept.' },
+
+                  { id: 'mc-arch-async-2z', type: 'video', content: 'https://www.youtube.com/embed/hD3cR25MbW8?si=eUPSXj89bMFRRNGf' },
+
                 ]
               }
             ]
