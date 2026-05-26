@@ -1686,12 +1686,160 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'mc-wireless-simplewebapp',
+              { id: 'mc-wireless-simplewebapp',
                 title: 'Simple Web App',
                 description: 'Create a simple web application to control your microcontroller remotely.',
                 blocks: [
                   
+                ]
+              },
+
+              { id: 'mc-wireless-wmesh',
+                title: 'Wireless Mesh Networks',
+                description: 'Implementing mesh networking for microcontroller communication.',
+                blocks: [
+                  { id: 'mc-wireless-wmesh-1', type: 'markdown', content: '# 🕸️Wi-Fi Mesh Networking with Pico W\n\nA **mesh network** is a communication system where each node can pass messages along to other nodes. Instead of all devices needing to directly reach one central router, nearby nodes can relay data step-by-step across the network.\n\nFor Raspberry Pi Pico W projects, this is useful when:\n\n- Devices are spread out across a room or lab\n- One node is too far from the base station\n- You want the system to keep working even if one node goes offline' },
+
+                  { id: 'mc-wireless-wmesh-2', type: 'note', content: 'The Pico W does not provide a full built-in 802.11s mesh stack in Arduino. In this module, we build a **practical application-layer mesh** using UDP forwarding between Pico W nodes.' },
+
+                  { id: 'mc-wireless-wmesh-3', type: 'markdown', content: '## 🎯 Tutorial Goal\n\nBuild a small mesh-like network with **3 Pico Ws**:\n\n1. `Node A` sends a sensor packet\n2. `Node B` acts as a relay\n3. `Node C` receives and prints the final packet\n\nAll nodes connect to the same Wi-Fi network, and messages are forwarded using UDP.' },
+
+                  { id: 'mc-wireless-wmesh-4', type: 'markdown', content: '## 🧰 What You Need\n\n- 3 Raspberry Pi Pico W boards\n- Arduino IDE with **Raspberry Pi Pico/RP2040 by Earle Philhower**\n- A Wi-Fi network (2.4 GHz)\n- USB cables and Serial Monitor access' },
+
+                  { id: 'mc-wireless-wmesh-5', type: 'note', content: 'Keep all nodes on the same subnet while testing (for example, `192.168.1.x`). Static IPs can make debugging easier because destination addresses stay constant.' },
+
+                  { id: 'mc-wireless-wmesh-6', type: 'markdown', content: '## 🧱 Core Message Format\n\nTo avoid infinite loops, each packet includes:\n\n- `origin`: who created the packet\n- `target`: final destination node\n- `ttl`: how many hops are left\n- `payload`: your sensor or command data\n\nExample payload string:\n\n`origin=A;target=C;ttl=3;payload=temp:24.8`' },
+
+                  { id: 'mc-wireless-wmesh-7', type: 'codetooltip', content: 'String packet = "origin=A;target=C;ttl=3;payload=temp:24.8";', metadata: {
+                    language: 'cpp',
+                    parts: [
+                      { text: 'origin=A', blocks: [{ id: 'mc-wireless-wmesh-7a', type: 'markdown', content: 'This marks which node created the message.' }] },
+                      { text: 'target=C', blocks: [{ id: 'mc-wireless-wmesh-7b', type: 'markdown', content: 'This is the final destination node.' }] },
+                      { text: 'ttl=3', blocks: [{ id: 'mc-wireless-wmesh-7c', type: 'markdown', content: 'TTL means **time to live** (maximum relay hops).' }] },
+                      { text: 'payload=temp:24.8', blocks: [{ id: 'mc-wireless-wmesh-7d', type: 'markdown', content: 'This is the useful data we want to deliver.' }] }
+                    ]
+                  }},
+
+                  { id: 'mc-wireless-wmesh-8', type: 'dropdown', content: 'Tutorial Step 1: common Wi-Fi + UDP setup for each node', children: [
+                    { id: 'mc-wireless-wmesh-8a', type: 'markdown', content: 'Upload this base setup (with node-specific IDs/IP values) to each Pico W.' },
+                    { id: 'mc-wireless-wmesh-8b', type: 'codetooltip', content: '#include <WiFi.h>\n#include <WiFiUdp.h>\n\nconst char* SSID = "YOUR_WIFI_NAME";\nconst char* PASS = "YOUR_WIFI_PASSWORD";\n\nWiFiUDP udp;\nconst unsigned int LOCAL_PORT = 4210;\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(SSID, PASS);\n\n  while (WiFi.status() != WL_CONNECTED) {\n    delay(250);\n    Serial.print(".");\n  }\n\n  Serial.println("\\nWiFi connected");\n  Serial.println(WiFi.localIP());\n  udp.begin(LOCAL_PORT);\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: '#include <WiFi.h>', blocks: [{ id: 'mc-wireless-wmesh-8c', type: 'markdown', content: 'Loads Wi-Fi functions for Pico W networking.' }] },
+                        { text: '#include <WiFiUdp.h>', blocks: [{ id: 'mc-wireless-wmesh-8d', type: 'markdown', content: 'Loads UDP networking support.' }] },
+                        { text: 'const char* SSID = "YOUR_WIFI_NAME";', blocks: [{ id: 'mc-wireless-wmesh-8d1', type: 'markdown', content: 'Set this to your exact Wi-Fi network name (case-sensitive).' }] },
+                        { text: 'const char* PASS = "YOUR_WIFI_PASSWORD";', blocks: [{ id: 'mc-wireless-wmesh-8d2', type: 'markdown', content: 'Set this to the matching Wi-Fi password for that network.' }] },
+                        { text: 'WiFiUDP udp;', blocks: [{ id: 'mc-wireless-wmesh-8d3', type: 'markdown', content: 'Creates a UDP socket object used for send/receive operations.' }] },
+                        { text: 'const unsigned int LOCAL_PORT = 4210;', blocks: [{ id: 'mc-wireless-wmesh-8d4', type: 'markdown', content: 'Defines the local port each node listens on for mesh packets.' }] },
+                        { text: 'Serial.begin(115200);', blocks: [{ id: 'mc-wireless-wmesh-8d5', type: 'markdown', content: 'Starts serial debugging so you can monitor connection status and IP address.' }] },
+                        { text: 'WiFi.begin(SSID, PASS);', blocks: [{ id: 'mc-wireless-wmesh-8e', type: 'markdown', content: 'Starts connection to your Wi-Fi network.' }] },
+                        { text: 'while (WiFi.status() != WL_CONNECTED) {', blocks: [{ id: 'mc-wireless-wmesh-8f', type: 'markdown', content: 'Waits here until the network is connected.' }] },
+                        { text: 'delay(250);', blocks: [{ id: 'mc-wireless-wmesh-8f1', type: 'markdown', content: 'Short pause prevents a tight loop while waiting for Wi-Fi.' }] },
+                        { text: 'Serial.print(".");', blocks: [{ id: 'mc-wireless-wmesh-8f2', type: 'markdown', content: 'Prints progress dots so students can see that connection is still in progress.' }] },
+                        { text: 'Serial.println(WiFi.localIP());', blocks: [{ id: 'mc-wireless-wmesh-8f3', type: 'markdown', content: 'Shows this node\'s IP address, which you will use as next-hop destinations.' }] },
+                        { text: 'udp.begin(LOCAL_PORT);', blocks: [{ id: 'mc-wireless-wmesh-8g', type: 'markdown', content: 'Opens UDP listening on port `4210`.' }] }
+                      ]
+                    }},
+                    { id: 'mc-wireless-wmesh-8i', type: 'codetooltip', content: 'bool connectWiFiWithTimeout(unsigned long timeoutMs) {\n  WiFi.begin(SSID, PASS);\n  unsigned long start = millis();\n\n  while (WiFi.status() != WL_CONNECTED) {\n    if (millis() - start > timeoutMs) {\n      return false;\n    }\n    delay(250);\n  }\n\n  return true;\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'bool connectWiFiWithTimeout(unsigned long timeoutMs) {', blocks: [{ id: 'mc-wireless-wmesh-8i1', type: 'markdown', content: 'Reusable helper that tries Wi-Fi connection but avoids waiting forever.' }] },
+                        { text: 'unsigned long start = millis();', blocks: [{ id: 'mc-wireless-wmesh-8i2', type: 'markdown', content: 'Stores the attempt start time to enforce a timeout window.' }] },
+                        { text: 'if (millis() - start > timeoutMs) {', blocks: [{ id: 'mc-wireless-wmesh-8i3', type: 'markdown', content: 'Checks if the retry window has been exceeded.' }] },
+                        { text: 'return false;', blocks: [{ id: 'mc-wireless-wmesh-8i4', type: 'markdown', content: 'Signals failure so your program can retry, reboot, or enter fallback mode.' }] },
+                        { text: 'return true;', blocks: [{ id: 'mc-wireless-wmesh-8i5', type: 'markdown', content: 'Signals success once the node is connected to Wi-Fi.' }] }
+                      ]
+                    }},
+                    { id: 'mc-wireless-wmesh-8h', type: 'note', content: '- Don\'t forget to set your Wi-Fi credentials in the code, specifically the `SSID` and `PASS`.\n- A `port` in this case refers to a *virtual channel* for network communication. When discussing `ports` in this manner, we are not referring to a physical connector - instead, it is a logical endpoint for sending and receiving data over the network.' }
+                  ]},
+
+                  { id: 'mc-wireless-wmesh-9', type: 'dropdown', content: 'Tutorial Step 2: sender node (Node A)', children: [
+                    { id: 'mc-wireless-wmesh-9a', type: 'markdown', content: 'Node A creates a packet with `target=C` and sends it to relay Node B every 2 seconds.' },
+                    { id: 'mc-wireless-wmesh-9b', type: 'codetooltip', content: 'IPAddress relayIp(192, 168, 1, 51);\nconst int relayPort = 4210;\n\nvoid loop() {\n  String msg = "origin=A;target=C;ttl=3;payload=temp:24.8";\n\n  udp.beginPacket(relayIp, relayPort);\n  udp.print(msg);\n  udp.endPacket();\n\n  Serial.println("Sent: " + msg);\n  delay(2000);\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'IPAddress relayIp(192, 168, 1, 51);', blocks: [{ id: 'mc-wireless-wmesh-9c', type: 'markdown', content: 'Set this to Node B\'s IP address.' }] },
+                        { text: 'const int relayPort = 4210;', blocks: [{ id: 'mc-wireless-wmesh-9c1', type: 'markdown', content: 'Must match the receiver\'s `LOCAL_PORT` so packets arrive correctly.' }] },
+                        { text: 'String msg = "origin=A;target=C;ttl=3;payload=temp:24.8";', blocks: [{ id: 'mc-wireless-wmesh-9d', type: 'markdown', content: 'Builds one mesh packet with TTL and payload data.' }] },
+                        { text: 'udp.beginPacket(relayIp, relayPort);', blocks: [{ id: 'mc-wireless-wmesh-9e', type: 'markdown', content: 'Starts a UDP packet to the relay node.' }] },
+                        { text: 'udp.print(msg);', blocks: [{ id: 'mc-wireless-wmesh-9f', type: 'markdown', content: 'Writes packet contents into the UDP frame.' }] },
+                        { text: 'udp.endPacket();', blocks: [{ id: 'mc-wireless-wmesh-9g', type: 'markdown', content: 'Sends the packet over Wi-Fi.' }] },
+                        { text: 'Serial.println("Sent: " + msg);', blocks: [{ id: 'mc-wireless-wmesh-9g1', type: 'markdown', content: 'Logs exactly what was sent, useful for comparing sender vs relay output.' }] },
+                        { text: 'delay(2000);', blocks: [{ id: 'mc-wireless-wmesh-9g2', type: 'markdown', content: 'Sends every 2 seconds so traffic is readable during classroom debugging.' }] }
+                      ]
+                    }}
+                    ,{ id: 'mc-wireless-wmesh-9h', type: 'codetooltip', content: 'float mockTemp = 24.8;\nint sequence = 0;\n\nString buildPacket() {\n  sequence++;\n  String payload = "temp:" + String(mockTemp, 1) + ",seq:" + String(sequence);\n  return "origin=A;target=C;ttl=3;payload=" + payload;\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'int sequence = 0;', blocks: [{ id: 'mc-wireless-wmesh-9h1', type: 'markdown', content: 'Simple packet counter helps detect dropped or out-of-order packets.' }] },
+                        { text: 'sequence++;', blocks: [{ id: 'mc-wireless-wmesh-9h2', type: 'markdown', content: 'Increments packet ID each time a new message is created.' }] },
+                        { text: 'String payload = "temp:" + String(mockTemp, 1) + ",seq:" + String(sequence);', blocks: [{ id: 'mc-wireless-wmesh-9h3', type: 'markdown', content: 'Builds payload from live values so messages are easier to inspect.' }] },
+                        { text: 'return "origin=A;target=C;ttl=3;payload=" + payload;', blocks: [{ id: 'mc-wireless-wmesh-9h4', type: 'markdown', content: 'Returns a full packet string that follows the agreed mesh format.' }] }
+                      ]
+                    }}
+                  ]},
+
+                  { id: 'mc-wireless-wmesh-10', type: 'dropdown', content: 'Tutorial Step 3: relay node (Node B)', children: [
+                    { id: 'mc-wireless-wmesh-10a', type: 'markdown', content: 'Node B listens for packets, reduces TTL by 1, and forwards only if TTL is still greater than 0.' },
+                    { id: 'mc-wireless-wmesh-10b', type: 'codetooltip', content: 'IPAddress nextHopIp(192, 168, 1, 52);\nconst int nextHopPort = 4210;\n\nint extractTtl(String msg) {\n  int start = msg.indexOf("ttl=") + 4;\n  int end = msg.indexOf(";", start);\n  return msg.substring(start, end).toInt();\n}\n\nString updateTtl(String msg, int newTtl) {\n  int start = msg.indexOf("ttl=") + 4;\n  int end = msg.indexOf(";", start);\n  return msg.substring(0, start) + String(newTtl) + msg.substring(end);\n}\n\nvoid loop() {\n  int packetSize = udp.parsePacket();\n  if (packetSize <= 0) return;\n\n  char incoming[256];\n  int len = udp.read(incoming, 255);\n  incoming[len] = 0;\n  String msg = String(incoming);\n\n  int ttl = extractTtl(msg);\n  ttl -= 1;\n\n  if (ttl > 0) {\n    String forwarded = updateTtl(msg, ttl);\n    udp.beginPacket(nextHopIp, nextHopPort);\n    udp.print(forwarded);\n    udp.endPacket();\n    Serial.println("Forwarded: " + forwarded);\n  } else {\n    Serial.println("Dropped packet (TTL expired)");\n  }\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'IPAddress nextHopIp(192, 168, 1, 52);', blocks: [{ id: 'mc-wireless-wmesh-10b1', type: 'markdown', content: 'Set this to Node C\'s IP (or another relay in a larger mesh).' }] },
+                        { text: 'const int nextHopPort = 4210;', blocks: [{ id: 'mc-wireless-wmesh-10b2', type: 'markdown', content: 'Forwarding port must match the destination listener port.' }] },
+                        { text: 'int extractTtl(String msg) {', blocks: [{ id: 'mc-wireless-wmesh-10b3', type: 'markdown', content: 'Parses the TTL field so relay behavior can be controlled hop-by-hop.' }] },
+                        { text: 'int start = msg.indexOf("ttl=") + 4;', blocks: [{ id: 'mc-wireless-wmesh-10b4', type: 'markdown', content: 'Finds where the TTL value begins inside the semicolon-delimited packet.' }] },
+                        { text: 'return msg.substring(start, end).toInt();', blocks: [{ id: 'mc-wireless-wmesh-10b5', type: 'markdown', content: 'Converts TTL text into an integer for arithmetic.' }] },
+                        { text: 'String updateTtl(String msg, int newTtl) {', blocks: [{ id: 'mc-wireless-wmesh-10b6', type: 'markdown', content: 'Creates a new packet string with updated TTL.' }] },
+                        { text: 'int packetSize = udp.parsePacket();', blocks: [{ id: 'mc-wireless-wmesh-10c', type: 'markdown', content: 'Checks if a new UDP packet has arrived.' }] },
+                        { text: 'if (packetSize <= 0) return;', blocks: [{ id: 'mc-wireless-wmesh-10c1', type: 'markdown', content: 'Exits early when no packet is available, keeping loop non-blocking.' }] },
+                        { text: 'int ttl = extractTtl(msg);', blocks: [{ id: 'mc-wireless-wmesh-10d', type: 'markdown', content: 'Reads the TTL value from the incoming message.' }] },
+                        { text: 'ttl -= 1;', blocks: [{ id: 'mc-wireless-wmesh-10e', type: 'markdown', content: 'Consumes one hop for this relay step.' }] },
+                        { text: 'if (ttl > 0) {', blocks: [{ id: 'mc-wireless-wmesh-10f', type: 'markdown', content: 'Only forward packets that still have hops left.' }] },
+                        { text: 'String forwarded = updateTtl(msg, ttl);', blocks: [{ id: 'mc-wireless-wmesh-10g', type: 'markdown', content: 'Rewrites packet TTL before forwarding.' }] },
+                        { text: 'udp.beginPacket(nextHopIp, nextHopPort);', blocks: [{ id: 'mc-wireless-wmesh-10g1', type: 'markdown', content: 'Starts forwarding toward the next hop in the route.' }] },
+                        { text: 'Serial.println("Forwarded: " + forwarded);', blocks: [{ id: 'mc-wireless-wmesh-10g2', type: 'markdown', content: 'Relay log confirms TTL rewrite and outgoing payload.' }] },
+                        { text: 'Serial.println("Dropped packet (TTL expired)");', blocks: [{ id: 'mc-wireless-wmesh-10h', type: 'markdown', content: 'Prevents infinite loops when TTL reaches zero.' }] }
+                      ]
+                    }}
+                    ,{ id: 'mc-wireless-wmesh-10i', type: 'codetooltip', content: 'int safeExtractTtl(String msg) {\n  int key = msg.indexOf("ttl=");\n  if (key < 0) return -1;\n\n  int start = key + 4;\n  int end = msg.indexOf(";", start);\n  if (end < 0) return -1;\n\n  return msg.substring(start, end).toInt();\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'if (key < 0) return -1;', blocks: [{ id: 'mc-wireless-wmesh-10i1', type: 'markdown', content: 'Handles malformed packets that do not include a TTL field.' }] },
+                        { text: 'if (end < 0) return -1;', blocks: [{ id: 'mc-wireless-wmesh-10i2', type: 'markdown', content: 'Prevents invalid substring ranges when separators are missing.' }] },
+                        { text: 'return msg.substring(start, end).toInt();', blocks: [{ id: 'mc-wireless-wmesh-10i3', type: 'markdown', content: 'Returns parsed TTL when packet format is valid.' }] }
+                      ]
+                    }}
+                  ]},
+
+                  { id: 'mc-wireless-wmesh-11', type: 'dropdown', content: 'Tutorial Step 4: receiver node (Node C)', children: [
+                    { id: 'mc-wireless-wmesh-11a', type: 'markdown', content: 'Node C only listens and prints final packets. This node acts like your data sink or dashboard node.' },
+                    { id: 'mc-wireless-wmesh-11b', type: 'codetooltip', content: 'void loop() {\n  int packetSize = udp.parsePacket();\n  if (packetSize <= 0) return;\n\n  char incoming[256];\n  int len = udp.read(incoming, 255);\n  incoming[len] = 0;\n\n  String msg = String(incoming);\n  Serial.println("Node C received: " + msg);\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'int packetSize = udp.parsePacket();', blocks: [{ id: 'mc-wireless-wmesh-11c', type: 'markdown', content: 'Polls for incoming UDP data.' }] },
+                        { text: 'if (packetSize <= 0) return;', blocks: [{ id: 'mc-wireless-wmesh-11c1', type: 'markdown', content: 'Returns immediately if there is nothing to process this loop cycle.' }] },
+                        { text: 'char incoming[256];', blocks: [{ id: 'mc-wireless-wmesh-11c2', type: 'markdown', content: 'Creates a fixed-size receive buffer for one UDP payload.' }] },
+                        { text: 'int len = udp.read(incoming, 255);', blocks: [{ id: 'mc-wireless-wmesh-11d', type: 'markdown', content: 'Reads the packet bytes into a local buffer.' }] },
+                        { text: 'incoming[len] = 0;', blocks: [{ id: 'mc-wireless-wmesh-11e', type: 'markdown', content: 'Adds null terminator to safely convert to a String.' }] },
+                        { text: 'String msg = String(incoming);', blocks: [{ id: 'mc-wireless-wmesh-11e1', type: 'markdown', content: 'Converts bytes into a string for easier field parsing and logging.' }] },
+                        { text: 'Serial.println("Node C received: " + msg);', blocks: [{ id: 'mc-wireless-wmesh-11f', type: 'markdown', content: 'Displays the final message in Serial Monitor.' }] }
+                      ]
+                    }}
+                    ,{ id: 'mc-wireless-wmesh-11g', type: 'codetooltip', content: 'bool isTargetForNodeC(String msg) {\n  int start = msg.indexOf("target=") + 7;\n  int end = msg.indexOf(";", start);\n  if (start < 7 || end < 0) return false;\n\n  String target = msg.substring(start, end);\n  return target == "C";\n}', metadata: {
+                      language: 'cpp',
+                      parts: [
+                        { text: 'int start = msg.indexOf("target=") + 7;', blocks: [{ id: 'mc-wireless-wmesh-11g1', type: 'markdown', content: 'Locates where the target field begins in the packet.' }] },
+                        { text: 'if (start < 7 || end < 0) return false;', blocks: [{ id: 'mc-wireless-wmesh-11g2', type: 'markdown', content: 'Rejects malformed packets that cannot be parsed safely.' }] },
+                        { text: 'return target == "C";', blocks: [{ id: 'mc-wireless-wmesh-11g3', type: 'markdown', content: 'Processes only packets addressed to Node C.' }] }
+                      ]
+                    }}
+                  ]},
+
+                  { id: 'mc-wireless-wmesh-12', type: 'markdown', content: '## ✅ Test Checklist\n\n- Confirm all 3 nodes connect to Wi-Fi\n- Write down each node\'s IP from Serial Monitor\n- Update `relayIp` and `nextHopIp` in sketches\n- Start Node B and Node C first, then Node A\n- Verify TTL decreases as packet moves through the network' },
+
+                  { id: 'mc-wireless-wmesh-13', type: 'note', content: 'If packets are not arriving, verify that all nodes use the same UDP port, are on the same Wi-Fi network, and that firewall/router settings are not blocking local UDP traffic.' },
+
+                  { id: 'mc-wireless-wmesh-14', type: 'markdown', content: '## 🚀 Extension Ideas\n\n- Add acknowledgements (`ACK`) so Node A knows delivery succeeded\n- Add node IDs from a config file for easier scaling\n- Forward to multiple next hops for redundant paths\n- Send real sensor values instead of fixed test data' }
                 ]
               }
             ]
