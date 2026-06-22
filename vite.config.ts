@@ -27,7 +27,8 @@ export default defineConfig(({ mode }) => {
         targets: [
           { src: 'images/*', dest: 'images' },
           { src: 'plotly/*', dest: 'plotly' },
-          { src: '3dmodels/*', dest: '3dmodels' }
+          { src: '3dmodels/*', dest: '3dmodels' },
+          { src: 'webdownloads/*', dest: 'webdownloads' }
         ]
       })
       ],

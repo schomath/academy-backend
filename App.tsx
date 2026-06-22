@@ -90,6 +90,7 @@ const CategoryCard: React.FC<{
   // when the card is expanded so the header has a nice colored background.
   const colorMap: Record<string, string> = {
     blue: 'from-blue-500 to-indigo-600',
+    cyan: 'from-cyan-500 to-cyan-700',
     purple: 'from-purple-500 to-pink-600',
     emerald: 'from-emerald-500 to-teal-600'
   };
@@ -100,7 +101,7 @@ const CategoryCard: React.FC<{
       {/* clickable header area */}
       <div 
         onClick={onToggle} // toggle expansion when header is clicked
-        className={`p-8 cursor-pointer flex items-center justify-between bg-gradient-to-r transition-all duration-500 ${isExpanded ? colorMap[category.color] : 'bg-white/70 hover:bg-white/85'}`}
+        className={`p-8 cursor-pointer flex items-center justify-between bg-gradient-to-r transition-all duration-500 ${isExpanded ? (colorMap[category.color] || colorMap.cyan) : 'bg-white/70 hover:bg-white/85'}`}
       >
         <div className="flex items-center gap-6">
           {/* emoji/icon representing the category */}

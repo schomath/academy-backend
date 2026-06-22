@@ -555,6 +555,82 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       );
     }
 
+    case 'download': {
+      const rawFileName =
+        typeof block.metadata?.fileName === 'string' && block.metadata.fileName.trim().length > 0
+          ? block.metadata.fileName.trim()
+          : typeof block.metadata?.file === 'string' && block.metadata.file.trim().length > 0
+            ? block.metadata.file.trim()
+            : '';
+      const title =
+        typeof block.content === 'string' && block.content.trim().length > 0
+          ? block.content.trim()
+          : typeof block.title === 'string'
+            ? block.title
+            : '';
+      const description =
+        typeof block.metadata?.description === 'string' && block.metadata.description.trim().length > 0
+          ? block.metadata.description
+          : '';
+      const buttonLabel =
+        typeof block.metadata?.buttonLabel === 'string' && block.metadata.buttonLabel.trim().length > 0
+          ? block.metadata.buttonLabel
+          : 'Download File';
+
+      if (!rawFileName) {
+        return (
+          <AnimatedBlock>
+            <div className="my-6 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-700">
+              Download block is missing metadata.fileName.
+            </div>
+          </AnimatedBlock>
+        );
+      }
+
+      const fileName = rawFileName;
+      const downloadHref = `./webdownloads/${encodeURI(fileName)}`;
+
+      return (
+        <AnimatedBlock>
+          <div className="my-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-xl">
+            <div className="flex items-start gap-4">
+              <a
+                href={downloadHref}
+                download={fileName}
+                className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-base font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-700"
+                aria-label={`${buttonLabel}: ${fileName}`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3v11" />
+                  <path d="m7 11 5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                {buttonLabel}
+              </a>
+              <div>
+                {title ? (
+                  <h4 className="text-2xl font-semibold text-slate-800">{title}</h4>
+                ) : null}
+                {description ? (
+                  <p className="mt-2 text-lg text-slate-600">{description}</p>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+      );
+    }
+
     case 'markdown':
       return (
         <AnimatedBlock>

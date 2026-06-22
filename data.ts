@@ -7,6 +7,159 @@ import { Category } from './types';
 
 export const CATEGORIES: Category[] = [
 
+  { id: 'stem',
+    title: 'STEM Essentials',
+    emoji: '📐',
+    description: 'Fundamental concepts and skills for STEM fields.',
+    color: 'cyan',
+
+    // COURSES:
+    courses: [
+      { id: 'math',
+        title: 'Mathematics',
+        emoji: '📏',
+        description: 'Core mathematical principles and techniques for STEM.',
+        modules: [],
+        moduleCategories: [
+          { id: 'atm',
+            title: 'Applied Technical Math',
+            emoji: '🧮',
+            modules: [
+              {
+                id: 'atm-wnooo',
+                title: 'Whole Numbers and Operations',
+                description: 'Understanding whole numbers, basic operations, and their applications.',
+                blocks: [
+                  {id: 'atm-wnooo-1', type: 'markdown', content: 'Whole numbers are the set of non-negative integers, including zero (0, 1, 2, 3, ...). They are used for counting and ordering. Basic operations on whole numbers include addition, subtraction, multiplication, and division.'},
+                ]
+              },
+
+              {
+                id: 'atm-sign',
+                title: 'Signed Numbers',
+                description: 'Understanding signed numbers, their operations, and applications.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'atm-frac',
+                title: 'Fractions and Decimals',
+                description: 'Understanding fractions, decimals, and their conversions.',
+                blocks: []
+              },
+
+              {
+                id: 'atm-measure',
+                title: 'Measurement and Units',
+                description: 'Understanding measurement concepts and units.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'atm-alg',
+                title: 'Algebraic Concepts',
+                description: 'Introduction to algebraic concepts and their applications.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'atm-eqf',
+                title: 'Equations & Formulas',
+                description: 'Understanding and applying equations and formulas in various contexts.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'atm-slope',
+                title: 'Slope and Linear Relationships',
+                description: 'Understanding slope, linear relationships, and their applications.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'atm-systems',
+                title: 'Systems of Equations',
+                description: 'Understanding systems of equations and methods for solving them.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'atm-quad',
+                title: 'Quadratic Equations',
+                description: 'Understanding quadratic equations and methods for solving them.',
+                blocks: [
+
+                ]
+              },
+            ]
+          },
+
+          {
+            id: 'geotrig',
+            title: 'Geometry & Trigonometry',
+            emoji: '📐',
+            modules: [
+              {
+                id: 'gt-geom',
+                title: 'Geometry',
+                description: 'Understanding geometric concepts, shapes, and their properties.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'gt-trig',
+                title: 'Trigonometry',
+                description: 'Understanding trigonometric functions, identities, and applications.',
+                blocks: [
+
+                ]
+              }
+            ]
+          },
+
+          {
+            id: 'linalg',
+            title: 'Linear Algebra',
+            emoji: '📊',
+            modules: [
+              {
+                id: 'la-vec',
+                title: 'Vectors',
+                description: 'Understanding vectors, their properties, and operations.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'la-mat',
+                title: 'Matrices',
+                description: 'Understanding matrices, their properties, and operations.',
+                blocks: [
+                  { id: 'la-mat-download', type: 'download', content: 'Test download for this webpage (this won\'t actually download anything!', metadata: { fileName: 'linear_algebra_matrices.pdf', alt: 'Downloadable PDF on Linear Algebra Matrices', format: 'no-shadow', description: 'Again don\'t expect this to actually do anything'} }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
   // CATEGORY: Mechatronics
   { id: 'mechatronics',
     title: 'Mechatronics',
@@ -2428,21 +2581,21 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              { id: 'robai-arch-intro-rbs',
-                title: 'Mathematical Representations',
-                description: 'Modeling robot components as rigid bodies and using rotation matrices for orientation.',
-                blocks: [
+              // { id: 'robai-arch-intro-rbs',
+              //   title: 'Mathematical Representations',
+              //   description: 'Modeling robot components as rigid bodies and using rotation matrices for orientation.',
+              //   blocks: [
                 
-                ]
-              },
+              //   ]
+              // },
 
-              { id: 'robai-arch-intro-trans',
-                title: 'Homogeneous Transformations',
-                description: 'Combining rotation and translation in homogeneous transformation matrices.',
-                blocks: [
+              // { id: 'robai-arch-intro-trans',
+              //   title: 'Homogeneous Transformations',
+              //   description: 'Combining rotation and translation in homogeneous transformation matrices.',
+              //   blocks: [
                 
-                ]
-              },
+              //   ]
+              // },
             ]
           },
 
@@ -2450,81 +2603,89 @@ export const CATEGORIES: Category[] = [
             title: 'Kinematics of Robotic Systems',
             emoji: '🦾',
             modules: [
-              { id: 'robai-arch-kinematics-forward',
-                title: 'Forward Kinematics',
-                description: 'Calculating the position and orientation of the robot\'s end-effector from joint parameters.',
-                blocks: [
+              // { id: 'robai-arch-kinematics-forward',
+              //   title: 'Forward Kinematics',
+              //   description: 'Calculating the position and orientation of the robot\'s end-effector from joint parameters.',
+              //   blocks: [
               
-                ]
-              },
+              //   ]
+              // },
 
-              { id: 'robai-arch-kinematics-jacobian',
-                title: 'Jacobian Matrix',
-                description: 'Relating joint velocities to end-effector velocities using the Jacobian matrix.',
-                blocks: [
+              // { id: 'robai-arch-kinematics-jacobian',
+              //   title: 'Jacobian Matrix',
+              //   description: 'Relating joint velocities to end-effector velocities using the Jacobian matrix.',
+              //   blocks: [
 
-                ]
-              },
+              //   ]
+              // },
 
-              { id: 'robai-arch-kinematics-inverse',
-                title: 'Inverse Kinematics',
-                description: 'Determining the joint parameters needed to achieve a desired end-effector position and orientation.',
-                blocks: [
+              // { id: 'robai-arch-kinematics-inverse',
+              //   title: 'Inverse Kinematics',
+              //   description: 'Determining the joint parameters needed to achieve a desired end-effector position and orientation.',
+              //   blocks: [
 
-                ]
-              }
+              //   ]
+              // }
             ]
           },
 
-          { id: 'robai-arch-dyn',
-            title: 'Dynamics & Planning',
-            emoji: '⚽',
-            modules: [
-              { id: 'robai-arch-dyn-open',
-                title: 'Dynamics of Open Chains',
-                description: 'Modeling the dynamics of robotic arms and manipulators with open kinematic chains.',
-                blocks: [
+          // { id: 'robai-arch-dyn',
+          //   title: 'Dynamics & Planning',
+          //   emoji: '⚽',
+          //   modules: [
+          //     { id: 'robai-arch-dyn-open',
+          //       title: 'Dynamics of Open Chains',
+          //       description: 'Modeling the dynamics of robotic arms and manipulators with open kinematic chains.',
+          //       blocks: [
 
-                ]
-              },
+          //       ]
+          //     },
 
-              { id: 'robai-arch-dyn-traj',
-                title: 'Trajectory Planning',
-                description: 'Planning and optimizing the path of a robot\'s end-effector.',
-                blocks: [
+          //     { id: 'robai-arch-dyn-traj',
+          //       title: 'Trajectory Planning',
+          //       description: 'Planning and optimizing the path of a robot\'s end-effector.',
+          //       blocks: [
 
-                ]
-              },
+          //       ]
+          //     },
 
-              { id: 'robai-arch-dyn-mp',
-                title: 'Motion Planning',
-                description: 'Algorithms for motion planning in complex environments, including obstacle avoidance.',
-                blocks: [
+          //     { id: 'robai-arch-dyn-mp',
+          //       title: 'Motion Planning',
+          //       description: 'Algorithms for motion planning in complex environments, including obstacle avoidance.',
+          //       blocks: [
 
-                ]
-              },
-            ]
-          },
+          //       ]
+          //     },
+          //   ]
+          // },
 
           { id: 'robai-arch-control',
             title: 'Control Systems for Robotics',
             emoji: '🎮',
             modules: [
-              { id: 'robai-arch-control-feedback',
-                title: 'Feedback Control',
-                description: 'Designing feedback control systems for stable and responsive robot behavior.',
-                blocks: [
-
-                ]
-              },
-
-              { id: 'robai-arch-control-march',
-                title: 'Modern Robotic Architecture',
-                description: 'Exploring modern robotic architectures and their applications in industry.',
+              { id: 'robai-arch-ctrl-python',
+                title: 'Python Communication & Control Libraries',
+                description: 'Using Python libraries like ROS and PyBullet for robot control and simulation.',
                 blocks: [
 
                 ]
               }
+
+              // { id: 'robai-arch-control-feedback',
+              //   title: 'Feedback Control',
+              //   description: 'Designing feedback control systems for stable and responsive robot behavior.',
+              //   blocks: [
+
+              //   ]
+              // },
+
+              // { id: 'robai-arch-control-march',
+              //   title: 'Modern Robotic Architecture',
+              //   description: 'Exploring modern robotic architectures and their applications in industry.',
+              //   blocks: [
+
+              //   ]
+              // }
             ]
           }
         ]
