@@ -55,7 +55,11 @@ export const CATEGORIES: Category[] = [
                 title: 'Measurement and Units',
                 description: 'Understanding measurement concepts and units.',
                 blocks: [
+                  {id: 'atm-measure-si1', type: 'markdown', content: '# ✨SI System\n\nThe International System of Units (SI) is the modern form of the metric system, designed to standardize all units of measurement. It is based on seven base units: meter (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol), and candela (cd). Derived units are formed by combining these base units, such as newton (N) for force, joule (J) for energy, and pascal (Pa) for pressure.'},
+                  
+                  {id: 'atm-measure-l', type: 'markdown', content: '# 📐Spatial Measurements\n\nSpatial measurements are used to quantify the size, shape, and position of objects in space. Common units of measurement include:\n- **Length**, or distance, measures a *1-Dimensional quantity*, and has many types of units: meters, feet, centimeters, inches, and more\n- **Area** measures a *2-Dimensional* quantity, and has units of square meters, square feet, square centimeters, square inches, and more\n- **Volume** (\is a *3-Dimensional quantity*, and has units of cubic meters, cubic feet, cubic centimeters, cubic inches, and more)\n\nUnderstanding how to measure and convert between different units is essential in various STEM fields.'},
 
+                  {id: 'atm-measurement-t', type: 'markdown', content: '# 🌡️Temperature Measurements\n\nTemperature measurements are used to quantify the degree of hotness or coldness of an object or environment. Common units of measurement include:\n- **Celsius (°C)**\n- **Fahrenheit (°F)**\n- **Kelvin (K)**\n\nUnderstanding how to measure and convert between different temperature units is essential in various scientific and engineering applications.'}
                 ]
               },
 
