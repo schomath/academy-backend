@@ -31,6 +31,9 @@ export const CATEGORIES: Category[] = [
                 description: 'Understanding whole numbers, basic operations, and their applications.',
                 blocks: [
                   {id: 'atm-wnooo-1', type: 'markdown', content: 'Whole numbers are the set of non-negative integers, including zero (0, 1, 2, 3, ...). They are used for counting and ordering. Basic operations on whole numbers include addition, subtraction, multiplication, and division.'},
+                    {id: 'atm-wnooo-2', type: 'markdown', content: '## ➕ Arithmetic Operations and Order of Operations'},
+                    {id: 'atm-wnooo-3', type: 'markdown', content: '## 🔢 Factors, Multiples, and Divisibility'},
+                    {id: 'atm-wnooo-4', type: 'markdown', content: '## 📐 Applying Formulas to Area and Volume'},
                 ]
               },
 
@@ -39,7 +42,10 @@ export const CATEGORIES: Category[] = [
                 title: 'Signed Numbers',
                 description: 'Understanding signed numbers, their operations, and applications.',
                 blocks: [
-
+                    {id: 'atm-sign-1', type: 'markdown', content: '## ➕ Adding and Subtracting Signed Numbers'},
+                    {id: 'atm-sign-2', type: 'markdown', content: '## ✖️ Multiplying and Dividing Signed Numbers'},
+                    {id: 'atm-sign-3', type: 'markdown', content: '## 🔬 Powers of Ten and Scientific Notation'},
+                    {id: 'atm-sign-4', type: 'markdown', content: '## ⚙️ Engineering Notation and Signed Fractions'},
                 ]
               },
 
@@ -47,7 +53,14 @@ export const CATEGORIES: Category[] = [
                 id: 'atm-frac',
                 title: 'Fractions and Decimals',
                 description: 'Understanding fractions, decimals, and their conversions.',
-                blocks: []
+                blocks: [
+                    {id: 'atm-frac-1', type: 'markdown', content: '## 🍰 Fraction Concepts and Equivalent Forms'},
+                    {id: 'atm-frac-2', type: 'markdown', content: '## ➗ Fraction Operations'},
+                    {id: 'atm-frac-3', type: 'markdown', content: '## 🎯 Decimals, Rounding, and Estimation'},
+                    {id: 'atm-frac-4', type: 'markdown', content: '## 🔄 Decimal Operations and Conversions'},
+                    {id: 'atm-frac-5', type: 'markdown', content: '## 💯 Percents, Rates, and Proportional Reasoning'},
+                    {id: 'atm-frac-6', type: 'markdown', content: '## ⬆️ Exponents, Roots, and Percent Applications'},
+                ]
               },
 
               {
@@ -55,20 +68,26 @@ export const CATEGORIES: Category[] = [
                 title: 'Measurement and Units',
                 description: 'Understanding measurement concepts and units.',
                 blocks: [
-                  {id: 'atm-measure-si1', type: 'markdown', content: '# ✨SI System\n\nThe International System of Units (SI) is the modern form of the metric system, designed to standardize all units of measurement. It is based on seven base units: meter (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol), and candela (cd). Derived units are formed by combining these base units, such as newton (N) for force, joule (J) for energy, and pascal (Pa) for pressure.'},
+                    {id: 'atm-measure-metric-1', type: 'markdown', content: '## 📏 Measurement Systems and Unit Conversion'},
+                  {id: 'atm-measure-si1', type: 'markdown', content: '## ✨SI System\n\nThe International System of Units (SI) is the modern form of the metric system, designed to standardize all units of measurement. It is based on seven base units: meter (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol), and candela (cd). Derived units are formed by combining these base units, such as newton (N) for force, joule (J) for energy, and pascal (Pa) for pressure.'},
                   
-                  {id: 'atm-measure-l', type: 'markdown', content: '# 📐Spatial Measurements\n\nSpatial measurements are used to quantify the size, shape, and position of objects in space. Common units of measurement include:\n- **Length**, or distance, measures a *1-Dimensional quantity*, and has many types of units: meters, feet, centimeters, inches, and more\n- **Area** measures a *2-Dimensional* quantity, and has units of square meters, square feet, square centimeters, square inches, and more\n- **Volume** (\is a *3-Dimensional quantity*, and has units of cubic meters, cubic feet, cubic centimeters, cubic inches, and more)\n\nUnderstanding how to measure and convert between different units is essential in various STEM fields.'},
+                  {id: 'atm-measure-l', type: 'markdown', content: '## 📐Spatial Measurements\n\nSpatial measurements are used to quantify the size, shape, and position of objects in space. Common units of measurement include:\n- **Length**, or distance, measures a *1-Dimensional quantity*, and has many types of units: meters, feet, centimeters, inches, and more\n- **Area** measures a *2-Dimensional* quantity, and has units of square meters, square feet, square centimeters, square inches, and more\n- **Volume** (\is a *3-Dimensional quantity*, and has units of cubic meters, cubic feet, cubic centimeters, cubic inches, and more)\n\nUnderstanding how to measure and convert between different units is essential in various STEM fields.'},
 
-                  {id: 'atm-measurement-t', type: 'markdown', content: '# 🌡️Temperature Measurements\n\nTemperature measurements are used to quantify the degree of hotness or coldness of an object or environment. Common units of measurement include:\n- **Celsius (°C)**\n- **Fahrenheit (°F)**\n- **Kelvin (K)**\n\nUnderstanding how to measure and convert between different temperature units is essential in various scientific and engineering applications.'}
+                  {id: 'atm-measurement-t', type: 'markdown', content: '## 🌡️Temperature Measurements\n\nTemperature measurements are used to quantify the degree of hotness or coldness of an object or environment. Common units of measurement include:\n- **Celsius (°C)**\n- **Fahrenheit (°F)**\n- **Kelvin (K)**\n\nUnderstanding how to measure and convert between different temperature units is essential in various scientific and engineering applications.'},
+                    {id: 'atm-measure-accuracy-2', type: 'markdown', content: '## 🎯 Accuracy, Precision, and Measurement Error'},
+                    {id: 'atm-measure-accuracy-3', type: 'markdown', content: '## 🔍 Reading Instruments and Scales'},
+                    {id: 'atm-measure-accuracy-4', type: 'markdown', content: '## 🛠️ Technical Applications: Calipers and Resistor Color Codes'},
                 ]
               },
 
               {
                 id: 'atm-alg',
-                title: 'Algebraic Concepts',
-                description: 'Introduction to algebraic concepts and their applications.',
+                title: 'Algebraic Expressions',
+                description: 'Simplifying, operating on, and interpreting algebraic expressions.',
                 blocks: [
-
+                    {id: 'atm-alg-1', type: 'markdown', content: '## 🔤 Variables, Terms, and Like Terms'},
+                    {id: 'atm-alg-2', type: 'markdown', content: '## ✨ Simplifying and Evaluating Expressions'},
+                    {id: 'atm-alg-3', type: 'markdown', content: '## ➗ Polynomial Operations'},
                 ]
               },
 
@@ -77,16 +96,22 @@ export const CATEGORIES: Category[] = [
                 title: 'Equations & Formulas',
                 description: 'Understanding and applying equations and formulas in various contexts.',
                 blocks: [
-
+                    {id: 'atm-eqf-1', type: 'markdown', content: '## 🟰 Solving Linear Equations'},
+                    {id: 'atm-eqf-2', type: 'markdown', content: '## ➗ Equations with Parentheses and Fractions'},
+                    {id: 'atm-eqf-3', type: 'markdown', content: '## 🗣️ Translating and Modeling with Equations'},
+                    {id: 'atm-eqf-4', type: 'markdown', content: '## 🔄 Formulas, Substitution, and Rearrangement'},
                 ]
               },
 
               {
                 id: 'atm-slope',
-                title: 'Slope and Linear Relationships',
-                description: 'Understanding slope, linear relationships, and their applications.',
+                title: 'Ratios, Functions, and Linear Relationships',
+                description: 'Modeling proportional and linear relationships with equations and graphs.',
                 blocks: [
-
+                    {id: 'atm-slope-1', type: 'markdown', content: '## ⚖️ Ratios, Rates, and Proportions'},
+                    {id: 'atm-slope-2', type: 'markdown', content: '## 🔁 Direct and Inverse Variation'},
+                    {id: 'atm-slope-3', type: 'markdown', content: '## 📈 Linear Functions and Their Graphs'},
+                    {id: 'atm-slope-4', type: 'markdown', content: '## 📉 Slope and Forms of a Line'},
                 ]
               },
 
@@ -95,16 +120,22 @@ export const CATEGORIES: Category[] = [
                 title: 'Systems of Equations',
                 description: 'Understanding systems of equations and methods for solving them.',
                 blocks: [
-
+                    {id: 'atm-systems-1', type: 'markdown', content: '## 📊 Solving Systems by Graphing'},
+                    {id: 'atm-systems-2', type: 'markdown', content: '## ➕ Solving Systems by Elimination'},
+                    {id: 'atm-systems-3', type: 'markdown', content: '## 🔁 Solving Systems by Substitution'},
+                    {id: 'atm-systems-4', type: 'markdown', content: '## 🧩 Modeling with Systems of Equations'},
                 ]
               },
 
               {
                 id: 'atm-quad',
-                title: 'Quadratic Equations',
-                description: 'Understanding quadratic equations and methods for solving them.',
+                title: 'Factoring and Quadratic Equations',
+                description: 'Factoring expressions and solving, graphing, and applying quadratic equations.',
                 blocks: [
-
+                    {id: 'atm-quad-1', type: 'markdown', content: '## 🧩 Factoring Polynomials and Special Products'},
+                    {id: 'atm-quad-2', type: 'markdown', content: '## ✖️ Solving Quadratic Equations by Factoring'},
+                    {id: 'atm-quad-3', type: 'markdown', content: '## 🧮 The Quadratic Formula and Complex Solutions'},
+                    {id: 'atm-quad-4', type: 'markdown', content: '## 📈 Graphing and Applying Quadratic Functions'},
                 ]
               },
             ]
@@ -120,7 +151,10 @@ export const CATEGORIES: Category[] = [
                 title: 'Geometry',
                 description: 'Understanding geometric concepts, shapes, and their properties.',
                 blocks: [
-
+                    {id: 'gt-geom-1', type: 'markdown', content: '## 📐 Angles, Polygons, and Quadrilaterals'},
+                    {id: 'gt-geom-2', type: 'markdown', content: '## 🔺 Triangles and Similarity'},
+                    {id: 'gt-geom-3', type: 'markdown', content: '## ⭕ Circles and Radian Measure'},
+                    {id: 'gt-geom-4', type: 'markdown', content: '## 🧊 Area and Volume of Three-Dimensional Figures'},
                 ]
               },
 
@@ -129,7 +163,11 @@ export const CATEGORIES: Category[] = [
                 title: 'Trigonometry',
                 description: 'Understanding trigonometric functions, identities, and applications.',
                 blocks: [
-
+                    {id: 'gt-trig-1', type: 'markdown', content: '## 📐 Right-Triangle Trigonometry'},
+                    {id: 'gt-trig-2', type: 'markdown', content: '## 🧭 Solving Right Triangles and Applications'},
+                    {id: 'gt-trig-3', type: 'markdown', content: '## 🌊 Sine and Cosine Functions'},
+                    {id: 'gt-trig-4', type: 'markdown', content: '## 📈 Period, Phase Shift, and Graph Transformations'},
+                    {id: 'gt-trig-5', type: 'markdown', content: '## 🔺 Oblique Triangles: Laws of Sines and Cosines'},
                 ]
               }
             ]
