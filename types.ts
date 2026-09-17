@@ -1,5 +1,5 @@
 
-export type ContentBlockType = 'text' | 'webimage' | 'image' | 'video' | 'youtubeplaylist' | 'lab' | 'assignment' | 'note' |  'markdown' | 'markdownfile' | 'dropdown' | 'latex' | 'latextooltip' | 'codetooltip' | 'markdowntooltip' | 'plotly' | 'model3d' | 'download';
+export type ContentBlockType = 'text' | 'webimage' | 'image' | 'video' | 'videoautoplay' | 'youtubeplaylist' | 'lab' | 'assignment' | 'note' |  'markdown' | 'markdownfile' | 'dropdown' | 'latex' | 'latextooltip' | 'codetooltip' | 'markdowntooltip' | 'plotly' | 'model3d' | 'download' | 'columns';
 
 export interface ContentBlock {
   id: string;

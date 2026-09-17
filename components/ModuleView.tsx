@@ -398,6 +398,30 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
           </div>
         </AnimatedBlock>
       );
+    case 'videoautoplay':
+      const autoplaySrc = (() => {
+        try {
+          const url = new URL(block.content);
+          url.searchParams.set('autoplay', '1');
+          url.searchParams.set('mute', '1');
+          return url.toString();
+        } catch {
+          return block.content;
+        }
+      })();
+      return (
+        <AnimatedBlock>
+          <div className="my-8 aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-200 max-w-xl">
+            <iframe
+              className="w-full h-full"
+              src={autoplaySrc}
+              title="Video Content"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </AnimatedBlock>
+      );
     case 'youtubeplaylist':
       return (
         <AnimatedBlock>
@@ -470,6 +494,45 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
           </details>
         </AnimatedBlock>
       );
+
+      //   {
+      //   id: 'example-columns',
+      //   type: 'columns',
+      //   content: '',
+      //   metadata: {
+      //     columns: [
+      //       [ { id: 'col1-a', type: 'markdown', content: 'Left tile content' } ],
+      //       [ { id: 'col2-a', type: 'image', content: 'foo.png' }, { id: 'col2-b', type: 'note', content: 'Second block in same tile' } ],
+      //       [ { id: 'col3-a', type: 'latex', content: 'x^2' } ],
+      //     ],
+      //     // optional relative widths, e.g. [2, 1, 1] to make the first column twice as wide
+      //     widths: [2, 1, 1]
+      //   }
+      // }
+
+    case 'columns': {
+      // Each entry in `columns` is its own list of content blocks rendered as one tile.
+      const columns: ContentBlock[][] = Array.isArray(block.metadata?.columns) ? block.metadata.columns : [];
+      const widths: number[] | undefined = Array.isArray(block.metadata?.widths) ? block.metadata.widths : undefined;
+
+      return (
+        <AnimatedBlock>
+          <div className="my-8 flex flex-col md:flex-row gap-6">
+            {columns.map((columnBlocks, colIdx) => (
+              <div
+                key={colIdx}
+                className="flex-1 min-w-0 space-y-4"
+                style={widths?.[colIdx] ? { flexGrow: widths[colIdx], flexBasis: 0 } : undefined}
+              >
+                {columnBlocks.map((childBlock) => (
+                  <BlockRenderer key={childBlock.id} block={childBlock} />
+                ))}
+              </div>
+            ))}
+          </div>
+        </AnimatedBlock>
+      );
+    }
 
     case 'latex': {
       const html = katex.renderToString(block.content, {

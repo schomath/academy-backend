@@ -25,15 +25,95 @@ export const CATEGORIES: Category[] = [
             title: 'Applied Technical Math',
             emoji: '🧮',
             modules: [
-              {
-                id: 'atm-wnooo',
-                title: 'Whole Numbers and Operations',
-                description: 'Understanding whole numbers, basic operations, and their applications.',
+              // {
+              //   id: 'atm-wnooo',
+              //   title: 'Whole Numbers and Operations',
+              //   description: 'Understanding whole numbers, basic operations, and their applications.',
+              //   blocks: [
+              //     // {id: 'atm-wnooo-1', type: 'markdown', content: 'Whole numbers are the set of non-negative integers, including zero (0, 1, 2, 3, ...). They are used for counting and ordering. Basic operations on whole numbers include addition, subtraction, multiplication, and division.'},
+              //     {id: 'atm-wnooo-2', type: 'markdown', content: '## ➕ Arithmetic Operations and Order of Operations'},
+              //     {id: 'atm-wnooo-2a', type: 'markdown', content: 'The basic operations we\'ll start with are:\n- Addition\n- Subtraction\n- Multiplication\n- Division\n\nWhile we\'ll eventually use a calculator, it helps to know how to perform these operations by hand on paper. We refer to these calculations as "long" calculations:'},
+              //     { id: 'atm-wnooo-2b', type: 'dropdown', content: 'Long Addition', children: [
+              //       { id: 'atm-wnooo-2bv', type: 'videoautoplay', content: ''},
+              //     ]},
+              //     { id: 'atm-wnooo-2c', type: 'dropdown', content: 'Long Subtraction', children: [
+
+              //     ]},
+              //     { id: 'atm-wnooo-2d', type: 'dropdown', content: 'Long Multiplication', children: [
+
+              //     ]},
+              //     { id: 'atm-wnooo-2e', type: 'dropdown', content: 'Long Division', children: [
+              //       {id: 'atm-wnooo-2ed', type: 'markdown', content: 'Long division is a bit more of an intricate process. Note down the names of each parts of the equation.'},
+              //       {id: 'atm-wnooo-2ei', type: 'image', content: 'math_simple_longdiv.png'},
+              //       {id: 'atm-wnooo-2ev', type: 'videoautoplay', content: ''},
+              //     ]},
+              //     // Save this space for video integration
+              //     {id: 'atm-wnooo-2f', type: 'markdown', content: 'Often, we will need to perform multiple types of arithmatic operations in a single calculation. In mathematics, **the order in which we perform these operations matters a lot!!!**. We call this the **order of operations**. We can remember this order using the acronym **PEMDAS** (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction). The rule breaks down as the following:\n- **P**erenthesis: any calculation enclosed in parenthesis happens first.\n- **E**xponents: any powers or roots are calculated next.\n- **M**ultiplication and **D**ivision: these operations are performed from left to right.\n- **A**ddition and **S**ubtraction: these operations are performed last, from left to right.'},
+              //     // { id: 'atm-wnooo-2g', type: 'note', content: 'PEMDAS applies inside of parenthesis! For example: In the expression $3 \\times (4 + 2 \\times 2)$, we first apply PEMDAS to the inside of the parenthesis (so $2 \\times 2 = 4$, then $4 + 4 = 8$), and finally perform the multiplication ($3 \\times 8 = 24$).'},
+              //     { id: 'atm-wnooo-2h', type: 'dropdown', content: 'PEMDAS Example 1', children: [
+              //       {id: 'atm-wnooo-2h1', type: 'markdown', content: 'Evaluate the following expression:'},
+              //       {id: 'atm-wnooo-2h2', type: 'latex', content: '6 + 2 \\times (5 - 3)'},
+              //       {id: 'atm-wnooo-2h3', type: 'markdown', content: '1. **Parenthesis first:**'},
+              //       {id: 'atm-wnooo-2h4', type: 'latex', content: '5 - 3 = 2 \\quad \\Rightarrow \\quad 6 + 2 \\times 2'},
+              //       {id: 'atm-wnooo-2h5', type: 'markdown', content: '2. **Multiplication:**'},
+              //       {id: 'atm-wnooo-2h6', type: 'latex', content: '2 \\times 2 = 4 \\quad \\Rightarrow \\quad 6 + 4'},
+              //       {id: 'atm-wnooo-2h7', type: 'markdown', content: '3. **Addition:**'},
+              //       {id: 'atm-wnooo-2h8', type: 'latex', content: '6 + 4 = 10'},
+              //     ]},
+              //     { id: 'atm-wnooo-2i', type: 'dropdown', content: 'PEMDAS Example 2', children: [
+              //       {id: 'atm-wnooo-2i1', type: 'markdown', content: 'Evaluate the following expression:'},
+              //       {id: 'atm-wnooo-2i2', type: 'latex', content: '20 - 8 \\div 2 + (3 \\times 2)'},
+              //       {id: 'atm-wnooo-2i3', type: 'markdown', content: '1. **Parenthesis first:**'},
+              //       {id: 'atm-wnooo-2i4', type: 'latex', content: '3 \\times 2 = 6 \\quad \\Rightarrow \\quad 20 - 8 \\div 2 + 6'},
+              //       {id: 'atm-wnooo-2i5', type: 'markdown', content: '2. **Division:**'},
+              //       {id: 'atm-wnooo-2i6', type: 'latex', content: '8 \\div 2 = 4 \\quad \\Rightarrow \\quad 20 - 4 + 6'},
+              //       {id: 'atm-wnooo-2i7', type: 'markdown', content: '3. **Addition and Subtraction (left to right):**'},
+              //       {id: 'atm-wnooo-2i8', type: 'latex', content: '20 - 4 = 16 \\quad \\Rightarrow \\quad 16 + 6 = 22'},
+              //     ]},
+              //     { id: 'atm-wnooo-2j', type: 'dropdown', content: 'PEMDAS Example 3', children: [
+              //       {id: 'atm-wnooo-2j1', type: 'markdown', content: 'Evaluate the following expression:'},
+              //       {id: 'atm-wnooo-2j2', type: 'latex', content: '(10 - 4) \\times 3 + 12 \\div 4'},
+              //       {id: 'atm-wnooo-2j3', type: 'markdown', content: '1. **Parenthesis first:**'},
+              //       {id: 'atm-wnooo-2j4', type: 'latex', content: '10 - 4 = 6 \\quad \\Rightarrow \\quad 6 \\times 3 + 12 \\div 4'},
+              //       {id: 'atm-wnooo-2j5', type: 'markdown', content: '2. **Multiplication and Division (left to right):**'},
+              //       {id: 'atm-wnooo-2j6', type: 'latex', content: '6 \\times 3 = 18, \\quad 12 \\div 4 = 3 \\quad \\Rightarrow \\quad 18 + 3'},
+              //       {id: 'atm-wnooo-2j7', type: 'markdown', content: '3. **Addition:**'},
+              //       {id: 'atm-wnooo-2j8', type: 'latex', content: '18 + 3 = 21'},
+              //     ]},
+                  
+              //     {id: 'atm-wnooo-3', type: 'markdown', content: '## 🔢 Factors, Multiples, and Divisibility'},
+              //   ]
+              // },
+
+              { id: 'atm-ops',
+                title: 'Numbers and Operations',
+                description: 'Understanding basic mathematical operations and their properties.',
                 blocks: [
-                  {id: 'atm-wnooo-1', type: 'markdown', content: 'Whole numbers are the set of non-negative integers, including zero (0, 1, 2, 3, ...). They are used for counting and ordering. Basic operations on whole numbers include addition, subtraction, multiplication, and division.'},
-                    {id: 'atm-wnooo-2', type: 'markdown', content: '## ➕ Arithmetic Operations and Order of Operations'},
-                    {id: 'atm-wnooo-3', type: 'markdown', content: '## 🔢 Factors, Multiples, and Divisibility'},
-                    {id: 'atm-wnooo-4', type: 'markdown', content: '## 📐 Applying Formulas to Area and Volume'},
+                    {id: 'atm-ops-1', type: 'markdown', content: '# 🔢 Number Representations\n\nThe most standard representations of numbers is called the **base 10 system**, where we use nine *symbols* to indicate a quantity (i.e 0 through 9). Once we need to count to **more than 9**, we add another symbol to the left of the first.'},
+                    {id: 'atm-ops-1b', type: 'note', content: 'We refer to these individual symbols as **digits**. For example, the number 19 has the digit 1 in the tens place and the digit 9 in the ones place.'},
+                    {id: 'atm-ops-1c', type: 'markdown', content: 'In the base 10 system, the position of each digit determines its value. For example, in the number 345, the digit 3 represents 300 because it is in the hundreds place, the 4 represents 40 because it is in the tens place, and the 5 represents 5 because it is in the ones place - representing \`300 + 40 + 5 = 345\`.'},
+                    {id: 'atm-ops-1d', type: 'image', content: 'math_simple_digitplace.png', metadata: { alt: 'Diagram showing what value each digit holds', format: 'no-shadow'}},
+                    {id: 'atm-ops-1e', type: 'dropdown', content: 'See how 7,426,315 is calculated', children: [
+                      {id: 'atm-ops-1e-1', type: 'markdown', content: 'The number `7,426,315` can be broken down as follows:\n- 7 × 10^6 = 7,000,000\n- 4 × 10^5 = 400,000\n- 2 × 10^4 = 20,000\n- 6 × 10^3 = 6,000\n- 3 × 10^2 = 300\n- 1 × 10^1 = 10\n- 5 × 10^0 = 5\n\nAdding these together gives `7,000,000 + 400,000 + 20,000 + 6,000 + 300 + 10 + 5 = 7,426,315`.'},
+
+                    ]},
+                    
+                    {id: 'atm-ops-2', type: 'markdown', content: '# ➕ Addition and Subtraction\n\nAddition and subtraction of whole numbers are the most elementary operations in mathematics. Addition involves combining two or more numbers to get a total, while subtraction involves finding the *difference* between numbers.'},
+                    
+                    {id: 'atm-ops-3', type: 'markdown', content: '# ✖️ Multiplication and Division'},
+
+                    {id: 'atm-ops-33', type: 'markdown', content: '# 👆 Exponents'},
+
+                    {id: 'atm-ops-4', type: 'markdown', content: '# 🔄 Order of Operations (PEMDAS)\n\nIn the case that we need to perform multiple operations in a single calculation, we can\'t simply do the math left to right. In an equation, we must do certain opeartions before others - referred to as the **Order of Operations**. The order goes as follows:\n- **Parenthesis**: Any calculation in parenthesis happens first\n- **Exponents**: any exponents are calculated next\n- **Multiplication and Division**: We then perform any multiplication or division we see, from left to right\n- **Addition and Subtraction**: finally, we do any addition or subtraction, from left to right'},
+                    {id: 'atm-ops-4b', type: 'dropdown', content: 'PEMDAS Example', children: [
+                      {id: 'atm-ops-4b-1', type: 'markdown', content: 'Consider the expression `3 + 6 × (5 + 4) ÷ 3 - 7`. According to PEMDAS, we first calculate the expression inside the parenthesis: `5 + 4 = 9`. The expression now becomes `3 + 6 × 9 ÷ 3 - 7`. Next, we perform multiplication and division from left to right: `6 × 9 = 54` and `54 ÷ 3 = 18`. The expression now is `3 + 18 - 7`. Finally, we perform addition and subtraction from left to right: `3 + 18 = 21` and `21 - 7 = 14`. So, the final result is `14`.'},
+                    ]},
+                    {id: 'atm-ops-4c', type: 'dropdown', content: 'PEMDAS Word Problem Example', children: [
+                      {id: 'atm-ops-4c-1', type: 'markdown', content: '**Consider the word problem**: "Mathias buys delicious durian fruits from Thailand in crates of `12`. If Mathias currently has `3` durian crates and purchases `4` more, how many total durians does Mathias have?'},
+                      {id: 'atm-ops-4c-2', type: 'markdown', content: 'Since each crate contains `12` durians, we can multiply the number of crates by how many durians they contain (i.e. `12 × [number of crates]`) to get the total number of durains. Now, observe the following two ways of solving this:'},
+                      {id: 'atm-ops-4c-3', type: 'markdown', content: 'If we write out the equation fully, we have `3 × 12 + 4 × 12 = 84`.\n- **Incorrect Solution:** If we simply calculate from left to right (multiply, then add 4, then multiply by 12 again), we end up with `3 × 12 + 4 × 12 = 480` - which is *incorrect* and gives Mathias false hope regarding his durian stocks.\n- **Correct Solution**: We follow the proper order of operations (PEMDAS), first performing the multiplications and then the addition: `3 × 12 + 4 × 12 = 36 + 48 = 84`.'},
+                    ]}
+                    // {id: 'atm-ops-4b', type: 'markdwon', content: ''}
                 ]
               },
 
@@ -42,10 +122,41 @@ export const CATEGORIES: Category[] = [
                 title: 'Signed Numbers',
                 description: 'Understanding signed numbers, their operations, and applications.',
                 blocks: [
-                    {id: 'atm-sign-1', type: 'markdown', content: '## ➕ Adding and Subtracting Signed Numbers'},
-                    {id: 'atm-sign-2', type: 'markdown', content: '## ✖️ Multiplying and Dividing Signed Numbers'},
-                    {id: 'atm-sign-3', type: 'markdown', content: '## 🔬 Powers of Ten and Scientific Notation'},
-                    {id: 'atm-sign-4', type: 'markdown', content: '## ⚙️ Engineering Notation and Signed Fractions'},
+                    {id: 'atm-sign-0', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-sign-1', type: 'markdown', content: 'Negative numbers can be extremely useful in representing many real world quantities, such as debts, temperatures below zero, elevations below sea level, and more. To better understand negative numbers, visualize a ruler with zero in the middle, positive numbers to the right. Negative numbers would then be on the left, and increase as they got further away from zero.'},
+                    ], [
+                      {id: 'atm-sign-1b', type: 'image', content: 'math_simple_negativeruler.png', metadata: {format: 'no-shadow', alt: 'Ruler showing 0 in the middle with positive numbers to the right and negative numbers to the left. Negative numbers \"increase\" as they get further from zero.'}},
+                    ]], widths: [1, 1]}},
+                    {id: 'atm-sign-2', type: 'markdown', content: '# ➕ Adding and Subtracting Signed Numbers\n\nFor addition, we can think of adding numbers as *moving along the above number line*, where adding a positive number moves us right and adding a negative number moves us left.'},
+                    {id: 'atm-sign-2b', type: 'image', content: 'math_simple_addneg.png', metadata: {format: 'no-shadow', alt: 'Illustration showing addition of negative numbers on the number line.\n1. First, start at the number on the left of the plus symbol.\n2. Then, move right for a positive number or left for a negative number.\n3. Wherever you land is the result of the addition!'}},
+                    {id: 'atm-sign-2l', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-sign-2lid', type: 'markdown', content: 'For subtracting numbers, We instead move in the opposite directions on the number line compared to addition - if we are subtracting a **positive number**, we move `left`, and if we are subtracting a **negative number**, we move `right`. However, there is an easier way!'},
+                      {id: 'atm-sign-2lid2', type: 'note', content: 'Subtracting a number is the same as adding its opposite. This simplifies the process and allows us to use the same number line approach as addition. For example:\n- `5 - 3` is the same as `5 + (-3)`\n- `2 - -4` is the same as `2 + 4`'}
+                    ], [
+                      {id: 'atm-sign-2li', type: 'image', content: 'math_simple_subisaddliz.png', metadata: {format: 'no-shadow', alt: 'Illustration showing subtraction is adding the opposite.'}},
+                    ]], widths: [1, 1]}},
+                    
+                    {id: 'atm-sign-3', type: 'markdown', content: '# ✖️ Multiplying and Dividing Signed Numbers'},
+                    {id: 'atm-sign-3a', type: 'markdown', content: 'Multiplying and dividing negative numbers follows a slightly different set of rules compared to addition and subtraction. The key rules are:\n- The product or quotient of two numbers with the **same** sign is positive.\n- The product or quotient of two numbers with **different** signs is negative.'},
+                    {id: 'atm-sign-3b', type: 'dropdown', content: 'Example 1: Simple Multiplication', children: [
+                      {id: 'atm-sign-3b-1', type: 'markdown', content: 'Multiplying two negative numbers: `-3 * -4 = 12`'},
+                      {id: 'atm-sign-3b-2', type: 'markdown', content: 'Multiplying a positive and a negative number: `-3 * 4 = -12`'},
+                      {id: 'atm-sign-3b-2', type: 'markdown', content: 'Multiplying a negative and a positive number: `3 * -4 = -12`'},
+                      {id: 'atm-sign-3b-2', type: 'markdown', content: 'Multiplying two positive numbers: `3 * 4 = 12`'},
+                      {id: 'atm-sign-3b-3', type: 'markdown', content: '*Note, division works the exact same here*'},
+                    ]},
+                    {id: 'atm-sign-3c', type: 'dropdown', content: 'Example 2: PEMDAS Examples', children: [
+                      {id: 'atm-sign-3c-1', type: 'markdown', content: 'PEMDAS Example 1: `3 * (-3 * -2) = 3 * (6) = 18`'},
+                      {id: 'atm-sign-3c-1', type: 'markdown', content: 'PEMDAS Example 2: `-3 * (-3 * -2) = -3 * (6) = -18`'},
+                      {id: 'atm-sign-3c-1', type: 'markdown', content: 'PEMDAS Example 3: `-3 * (-3 * 2) = -3 * (-6) = 18`'},
+                    ]},
+                    {id: 'atm-sign-3d', type: 'dropdown', content: 'Examples 3: More Complex Calculations', children: [
+                      {id: 'atm-sign-3d-1', type: 'markdown', content: 'Complex Calculation 1: `-3 * (4 + -2) = -3 * (2) = -6`'},
+                      {id: 'atm-sign-3d-2', type: 'markdown', content: 'Complex Calculation 2: `(-3 * -2) / 6 = (6) / 6 = 1`'},
+                      {id: 'atm-sign-3d-3', type: 'markdown', content: 'Complex Calculation 3: `-3 * (-2 + 5) = -3 * (3) = -9`'},
+                    ]},
+                    {id: 'atm-sign-4', type: 'markdown', content: '# 🔬 Powers of Ten and Scientific Notation'},
+                    {id: 'atm-sign-5', type: 'markdown', content: '# ⚙️ Engineering Notation and Signed Fractions'},
                 ]
               },
 
@@ -174,9 +285,34 @@ export const CATEGORIES: Category[] = [
           },
 
           {
+            id: 'stats',
+            title: 'Statistics',
+            emoji: '📊',
+            modules: [
+              {
+                id: 'stats-intro',
+                title: 'Intro to Statistics',
+                description: 'Basic concepts and methods in statistics.',
+                blocks: [
+
+                ]
+              },
+
+              {
+                id: 'stats-prob',
+                title: 'Probability',
+                description: 'Basic concepts and methods in probability.',
+                blocks: [
+
+                ]
+              }
+            ],
+          },
+
+          {
             id: 'linalg',
             title: 'Linear Algebra',
-            emoji: '📊',
+            emoji: '⏹️',
             modules: [
               {
                 id: 'la-vec',
