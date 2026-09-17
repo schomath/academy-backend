@@ -165,12 +165,22 @@ export const CATEGORIES: Category[] = [
                 title: 'Fractions and Decimals',
                 description: 'Understanding fractions, decimals, and their conversions.',
                 blocks: [
-                    {id: 'atm-frac-1', type: 'markdown', content: '## 🍰 Fraction Concepts and Equivalent Forms'},
-                    {id: 'atm-frac-2', type: 'markdown', content: '## ➗ Fraction Operations'},
-                    {id: 'atm-frac-3', type: 'markdown', content: '## 🎯 Decimals, Rounding, and Estimation'},
-                    {id: 'atm-frac-4', type: 'markdown', content: '## 🔄 Decimal Operations and Conversions'},
-                    {id: 'atm-frac-5', type: 'markdown', content: '## 💯 Percents, Rates, and Proportional Reasoning'},
-                    {id: 'atm-frac-6', type: 'markdown', content: '## ⬆️ Exponents, Roots, and Percent Applications'},
+                    {id: 'atm-frac-1', type: 'markdown', content: '# 🍰 Fraction Concepts and Equivalent Forms'},
+                    {id: 'atm-frac-1a', type: 'markdown', content: '**Fractions**, or **ratios**, is simply a fancy way of saying one number divided by another number (where the numbers are referred to as the **numerator** and **denominator** respectively).'},
+                    {id: 'atm-frac-1b', type: 'latextooltip', content: '', metadata: {
+                      displayMode: true,
+                      parts: [
+                        {expression: '\\frac{a}{b}', blocks: [{id: 'atm-frac-1b-p1', type: 'markdown', content: 'Numerator `a` being divided by denominator `b`, where `a` and `b` are any numbers.'}]},
+                      ]
+                    }},
+                    {id: 'atm-frac-1c', type: 'markdown', content: 'Now, consider the following numbers:'},
+                    {id: 'atm-frac-1d', type: 'latex', content: '\\frac{2}{4}  ,  0.5  ,  \\frac{1}{2}'},
+                    {id: 'atm-frac-1e', type: 'markdown', content: 'In the above example, all three of these numbers are **actually the same** - this is a concept known as **equivilant form**, or the idea that the same number can be represented in many different ways.\n\n- We know that `2/4` is a division operation, and when we carry it out, we get `0.5`.\n\n- Similarly, when we perform the division `1/2`, we also get `0.5`.'},
+                    {id: 'atm-frac-2', type: 'markdown', content: '# ➗ Fraction Operations'},
+                    {id: 'atm-frac-3', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
+                    {id: 'atm-frac-4', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions'},
+                    {id: 'atm-frac-5', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
+                    {id: 'atm-frac-6', type: 'markdown', content: '# ⬆️ Exponents, Roots, and Percent Applications'},
                 ]
               },
 
