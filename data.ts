@@ -284,11 +284,19 @@ export const CATEGORIES: Category[] = [
                 title: 'Trigonometry',
                 description: 'Understanding trigonometric functions, identities, and applications.',
                 blocks: [
-                    {id: 'gt-trig-1', type: 'markdown', content: '## 📐 Right-Triangle Trigonometry'},
-                    {id: 'gt-trig-2', type: 'markdown', content: '## 🧭 Solving Right Triangles and Applications'},
-                    {id: 'gt-trig-3', type: 'markdown', content: '## 🌊 Sine and Cosine Functions'},
-                    {id: 'gt-trig-4', type: 'markdown', content: '## 📈 Period, Phase Shift, and Graph Transformations'},
-                    {id: 'gt-trig-5', type: 'markdown', content: '## 🔺 Oblique Triangles: Laws of Sines and Cosines'},
+                    {id: 'gt-trig-1', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'gt-trig-1a', type: 'markdown', content: '## What are Radians\n\nMost folks are familiar with using **degrees** to measure angles, where `360°` represents a full circle, `180°` represents a half circle, and `90°` represents a right angle. However, in trigonometry, we often use **radians** instead.\n\nRadians can feel a bit abstract and unintuitive to use at first, but then again, *degrees are also somewhat arbitrary*, you\'re just more used to using them in day-to-day life.\n\n**Radians** are another way to measure angles, where `2π` radians represents a full circle, `π` radians represents a half circle, and `π/2` radians represents a right angle. We use radians as they make future computations involving physics and pure mathematics far easier.'},
+                      {id: 'gt-trig-1b', type: 'note', content: 'The image to the right illustrates what\'s know as the **unit circle** and how **angles in radians correspond to points on the circle.** For now, ignore the numbers in parenthesis on the outside of the circle (we\'ll cover this soon!'},
+                    ], [
+                      {id: 'gt-trig-1-c', type: 'webimage', content: 'https://helpingwithmath.com/wp-content/uploads/2021/10/Unit-Circle-6-768x768.png', metadata: {alt: 'Unit Circle Illustration'}},
+                    ]], widths: [1, 1]}},
+
+                    {id: 'gt-trig-0-2', type: 'note', content: '**Radians are defined as:** a pure ratio with regards to an arc length over a circle’s radius.'},
+                    {id: 'gt-trig-1', type: 'markdown', content: '## 📐 Right-Triangle Trigonometry\n\nWIP'},
+                    {id: 'gt-trig-2', type: 'markdown', content: '## 🧭 Solving Right Triangles and Applications\n\nWIP'},
+                    {id: 'gt-trig-3', type: 'markdown', content: '## 🌊 Sine and Cosine Functions\n\nWIP'},
+                    {id: 'gt-trig-4', type: 'markdown', content: '## 📈 Period, Phase Shift, and Graph Transformations\n\nWIP'},
+                    {id: 'gt-trig-5', type: 'markdown', content: '## 🔺 Oblique Triangles: Laws of Sines and Cosines\n\nWIP'},
                 ]
               }
             ]
