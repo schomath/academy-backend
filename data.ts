@@ -34,7 +34,7 @@ export const CATEGORIES: Category[] = [
               //     {id: 'atm-wnooo-2', type: 'markdown', content: '## ➕ Arithmetic Operations and Order of Operations'},
               //     {id: 'atm-wnooo-2a', type: 'markdown', content: 'The basic operations we\'ll start with are:\n- Addition\n- Subtraction\n- Multiplication\n- Division\n\nWhile we\'ll eventually use a calculator, it helps to know how to perform these operations by hand on paper. We refer to these calculations as "long" calculations:'},
               //     { id: 'atm-wnooo-2b', type: 'dropdown', content: 'Long Addition', children: [
-              //       { id: 'atm-wnooo-2bv', type: 'videoautoplay', content: ''},
+              //       { id: 'atm-wnooo-2bv', type: 'video', content: '', metadata: {autoplay: true}},
               //     ]},
               //     { id: 'atm-wnooo-2c', type: 'dropdown', content: 'Long Subtraction', children: [
 
@@ -45,7 +45,7 @@ export const CATEGORIES: Category[] = [
               //     { id: 'atm-wnooo-2e', type: 'dropdown', content: 'Long Division', children: [
               //       {id: 'atm-wnooo-2ed', type: 'markdown', content: 'Long division is a bit more of an intricate process. Note down the names of each parts of the equation.'},
               //       {id: 'atm-wnooo-2ei', type: 'image', content: 'math_simple_longdiv.png'},
-              //       {id: 'atm-wnooo-2ev', type: 'videoautoplay', content: ''},
+              //       {id: 'atm-wnooo-2ev', type: 'video', content: '', metadata: {autoplay: true}},
               //     ]},
               //     // Save this space for video integration
               //     {id: 'atm-wnooo-2f', type: 'markdown', content: 'Often, we will need to perform multiple types of arithmatic operations in a single calculation. In mathematics, **the order in which we perform these operations matters a lot!!!**. We call this the **order of operations**. We can remember this order using the acronym **PEMDAS** (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction). The rule breaks down as the following:\n- **P**erenthesis: any calculation enclosed in parenthesis happens first.\n- **E**xponents: any powers or roots are calculated next.\n- **M**ultiplication and **D**ivision: these operations are performed from left to right.\n- **A**ddition and **S**ubtraction: these operations are performed last, from left to right.'},
@@ -285,18 +285,18 @@ export const CATEGORIES: Category[] = [
                 description: 'Understanding trigonometric functions, identities, and applications.',
                 blocks: [
                     {id: 'gt-trig-1', type: 'columns', content: '', metadata: {columns: [[
-                      {id: 'gt-trig-1a', type: 'markdown', content: '## What are Radians\n\nMost folks are familiar with using **degrees** to measure angles, where `360°` represents a full circle, `180°` represents a half circle, and `90°` represents a right angle. However, in trigonometry, we often use **radians** instead.\n\nRadians can feel a bit abstract and unintuitive to use at first, but then again, *degrees are also somewhat arbitrary*, you\'re just more used to using them in day-to-day life.\n\n**Radians** are another way to measure angles, where `2π` radians represents a full circle, `π` radians represents a half circle, and `π/2` radians represents a right angle. We use radians as they make future computations involving physics and pure mathematics far easier.'},
+                      {id: 'gt-trig-1a', type: 'markdown', content: '## 📐Units of a Circle\n\nMost folks are familiar with using **degrees** to measure angles, where `360°` represents a full circle, `180°` represents a half circle, and `90°` represents a right angle. However, in trigonometry, we often use **radians** instead.\n\n**✏️Radians are defined as a pure ratio with regards to an arc length over a circle’s radius.**\n\nRadians can feel a bit abstract and unintuitive to use at first, but then again, *degrees are also somewhat arbitrary*, you\'re just more used to using them in day-to-day life.\n\n**Radians** are another way to measure angles, where `2π` radians represents a full circle, `π` radians represents a half circle, and `π/2` radians represents a right angle. We use radians as they make future computations involving physics and pure mathematics far easier.'},
                       {id: 'gt-trig-1b', type: 'note', content: 'The image to the right illustrates what\'s know as the **unit circle** and how **angles in radians correspond to points on the circle.** For now, ignore the numbers in parenthesis on the outside of the circle (we\'ll cover this soon!'},
                     ], [
                       {id: 'gt-trig-1-c', type: 'webimage', content: 'https://helpingwithmath.com/wp-content/uploads/2021/10/Unit-Circle-6-768x768.png', metadata: {alt: 'Unit Circle Illustration'}},
-                    ]], widths: [1, 1]}},
+                    ]], widths: [2, 1]}},
+                    {id: 'gt-trig-1-2', type: 'video', content: 'https://www.youtube.com/embed/fmeHBSe6MbM?si=C77sj2-KcEvNu958', metadata: {autoplay: true, hideControls: true, loop: true, allowFullscreen: true}},
 
-                    {id: 'gt-trig-0-2', type: 'note', content: '**Radians are defined as:** a pure ratio with regards to an arc length over a circle’s radius.'},
-                    {id: 'gt-trig-1', type: 'markdown', content: '## 📐 Right-Triangle Trigonometry\n\nWIP'},
-                    {id: 'gt-trig-2', type: 'markdown', content: '## 🧭 Solving Right Triangles and Applications\n\nWIP'},
-                    {id: 'gt-trig-3', type: 'markdown', content: '## 🌊 Sine and Cosine Functions\n\nWIP'},
-                    {id: 'gt-trig-4', type: 'markdown', content: '## 📈 Period, Phase Shift, and Graph Transformations\n\nWIP'},
-                    {id: 'gt-trig-5', type: 'markdown', content: '## 🔺 Oblique Triangles: Laws of Sines and Cosines\n\nWIP'},
+                    {id: 'gt-trig-2', type: 'markdown', content: '## 📐 Right-Triangle Trigonometry\n\nWIP'},
+                    {id: 'gt-trig-3', type: 'markdown', content: '## 🧭 Solving Right Triangles and Applications\n\nWIP'},
+                    {id: 'gt-trig-4', type: 'markdown', content: '## 🌊 Sine and Cosine Functions\n\nWIP'},
+                    {id: 'gt-trig-5', type: 'markdown', content: '## 📈 Period, Phase Shift, and Graph Transformations\n\nWIP'},
+                    {id: 'gt-trig-6', type: 'markdown', content: '## 🔺 Oblique Triangles: Laws of Sines and Cosines\n\nWIP'},
                 ]
               }
             ]

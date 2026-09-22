@@ -384,44 +384,52 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
           <p className="text-gray-700 leading-relaxed text-lg my-6 hover:text-gray-900 transition-all duration-300">{block.content}</p>
         </AnimatedBlock>
       );
-    case 'video':
-      return (
-        <AnimatedBlock>
-          <div className="my-8 aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-200 max-w-xl">
-            <iframe
-              className="w-full h-full"
-              src={block.content}
-              title="Video Content"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </AnimatedBlock>
-      );
-    case 'videoautoplay':
-      const autoplaySrc = (() => {
+    case 'video': {
+      const autoplay = Boolean(block.metadata?.autoplay);
+      const hideControls = Boolean(block.metadata?.hideControls);
+      const loop = Boolean(block.metadata?.loop);
+      const allowFullscreen = Boolean(block.metadata?.allowFullscreen); 
+
+      const videoSrc = (() => {
         try {
           const url = new URL(block.content);
-          url.searchParams.set('autoplay', '1');
-          url.searchParams.set('mute', '1');
+          if (autoplay) {
+            url.searchParams.set('autoplay', '1');
+            url.searchParams.set('mute', '1');
+          }
+          if (hideControls) {
+            url.searchParams.set('controls', '0');
+          }
+          if (loop) {
+            url.searchParams.set('loop', '1');
+            // YouTube only loops a single video if playlist is set to its own video id
+            const videoId = url.pathname.split('/').pop();
+            if (videoId) {
+              url.searchParams.set('playlist', videoId);
+            }
+          }
           return url.toString();
         } catch {
           return block.content;
         }
       })();
+
       return (
         <AnimatedBlock>
           <div className="my-8 aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-200 max-w-xl">
             <iframe
-              className="w-full h-full"
-              src={autoplaySrc}
+              // YouTube always shows a title/branding overlay on hover regardless of the controls param;
+              // blocking pointer events is the only way to fully suppress it.
+              className={`w-full h-full ${hideControls ? 'pointer-events-none' : ''}`}
+              src={videoSrc}
               title="Video Content"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              allowFullScreen={allowFullscreen}
             ></iframe>
           </div>
         </AnimatedBlock>
       );
+    }
     case 'youtubeplaylist':
       return (
         <AnimatedBlock>
