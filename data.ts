@@ -101,8 +101,28 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-ops-2', type: 'markdown', content: '# ➕ Addition and Subtraction\n\nAddition and subtraction of whole numbers are the most elementary operations in mathematics. Addition involves combining two or more numbers to get a total, while subtraction involves finding the *difference* between numbers.'},
                     
                     {id: 'atm-ops-3', type: 'markdown', content: '# ✖️ Multiplication and Division'},
+                    {id: 'atm-ops-3b', type: 'markdown', content: '**Multiplication** can best be thought of as **repeated addition**. For example, `4 × 3` can be interpreted as adding `4` three times: `4 + 4 + 4 = 12`.'},
+                    {id: 'atm-ops-3c', type: 'dropdown', content: 'See multiplication as repeated addition', children: [
+                      {id: 'atm-ops-3c-1', type: 'markdown', content: 'For example, `5 × 12` can be interpreted as adding `5` twelve times: `5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 = 60`.'},
+                    ]},
+                    {id: 'atm-ops-3c-2', type: 'note', content: 'We can take a shortcut when multiplying numbers by powers of ten (10, 100, 1000, etc.). **When multiplying by a power of 10, simply add the corresponding number of zeros to the end of the number.** For example, `7 × 10 = 70`, `7 × 100 = 700`, and `7 × 1000 = 7000`.'},
+                    {id: 'atm-ops-3d', type: 'markdown', content: '**Division** can be thought of as the inverse of multiplication. For example, `12 ÷ 4` asks how many times `4` fits into `12` evenly, which is `3`. In other words, division answers the question: "How many groups of an **equal size** can be made from a total quantity?". We can *check* our answer by using multiplication on the result (the quotient) by the divisor (the number we divided by): `3 × 4 = 12`.'},
+                    {id: 'atm-ops-3e', type: 'dropdown', content: 'Alternate Perspective: See division as repeated subtraction', children: [
+                      {id: 'atm-ops-3e-1', type: 'markdown', content: 'For example, `12 ÷ 4` can be interpreted as repeatedly subtracting `4` from `12` until we reach `0`: \n1. `12 - 4 = 8`\n2. `8 - 4 = 4`\n3. `4 - 4 = 0`. We subtracted `4` a total of `3` times, so `12 ÷ 4 = 3`.'},
+                    ]},
+                    {id: 'atm-ops-3f', type: 'markdown', content: 'Sometimes, division doesn\'t cleanly give us a result, and we have a *leftover number*. For example, `14 ÷ 4`: if we repeatedly subtract `4` from `14` until we can no longer do so without going negative: \n1. `14 - 4 = 10`\n2. `10 - 4 = 6`\n3. `6 - 4 = 2`.\n\nWe subtracted `4` a total of `3` times, **but** we have a remainder of `2`. So, `14 ÷ 4 = 3` with a remainder of `2` (sometimes written as `3 R2`).'},
+                    {id: 'atm-ops-3g', type: 'dropdown', content: 'See division with remainder as repeated subtraction', children: [
+                      {id: 'atm-ops-3g-1', type: 'markdown', content: 'For example, `25 ÷ 4` can be interpreted as repeatedly subtracting `4` from `25` until we can no longer do so without going negative: \n1. `25 - 4 = 21`\n2. `21 - 4 = 17`\n3. `17 - 4 = 13`\n4. `13 - 4 = 9`\n5. `9 - 4 = 5`\n6. `5 - 4 = 1`. \n\nWe subtracted `4` a total of `6` times, and we have a remainder of `1`. So, `25 ÷ 4 = 6` with a remainder of `1`.'},
+                    ]},
 
                     {id: 'atm-ops-33', type: 'markdown', content: '# 👆 Exponents'},
+                    {id: 'atm-ops-33b', type: 'markdown', content: 'Exponents can be seen in a similar way *repeated* way - specifically as repeated multiplication. For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`.'},
+                    {id: 'atm-ops-33c', type: 'dropdown', content: 'Exponents as Repeated Multiplication: ', children: [
+                      {id: 'atm-ops-33c-1', type: 'markdown', content: 'For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`. Since each multiplication is repeated addition, we can also see this as adding `4` a total of `4 × 4 = 16` three times: `16 + 16 + 16 = 48`.'},
+                    ]},
+                    {id: 'atm-ops-33d', type: 'dropdown', content: 'Exponents as Repeated Multiplication, which is just repeated addition: ', children: [
+                      {id: 'atm-ops-33d-1', type: 'markdown', content: 'For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`. Since each multiplication is repeated addition, we can also see this as:\n- The first `4 × 4 = 4 + 4 + 4 + 4 = 16`, then\n- `16 × 4 = 16 + 16 + 16 + 16 = 64`'},
+                    ]},
 
                     {id: 'atm-ops-4', type: 'markdown', content: '# 🔄 Order of Operations (PEMDAS)\n\nIn the case that we need to perform multiple operations in a single calculation, we can\'t simply do the math left to right. In an equation, we must do certain opeartions before others - referred to as the **Order of Operations**. The order goes as follows:\n- **Parenthesis**: Any calculation in parenthesis happens first\n- **Exponents**: any exponents are calculated next\n- **Multiplication and Division**: We then perform any multiplication or division we see, from left to right\n- **Addition and Subtraction**: finally, we do any addition or subtraction, from left to right'},
                     {id: 'atm-ops-4b', type: 'dropdown', content: 'PEMDAS Example', children: [
@@ -155,7 +175,11 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-sign-3d-2', type: 'markdown', content: 'Complex Calculation 2: `(-3 * -2) / 6 = (6) / 6 = 1`'},
                       {id: 'atm-sign-3d-3', type: 'markdown', content: 'Complex Calculation 3: `-3 * (-2 + 5) = -3 * (3) = -9`'},
                     ]},
+                    
                     {id: 'atm-sign-4', type: 'markdown', content: '# 🔬 Powers of Ten and Scientific Notation'},
+                    {id: 'atm-sign-4b', type: 'markdown', content: 'Often, it is difficult to write out extremely large or extremely small numbers. **Scientific notation** is a standardized way of writing numbers as a **product of a number between 1 and 10 and a power of ten.**\n\nFor example, if we had the number `3000000`, we could write it in scientific notation as `3 × 10^6`.\n\nSimilarly, for a very small number like `0.00042`, we could write it as `4.2 × 10^-4`.'},
+
+
                     {id: 'atm-sign-5', type: 'markdown', content: '# ⚙️ Engineering Notation and Signed Fractions'},
                 ]
               },
