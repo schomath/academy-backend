@@ -128,12 +128,18 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-ops-33', type: 'hline', content: ''},
                     {id: 'atm-ops-33a', type: 'markdown', content: '# 👆 Exponents'},
                     {id: 'atm-ops-33b', type: 'markdown', content: 'Exponents can be seen in a similar way *repeated* way - specifically as repeated multiplication. For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`.'},
+                    {id: 'atm-ops-33col', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-ops-33col1', type: 'markdown', content: 'Note, when typing, we write exponents out using the carrot symbol `^` - such as `4^3`. However, when writing proper math, we instead write an exponent as a smaller number to the top right of the base number, as shown to the right.'},
+                    ], [
+                      {id: 'atm-ops-33col2', type: 'latex', content: '4^3'},
+                    ]], widths: [2, 1]}},
                     {id: 'atm-ops-33c', type: 'dropdown', metadata: {bg: 'pink'}, content: 'Exponents as Repeated Multiplication: ', children: [
                       {id: 'atm-ops-33c-1', type: 'markdown', content: 'For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`. Since each multiplication is repeated addition, we can also see this as adding `4` a total of `4 × 4 = 16` three times: `16 + 16 + 16 = 48`.'},
                     ]},
                     {id: 'atm-ops-33d', type: 'dropdown', content: 'Exponents as Repeated Multiplication, which is just repeated addition: ', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-33d-1', type: 'markdown', content: 'For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`. Since each multiplication is repeated addition, we can also see this as:\n- The first `4 × 4 = 4 + 4 + 4 + 4 = 16`, then\n- `16 × 4 = 16 + 16 + 16 + 16 = 64`'},
                     ]},
+                    {id: 'atm-ops-33e', type: 'note', content: '### Special Exponents\n\nThere are a few special exponents to pay attention to:\n- Any number raised to the 1st power is just that number. For example, `5^1` is just 5.\n- Any number raised to the 0th power is just 1. For example, `5^0` is just 1.'},
 
                     {id: 'atm-ops-4', type: 'hline', content: ''},
                     {id: 'atm-ops-4a', type: 'markdown', content: '# 🔄 Order of Operations (PEMDAS)\n\nIn the case that we need to perform multiple operations in a single calculation, we can\'t simply do the math left to right. In an equation, we must do certain opeartions before others - referred to as the **Order of Operations**. The order goes as follows:\n- **Parenthesis**: Any calculation in parenthesis happens first\n- **Exponents**: any exponents are calculated next\n- **Multiplication and Division**: We then perform any multiplication or division we see, from left to right\n- **Addition and Subtraction**: finally, we do any addition or subtraction, from left to right'},
@@ -233,9 +239,12 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-frac-1e-6', type: 'markdown', content: 'Another way to say this would be that everyone gets *"eight thirds"* of a slice of pizza - though this sounds *improper* - so we instead say everyone gets *"two and two thirds"* of a slice of pizza.'}
                     ]], widths: [1, 1]}},
                     {id: 'atm-frac-1f', type: 'dropdown', content: 'Converting an Improper Fraction to a Mixed Number', metadata: {bg: 'pink'}, children: [
-                      {id: 'atm-frac-1f-1', type: 'markdown', content: 'To convert an improper fraction to a mixed number, we: \n- Subtract the denominator from the numerator. \n- Repeat this process until what remains is less than the denominator. The number of times you subtracted the denominator becomes the whole number part, and the remainder becomes the numerator of the fractional part.'},
+                      {id: 'atm-frac-1f-1', type: 'markdown', content: 'To convert an improper fraction to a mixed number, we: \n- Subtract the denominator from the numerator. \n- Repeat this process until what remains is less than the denominator (and count how many times we repeat the subtraction).\n- The number of times you subtracted the denominator becomes the whole number part, and the remainder becomes the numerator of the fractional part.\n\nFor example, starting with the improper fraction `8/3`, we:\n1. Subtract `3` from `8` to get `5` (first subtraction).\n2. Subtract `3` from `5` to get `2` (second subtraction).\n\nSince we subtracted the denominator `2` times, the whole number part is `2`, and the remainder is `2`, giving us the mixed number `2 and 2/3`.'},
                     ]},
-                    
+                    {id: 'atm-frac-1g', type: 'markdown', content: '### Pizza, but with Fractions\n\nWhen we say each friend gets *"two and two thirds"* of a slice of pizza, it means each friend gets **2 whole slices** and **2/3 of another slice**. This helps us visualize fractions as parts of a whole in a real-world context.'},
+                    {id: 'atm-frac-1g1', type: 'image', content: ''},
+                    {id: 'atm-frac-1h', type: 'markdown', content: '### US Rulers and Fractions\n\nUS rulers often use fractions of an inch to measure lengths. Understanding fractions helps us read these measurements accurately. Consider the following sets of rules - each ruler, from top to bottom, has a higher accuracy and smaller fractional divisions.'},
+                    {id: 'atm-frac-1h1', type: 'image', content: ''},
 
                     {id: 'atm-frac-2', type: 'hline', content: ''},
                     {id: 'atm-frac-2a', type: 'markdown', content: '# ➗ Fraction Operations'},
