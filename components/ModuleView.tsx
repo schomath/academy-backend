@@ -18,6 +18,29 @@ interface ModuleViewProps {
   module: Module;
 }
 
+// Named presets for dropdown block metadata.bg (e.g. { bg: 'blue' }). Any other string is used as a raw CSS color.
+const DROPDOWN_BG_PRESETS: Record<string, { className: string }> = {
+  slate: { className: 'bg-slate-50 border-slate-200' },
+  gray: { className: 'bg-gray-50 border-gray-200' },
+  red: { className: 'bg-red-50 border-red-200' },
+  orange: { className: 'bg-orange-50 border-orange-200' },
+  amber: { className: 'bg-amber-50 border-amber-200' },
+  yellow: { className: 'bg-yellow-50 border-yellow-200' },
+  lime: { className: 'bg-lime-50 border-lime-200' },
+  green: { className: 'bg-green-50 border-green-200' },
+  emerald: { className: 'bg-emerald-50 border-emerald-200' },
+  teal: { className: 'bg-teal-50 border-teal-200' },
+  cyan: { className: 'bg-cyan-50 border-cyan-200' },
+  sky: { className: 'bg-sky-50 border-sky-200' },
+  blue: { className: 'bg-blue-50 border-blue-200' },
+  indigo: { className: 'bg-indigo-50 border-indigo-200' },
+  violet: { className: 'bg-violet-50 border-violet-200' },
+  purple: { className: 'bg-purple-50 border-purple-200' },
+  fuchsia: { className: 'bg-fuchsia-50 border-fuchsia-200' },
+  pink: { className: 'bg-pink-50 border-pink-200' },
+  rose: { className: 'bg-rose-50 border-rose-200' },
+};
+
 type PlotlyFigure = {
   data?: any[];
   layout?: Record<string, any>;
@@ -378,6 +401,12 @@ const Model3DBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
 
 const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
   switch (block.type) {
+    case 'hline':
+      return (
+        <AnimatedBlock>
+          <hr className="my-8 border-t border-gray-300" />
+        </AnimatedBlock>
+      );
     case 'text':
       return (
         <AnimatedBlock>
@@ -486,9 +515,16 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
             ? block.metadata.blocks
             : [];
 
+      // metadata.bg accepts a preset name (see DROPDOWN_BG_PRESETS) or any raw CSS color value
+      const bgKey: string | undefined = typeof block.metadata?.bg === 'string' ? block.metadata.bg.trim() : undefined;
+      const bgPreset = bgKey ? DROPDOWN_BG_PRESETS[bgKey.toLowerCase()] : undefined;
+      const dropdownClassName = `my-6 rounded-2xl border p-4 hover:shadow-md transition-all duration-300 group cursor-pointer ${bgPreset ? bgPreset.className : bgKey ? '' : 'bg-slate-50 border-slate-200'
+        }`;
+      const dropdownStyle = !bgPreset && bgKey ? { backgroundColor: bgKey } : undefined;
+
       return (
         <AnimatedBlock>
-          <details className="my-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 hover:shadow-md transition-all duration-300 group cursor-pointer">
+          <details className={dropdownClassName} style={dropdownStyle}>
             <summary className="cursor-pointer text-lg font-semibold text-slate-800 marker:text-slate-500 group-hover:text-slate-900 transition-all duration-300">
               {block.title || block.content || 'Expand'}
             </summary>

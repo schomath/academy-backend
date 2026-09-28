@@ -93,52 +93,77 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-ops-1b', type: 'note', content: 'We refer to these individual symbols as **digits**. For example, the number 19 has the digit 1 in the tens place and the digit 9 in the ones place.'},
                     {id: 'atm-ops-1c', type: 'markdown', content: 'In the base 10 system, the position of each digit determines its value. For example, in the number 345, the digit 3 represents 300 because it is in the hundreds place, the 4 represents 40 because it is in the tens place, and the 5 represents 5 because it is in the ones place - representing \`300 + 40 + 5 = 345\`.'},
                     {id: 'atm-ops-1d', type: 'image', content: 'math_simple_digitplace.png', metadata: { alt: 'Diagram showing what value each digit holds', format: 'no-shadow'}},
-                    {id: 'atm-ops-1e', type: 'dropdown', content: 'See how 7,426,315 is calculated', children: [
+                    {id: 'atm-ops-1e', type: 'dropdown', content: 'See how 7,426,315 is calculated', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-1e-1', type: 'markdown', content: 'The number `7,426,315` can be broken down as follows:\n- 7 × 10^6 = 7,000,000\n- 4 × 10^5 = 400,000\n- 2 × 10^4 = 20,000\n- 6 × 10^3 = 6,000\n- 3 × 10^2 = 300\n- 1 × 10^1 = 10\n- 5 × 10^0 = 5\n\nAdding these together gives `7,000,000 + 400,000 + 20,000 + 6,000 + 300 + 10 + 5 = 7,426,315`.'},
 
                     ]},
                     
-                    {id: 'atm-ops-2', type: 'markdown', content: '# ➕ Addition and Subtraction\n\nAddition and subtraction of whole numbers are the most elementary operations in mathematics. Addition involves combining two or more numbers to get a total, while subtraction involves finding the *difference* between numbers.'},
+                    {id: 'atm-ops-2', type: 'hline', content: ''},
+                    {id: 'atm-ops-2a', type: 'markdown', content: '# ➕ Addition and Subtraction\n\nAddition and subtraction of whole numbers are the most elementary operations in mathematics. Addition involves combining two or more numbers to get a total, while subtraction involves finding the *difference* between numbers.'},
                     
-                    {id: 'atm-ops-3', type: 'markdown', content: '# ✖️ Multiplication and Division'},
+                    {id: 'atm-ops-3', type: 'hline', content: ''},
+                    {id: 'atm-ops-3a', type: 'markdown', content: '# ✖️ Multiplication and Division'},
                     {id: 'atm-ops-3b', type: 'markdown', content: '**Multiplication** can best be thought of as **repeated addition**. For example, `4 × 3` can be interpreted as adding `4` three times: `4 + 4 + 4 = 12`.'},
-                    {id: 'atm-ops-3c', type: 'dropdown', content: 'See multiplication as repeated addition', children: [
+                    {id: 'atm-ops-3c', type: 'dropdown', content: 'See multiplication as repeated addition', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-3c-1', type: 'markdown', content: 'For example, `5 × 12` can be interpreted as adding `5` twelve times: `5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 = 60`.'},
                     ]},
                     {id: 'atm-ops-3c-2', type: 'note', content: 'We can take a shortcut when multiplying numbers by powers of ten (10, 100, 1000, etc.). **When multiplying by a power of 10, simply add the corresponding number of zeros to the end of the number.** For example, `7 × 10 = 70`, `7 × 100 = 700`, and `7 × 1000 = 7000`.'},
                     {id: 'atm-ops-3d', type: 'markdown', content: '**Division** can be thought of as the inverse of multiplication. For example, `12 ÷ 4` asks how many times `4` fits into `12` evenly, which is `3`. In other words, division answers the question: "How many groups of an **equal size** can be made from a total quantity?". We can *check* our answer by using multiplication on the result (the quotient) by the divisor (the number we divided by): `3 × 4 = 12`.'},
-                    {id: 'atm-ops-3e', type: 'dropdown', content: 'Alternate Perspective: See division as repeated subtraction', children: [
+                    {id: 'atm-ops-3e', type: 'dropdown', content: 'Alternate Perspective: See division as repeated subtraction', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-3e-1', type: 'markdown', content: 'For example, `12 ÷ 4` can be interpreted as repeatedly subtracting `4` from `12` until we reach `0`: \n1. `12 - 4 = 8`\n2. `8 - 4 = 4`\n3. `4 - 4 = 0`. We subtracted `4` a total of `3` times, so `12 ÷ 4 = 3`.'},
                     ]},
                     {id: 'atm-ops-3f', type: 'markdown', content: 'Sometimes, division doesn\'t cleanly give us a result, and we have a *leftover number*. For example, `14 ÷ 4`: if we repeatedly subtract `4` from `14` until we can no longer do so without going negative: \n1. `14 - 4 = 10`\n2. `10 - 4 = 6`\n3. `6 - 4 = 2`.\n\nWe subtracted `4` a total of `3` times, **but** we have a remainder of `2`. So, `14 ÷ 4 = 3` with a remainder of `2` (sometimes written as `3 R2`).'},
-                    {id: 'atm-ops-3g', type: 'dropdown', content: 'See division with remainder as repeated subtraction', children: [
+                    {id: 'atm-ops-3g', type: 'dropdown', content: 'See division with remainder as repeated subtraction', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-3g-1', type: 'markdown', content: 'For example, `25 ÷ 4` can be interpreted as repeatedly subtracting `4` from `25` until we can no longer do so without going negative: \n1. `25 - 4 = 21`\n2. `21 - 4 = 17`\n3. `17 - 4 = 13`\n4. `13 - 4 = 9`\n5. `9 - 4 = 5`\n6. `5 - 4 = 1`. \n\nWe subtracted `4` a total of `6` times, and we have a remainder of `1`. So, `25 ÷ 4 = 6` with a remainder of `1`.'},
                     ]},
 
-                    {id: 'atm-ops-33', type: 'markdown', content: '# 👆 Exponents'},
+                    {id: 'atm-ops-333', type: 'hline', content: ''},
+                    {id: 'atm-ops-333a', type: 'markdown', content: '# 🪾Prime Factorization\n\nOne concept that allows us to better visualize how **multiplication** and **division** are opposites are the **factors of numbers**.\n\nTake the equation `5 × 3 = 15`. It can then be said that `5` and `3` are factors of `15`. Since we can\'t cleanly divide `5` and `3` by any number but themselves (i.e. they are **prime numbers**, that makes `5` and `3` the **prime factors of `15`**'},
+                    {id: 'atm-ops-333b', type: 'dropdown', content: 'Prime Factorization Example', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-ops-333b-1', type: 'markdown', content: 'Consider the number `60`.\n- We note that `60` can be broken down into `10 × 6`. However, since neither `10` or `6` are prime numbers, we continue to break the factors down into more factors.\n- Next, we break down `10` into `2 × 5`\n- We also can break `6` into `2 × 3`\n- Therefore, the prime factorization of `60` is `2 × 2 × 3 × 5`.'},
+                    ]},
+                    {id: 'atm-ops-333c', type: 'video', content: 'https://www.youtube.com/embed/eIgoqdkOTLg?si=p-ZEcPO8Ft8kZm9V', metadata: {autoplay: true, hideControls: true, loop: true, allowFullscreen: true}},
+                    {id: 'atm-ops-333d', type: 'note', content: 'To make prime factorization easier. we can use some **quick rules** to check if a large number is divisible by `2`, `3`, or `5`:\n\n- **Divisible by 2**: If a number *ends in an even digit* `(0, 2, 4, 6, 8)`, then that number is divisible by `2`.\n- **Divisible by 3**: If the *sum of all digits* in a number is divisible by `3`, then that number itself is divisible by `3`. \n  - For example, the number `63` is divisible by 3 since `6 + 3 = 9`, and `9` can cleanly be divided by `3`. So, `63 ÷ 3` gives us a clean `21`\n- **Divisible by 5**: If a number *ends in 0 or 5*, then that number can be divided by 5.'},
+
+                    {id: 'atm-ops-33', type: 'hline', content: ''},
+                    {id: 'atm-ops-33a', type: 'markdown', content: '# 👆 Exponents'},
                     {id: 'atm-ops-33b', type: 'markdown', content: 'Exponents can be seen in a similar way *repeated* way - specifically as repeated multiplication. For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`.'},
-                    {id: 'atm-ops-33c', type: 'dropdown', content: 'Exponents as Repeated Multiplication: ', children: [
+                    {id: 'atm-ops-33c', type: 'dropdown', metadata: {bg: 'pink'}, content: 'Exponents as Repeated Multiplication: ', children: [
                       {id: 'atm-ops-33c-1', type: 'markdown', content: 'For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`. Since each multiplication is repeated addition, we can also see this as adding `4` a total of `4 × 4 = 16` three times: `16 + 16 + 16 = 48`.'},
                     ]},
-                    {id: 'atm-ops-33d', type: 'dropdown', content: 'Exponents as Repeated Multiplication, which is just repeated addition: ', children: [
+                    {id: 'atm-ops-33d', type: 'dropdown', content: 'Exponents as Repeated Multiplication, which is just repeated addition: ', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-33d-1', type: 'markdown', content: 'For example, `4^3` can be interpreted as multiplying `4` by itself three times: `4 × 4 × 4 = 64`. Since each multiplication is repeated addition, we can also see this as:\n- The first `4 × 4 = 4 + 4 + 4 + 4 = 16`, then\n- `16 × 4 = 16 + 16 + 16 + 16 = 64`'},
                     ]},
 
-                    {id: 'atm-ops-4', type: 'markdown', content: '# 🔄 Order of Operations (PEMDAS)\n\nIn the case that we need to perform multiple operations in a single calculation, we can\'t simply do the math left to right. In an equation, we must do certain opeartions before others - referred to as the **Order of Operations**. The order goes as follows:\n- **Parenthesis**: Any calculation in parenthesis happens first\n- **Exponents**: any exponents are calculated next\n- **Multiplication and Division**: We then perform any multiplication or division we see, from left to right\n- **Addition and Subtraction**: finally, we do any addition or subtraction, from left to right'},
-                    {id: 'atm-ops-4b', type: 'dropdown', content: 'PEMDAS Example', children: [
+                    {id: 'atm-ops-4', type: 'hline', content: ''},
+                    {id: 'atm-ops-4a', type: 'markdown', content: '# 🔄 Order of Operations (PEMDAS)\n\nIn the case that we need to perform multiple operations in a single calculation, we can\'t simply do the math left to right. In an equation, we must do certain opeartions before others - referred to as the **Order of Operations**. The order goes as follows:\n- **Parenthesis**: Any calculation in parenthesis happens first\n- **Exponents**: any exponents are calculated next\n- **Multiplication and Division**: We then perform any multiplication or division we see, from left to right\n- **Addition and Subtraction**: finally, we do any addition or subtraction, from left to right'},
+                    {id: 'atm-ops-4b', type: 'dropdown', content: 'PEMDAS Example', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-4b-1', type: 'markdown', content: 'Consider the expression `3 + 6 × (5 + 4) ÷ 3 - 7`. According to PEMDAS, we first calculate the expression inside the parenthesis: `5 + 4 = 9`. The expression now becomes `3 + 6 × 9 ÷ 3 - 7`. Next, we perform multiplication and division from left to right: `6 × 9 = 54` and `54 ÷ 3 = 18`. The expression now is `3 + 18 - 7`. Finally, we perform addition and subtraction from left to right: `3 + 18 = 21` and `21 - 7 = 14`. So, the final result is `14`.'},
                     ]},
-                    {id: 'atm-ops-4c', type: 'dropdown', content: 'PEMDAS Word Problem Example', children: [
+                    {id: 'atm-ops-4c', type: 'dropdown', content: 'PEMDAS Word Problem Example', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-ops-4c-1', type: 'markdown', content: '**Consider the word problem**: "Mathias buys delicious durian fruits from Thailand in crates of `12`. If Mathias currently has `3` durian crates and purchases `4` more, how many total durians does Mathias have?'},
                       {id: 'atm-ops-4c-2', type: 'markdown', content: 'Since each crate contains `12` durians, we can multiply the number of crates by how many durians they contain (i.e. `12 × [number of crates]`) to get the total number of durains. Now, observe the following two ways of solving this:'},
                       {id: 'atm-ops-4c-3', type: 'markdown', content: 'If we write out the equation fully, we have `3 × 12 + 4 × 12 = 84`.\n- **Incorrect Solution:** If we simply calculate from left to right (multiply, then add 4, then multiply by 12 again), we end up with `3 × 12 + 4 × 12 = 480` - which is *incorrect* and gives Mathias false hope regarding his durian stocks.\n- **Correct Solution**: We follow the proper order of operations (PEMDAS), first performing the multiplications and then the addition: `3 × 12 + 4 × 12 = 36 + 48 = 84`.'},
-                    ]}
-                    // {id: 'atm-ops-4b', type: 'markdwon', content: ''}
+                    ]},
+                    // {id: 'atm-ops-4d', type: 'dropdown', content: 'PEMDAS Practice Problems', children: [
+                    //   {id: 'atm-ops-4d-1', type: 'markdown', content: 'Solve the following expressions using the order of operations (PEMDAS):'},
+                    //   {id: 'atm-ops-4d-2', type: 'markdown', content: '1. `8 + 2 × 5`\n2. `(3 + 7) × 2`\n3. `18 ÷ (3 × 3)`\n4. `5 + 6 × (2 + 3) - 4`\n5. `7 × (2 + 3)^2 - 4 ÷ 2`\n6. `10 - 3 × 2^2 + (2 × 5 + (3 - 1))`\n7. `6 ÷ 2 × (1 + 2 * (3 + 1)) + 2`'},
+                    // ]},
+
+                    {id: 'atm-ops-5', type: 'hline', content: ''},
+                    {id: 'atm-ops-5a', type: 'markdown', content: '# 🔟Application: Binary Numbers\nBinary Numbers refer to a numbering system that uses only two digits: `0` and `1`. Each digit in a binary number is called a **bit**. Binary numbers are fundamental in computer systems and digital electronics because they represent the two possible states of a switch: off (`0`) and on (`1`).'},
+                    {id: 'atm-ops-5b', type: 'image', content: 'math_simple_binary1.png', metadata: {format: 'no-shadow', alt: 'Illustration of binary numbers showing the digits 0 and 1.', maxWidth: 'full'}},
+                    {id: 'atm-ops-5c', type: 'markdown', content: 'Knowing how computers see the world is an increasingly important skill in today\'s computerized world - as such, having applied knowledge on how to convert between the **binary** and **decimal** system is a valuable skill that, while might not be used on a day-to-day basis, provides a strong foundation for understanding computer operations.'},
+                    {id: 'atm-ops-5d', type: 'dropdown', content: 'Converting from Binary to Decimal', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-ops-5d-1', type: 'markdown', content: 'To convert a binary number to decimal, we multiply each bit by `2` raised to the power of its position, counting from right to left starting at `0`, and then sum the results. For example, let\'s look at the binary number `1101`.\n\nStarting from the *rightmost* bit:\n- `1 × 2^0 = 1`\n- `0 × 2^1 = 0`\n- `1 × 2^2 = 4`\n- `1 × 2^3 = 8`\n\nSumming these results: `8 + 4 + 0 + 1 = 13`. So, the binary number `1101` is equal to the decimal number `13`.'},
+                    ]},
+                    {id: 'atm-ops-5e', type: 'dropdown', content: 'Converting from Decimal to Binary', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-ops-5e-1', type: 'markdown', content: 'To convert a decimal number to binary, we repeatedly divide the number by `2` and record the remainders. The binary number is then formed by reading the remainders from bottom to top. For example, to convert the decimal number `13` to binary:\n- `13 ÷ 2 = 6` remainder `1`\n- `6 ÷ 2 = 3` remainder `0`\n- `3 ÷ 2 = 1` remainder `1`\n- `1 ÷ 2 = 0` remainder `1`\n\nReading the remainders from bottom to top gives `1101` - which is **how computers see and understand the number 13**.'},
+                    ]},
                 ]
               },
 
-              {
-                id: 'atm-sign',
+              { id: 'atm-sign',
                 title: 'Signed Numbers',
                 description: 'Understanding signed numbers, their operations, and applications.',
                 blocks: [
@@ -146,9 +171,11 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-sign-1', type: 'markdown', content: 'Negative numbers can be extremely useful in representing many real world quantities, such as debts, temperatures below zero, elevations below sea level, and more. To better understand negative numbers, visualize a ruler with zero in the middle, positive numbers to the right. Negative numbers would then be on the left, and increase as they got further away from zero.'},
                     ], [
                       {id: 'atm-sign-1b', type: 'image', content: 'math_simple_negativeruler.png', metadata: {format: 'no-shadow', alt: 'Ruler showing 0 in the middle with positive numbers to the right and negative numbers to the left. Negative numbers \"increase\" as they get further from zero.'}},
-                    ]], widths: [1, 1]}},
+                    ]], widths: [1, 2]}},
+
+                    {id: 'atm-sign-2a', type: 'hline', content: ''},
                     {id: 'atm-sign-2', type: 'markdown', content: '# ➕ Adding and Subtracting Signed Numbers\n\nFor addition, we can think of adding numbers as *moving along the above number line*, where adding a positive number moves us right and adding a negative number moves us left.'},
-                    {id: 'atm-sign-2b', type: 'image', content: 'math_simple_addneg.png', metadata: {format: 'no-shadow', alt: 'Illustration showing addition of negative numbers on the number line.\n1. First, start at the number on the left of the plus symbol.\n2. Then, move right for a positive number or left for a negative number.\n3. Wherever you land is the result of the addition!'}},
+                    {id: 'atm-sign-2b', type: 'image', content: 'math_simple_addneg.png', metadata: {format: 'no-shadow', alt: 'Illustration showing addition of negative numbers on the number line.\n1. First, start at the number on the left of the plus symbol.\n2. Then, move right for a positive number or left for a negative number.\n3. Wherever you land is the result of the addition!', maxWidth: 'full'}},
                     {id: 'atm-sign-2l', type: 'columns', content: '', metadata: {columns: [[
                       {id: 'atm-sign-2lid', type: 'markdown', content: 'For subtracting numbers, We instead move in the opposite directions on the number line compared to addition - if we are subtracting a **positive number**, we move `left`, and if we are subtracting a **negative number**, we move `right`. However, there is an easier way!'},
                       {id: 'atm-sign-2lid2', type: 'note', content: 'Subtracting a number is the same as adding its opposite. This simplifies the process and allows us to use the same number line approach as addition. For example:\n- `5 - 3` is the same as `5 + (-3)`\n- `2 - -4` is the same as `2 + 4`'}
@@ -156,55 +183,79 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-sign-2li', type: 'image', content: 'math_simple_subisaddliz.png', metadata: {format: 'no-shadow', alt: 'Illustration showing subtraction is adding the opposite.'}},
                     ]], widths: [1, 1]}},
                     
-                    {id: 'atm-sign-3', type: 'markdown', content: '# ✖️ Multiplying and Dividing Signed Numbers'},
+                    {id: 'atm-sign-3', type: 'hline', content: ''},
+                    {id: 'atm-sign-3aa', type: 'markdown', content: '# ✖️ Multiplying and Dividing Signed Numbers'},
                     {id: 'atm-sign-3a', type: 'markdown', content: 'Multiplying and dividing negative numbers follows a slightly different set of rules compared to addition and subtraction. The key rules are:\n- The product or quotient of two numbers with the **same** sign is positive.\n- The product or quotient of two numbers with **different** signs is negative.'},
-                    {id: 'atm-sign-3b', type: 'dropdown', content: 'Example 1: Simple Multiplication', children: [
+                    {id: 'atm-sign-3b', type: 'dropdown', content: 'Example 1: Simple Multiplication', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-sign-3b-1', type: 'markdown', content: 'Multiplying two negative numbers: `-3 * -4 = 12`'},
                       {id: 'atm-sign-3b-2', type: 'markdown', content: 'Multiplying a positive and a negative number: `-3 * 4 = -12`'},
                       {id: 'atm-sign-3b-2', type: 'markdown', content: 'Multiplying a negative and a positive number: `3 * -4 = -12`'},
                       {id: 'atm-sign-3b-2', type: 'markdown', content: 'Multiplying two positive numbers: `3 * 4 = 12`'},
                       {id: 'atm-sign-3b-3', type: 'markdown', content: '*Note, division works the exact same here*'},
                     ]},
-                    {id: 'atm-sign-3c', type: 'dropdown', content: 'Example 2: PEMDAS Examples', children: [
+                    {id: 'atm-sign-3c', type: 'dropdown', content: 'Example 2: PEMDAS Examples', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-sign-3c-1', type: 'markdown', content: 'PEMDAS Example 1: `3 * (-3 * -2) = 3 * (6) = 18`'},
                       {id: 'atm-sign-3c-1', type: 'markdown', content: 'PEMDAS Example 2: `-3 * (-3 * -2) = -3 * (6) = -18`'},
                       {id: 'atm-sign-3c-1', type: 'markdown', content: 'PEMDAS Example 3: `-3 * (-3 * 2) = -3 * (-6) = 18`'},
                     ]},
-                    {id: 'atm-sign-3d', type: 'dropdown', content: 'Examples 3: More Complex Calculations', children: [
+                    {id: 'atm-sign-3d', type: 'dropdown', content: 'Examples 3: More Complex Calculations', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-sign-3d-1', type: 'markdown', content: 'Complex Calculation 1: `-3 * (4 + -2) = -3 * (2) = -6`'},
                       {id: 'atm-sign-3d-2', type: 'markdown', content: 'Complex Calculation 2: `(-3 * -2) / 6 = (6) / 6 = 1`'},
                       {id: 'atm-sign-3d-3', type: 'markdown', content: 'Complex Calculation 3: `-3 * (-2 + 5) = -3 * (3) = -9`'},
                     ]},
                     
-                    {id: 'atm-sign-4', type: 'markdown', content: '# 🔬 Powers of Ten and Scientific Notation'},
-                    {id: 'atm-sign-4b', type: 'markdown', content: 'Often, it is difficult to write out extremely large or extremely small numbers. **Scientific notation** is a standardized way of writing numbers as a **product of a number between 1 and 10 and a power of ten.**\n\nFor example, if we had the number `3000000`, we could write it in scientific notation as `3 × 10^6`.\n\nSimilarly, for a very small number like `0.00042`, we could write it as `4.2 × 10^-4`.'},
+                    
 
 
-                    {id: 'atm-sign-5', type: 'markdown', content: '# ⚙️ Engineering Notation and Signed Fractions'},
                 ]
               },
 
-              {
-                id: 'atm-frac',
+              { id: 'atm-frac',
                 title: 'Fractions and Decimals',
                 description: 'Understanding fractions, decimals, and their conversions.',
                 blocks: [
-                    {id: 'atm-frac-1', type: 'markdown', content: '# 🍰 Fraction Concepts and Equivalent Forms'},
-                    {id: 'atm-frac-1a', type: 'markdown', content: '**Fractions**, or **ratios**, is simply a fancy way of saying one number divided by another number (where the numbers are referred to as the **numerator** and **denominator** respectively).'},
-                    {id: 'atm-frac-1b', type: 'latextooltip', content: '', metadata: {
-                      displayMode: true,
-                      parts: [
-                        {expression: '\\frac{a}{b}', blocks: [{id: 'atm-frac-1b-p1', type: 'markdown', content: 'Numerator `a` being divided by denominator `b`, where `a` and `b` are any numbers.'}]},
-                      ]
-                    }},
-                    {id: 'atm-frac-1c', type: 'markdown', content: 'Now, consider the following numbers:'},
-                    {id: 'atm-frac-1d', type: 'latex', content: '\\frac{2}{4}  ,  0.5  ,  \\frac{1}{2}'},
-                    {id: 'atm-frac-1e', type: 'markdown', content: 'In the above example, all three of these numbers are **actually the same** - this is a concept known as **equivilant form**, or the idea that the same number can be represented in many different ways.\n\n- We know that `2/4` is a division operation, and when we carry it out, we get `0.5`.\n\n- Similarly, when we perform the division `1/2`, we also get `0.5`.'},
-                    {id: 'atm-frac-2', type: 'markdown', content: '# ➗ Fraction Operations'},
-                    {id: 'atm-frac-3', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
-                    {id: 'atm-frac-4', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions'},
-                    {id: 'atm-frac-5', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
-                    {id: 'atm-frac-6', type: 'markdown', content: '# ⬆️ Exponents, Roots, and Percent Applications'},
+                    {id: 'atm-frac-1a', type: 'markdown', content: '# 🍰 Representations of Division'},
+                    {id: 'atm-frac-1b', type: 'markdown', content: 'In the previous modules, we saw a simple explanation of division as splitting a number into equal parts. However, we only looked at one representation of the *operation of division*, and we only looked at *dividing numbers as whole numbers*. As many of us know, real life is not as clean as this - and division typically doesn\'t result in clean whole numbers like `3`, `7`, and our favorite `15`. Instead, we must use new mathematical concepts such as **remainders**, **fractions**, and **decimals** to represent the results of many real-world mathematical operations.\n\n✨**Remainders** are the simplest method of dealing with messy division - we simply say "tuck the leftover numbers off to the side and forget about them."'},
+                    {id: 'atm-frac-1c', type: 'dropdown', content: 'Application of Examples: Wasting Pizza (not cool)', metadata: {bg: 'blue'}, children: [
+                      {id: 'atm-frac-1c-1', type: 'markdown', content: 'Say we want to split **8 slices of pizza** amongs **3 friends**. If we only work in whole numbers, we can give each person **2 slices of pizza**, but we will have **2 slices left over**. The mathematical representation of this is:'},
+                      {id: 'atm-frac-1c-2', type: 'latex', content: '8 \\div 3 = 2 \\text{ r} 2'},
+                      {id: 'atm-frac-1c-4', type: 'image', content: 'math_simple_frac_rem.png', metadata: {alt: 'Example of Remainders', format: 'no-shadow'} },
+                      {id: 'atm-frac-1c-3', type: 'note', content: '**Since no one likes wasted pizza**, mathematicians invented a new way to represent leftover portions, which led to the concept of decimal numbers and fractions'},
+                    ]},
+                    {id: 'atm-frac-1d', type: 'markdown', content: 'In practice, remainders are *not that useful to us in real-world applications of mathematics*. Instead, it is recommended to use one of the following two methods: **fractions** or **decimals**.\n\n✨**Fractions** are both a way to represent the *operation* of division, as well as a *number* itself. Let\'s examine what we mean by that by taking a look at the previous example'},
+                    {id: 'atm-frac-1e', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-frac-1e-1', type: 'markdown', content: '### Fractions as an Operation\n\nIn the previous example, we had **8 slices of pizza** and **3 friends**. Before, we wrote this operation out as `8 ÷ 3` - if we use fractions instead, we would write it as `8/3`. More elegantly written, it would look like:'},
+                      {id: 'atm-frac-1e-2', type: 'latex', content: '8 \\div 3 = \\frac{8}{3}'},
+                      {id: 'atm-frac-1e-3', type: 'markdown', content: 'In this way, we have written the division of 8 by 3 as an operation, which when computed, represents some dumber.'},
+                    ], [
+                      {id: 'atm-frac-1e-4', type: 'markdown', content: '### Fractions as a Number\n\nLet\'s look at the fraction `8/3` as a number. Currently, `8/3` is what we call an **improper fraction**, meaning the numerator is larger than the denominator. We can also represent it as a **mixed number**:'},
+                      {id: 'atm-frac-1e-5', type: 'latex', content: '\\frac{8}{3} = 2 \\frac{2}{3}'},
+                      {id: 'atm-frac-1e-6', type: 'markdown', content: 'Another way to say this would be that everyone gets *"eight thirds"* of a slice of pizza - though this sounds *improper* - so we instead say everyone gets *"two and two thirds"* of a slice of pizza.'}
+                    ]], widths: [1, 1]}},
+                    {id: 'atm-frac-1f', type: 'dropdown', content: 'Converting an Improper Fraction to a Mixed Number', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-frac-1f-1', type: 'markdown', content: 'To convert an improper fraction to a mixed number, we: \n- Subtract the denominator from the numerator. \n- Repeat this process until what remains is less than the denominator. The number of times you subtracted the denominator becomes the whole number part, and the remainder becomes the numerator of the fractional part.'},
+                    ]},
+                    
+
+                    {id: 'atm-frac-2', type: 'hline', content: ''},
+                    {id: 'atm-frac-2a', type: 'markdown', content: '# ➗ Fraction Operations'},
+
+                    {id: 'atm-frac-3', type: 'hline', content: ''},
+                    {id: 'atm-frac-3a', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
+
+                    {id: 'atm-frac-4', type: 'hline', content: ''},
+                    {id: 'atm-frac-4a', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions'},
+
+                    {id: 'atm-frac-5', type: 'hline', content: ''},
+                    {id: 'atm-frac-5a', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
+
+                    {id: 'atm-frac-6', type: 'hline', content: ''},
+                    {id: 'atm-frac-6a', type: 'markdown', content: '# ⬆️ Exponents, Roots, and Percent Applications'},
+
+                    {id: 'atm-frac-7', type: 'hline', content: ''},
+                    {id: 'atm-frac-7a', type: 'markdown', content: '# 🔬 Application: Powers of Ten and Scientific Notation'},
+                    {id: 'atm-frac-7b', type: 'markdown', content: 'Often, it is difficult to write out extremely large or extremely small numbers. **Scientific notation** is a standardized way of writing numbers as a **product of a number between 1 and 10 and a power of ten.**\n\nFor example, if we had the number `3000000`, we could write it in scientific notation as `3 × 10^6`.\n\nSimilarly, for a very small number like `0.00042`, we could write it as `4.2 × 10^-4`.'},
+                    {id: 'atm-frac-7c', type: 'video', content: 'https://www.youtube.com/embed/bxWnjpd9ehs?si=0ngu39oena2DcRY5', metadata: {autoplay: true, hideControls: true, loop: true, allowFullscreen: true}},
                 ]
               },
 
