@@ -169,6 +169,56 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
+
+              { id: 'atm-property',
+                title: 'Properties of Operations',
+                description: 'Understanding the fundamental properties of mathematical operations, such as commutative, associative, and distributive properties.',
+                blocks: [
+                  {id: 'atm-property-c', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-property-c1', type: 'markdown', content: '# 🔁Commutative Property\n\nThe commutative property states that the order of the numbers does not affect the result of the operation. Both **addition** and **multiplication** are commutative operations, as shown below. *Note, `a` and `b` just represent some numbers in this case...*'},
+                    ], [
+                      {id: 'atm-property-c2', type: 'latex', content: 'a + b = b + a \\\\ a \\cdot b = b \\cdot a'},
+                    ]], widths: [2, 1]}
+                  },
+                  {id: 'atm-property-c3', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-property-c3-1', type: 'latex', content: 'a - b \\neq b - a \\\\ a \\div b \\neq b \\div a'},
+                    ], [
+                      {id: 'atm-property-c3-2', type: 'markdown', content: 'However, **subtraction** and **division** are not commutative operations. Changing the order of the numbers in these operations will affect the result. Formally, we can show this with:'},
+                      
+                    ]], widths: [1, 2]}
+                  },
+                  {id: 'atm-property-c4', type: 'dropdown', content: 'Example of Subtraction and Division Not Being Commutative', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-property-c4-1', type: 'markdown', content: 'Consider the numbers `5` and `3`:'},
+                    {id: 'atm-property-c4-2', type: 'latex', content: '5 - 3 = 2 \\\\ 3 - 5 = -2'},
+                    {id: 'atm-property-c4-3', type: 'latex', content: '6 \\div 2 = 3 \\\\ 2 \\div 6 = \\frac{1}{3}'}
+                  ]},
+
+                  {id: 'atm-property-ah', type: 'hline', content: ''},
+                  {id: 'atm-property-a', type: 'markdown', content: '# 🔄️Associative Property\n\nThe associative property states that the way in which numbers are grouped in an operation does not change the result. This property applies to both **addition** and **multiplication**. Formally, we can show this with:'},
+                  {id: 'atm-property-a1', type: 'latex', content: '(a + b) + c = a + (b + c) \\\\ (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c)'},
+
+                  {id: 'atm-property-dh', type: 'hline', content: ''},
+                  {id: 'atm-property-d', type: 'markdown', content: '# ↔️Distributive Property\n\nThe distributive property connects addition and multiplication. It states that multiplying a number by a sum is the same as multiplying the number by each addend and then adding the results. Formally, we can show this with:'},
+                  {id: 'atm-property-d1', type: 'latex', content: 'a \\cdot (b + c) = a \\cdot b + a \\cdot c'},
+                  {id: 'atm-property-d2', type: 'image', content: 'math_simple_property_distribute.png', metadata: {format: 'no-shadow', alt: 'Illustration showing the distributive property of multiplication over addition.'} },
+
+                  {id: 'atm-property-id', type: 'hline', content: ''},
+                  {id: 'atm-property-id-1', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-property-id-1a', type: 'markdown', content: '# ⏸️Identity Property\n\nThe identity property defines numbers that do not change'},
+                    ], [
+                      {id: 'atm-property-id-1b', type: 'latex', content: 'a + 0 = a \\\\ a \\cdot 1 = a'},
+                    ]], widths: [1, 1]}
+                  },
+                  {id: 'atm-property-id-2', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-property-id-2a', type: 'latex', content: 'a + (-a) = 0 \\\\ a \\cdot \\frac{1}{a} = 1'},
+                    ], [
+                      {id: 'atm-property-id-2b', type: 'markdown', content: 'There is also an **inverse version** of this property - in other words, numbers that **undo** the original operation.'},
+                    ]], widths: [1, 1]}
+                  },
+                ]
+              },
+
+
               { id: 'atm-sign',
                 title: 'Signed Numbers',
                 description: 'Understanding signed numbers, their operations, and applications.',
@@ -221,30 +271,40 @@ export const CATEGORIES: Category[] = [
                 description: 'Understanding fractions, decimals, and their conversions.',
                 blocks: [
                     {id: 'atm-frac-1a', type: 'markdown', content: '# 🍰 Representations of Division'},
-                    {id: 'atm-frac-1b', type: 'markdown', content: 'In the previous modules, we saw a simple explanation of division as splitting a number into equal parts. However, we only looked at one representation of the *operation of division*, and we only looked at *dividing numbers as whole numbers*. As many of us know, real life is not as clean as this - and division typically doesn\'t result in clean whole numbers like `3`, `7`, and our favorite `15`. Instead, we must use new mathematical concepts such as **remainders**, **fractions**, and **decimals** to represent the results of many real-world mathematical operations.\n\n✨**Remainders** are the simplest method of dealing with messy division - we simply say "tuck the leftover numbers off to the side and forget about them."'},
-                    {id: 'atm-frac-1c', type: 'dropdown', content: 'Application of Examples: Wasting Pizza (not cool)', metadata: {bg: 'blue'}, children: [
+                    {id: 'atm-frac-1b', type: 'markdown', content: 'In the previous modules, we saw a simple explanation of division as splitting a number into equal parts. However, we only looked at one representation of the *operation of division*, and we only looked at *dividing numbers as whole numbers*. As many of us know, real life is not as clean as this - and division typically doesn\'t result in clean whole numbers like `3`, `7`, and our favorite `15`. Instead, we must use new mathematical concepts such as **remainders**, **fractions**, and **decimals** to represent the results of many real-world mathematical operations.'},
+                    {id: 'atm-frac-1b0', type: 'hline', content: ''},
+                    {id: 'atm-frac-1b1', type: 'markdown', content: '✨**Remainders** are the simplest method of dealing with messy division - if we have any numbers left over after dividing, we tuck them off to the side and say "this is what was *left over* once we did the division."'},
+                    {id: 'atm-frac-1c', type: 'dropdown', content: 'Visualizing Remainders with Pizza (and how to waste pizza)', metadata: {bg: 'blue'}, children: [
                       {id: 'atm-frac-1c-1', type: 'markdown', content: 'Say we want to split **8 slices of pizza** amongs **3 friends**. If we only work in whole numbers, we can give each person **2 slices of pizza**, but we will have **2 slices left over**. The mathematical representation of this is:'},
                       {id: 'atm-frac-1c-2', type: 'latex', content: '8 \\div 3 = 2 \\text{ r} 2'},
                       {id: 'atm-frac-1c-4', type: 'image', content: 'math_simple_frac_rem.png', metadata: {alt: 'Example of Remainders', format: 'no-shadow'} },
                       {id: 'atm-frac-1c-3', type: 'note', content: '**Since no one likes wasted pizza**, mathematicians invented a new way to represent leftover portions, which led to the concept of decimal numbers and fractions'},
                     ]},
-                    {id: 'atm-frac-1d', type: 'markdown', content: 'In practice, remainders are *not that useful to us in real-world applications of mathematics*. Instead, it is recommended to use one of the following two methods: **fractions** or **decimals**.\n\n✨**Fractions** are both a way to represent the *operation* of division, as well as a *number* itself. Let\'s examine what we mean by that by taking a look at the previous example'},
+                    {id: 'atm-frac-1d', type: 'markdown', content: 'In practice, remainders are *not that useful to us in real-world applications of mathematics*. Instead, it is recommended to use one of the following two methods: **fractions** or **decimals**.'},
+
+                    {id: 'atm-frac-1d0', type: 'hline', content: ''},
+                    {id: 'atm-frac-1d1', type: 'markdown', content: '✨**Fractions** are both a way to represent the *operation* of division, as well as a *number* itself. Let\'s examine what we mean by that by taking a look at the previous example'},
                     {id: 'atm-frac-1e', type: 'columns', content: '', metadata: {columns: [[
-                      {id: 'atm-frac-1e-1', type: 'markdown', content: '### Fractions as an Operation\n\nIn the previous example, we had **8 slices of pizza** and **3 friends**. Before, we wrote this operation out as `8 ÷ 3` - if we use fractions instead, we would write it as `8/3`. More elegantly written, it would look like:'},
+                      {id: 'atm-frac-1e-1', type: 'markdown', content: '### Fractions represent an Operation...\n\nIn the previous example, we had **8 slices of pizza** and **3 friends**. Before, we wrote this operation out as `8 ÷ 3` using the division symbol - we could also write this operation as a **fraction**, with `8` in the **numberator** and `3` in the **denominator**:'},
                       {id: 'atm-frac-1e-2', type: 'latex', content: '8 \\div 3 = \\frac{8}{3}'},
-                      {id: 'atm-frac-1e-3', type: 'markdown', content: 'In this way, we have written the division of 8 by 3 as an operation, which when computed, represents some dumber.'},
+                      {id: 'atm-frac-1e-3', type: 'markdown', content: 'In this way, we have written the division of 8 by 3 as an operation, which when computed, represents some number.\n- The **numerator** is the number on top (`8`).\n- The **denominator** is the number on the bottom (`3`).\n\nIn this case, since the numerator is larger than the denominator, we have an **improper fraction**.'},
                     ], [
-                      {id: 'atm-frac-1e-4', type: 'markdown', content: '### Fractions as a Number\n\nLet\'s look at the fraction `8/3` as a number. Currently, `8/3` is what we call an **improper fraction**, meaning the numerator is larger than the denominator. We can also represent it as a **mixed number**:'},
+                      {id: 'atm-frac-1e-4', type: 'markdown', content: '### ... but also a Number!\n\nTo `properly` represent a fraction as a number, we can convert an improper fraction into a **mixed number** - i.e. we have a mix of a **whole number** and a **fractional part**:'},
                       {id: 'atm-frac-1e-5', type: 'latex', content: '\\frac{8}{3} = 2 \\frac{2}{3}'},
-                      {id: 'atm-frac-1e-6', type: 'markdown', content: 'Another way to say this would be that everyone gets *"eight thirds"* of a slice of pizza - though this sounds *improper* - so we instead say everyone gets *"two and two thirds"* of a slice of pizza.'}
+                      {id: 'atm-frac-1e-6', type: 'markdown', content: 'Note that now, instead of writing `2 r2`, we keep the first `2` from the division but **explicitly state that the remainder `2` still *needs to be divided by 3*.'},
                     ]], widths: [1, 1]}},
                     {id: 'atm-frac-1f', type: 'dropdown', content: 'Converting an Improper Fraction to a Mixed Number', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-frac-1f-1', type: 'markdown', content: 'To convert an improper fraction to a mixed number, we: \n- Subtract the denominator from the numerator. \n- Repeat this process until what remains is less than the denominator (and count how many times we repeat the subtraction).\n- The number of times you subtracted the denominator becomes the whole number part, and the remainder becomes the numerator of the fractional part.\n\nFor example, starting with the improper fraction `8/3`, we:\n1. Subtract `3` from `8` to get `5` (first subtraction).\n2. Subtract `3` from `5` to get `2` (second subtraction).\n\nSince we subtracted the denominator `2` times, the whole number part is `2`, and the remainder is `2`, giving us the mixed number `2 and 2/3`.'},
                     ]},
-                    {id: 'atm-frac-1g', type: 'markdown', content: '### Pizza, but with Fractions\n\nWhen we say each friend gets *"two and two thirds"* of a slice of pizza, it means each friend gets **2 whole slices** and **2/3 of another slice**. This helps us visualize fractions as parts of a whole in a real-world context.'},
-                    {id: 'atm-frac-1g1', type: 'image', content: ''},
-                    {id: 'atm-frac-1h', type: 'markdown', content: '### US Rulers and Fractions\n\nUS rulers often use fractions of an inch to measure lengths. Understanding fractions helps us read these measurements accurately. Consider the following sets of rules - each ruler, from top to bottom, has a higher accuracy and smaller fractional divisions.'},
-                    {id: 'atm-frac-1h1', type: 'image', content: ''},
+                    {id: 'atm-frac-1g', type: 'dropdown', content: 'Visualizing Fractions with Pizza', metadata: {bg: 'blue'}, children: [
+                      {id: 'atm-frac-1g1', type: 'markdown', content: '### Pizza, but with Fractions\n\nWhen we say each friend gets *"two and two thirds"* of a slice of pizza, it means each friend gets **2 whole slices** and **2/3 of another slice**. This helps us visualize fractions as parts of a whole in a real-world context.'},
+                    {id: 'atm-frac-1g2', type: 'image', content: 'math_simple_frac_frac.png', metadata: {alt: 'Pizza slices representing fractions', format: 'no-shadow', maxWidth: 'full'}},
+                    ]},
+                    
+                    {id: 'atm-frac-1h', type: 'dropdown', content: 'Visualizing Fractions with Rulers', metadata: {bg: 'blue'}, children: [
+                      {id: 'atm-frac-1h1', type: 'markdown', content: '### US Rulers and Fractions\n\nUS rulers often use fractions of an inch to measure lengths. Understanding fractions helps us read these measurements accurately. Consider the following sets of rules - each ruler, from top to bottom, has a higher accuracy and smaller fractional divisions.'},
+                      {id: 'atm-frac-1h2', type: 'image', content: ''},
+                    ]},
 
                     {id: 'atm-frac-2', type: 'hline', content: ''},
                     {id: 'atm-frac-2a', type: 'markdown', content: '# ➗ Fraction Operations'},
