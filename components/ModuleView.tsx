@@ -588,7 +588,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       return (
         <AnimatedBlock>
           <div className="my-6 overflow-x-auto rounded-xl bg-white p-4 border border-slate-200 hover:shadow-md hover:border-slate-300 transition-all duration-300">
-            <div className="flex justify-center text-slate-900 [&_.katex]:text-3xl" dangerouslySetInnerHTML={{ __html: html }} />
+            <div className="latex-content flex justify-center text-slate-900" dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </AnimatedBlock>
       );
@@ -601,7 +601,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       return (
         <AnimatedBlock>
           <div className="my-6 rounded-xl bg-white p-6 border border-slate-200 hover:shadow-md hover:border-slate-300 transition-all duration-300">
-            <div className="flex justify-center items-baseline text-slate-900 [&_.katex]:text-3xl" style={{ position: 'relative', overflow: 'visible' }}>
+            <div className="latex-content flex justify-center items-baseline text-slate-900" style={{ position: 'relative', overflow: 'visible' }}>
               {parts.map((part: any, idx: number) => {
                 const partHtml = katex.renderToString(part.expression || '', {
                   throwOnError: false,

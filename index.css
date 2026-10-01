@@ -53,6 +53,14 @@ main {
   @apply transition-opacity duration-300;
 }
 
+.latex-content .katex .base + .base {
+  margin-top: 0.2em;
+}
+
+.latex-content .katex {
+  font-size: 1.35em;
+}
+
 .landing-shell {
   position: relative;
   background:

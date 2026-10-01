@@ -301,13 +301,32 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-frac-1g2', type: 'image', content: 'math_simple_frac_frac.png', metadata: {alt: 'Pizza slices representing fractions', format: 'no-shadow', maxWidth: 'full'}},
                     ]},
                     
-                    {id: 'atm-frac-1h', type: 'dropdown', content: 'Visualizing Fractions with Rulers', metadata: {bg: 'blue'}, children: [
+                    
+
+                    {id: 'atm-frac-equiv', type: 'hline', content: ''},
+                    {id: 'atm-frac-equiv-1', type: 'markdown', content: '# 🟰 Equivalent Fractions\n\nTwo fractions can be called **equivalent** if they represent the same value, even if they have different numerators and denominators. For example, `1/2` and `2/4` are equivalent fractions.\nFormally, fractions `a/b` and `c/d` are equivalent if `a * d = b * c`.'},
+                    {id: 'atm-frac-equiv-2', type: 'latex', content: '\\frac{a}{b} = \\frac{c}{d} \\\\ \\text{ } \\\\ \\text{if and only if } \\\\ a \\cdot d = b \\cdot c'},
+                    {id: 'atm-frac-1h', type: 'dropdown', content: 'Visualizing Equivilant Fractions with Rulers', metadata: {bg: 'blue'}, children: [
                       {id: 'atm-frac-1h1', type: 'markdown', content: '### US Rulers and Fractions\n\nUS rulers often use fractions of an inch to measure lengths. Understanding fractions helps us read these measurements accurately. Consider the following sets of rules - each ruler, from top to bottom, has a higher accuracy and smaller fractional divisions.'},
-                      {id: 'atm-frac-1h2', type: 'image', content: ''},
+                      {id: 'atm-frac-1h2', type: 'note', content: 'Improper fractions are used here to illustrate the concept of equivalent fractions. Mixed numbers are more commonly used for US measurements.'},
+                      {id: 'atm-frac-1h3', type: 'image', content: 'math_simple_frac_ruler.png', metadata: {alt: 'US rulers with fractional divisions', format: 'no-shadow', maxWidth: 'full'}},
                     ]},
 
-                    {id: 'atm-frac-2', type: 'hline', content: ''},
-                    {id: 'atm-frac-2a', type: 'markdown', content: '# ➗ Fraction Operations'},
+                    {id: 'atm-frac-md', type: 'hline', content: ''},
+                    {id: 'atm-frac-md-1', type: 'markdown', content: '# ➗ Fraction Multiplication and Division\n\n✨ **Fraction multiplication** is relatively straightforward: we multiply the numerators together and the denominators together. If we are multiplying a fraction by a whole number, simply write the whole number as a fraction over one: i.e. `3` becomes `3/1`.'},
+                    {id: 'atm-fract-md-2', type: 'latex', content: '\\frac{a}{b} \\cdot \\frac{c}{d} = \\frac{a \\cdot c}{b \\cdot d}'},
+                    {id: 'atm-frac-md-3', type: 'dropdown', content: 'Examples of Fraction Multiplication', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-frac-md-3-1', type: 'latex', content: '\\frac{2}{3} \\cdot \\frac{4}{5} = \\frac{2 \\cdot 4}{3 \\cdot 5} = \\frac{8}{15}'},
+                      {id: 'atm-frac-md-3-2', type: 'latex', content: '\\frac{3}{4} \\cdot 3 = \\frac{3}{4} \\cdot \\frac{3}{1} = \\frac{9}{4}'},
+                    ]},
+                    {id: 'atm-frac-md-4', type: 'markdown', content: '✨ **Simplifying Fractions**: To make multiplication with fractions easier, it is often helpful to simplify the fractions beforehand by breaking numbers down using **prime factorization**. For example: '},
+                    {id: 'atm-frac-md-5', type: 'image', content: 'math_simple_frac_fac.png', metadata: {alt: 'Prime factorization of fractions', format: 'no-shadow', maxWidth: 'full'}},
+                    {id: 'atm-frac-md-6', type: 'dropdown', content: 'Example of Simplifying Fractions', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-frac-md-6-1', type: 'latex', content: '\\frac{24}{36} \\times \\frac{15}{25} = \\frac{24}{36} \\times \\frac{3 \\cdot 5}{5 \\cdot 5} = \\frac{24}{36} \\times \\frac{3}{5} = \\frac{2 \\cdot 2 \\cdot 2 \\cdot 3}{2 \\cdot 2 \\cdot 3 \\cdot 3} \\times \\frac{3}{5} = \\frac{2}{3} \\times \\frac{3}{5} = \\frac{2}{5}'},
+                    ]},
+
+                    {id: 'atm-frac-as', type: 'hline', content: ''},
+                    {id: 'atm-frac-as-1', type: 'markdown', content: '# ➕ Adding and Subtracting Fractions\n\nFractions can only be added or subtracted if they have the same **denominator** - as such, we often need to find what\'s known as a **common denominator**.'},
 
                     {id: 'atm-frac-3', type: 'hline', content: ''},
                     {id: 'atm-frac-3a', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
