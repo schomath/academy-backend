@@ -267,8 +267,8 @@ export const CATEGORIES: Category[] = [
               },
 
               { id: 'atm-frac',
-                title: 'Fractions and Decimals',
-                description: 'Understanding fractions, decimals, and their conversions.',
+                title: 'Fractions',
+                description: 'Understanding partial measurements using fractions and proportions.',
                 blocks: [
                     {id: 'atm-frac-1a', type: 'markdown', content: '# 🍰 Representations of Division'},
                     {id: 'atm-frac-1b', type: 'markdown', content: 'In the previous modules, we saw a simple explanation of division as splitting a number into equal parts. However, we only looked at one representation of the *operation of division*, and we only looked at *dividing numbers as whole numbers*. As many of us know, real life is not as clean as this - and division typically doesn\'t result in clean whole numbers like `3`, `7`, and our favorite `15`. Instead, we must use new mathematical concepts such as **remainders**, **fractions**, and **decimals** to represent the results of many real-world mathematical operations.'},
@@ -324,26 +324,40 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-frac-md-6', type: 'dropdown', content: 'Example of Simplifying Fractions', metadata: {bg: 'pink'}, children: [
                       {id: 'atm-frac-md-6-1', type: 'latex', content: '\\frac{24}{36} \\times \\frac{15}{25} = \\frac{24}{36} \\times \\frac{3 \\cdot 5}{5 \\cdot 5} = \\frac{24}{36} \\times \\frac{3}{5} = \\frac{2 \\cdot 2 \\cdot 2 \\cdot 3}{2 \\cdot 2 \\cdot 3 \\cdot 3} \\times \\frac{3}{5} = \\frac{2}{3} \\times \\frac{3}{5} = \\frac{2}{5}'},
                     ]},
+                    {id: 'atm-frac-md-7', type: 'markdown', content: '✨ **Fraction Division**: To divide fractions, multiply by the reciprocal of the divisor. For example: '},
 
                     {id: 'atm-frac-as', type: 'hline', content: ''},
                     {id: 'atm-frac-as-1', type: 'markdown', content: '# ➕ Adding and Subtracting Fractions\n\nFractions can only be added or subtracted if they have the same **denominator** - as such, we often need to find what\'s known as a **common denominator**.'},
 
-                    {id: 'atm-frac-3', type: 'hline', content: ''},
-                    {id: 'atm-frac-3a', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
+                    {id: 'atm-frac-perc', type: 'hline', content: ''},
+                    {id: 'atm-frac-perc-1', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
 
-                    {id: 'atm-frac-4', type: 'hline', content: ''},
-                    {id: 'atm-frac-4a', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions'},
+                    {id: 'atm-frac-uc', type: 'hline', content: ''},
+                    {id: 'atm-frac-uc-1', type: 'markdown', content: '# 📐 Application: Unit Conversion'},
+                    
+                  ]},
 
-                    {id: 'atm-frac-5', type: 'hline', content: ''},
-                    {id: 'atm-frac-5a', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
+                {id: 'atm-dec',
+                  title: 'Decimals',
+                  description: 'Understanding partial measurements in the base-10 system.',
+                  blocks: [
 
-                    {id: 'atm-frac-6', type: 'hline', content: ''},
-                    {id: 'atm-frac-6a', type: 'markdown', content: '# ⬆️ Exponents, Roots, and Percent Applications'},
+                    {id: 'atm-dec-3', type: 'hline', content: ''},
+                    {id: 'atm-dec-3a', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
 
-                    {id: 'atm-frac-7', type: 'hline', content: ''},
-                    {id: 'atm-frac-7a', type: 'markdown', content: '# 🔬 Application: Powers of Ten and Scientific Notation'},
-                    {id: 'atm-frac-7b', type: 'markdown', content: 'Often, it is difficult to write out extremely large or extremely small numbers. **Scientific notation** is a standardized way of writing numbers as a **product of a number between 1 and 10 and a power of ten.**\n\nFor example, if we had the number `3000000`, we could write it in scientific notation as `3 × 10^6`.\n\nSimilarly, for a very small number like `0.00042`, we could write it as `4.2 × 10^-4`.'},
-                    {id: 'atm-frac-7c', type: 'video', content: 'https://www.youtube.com/embed/bxWnjpd9ehs?si=0ngu39oena2DcRY5', metadata: {autoplay: true, hideControls: true, loop: true, allowFullscreen: true}},
+                    {id: 'atm-dec-4', type: 'hline', content: ''},
+                    {id: 'atm-dec-4a', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions'},
+
+                    {id: 'atm-dec-5', type: 'hline', content: ''},
+                    {id: 'atm-dec-5a', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
+
+                    {id: 'atm-dec-6', type: 'hline', content: ''},
+                    {id: 'atm-dec-6a', type: 'markdown', content: '# ⬆️ Exponents, Roots, and Percent Applications'},
+
+                    {id: 'atm-dec-7', type: 'hline', content: ''},
+                    {id: 'atm-dec-7a', type: 'markdown', content: '# 🔬 Application: Powers of Ten and Scientific Notation'},
+                    {id: 'atm-dec-7b', type: 'markdown', content: 'Often, it is difficult to write out extremely large or extremely small numbers. **Scientific notation** is a standardized way of writing numbers as a **product of a number between 1 and 10 and a power of ten.**\n\nFor example, if we had the number `3000000`, we could write it in scientific notation as `3 × 10^6`.\n\nSimilarly, for a very small number like `0.00042`, we could write it as `4.2 × 10^-4`.'},
+                    {id: 'atm-dec-7c', type: 'video', content: 'https://www.youtube.com/embed/bxWnjpd9ehs?si=0ngu39oena2DcRY5', metadata: {autoplay: true, hideControls: true, loop: true, allowFullscreen: true}},
                 ]
               },
 
