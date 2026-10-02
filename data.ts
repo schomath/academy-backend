@@ -328,6 +328,7 @@ export const CATEGORIES: Category[] = [
 
                     {id: 'atm-frac-as', type: 'hline', content: ''},
                     {id: 'atm-frac-as-1', type: 'markdown', content: '# ➕ Adding and Subtracting Fractions\n\nFractions can only be added or subtracted if they have the same **denominator** - as such, we often need to find what\'s known as a **common denominator**.'},
+                    {id: 'atm-frac-as-2', type: 'image', content: 'math_simple_frac_add.png', metadata: {alt: 'Adding fractions with common denominators', format: 'no-shadow', maxWidth: 'full'}},
 
                     {id: 'atm-frac-perc', type: 'hline', content: ''},
                     {id: 'atm-frac-perc-1', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
