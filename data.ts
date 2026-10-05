@@ -327,15 +327,32 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-frac-md-7', type: 'markdown', content: '✨ **Fraction Division**: To divide fractions, multiply by the reciprocal of the divisor. For example: '},
 
                     {id: 'atm-frac-as', type: 'hline', content: ''},
-                    {id: 'atm-frac-as-1', type: 'markdown', content: '# ➕ Adding and Subtracting Fractions\n\nFractions can only be added or subtracted if they have the same **denominator** - as such, we often need to find what\'s known as a **common denominator**.'},
+                    {id: 'atm-frac-as-1', type: 'markdown', content: '# ➕ Adding and Subtracting Fractions\n\nFractions can only be added or subtracted if they have the same **denominator** - as such, we often need to find what\'s known as a **common denominator**. Some general steps to follow when adding or subtracting fractions:\n1. Check if your denominators are the same. If they are, you are free to add the numerators. If not, we must find a **common denominator**.\n2. If you can\'t immediately recognize a common denominator, simply multiply the two denominators together. \n3. Find an equivilant fraction for both fractions with the common denominator.\n4. Add or subtract the numerators as appropriate. The denominator stays the same!\n5. Simplify the resulting fraction if possible.'},
                     {id: 'atm-frac-as-2', type: 'image', content: 'math_simple_frac_add.png', metadata: {alt: 'Adding fractions with common denominators', format: 'no-shadow', maxWidth: 'full'}},
 
-                    {id: 'atm-frac-perc', type: 'hline', content: ''},
-                    {id: 'atm-frac-perc-1', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
+                    {id: 'atm-frac-neg', type: 'hline', content: ''},
+                    {id: 'atm-frac-neg-1', type: 'markdown', content: '# ➖ Working with Negative Fractions\n\nRecall that **fractions** are just another representation of devision. As such, fractions follow the same rules as negative numbers in general. As such, a negative fraction may be represented in three different ways, which are all the same: '},
+                    {id: 'atm-frac-neg-2', type: 'latex', content: '-\\frac{3}{4} = \\frac{-3}{4} = \\frac{3}{-4}'},
+                    {id: 'atm-frac-neg-3', type: 'markdown', content: 'Now, consider the fractions shown below. If we recall, when we divide a negative number by another negative number the result is positive. This leads to a somehwat misleading representation of a positive fraction, where both the numerator and denominator have a negative sign. **This is the same as a positive number!**'},
+                    {id: 'atm-frac-neg-4', type: 'latex', content: '\\frac{-3}{-4} = \\frac{3}{4}'},
 
                     {id: 'atm-frac-uc', type: 'hline', content: ''},
                     {id: 'atm-frac-uc-1', type: 'markdown', content: '# 📐 Application: Unit Conversion'},
-                    
+                    {id: 'atm-frac-uc-2', type: 'markdown', content: 'While it is easy to look up a unit conversion on your phone or computer, one may find it helpful to understand the underlying process of converting units manually - especially considering that there are many units that can represent the same quantity in different ways.\n\n✨**Conversion Factor**: A conversion factor is a ratio that represents how many of **one unit** are equivalent to another unit. For example, we know that `1 foot` is equivilant to `12 in`. Therefor, our **conversion factor** is `1/12` or `12/1`. We can multiply our original unit (either `ft` or `in`) by our **conversion factor** in order to obtain the other unit. The question is, however, which conversion factor should we use? The answer depends on the direction of the conversion:'},
+                    {id: 'atm-frac-uc-3', type: 'dropdown', content: 'Example of Unit Conversion', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-frac-uc-cols', type: 'columns', content: '', metadata: {columns: [
+                        [
+                          {id: 'atm-frac-uc-3-1', type: 'markdown', content: 'Let\'s start with our basic conversion between feet and inches:'},
+                          {id: 'atm-frac-uc-3-2', type: 'latex', content: '1 \\text{ ft} = 12 \\text{ in}'},
+                          {id: 'atm-frac-uc-3-3', type: 'markdown', content: 'Now, if we want to convert `3 feet` to inches, we multiply by the conversion factor `12/1`:'},
+                          {id: 'atm-frac-uc-3-4', type: 'latex', content: '3 \\text{ ft} \\times \\frac{12 \\text{ in}}{1 \\text{ ft}} = 36 \\text{ in}'},
+                          {id: 'atm-frac-uc-3-5', type: 'markdown', content: 'But why did we use `12/1` and not `1/12`?\n\nThe reason is that we want to cancel out the original unit (`ft`) and be left with the desired unit (`in`). By using `12/1`, the `ft` units cancel, leaving us with inches.'},
+                        ],
+                        [
+                          {id: 'atm-frac-uc-3-6', type: 'image', content: 'math_simple_frac_unitc.png', metadata: {alt: 'Unit conversion example', format: 'no-shadow', maxWidth: 'full'}},
+                        ]
+                      ]}},
+                    ]},
                   ]},
 
                 {id: 'atm-dec',
@@ -343,17 +360,41 @@ export const CATEGORIES: Category[] = [
                   description: 'Understanding partial measurements in the base-10 system.',
                   blocks: [
 
-                    {id: 'atm-dec-3', type: 'hline', content: ''},
-                    {id: 'atm-dec-3a', type: 'markdown', content: '# 🎯 Decimals, Rounding, and Estimation'},
+                    {id: 'atm-dec-basic', type: 'hline', content: ''},
+                    {id: 'atm-dec-basic-1', type: 'markdown', content: '# 🎯 Decimals\n\nAnother method of representing **partial numbers** such as remainders or fractions are **decimals** - which are used more commenly as they fit into the base-10 system far better than fractions.\n\n'},
+                    {id: 'atm-dec-basic-2', type: 'image', content: 'math_simple_dec_represent.png', metadata: {alt: 'Decimal representation', format: 'no-shadow', maxWidth: 'full'}},
+                    {id: 'atm-dec-basic-3', type: 'markdown', content: 'The above decimal number is a **terminating decimal** - i.e. a number with a *finite number of digits*. In contrast, a **repeating decimal** has one or more digits that repeat infinitely. Repeating decimals are written with a bar over the repeating digits, as such:'},
+                    {id: 'atm-dec-basic-4', type: 'latex', content: '\\frac{1}{3} = 0.3333... = 0.\\bar{3}'},
+                    {id: 'atm-dec-basic-5', type: 'latex', content: '0.2466666... = 0.24\\bar{6}'},
 
-                    {id: 'atm-dec-4', type: 'hline', content: ''},
-                    {id: 'atm-dec-4a', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions'},
+                    {id: 'atm-dec-conv', type: 'hline', content: ''},
+                    {id: 'atm-dec-conv-1', type: 'markdown', content: '# 🔄 Decimal Operations and Conversions\n\nConversion between decimals and fractions is actually quit simple - first, we consider the position of the digits in the decimal. For example `0.015` has the digit *furthest on the right* go to the **thousandths place**. As such, to represent `0.015` as a fraction, we set the denominator to a **thousand** and set the numerator to the number on the top, without the decimal:'},
+                    {id: 'atm-dec-conv-2', type: 'latex', content: '0.015 = \\frac{15}{1000}'},
+                    {id: 'atm-dec-conv-3', type: 'markdown', content: 'This method can be applied to any decimal number. Simply identify the place value of the last digit, set the denominator accordingly, and use the digits as the numerator.'},
+                    
 
-                    {id: 'atm-dec-5', type: 'hline', content: ''},
-                    {id: 'atm-dec-5a', type: 'markdown', content: '# 💯 Percents, Rates, and Proportional Reasoning'},
+                    {id: 'atm-dec-perc', type: 'hline', content: ''},
+                    {id: 'atm-dec-perc-1', type: 'markdown', content: '# 💯 Percents\n\nOne of the most common applications of decimals is in calculating percents, rates, and solving problems involving proportional reasoning.\n\n✨**Percent** - The meaning of the word percent comes from "per century", or  "per hundred". It represents a fraction of 100 and is denoted using the symbol `%`. As an example, if we have `50%`, it means `50` out of `100`. Mathematically, we can show the different representations of this:'},
+                    {id: 'atm-dec-perc-2', type: 'latex', content: '50\\% = \\frac{50}{100} = 0.5'},
+                    {id: 'atm-dec-perc-3', type: 'markdown', content: '- Converting between a percentage and a fraction is straightforward: divide the percentage by 100 to get the fraction, and multiply the fraction by 100 to get the percentage.\n- Converting between a percentage and a decimal is also quite easy - to represent a percentage as a decimal, we move the decimal point two places to the left. To represent a decimal as a percentage, we move the decimal point two places to the right and add the `%` symbol. In other words, we **multiply or divide our numbers by 100**.'},
+                    {id: 'atm-dec-perc-3a', type: 'latex', content: '0.23 \\rightarrow 0.23 \\times 100 = 23\\%'},
+                    {id: 'atm-dec-perc-3b', type: 'latex', content: '23\\% \\rightarrow 23 \\div 100 = \\frac{23}{100} = 0.23'},
+                    {id: 'atm-dec-perc-3c', type: 'markdown', content: 'The takeaway here is that *all the above numbers are the same - we are simply representing them differently through the lese of percentages, fractions, and decimals.*'},
+                    {id: 'atm-dec-perc-4', type: 'dropdown', content: 'Conversion Example', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-dec-perc-4a', type: 'markdown', content: 'To represent `62%` as a fraction, we divide by 100: `62/100 = 31/50`. \n\nTo represent it as a decimal, we move the decimal point two places to the left: `0.62`.'}
+                    ]},
+                    {id: 'atm-dec-perc-5', type: 'markdown', content: 'Percentages most frequently show up in *word problems*, and typically involve finding three numbers: **the part, the whole, and the percentage**.\n\n- The **Whole** is the total or complete amount.\n- The **Part** is the portion of the whole.\n- The **Percentage** represents the part relative to the whole, expressed as a fraction of 100, or *percentage*.'},
+                    {id: 'atm-dec-perc-6', type: 'image', content: 'math_simple_dec_pizza.png', metadata: {alt: 'Pizza representation of percentages', format: 'no-shadow', maxWidth: 'full'}},
+                    {id: 'atm-dec-perc-8', type: 'dropdown', content: 'Word Problem Example', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-dec-perc-8a', type: 'markdown', content: '### Word Problem Example\n\nIf a student scored `18` out of `20` on a test, what is their score as a percentage?\n\n- **Solution:**\n  - Divide the part by the whole: `18/20 = 0.9`\n  - Convert to a percentage: `0.9 × 100 = 90%`'}
+                    ]},
+                    {id: 'atm-dec-perc-10', type: 'dropdown', content: 'Word Problem Example', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-dec-perc-10a', type: 'markdown', content: 'A computer\'s storage is said to be 88% full while holding `440 GB` of data. What is the total storage capacity of the computer?\n\n**Solution**: If the 440 GB **is** `88%` **of** the total storage, that means that `440 = 88% × Total Storage`. To find the total storage, we divide both sides by `88%`: `Total Storage = 440 / 0.88 = 500 GB`.'},
+                      {id: 'atm-dec-perc-10b', type: 'note', content: 'When solving word problems, we can use keywords to set up our equation - for example, "is" indicates equality (`=`), and "of" indicates multiplication (`×`).'}
+                    ]},
 
-                    {id: 'atm-dec-6', type: 'hline', content: ''},
-                    {id: 'atm-dec-6a', type: 'markdown', content: '# ⬆️ Exponents, Roots, and Percent Applications'},
+                    // {id: 'atm-dec-prop', type: 'hline', content: ''},
+                    // {id: 'atm-dec-prop', type: 'markdown', content: '# 📐 Proportions / Scale\n\nWe can also use ratios as proportions '},
 
                     {id: 'atm-dec-7', type: 'hline', content: ''},
                     {id: 'atm-dec-7a', type: 'markdown', content: '# 🔬 Application: Powers of Ten and Scientific Notation'},
@@ -362,12 +403,11 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'atm-measure',
+              { id: 'atm-measure',
                 title: 'Measurement and Units',
                 description: 'Understanding measurement concepts and units.',
                 blocks: [
-                    {id: 'atm-measure-metric-1', type: 'markdown', content: '## 📏 Measurement Systems and Unit Conversion'},
+                  {id: 'atm-measure-metric-1', type: 'markdown', content: '## 📏 Measurement Systems and Unit Conversion'},
                   {id: 'atm-measure-si1', type: 'markdown', content: '## ✨SI System\n\nThe International System of Units (SI) is the modern form of the metric system, designed to standardize all units of measurement. It is based on seven base units: meter (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol), and candela (cd). Derived units are formed by combining these base units, such as newton (N) for force, joule (J) for energy, and pascal (Pa) for pressure.'},
                   
                   {id: 'atm-measure-l', type: 'markdown', content: '## 📐Spatial Measurements\n\nSpatial measurements are used to quantify the size, shape, and position of objects in space. Common units of measurement include:\n- **Length**, or distance, measures a *1-Dimensional quantity*, and has many types of units: meters, feet, centimeters, inches, and more\n- **Area** measures a *2-Dimensional* quantity, and has units of square meters, square feet, square centimeters, square inches, and more\n- **Volume** (\is a *3-Dimensional quantity*, and has units of cubic meters, cubic feet, cubic centimeters, cubic inches, and more)\n\nUnderstanding how to measure and convert between different units is essential in various STEM fields.'},
