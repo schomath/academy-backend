@@ -404,7 +404,7 @@ export const CATEGORIES: Category[] = [
               },
 
               { id: 'atm-measure',
-                title: 'Measurement and Units',
+                title: 'Units and Measurements',
                 description: 'Understanding measurement concepts and units.',
                 blocks: [
                   {id: 'atm-measure-metric-1', type: 'markdown', content: '## 📏 Measurement Systems and Unit Conversion'},
@@ -412,10 +412,38 @@ export const CATEGORIES: Category[] = [
                   
                   {id: 'atm-measure-l', type: 'markdown', content: '## 📐Spatial Measurements\n\nSpatial measurements are used to quantify the size, shape, and position of objects in space. Common units of measurement include:\n- **Length**, or distance, measures a *1-Dimensional quantity*, and has many types of units: meters, feet, centimeters, inches, and more\n- **Area** measures a *2-Dimensional* quantity, and has units of square meters, square feet, square centimeters, square inches, and more\n- **Volume** (\is a *3-Dimensional quantity*, and has units of cubic meters, cubic feet, cubic centimeters, cubic inches, and more)\n\nUnderstanding how to measure and convert between different units is essential in various STEM fields.'},
 
-                  {id: 'atm-measurement-t', type: 'markdown', content: '## 🌡️Temperature Measurements\n\nTemperature measurements are used to quantify the degree of hotness or coldness of an object or environment. Common units of measurement include:\n- **Celsius (°C)**\n- **Fahrenheit (°F)**\n- **Kelvin (K)**\n\nUnderstanding how to measure and convert between different temperature units is essential in various scientific and engineering applications.'},
-                    {id: 'atm-measure-accuracy-2', type: 'markdown', content: '## 🎯 Accuracy, Precision, and Measurement Error'},
-                    {id: 'atm-measure-accuracy-3', type: 'markdown', content: '## 🔍 Reading Instruments and Scales'},
-                    {id: 'atm-measure-accuracy-4', type: 'markdown', content: '## 🛠️ Technical Applications: Calipers and Resistor Color Codes'},
+                  {id: 'atm-unit-temp-1', type: 'markdown', content: '## 🌡️Temperature Measurements\n\nTemperature measurements are used to quantify the degree of hotness or coldness of an object or environment. Common units of measurement include:\n- **Celsius (°C)**: a unit used across the world for everyday temperature measurements.\n- **Fahrenheit (°F)**: a unit commonly used in the United States for everyday temperature measurements.\n- **Kelvin (K)**: the SI base unit for temperature and is widely used in scientific contexts - as temperature is a measurement of *how fast the particles in a substance are moving*, it starts from absolute zero (0 K), where all particle motion theoretically ceases.\n\nTo convert between these units, we use the following formulas:\n- Celsius to Fahrenheit: `°F = (°C × 9/5) + 32`\n- Fahrenheit to Celsius: `°C = (°F - 32) × 5/9`\n- Celsius to Kelvin: `K = °C + 273.15`\n- Kelvin to Celsius: `°C = K - 273.15`'},
+                  {id: 'atm-unit-temp-2', type: 'note', content: 'Celsius and Kelvin are directly related, with a difference of 273.15 degrees. However, Fahrenheit requires both a *scaling* (the multiplication) and an offset (the addition or subtraction).'},
+
+                  {id: 'atm-unit-other', type: 'hline', content: ''},
+                  {id: 'atm-unit-other-1', type: 'markdown', content: '## 🧮 Other Units of Measurement\n\nOther units of measurements also exist within the SI system. Some examples are:\n- **Luminous intensity**: candela (cd)\n- **Amount of substance**: mole (mol)\n- **Electric current**: ampere (A)\n- **Time**: second (s)\n- **Mass**: kilogram (kg)\n- **Force**: newton (N)\n- **Speed**: meter per second (m/s)\n- **Energy**: joule (J)\n- **Power**: watt (W)\n- **Angle**: radian (rad)'},
+
+                  {id: 'atm-unit-relations', type: 'hline', content: ''},
+                  {id: 'atm-unit-relations-1', type: 'markdown', content: '## ⚖️ Relationships Between Units\n\nMany units in the SI system are just combinations of other units, written as such to demonstrate they are measuring a new unique quality (and also because scientists are laz- efficient! They are efficient.'},
+                  {id: 'atm-unit-relations-2', type: 'dropdown', content: 'Example: Speed', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-unit-relations-2-1', type: 'markdown', content: 'Speed is defined as the distance traveled per unit of time. In SI units, it is expressed as meters per second (m/s). This demonstrates how the unit of speed is derived from the base units of length (meter) and time (second).'},
+                    {id: 'atm-unit-relations-2-2', type: 'latex', content: '\\text{Distance} \\rightarrow \\text{meter} (m) \\\\ \\text{Time} \\rightarrow \\text{second} (s) \\\\ \\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}} = \\frac{\\text{meter} (m)}{\\text{second} (s)} = \\text{meter per second} (m/s)'}
+                  ]},
+                  {id: 'atm-unit-relations-3', type: 'dropdown', content: 'Example: Force (Newton)', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-unit-relations-3-1', type: 'markdown', content: 'Force is the product of an object\'s mass and acceleration. Since mass is measured in kilograms (kg) and acceleration in meters per second squared (m/s²), the derived SI unit of force is the newton (N).'},
+                    {id: 'atm-unit-relations-3-2', type: 'latex', content: '\\text{Force} = \\text{mass} \\cdot \\text{acceleration} \\\\ \\text{N} = \\text{kg} \\cdot \\frac{\\text{m}}{\\text{s}^2} = \\frac{\\text{kg} \\cdot \\text{m}}{\\text{s}^2}'}
+                  ]},
+                  {id: 'atm-unit-relations-4', type: 'dropdown', content: 'Example: Energy (Joule) and Power (Watt)', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-unit-relations-4-1', type: 'markdown', content: 'Work transfers energy when a force moves an object through a distance, so a joule (J) is a newton-meter. Power is the rate of energy transfer, so a watt (W) is a joule per second. These relationships reduce both units to SI base units.'},
+                    {id: 'atm-unit-relations-4-2', type: 'latex', content: '\\text{Energy} = \\text{force} \\cdot \\text{distance} \\\\ \\text{J} = \\text{N} \\cdot \\text{m} = \\frac{\\text{kg} \\cdot \\text{m}^2}{\\text{s}^2} \\\\ \\text{Power} = \\frac{\\text{energy}}{\\text{time}} \\\\ \\text{W} = \\frac{\\text{J}}{\\text{s}} = \\frac{\\text{kg} \\cdot \\text{m}^2}{\\text{s}^3}'}
+                  ]},
+
+                  {id: 'atm-unit-prefix', type: 'hline', content: ''},
+                  {id: 'atm-unit-prefix-1', type: 'markdown', content: '## 🔢 SI Unit Prefixes\n\nThe SI system includes a wonderfully intuitive system to represent smaller or larger values of a specific measurement:'},
+
+                  {id: 'atm-unit-apm', type: 'hline', content: ''},
+                  {id: 'atm-measure-apm-1', type: 'markdown', content: '## 🎯 Accuracy, Precision, and Measurement Error'},
+
+                  {id: 'atm-unit-scales', type: 'hline', content: ''},
+                  {id: 'atm-measure-scales-1', type: 'markdown', content: '## 🔍 Reading Instruments and Scales'},
+                  
+                  {id: 'atm-unit-calipers', type: 'hline', content: ''},
+                  {id: 'atm-measure-calipers-1', type: 'markdown', content: '## 🛠️ Technical Applications: Calipers and Resistor Color Codes'},
                 ]
               },
 
