@@ -353,9 +353,10 @@ export const CATEGORIES: Category[] = [
                         ]
                       ]}},
                     ]},
-                  ]},
+                ]
+              },
 
-                {id: 'atm-dec',
+              {id: 'atm-dec',
                   title: 'Decimals',
                   description: 'Understanding partial measurements in the base-10 system.',
                   blocks: [
@@ -471,19 +472,33 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'atm-alg',
+              { id: 'atm-alg',
                 title: 'Algebraic Expressions',
                 description: 'Simplifying, operating on, and interpreting algebraic expressions.',
                 blocks: [
-                    {id: 'atm-alg-1', type: 'markdown', content: '## 🔤 Variables, Terms, and Like Terms'},
-                    {id: 'atm-alg-2', type: 'markdown', content: '## ✨ Simplifying and Evaluating Expressions'},
-                    {id: 'atm-alg-3', type: 'markdown', content: '## ➗ Polynomial Operations'},
+                    {id: 'atm-alg-terms-1', type: 'markdown', content: '## 🔤 Variables, Terms, and Like Terms'},
+                    {id: 'atm-alg-terms-2', type: 'markdown', content: 'One of the most useful applications of mathematics is using *known numbers* to figure out *unkown numbers*. We already know that to represent known numbers, we use, well, numbers - but to represent unkown numbers, we use *variables*. Variables are symbols, usually letters latin or greek letters, that stand in for unknown values. We can also attatch sub-scripts to these variables to give more details about what an unkown number is. For example:'},
+                    {id: 'atm-alg-terms-cols', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-alg-terms-c1a', type: 'markdown', content: 'Placeholder 1'},
+                      {id: 'atm-alg-terms-c1b', type: 'markdown', content: 'Placeholder 2'},
+                      {id: 'atm-alg-terms-c1c', type: 'markdown', content: 'Placeholder 3'},
+                      {id: 'atm-alg-terms-c1d', type: 'markdown', content: 'Placeholder 4'},
+                    ], [
+                      {id: 'atm-alg-terms-c2a', type: 'latex', content: 'A = b \\times h'},
+                      {id: 'atm-alg-terms-c2b', type: 'latex', content: 'y'},
+                      {id: 'atm-alg-terms-c2c', type: 'latex', content: 'z'},
+                      {id: 'atm-alg-terms-c2d', type: 'latex', content: 'w'},
+                    ]], widths: [1, 1]}},
+
+                    {id: 'atm-alg-simp', type: 'hline', content: ''},
+                    {id: 'atm-alg-simp-1', type: 'markdown', content: '## ✨ Simplifying and Evaluating Expressions'},
+
+                    {id: 'atm-alg-poly', type: 'hline', content: ''},
+                    {id: 'atm-alg-poly-1', type: 'markdown', content: '## ➗ Polynomial Operations'},
                 ]
               },
 
-              {
-                id: 'atm-eqf',
+              { id: 'atm-eqf',
                 title: 'Equations & Formulas',
                 description: 'Understanding and applying equations and formulas in various contexts.',
                 blocks: [
@@ -532,8 +547,7 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          {
-            id: 'geotrig',
+          { id: 'geotrig',
             title: 'Geometry & Trigonometry',
             emoji: '📐',
             modules: [
@@ -572,8 +586,7 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          {
-            id: 'stats',
+          { id: 'stats',
             title: 'Statistics',
             emoji: '📊',
             modules: [
@@ -597,8 +610,7 @@ export const CATEGORIES: Category[] = [
             ],
           },
 
-          {
-            id: 'linalg',
+          { id: 'linalg',
             title: 'Linear Algebra',
             emoji: '⏹️',
             modules: [
