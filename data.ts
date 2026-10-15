@@ -2,8 +2,7 @@
 import { text } from 'stream/consumers';
 import { Category } from './types';
 
-// To improve readability in VS Code, you can collapse all regions by pressing:
-// Ctrl + K, then Ctrl + 0 (zero).
+// To improve readability in VS Code, you can collapse all regions by pressing: Ctrl + K, then Ctrl + 0 (zero).
 
 export const CATEGORIES: Category[] = [
 
@@ -2654,6 +2653,22 @@ export const CATEGORIES: Category[] = [
             title: 'Modbus Protocol',
             emoji: '🌐',
             modules: [
+              {
+                id: 'indnet-modbus-theory',
+                title: 'Modbus: Architecture & Communication',
+                description: 'Overview of the Modbus protocol, including master/slave architecture and initiating communications.',
+                blocks: [
+                  {id: 'indnet-modbus-theory-1', type: 'markdown', content: '# Modbus Protocol Overview\n\nModbus was one of the earliest and most commonly used industrial networking protocols. Developed in 1979 by Modicon (now Schneider Electric), it has become a standard for communication in industrial environments. So standard, infact, that modbus even has support for interfacing with more modern TCP/IP networks. Several design aspects of modbus contribute to it\'s long lasting industrial presence:\n- **Simplicity**: Minimal message structure and fixed data models (coils, discrete inputs, input registers, holding registers).\n- **Open Source**: Royalty‑free and openly published, encouraging widespread adoption\n- **Compatability and Flexibility**: Works with many different layer 1 protocols, such as RS-232, RS-485, Ethernet, wireless, and more.'},
+
+                  {id: 'indnet-modbus-theory-arch-1', type: 'columns', content: '', metadata: {columns: [[
+                    {id: 'indnet-modbus-theory-arch-1a', type: 'markdown', content: 'The master-slave architecture is one of the earliest forms of avoiding collisions. The general idea is that **only the master device** (or *master node*) can initiate communication, while the slave devices (or *slave nodes*) only respond to the master\'s requests. This avoids a situation where multiple devices try to communicate simultaneously, preventing data collisions and ensuring orderly communication.'},
+                    {id: 'indnet-modbus-theory-arch-1a-note', type: 'note', content: '**Data Collisions** occur when two devices attempt to send data simultaneously on the same communication channel - the signals interfere, resulting in jumbled data.'},
+                  ], [
+                    {id: 'indnet-modbus-theory-arch-1b', type: 'image', content: ''},
+                  ]], widths: [1, 1]}},
+                ]
+              },
+
               { id: 'indnet-modbus-click',
                 title: 'CLICK PLC Communication Protocols',
                 description: 'Overview of the modbus communication protocol for the Click PLC.',

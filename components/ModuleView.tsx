@@ -41,6 +41,28 @@ const DROPDOWN_BG_PRESETS: Record<string, { className: string }> = {
   rose: { className: 'bg-rose-50 border-rose-200' },
 };
 
+const NOTE_BG_GRADIENTS: Record<string, { from: string; to: string; border: string }> = {
+  slate: { from: '#f8fafc', to: '#e2e8f0', border: '#94a3b8' },
+  gray: { from: '#f9fafb', to: '#e5e7eb', border: '#9ca3af' },
+  red: { from: '#fef2f2', to: '#fecaca', border: '#f87171' },
+  orange: { from: '#fff7ed', to: '#fed7aa', border: '#fb923c' },
+  amber: { from: '#fffbeb', to: '#fde68a', border: '#fbbf24' },
+  yellow: { from: '#fefce8', to: '#fef08a', border: '#facc15' },
+  lime: { from: '#f7fee7', to: '#d9f99d', border: '#a3e635' },
+  green: { from: '#f0fdf4', to: '#bbf7d0', border: '#4ade80' },
+  emerald: { from: '#ecfdf5', to: '#a7f3d0', border: '#34d399' },
+  teal: { from: '#f0fdfa', to: '#99f6e4', border: '#2dd4bf' },
+  cyan: { from: '#ecfeff', to: '#a5f3fc', border: '#22d3ee' },
+  sky: { from: '#f0f9ff', to: '#bae6fd', border: '#38bdf8' },
+  blue: { from: '#eff6ff', to: '#bfdbfe', border: '#60a5fa' },
+  indigo: { from: '#eef2ff', to: '#c7d2fe', border: '#818cf8' },
+  violet: { from: '#f5f3ff', to: '#ddd6fe', border: '#a78bfa' },
+  purple: { from: '#faf5ff', to: '#e9d5ff', border: '#c084fc' },
+  fuchsia: { from: '#fdf4ff', to: '#f5d0fe', border: '#e879f9' },
+  pink: { from: '#fdf2f8', to: '#fbcfe8', border: '#f472b6' },
+  rose: { from: '#fff1f2', to: '#fecdd3', border: '#fb7185' },
+};
+
 type PlotlyFigure = {
   data?: any[];
   layout?: Record<string, any>;
@@ -478,22 +500,31 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
         typeof block.metadata?.noteLabel === 'string' && block.metadata.noteLabel.trim().length > 0
           ? block.metadata.noteLabel.trim()
           : '📝Note';
+      const noteBgKey = typeof block.metadata?.bg === 'string' ? block.metadata.bg.trim().toLowerCase() : '';
+      const noteBgGradient = NOTE_BG_GRADIENTS[noteBgKey];
+      const noteStyle = noteBgGradient
+        ? {
+            backgroundImage: `linear-gradient(135deg, ${noteBgGradient.from}, ${noteBgGradient.to})`,
+            borderLeftColor: noteBgGradient.border,
+            color: '#1f2937',
+          }
+        : undefined;
 
       return (
         <AnimatedBlock>
-          <div className="my-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg hover:shadow-md hover:bg-yellow-100 transition-all duration-300 cursor-default">
+          <div className="my-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg hover:shadow-md transition-all duration-300 cursor-default" style={noteStyle}>
             <div className="flex items-center gap-2 mb-1">
               {/* <span className="text-lg">💡</span> */}
-              <span className="font-bold text-yellow-800">{noteLabel}</span>
+              <span className={`font-bold ${noteBgGradient ? 'text-slate-900' : 'text-yellow-800'}`}>{noteLabel}</span>
             </div>
-            <div className="text-yellow-900">
+            <div className={noteBgGradient ? 'text-slate-900' : 'text-yellow-900'}>
               <ReactMarkdown
                 components={{
-                  p: ({ node, ...props }) => <p className="text-yellow-900 my-1" {...props} />,
+                  p: ({ node, ...props }) => <p className={`${noteBgGradient ? 'text-slate-900' : 'text-yellow-900'} my-1`} {...props} />,
                   strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
                   em: ({ node, ...props }) => <em {...props} />,
-                  code: ({ node, ...props }) => <code className="bg-yellow-100 px-1 py-0.5 rounded text-sm font-mono" {...props} />,
-                  a: ({ node, ...props }) => <a className="text-yellow-700 underline hover:text-yellow-900" {...props} />,
+                  code: ({ node, ...props }) => <code className={`${noteBgGradient ? 'bg-white/50 text-slate-900' : 'bg-yellow-100'} px-1 py-0.5 rounded text-sm font-mono`} {...props} />,
+                  a: ({ node, ...props }) => <a className={`${noteBgGradient ? 'text-slate-800 hover:text-slate-950' : 'text-yellow-700 hover:text-yellow-900'} underline`} {...props} />,
                   ul: ({ node, ...props }) => <ul className="list-disc list-outside pl-6 my-1" {...props} />,
                   ol: ({ node, ...props }) => <ol className="list-decimal list-outside pl-6 my-1" {...props} />,
                   li: ({ node, ...props }) => <li className="my-0.5" {...props} />,
