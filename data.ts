@@ -489,7 +489,31 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-alg-terms-c2c', type: 'latex', content: 'P_1 = P_2'},
                       {id: 'atm-alg-terms-c2d', type: 'latex', content: 'E_{kinetic} = \\frac{1}{2} m v^2'},
                     ]], widths: [1, 1]}},
-                    {id: 'atm-alg-terms-3', type: 'markdown', content: '✨**Terms**: A term is a single number or a product of a number and one or more letters (variables) raised to some power. The following are examples of terms:\n\n- `5x^2` (a number multiplied by a variable squared)\n- `3ab` (a number multiplied by two variables)\n- `7` (a single number)'},
+                    {id: 'atm-alg-terms-3', type: 'markdown', content: '✨**Terms**: A term is a single number or a product of a number and one or more letters (variables) raised to some power. The following are examples of terms (hover over their parts to see how their expressed)'},
+                    {id: 'atm-alg-terms-3b', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-alg-terms-3b-1', type: 'latextooltip', content: '', metadata: {
+                        displayMode: true,
+                        parts: [
+                          {expression: '5', blocks: [{id: 'atm-alg-terms-3b-1-coefficient', type: 'markdown', content: '**Coefficient:** `5` is the numerical factor.'}]},
+                          {expression: 'x^2', blocks: [{id: 'atm-alg-terms-3b-1-literal', type: 'markdown', content: '**Literal:** `x^2` is the variable part of the term.'}]},
+                        ]
+                      }}
+                    ], [
+                      {id: 'atm-alg-terms-3b-2', type: 'latextooltip', content: '', metadata: {
+                        displayMode: true,
+                        parts: [
+                          {expression: '3', blocks: [{id: 'atm-alg-terms-3b-2-coefficient', type: 'markdown', content: '**Coefficient:** `3` is the numerical factor.'}]},
+                          {expression: 'ab', blocks: [{id: 'atm-alg-terms-3b-2-literal', type: 'markdown', content: '**Literal:** `ab` is the product of the variables `a` and `b`.'}]},
+                        ]
+                      }}
+                    ], [
+                      {id: 'atm-alg-terms-3b-3', type: 'latextooltip', content: '', metadata: {
+                        displayMode: true,
+                        parts: [
+                          {expression: 'x', blocks: [{id: 'atm-alg-terms-3b-3-coefficient', type: 'markdown', content: '**Coefficient:** `1` is the numerical factor. The literal part is `x`.'}]},
+                        ]
+                      }}
+                    ]], widths: [1, 1, 1]}},
                     {id: 'atm-alg-terms-4', type: 'markdown', content: '✨**Coefficients**: Within a **term**, the number part is called the **coefficient** and the variable part is called the **literal**. For example:\n\n- In `5x^2`, `5` is the coefficient and `x^2` is the literal.\n- In `-3ab`, `-3` is the coefficient and `ab` is the literal.\n- In `x`, `x` is the literal and the coefficient is `1`.'},
                     {id: 'atm-alg-terms-5', type: 'markdown', content: '✨**Expressions**: An **expression** is a combination of terms connected by addition or subtraction. For example:\n\n- `5x^2 + 3ab - 7` is an expression consisting of three terms.\n- `2a + 3b` is an expression with two terms.'},
 
@@ -508,9 +532,61 @@ export const CATEGORIES: Category[] = [
 
                     {id: 'atm-alg-poly', type: 'hline', content: ''},
                     {id: 'atm-alg-poly-1', type: 'markdown', content: '## ➗ Monomial and Polynomial Operations'},
-                    {id: 'atm-alg-poly-5', type: 'markdown', content: '✨**Adding and Subtracting Polynomials**: '},
-                    {id: 'atm-alg-poly-10', type: 'markdown', content: '✨**Multiplying Monomials**: '},
-                    {id: 'atm-alg-poly-15', type: 'markdown', content: '✨**Multiplying & Raising Polynomials**: '},
+                    {id: 'atm-alg-poly-2', type: 'markdown', content: '✨**Monomials and Polynomials**: A **monomial** is a single term, while a **polynomial** is a sum of one or more monomials. In the examples below, the first expression is a *monomial*. However, the second two are polynomials (specifically a binomial (2 terms) and a trinomial (3 terms) expression). Hover over them for more information!'},
+                    {id: 'atm-alg-poly-examples', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-alg-poly-example-1', type: 'latextooltip', content: '', metadata: {
+                        displayMode: true,
+                        parts: [
+                          {expression: '3', blocks: [{id: 'atm-alg-poly-example-1-coefficient', type: 'markdown', content: '**Coefficient:** `3` is the numerical factor.'}]},
+                          {expression: 'x', blocks: [{id: 'atm-alg-poly-example-1-literal', type: 'markdown', content: '**Literal:** `x` is the variable part. Together, `3x` is one monomial.'}]},
+                        ]
+                      }}
+                    ], [
+                      {id: 'atm-alg-poly-example-2', type: 'latextooltip', content: '', metadata: {
+                        displayMode: true,
+                        parts: [
+                          {expression: '2x', blocks: [{id: 'atm-alg-poly-example-2-first-term', type: 'markdown', content: '**First monomial:** coefficient `2`, literal `x`.'}]},
+                          {expression: '+', blocks: [{id: 'atm-alg-poly-example-2-plus', type: 'markdown', content: '**Polynomial:** the sum of these two monomials is a polynomial.'}]},
+                          {expression: '5', blocks: [{id: 'atm-alg-poly-example-2-second-term', type: 'markdown', content: '**Second monomial:** `5` is a constant term with coefficient `5` and no variable literal.'}]},
+                        ]
+                      }}
+                    ], [
+                      {id: 'atm-alg-poly-example-3', type: 'latextooltip', content: '', metadata: {
+                        displayMode: true,
+                        parts: [
+                          {expression: 'x^2', blocks: [{id: 'atm-alg-poly-example-3-first-term', type: 'markdown', content: '**First monomial:** coefficient `1` is implied; the literal is `x^2`.'}]},
+                          {expression: '+', blocks: [{id: 'atm-alg-poly-example-3-first-plus', type: 'markdown', content: '**Polynomial:** this expression is a sum of three monomials.'}]},
+                          {expression: '3x', blocks: [{id: 'atm-alg-poly-example-3-second-term', type: 'markdown', content: '**Second monomial:** coefficient `3`, literal `x`.'}]},
+                          {expression: '+', blocks: [{id: 'atm-alg-poly-example-3-second-plus', type: 'markdown', content: 'The final term is another monomial in the polynomial.'}]},
+                          {expression: '7', blocks: [{id: 'atm-alg-poly-example-3-third-term', type: 'markdown', content: '**Third monomial:** `7` is a constant term with coefficient `7` and no variable literal.'}]},
+                        ]
+                      }}
+                    ]], widths: [1, 1, 1]}},
+
+                    {id: 'atm-alg-poly-5', type: 'markdown', content: '✨**Adding and Subtracting Polynomials**: Terms can only be added or subtracted if they are like terms, meaning they have the same literal part. To add or subtract polynomials, follow these steps:\n\n- First, remove the parenthesis as described earlier in this reading\n\n- Next, combine all **like terms**.'},
+                    {id: 'atm-alg-poly-add-example', type: 'dropdown', content: 'Example: Adding Polynomials', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-alg-poly-add-example-problem', type: 'markdown', content: 'Add the polynomials `(3x^2 + 2x - 4) + (5x^2 - 7x + 1)`. First remove the parentheses, then combine terms with the same literal part.'},
+                        {id: 'atm-alg-poly-add-example-original', type: 'latex', content: '(3x^2 + 2x - 4) + (5x^2 - 7x + 1)'},
+                        {id: 'atm-alg-poly-add-example-remove-parentheses', type: 'markdown', content: 'Because the second polynomial is being **added**, removing its parentheses does not change any signs. Keep each term exactly as written: `+5x^2`, `-7x`, and `+1`.'},
+                        {id: 'atm-alg-poly-add-example-expanded', type: 'latex', content: '3x^2 + 2x - 4 + 5x^2 - 7x + 1'},
+                        {id: 'atm-alg-poly-add-example-combine-terms', type: 'markdown', content: 'Now group like terms, which have the same literal part. Add the coefficients of the `x^2` terms (`3 + 5 = 8`), the `x` terms (`2 - 7 = -5`), and the constants (`-4 + 1 = -3`).'},
+                          {id: 'atm-alg-poly-add-example-work', type: 'latex', content: '8x^2 - 5x - 3'},
+                    ]},
+                    {id: 'atm-alg-poly-subtract-example', type: 'dropdown', content: 'Example: Subtracting Polynomials', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-alg-poly-subtract-example-problem', type: 'markdown', content: 'Subtract `(2x^2 - 5x + 7)` from `(6x^2 + 4x - 3)`. Distribute the subtraction sign across the second polynomial before combining like terms.'},
+                        {id: 'atm-alg-poly-subtract-example-original', type: 'latex', content: '(6x^2 + 4x - 3) - (2x^2 - 5x + 7)'},
+                        {id: 'atm-alg-poly-subtract-example-remove-parentheses', type: 'markdown', content: 'The subtraction sign applies to **every term** in the second polynomial. Multiplying each term by `-1` changes `+2x^2` to `-2x^2`, `-5x` to `+5x`, and `+7` to `-7`.'},
+                        {id: 'atm-alg-poly-subtract-example-expanded', type: 'latex', content: '6x^2 + 4x - 3 - 2x^2 + 5x - 7'},
+                        {id: 'atm-alg-poly-subtract-example-combine-terms', type: 'markdown', content: 'Group like terms and combine their coefficients: `6 - 2 = 4` for `x^2`, `4 + 5 = 9` for `x`, and `-3 - 7 = -10` for the constants.'},
+                        {id: 'atm-alg-poly-subtract-example-work', type: 'latex', content: '4x^2 + 9x - 10'},
+                    ]},
+
+                    {id: 'atm-alg-poly-10', type: 'markdown', content: '✨**Multiplying Monomials**: To multiply together monomials, we must recall what the exponents on the variables are *actually telling us*. For example, remember that `x^3` just means `x` multiplied together three times. Because of this property, if our **variable** is the same, we can add or subtract our exponents to combine monomials of the same variable:'},
+                    {id: 'atm-alg-poly-11', type: 'latex', content: 'x^2 \\times x^3 = (x\\cdot x) \\cdot (x\\cdot x \\cdot x) = x^5'},
+                    {id: 'atm-alg-poly-12', type: 'markdown', content: 'In general, the rule for multiplying monomials with like literals is shown below, where `a` and `b` are just some numbers.'},
+                    {id: 'atm-alg-poly-13', type: 'latex', content: 'x^a \\times x^b = x^{a+b}'},
+
+                    {id: 'atm-alg-poly-15', type: 'markdown', content: '✨**Multiplying & Raising Polynomials**: Multiplying polynomials becomes a little complicated as we must obay the **distributive property** rule. In general, when multiplying two polynomials, **every term** in the *first polynomial* has to be multiplied with **every term** in the *second polynomial*.'},
                 ]
               },
 
