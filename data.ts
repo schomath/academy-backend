@@ -505,12 +505,12 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-alg-simp-9b', type: 'note', content: 'To begin, I suggest going one by one through each term and identifying any other term with the same variables and powers. For example, maybe I would put a "✔️" above any term that *just* contains an `x` (in this case, `x` and `3x`), and a '},
                       {id: 'atm-alg-simp-9c', type: 'markdown', content: '\n\n- Combine like terms for `xy^2`: `5xy^2 - xy^2 = 4xy^2`.\n- Combine like terms for `x^2y`: `3x^2y` (no other like terms).\n- Combine like terms for `x`: `x + 3x = 4x`.\n- Combine like terms for `x^2`: `2x^2 + 4x^2 = 6x^2`.\n- Combine like terms for `xy`: `5xy` (no other like terms).\n- Therefore, the simplified expression is `4xy^2 + 3x^2y + 4x + 6x^2 + 5xy`.'}
                     ]},
-                    {id: 'atm-alg-simp-14', type: 'markdown', content: '**Distributive Property**: '},
 
                     {id: 'atm-alg-poly', type: 'hline', content: ''},
-                    {id: 'atm-alg-poly-1', type: 'markdown', content: '## ➗ Polynomial Operations'},
-                    {id: 'atm-alg-poly-5', type: 'markdown', content: '**Adding and Subtracting Polynomials**: '},
-                    {id: 'atm-alg-poly-10', type: 'markdown', content: '**Multiplying & Raising Polynomials**: '},
+                    {id: 'atm-alg-poly-1', type: 'markdown', content: '## ➗ Monomial and Polynomial Operations'},
+                    {id: 'atm-alg-poly-5', type: 'markdown', content: '✨**Adding and Subtracting Polynomials**: '},
+                    {id: 'atm-alg-poly-10', type: 'markdown', content: '✨**Multiplying Monomials**: '},
+                    {id: 'atm-alg-poly-15', type: 'markdown', content: '✨**Multiplying & Raising Polynomials**: '},
                 ]
               },
 
@@ -675,41 +675,7 @@ export const CATEGORIES: Category[] = [
             title: 'CLICK PLC Documentation',
             emoji: '📟',
             modules: [
-              { id: 'plcs-click-comm',
-                title: 'CLICK PLC Communication Protocols',
-                description: 'Overview of the modbus communication protocol for the Click PLC.',
-                blocks: [
-                  {id: 'b1', type: 'markdown', content: '# Overview of Modbus Protocol\n\nModbus is a communication protocol developed for industrial applications. It allows devices to communicate over a network, typically using serial communication (RS-232, RS-485) or Ethernet. The Click PLC supports Modbus TCP/IP for Ethernet communication and Modbus RTU for serial communication.'},
-                  {id: 'b2', type: 'markdown', content: '## 📟↔💻Modbus TCP/IP\n\nModbus TCP/IP is a variant of the Modbus protocol that uses Ethernet for communication. It allows for faster data transfer and is commonly used in modern industrial applications. The Click PLC can be configured to communicate with other devices using Modbus TCP/IP, enabling integration with SCADA systems, HMIs, and other PLCs.'},
-                  {id: 'b3', type: 'markdown', content: '## 📟↔📟Modbus RTU\n\nModbus RTU is a serial communication protocol that uses a master-slave architecture. It is commonly used for communication between PLCs and field devices such as sensors and actuators. The Click PLC can be configured to communicate with other devices using Modbus RTU, allowing for integration with a wide range of industrial equipment.'},
-                  {id: 'b4', type: 'markdown', content: '# Click-to-Click with Modbus RTU\n\nTo allow two PLCs to talk to one another, the Modbus RTU protocal can be used by connecting two PLCs through the serial line, or **`port 3`**.\n When working with the **Modbus RTU Protocol**, all PLCs must serve as one of two roles: **Client** (*sometimes called master*) or **Server** (*sometimes called slave*).\n - The **Client PLC** initiates communication and sends requests to the server PLC, which responds to those requests. In a typical network, only one PLC can act as the client at a time.\n - The **Server PLC** listens for requests from the client and responds accordingly. Multiple server PLCs can be connected to a single client PLC, allowing for a network of devices to communicate with one another.'},
-                  {id: 'b5', type: 'image', content: 'plcs_click_networking.png', metadata: { alt: 'Diagram of Click PLC Modbus TCP/IP and RTU Communication', format: 'no-shadow'}},
-                  {id: 'b6', type: 'markdown', content: '## Choosing what Data to Send:\n\nData is exchanged between PLCs by a register-to-register basis. This means that the client PLC can read from or write to specific registers on the server PLC. For example, if the client PLC wants to read the value of a sensor connected to the server PLC, it would send a request to read from the register associated with that sensor. The server PLC would then respond with the current value of that register, allowing the client PLC to use that data in its control logic.\nModbus addresses have their **own unique register map**, which can be shown by opening the \`address picker\` and checking the \`Display Modbus Addresses\` checkbox.'},
-                  {id: 'b7', type: 'image', content: 'plcs_click_networking_addressing.png', metadata: { alt: 'Diagram of Click PLC Modbus Register Addressing', format: 'no-shadow', maxWidth: 'full'}},
-                  {id: 'b8', type: 'markdown', content: '## Modbus Communication Functions\n\nIn order to perform communication between two PLCs, the modbus settings ***must*** match between the two devices, save a signle setting called \`Node Address\`\n\n The **Node Address** is a unique identifier for each PLC on the Modbus network. It allows the client PLC to specify which server PLC it wants to communicate with. Each server PLC must have a unique Node Address to avoid conflicts on the network\n\n **All other settings** must be identical between the two PLCs to ensure proper communication. A few settings of note:\n - The \`Baudrate\` defines the speed at which the PLCs will transmit signals\n - The \`Parity\` setting ensures that the data integrity is maintained during transmission\n - The \`Stop Bits\` setting defines the end of a data packet\n - The \`Data Bits\` setting defines the size of each data packet.\n - The \`Time-out setting\` defines the maximum time the client PLC will wait for a response from the server PLC.'},
-                  {id: 'b9', type: 'image', content: 'plcs_click_networking_comsetup.png', metadata: { alt: 'Diagram of Click PLC Modbus Communication Functions', format: 'no-shadow', maxWidth: 'full'} },
-                  {id: 'b10', type: 'markdown', content: 'To actually send and recieve data, the **client PLC** will utilize the **\`Recieve\`** and **\`Send\`** instructions found in the **Instruction List**.'},
-                  {id: 'b11', type: 'markdowntooltip', content: '## Recieving Data\n\nThe **\`Recieve\`** instruction allows the client PLC to read data from the server PLC. To correctly set up the recieve instruction, the client PLC must specify the following parameters:\n- The **Node Address** of the server PLC it wants to communicate with.\n- The **Function Code** that specifies the type of Modbus operation. This could be \`Reading a Coil\`, \`Reading an Input\`, \`Reading a Register\`, or \`Reading an input Register\`.\n- The **Starting Register Address** on the server PLC from which to begin reading data.\n- The **Number of Registers** to read from the server PLC. (i.e. how many registers after the starting register address should be read? This can be thought of as the size of the data packet being sent.)', metadata: {
-                    'parts' : [
-                      {
-                        text: 'Reading a Coil',
-                        blocks: [{type: 'markdown', content: 'Reads a single \`boolean\` value from a \`coil\` (*such as C1*).'}]
-                      },
-                      {
-                        text: 'Reading an Input',
-                        blocks: [{type: 'markdown', content: 'Reads a single \`boolean\` value from an \`input\` (*such as X1*).'}]
-                      },
-                      {text: 'Reading a Register', blocks: [{type: 'markdown', content: 'Reads a \`byte\` or \`word\` value from a \`register\` (*such as R1*).'}]},
-                      {text: 'Reading an input Register', blocks: [{type: 'markdown', content: 'Reads a \`byte\` or \`word\` value from an \`input register\` (*such as IR1*). This is useful for sending over a **list** of several inputs (i.e. X1, X2, X3, ...)'}]}
-                    ]
-                  }},
-                  {id: 'b12', type: 'image', content: 'plcs_click_networking_recievecmd.png', metadata: { alt: 'Diagram of Click PLC Recieve Command', format: 'no-shadow', maxWidth: 'full'}},
-                  {id: 'b13', type: 'markdown', content: '## Sending Data\n\nThe **\`Send\`** instruction allows the client PLC to write data to the server PLC. The parameters are nearly identical to those of the **\`Recieve\`** instruction.\n\nBelow is an illustration of an example program that will take a piece of data from.'},
-                  {id: 'b14', type: 'image', content: 'plcs_click_networking_lld.png', metadata: { alt: 'Diagram of Click PLC Send Command', format: 'no-shadow', maxWidth: 'full'}},
-                  {id: 'b15', type: 'markdown', content: '## 📺Youtube Video Demonstration\n\nBelow is a youtube video demonstration showing how RS-485 can be used to communicate between two videos, as well as an elaboration on the \`status flags\` properties of the send and recieve commands.'},
-                  {id: 'b16', type: 'video', content: 'https://www.youtube.com/embed/EySxKZjm6uE?si=hf8fRJxWRFEAXDxk'}
-                ]
-              },
+              
               { id: 'plcs-click-misc',
                 title: 'CLICK PLC Documentation',
                 description: 'Links for specific functionalities of the Click PLC',
@@ -2594,7 +2560,62 @@ export const CATEGORIES: Category[] = [
         title: 'Industrial Networking', 
         emoji: '🌐', 
         description: 'Protocols and architecture for factory floor connectivity.', 
-        modules: [] 
+        modules: [],
+        moduleCategories: [
+          // { id: 'indnet-basics', 
+          //   title: 'Industrial Networking Basics', 
+          //   emoji: '🌐', 
+          //   modules: [] 
+          // },
+
+          // { id: 'indnet-tcpip',
+          //   title: 'TCP/IP Protocols',
+          //   emoji: '🌐',
+          //   modules: []
+          // },
+
+          { id: 'indnet-modbus',
+            title: 'Modbus Protocol',
+            emoji: '🌐',
+            modules: [
+              { id: 'indnet-modbus-click',
+                title: 'CLICK PLC Communication Protocols',
+                description: 'Overview of the modbus communication protocol for the Click PLC.',
+                blocks: [
+                  {id: 'indnet-modbus-click-1', type: 'markdown', content: '# Overview of Modbus Protocol\n\nModbus is a communication protocol developed for industrial applications. It allows devices to communicate over a network, typically using serial communication (RS-232, RS-485) or Ethernet. The Click PLC supports Modbus TCP/IP for Ethernet communication and Modbus RTU for serial communication.'},
+                  {id: 'indnet-modbus-click-2', type: 'markdown', content: '## 📟↔💻Modbus TCP/IP\n\nModbus TCP/IP is a variant of the Modbus protocol that uses Ethernet for communication. It allows for faster data transfer and is commonly used in modern industrial applications. The Click PLC can be configured to communicate with other devices using Modbus TCP/IP, enabling integration with SCADA systems, HMIs, and other PLCs.'},
+                  {id: 'indnet-modbus-click-3', type: 'markdown', content: '## 📟↔📟Modbus RTU\n\nModbus RTU is a serial communication protocol that uses a master-slave architecture. It is commonly used for communication between PLCs and field devices such as sensors and actuators. The Click PLC can be configured to communicate with other devices using Modbus RTU, allowing for integration with a wide range of industrial equipment.'},
+                  {id: 'indnet-modbus-click-4', type: 'markdown', content: '# Click-to-Click with Modbus RTU\n\nTo allow two PLCs to talk to one another, the Modbus RTU protocal can be used by connecting two PLCs through the serial line, or **`port 3`**.\n When working with the **Modbus RTU Protocol**, all PLCs must serve as one of two roles: **Client** (*sometimes called master*) or **Server** (*sometimes called slave*).\n - The **Client PLC** initiates communication and sends requests to the server PLC, which responds to those requests. In a typical network, only one PLC can act as the client at a time.\n - The **Server PLC** listens for requests from the client and responds accordingly. Multiple server PLCs can be connected to a single client PLC, allowing for a network of devices to communicate with one another.'},
+                  {id: 'indnet-modbus-click-5', type: 'image', content: 'plcs_click_networking.png', metadata: { alt: 'Diagram of Click PLC Modbus TCP/IP and RTU Communication', format: 'no-shadow'}},
+                  {id: 'indnet-modbus-click-6', type: 'markdown', content: '## Choosing what Data to Send:\n\nData is exchanged between PLCs by a register-to-register basis. This means that the client PLC can read from or write to specific registers on the server PLC. For example, if the client PLC wants to read the value of a sensor connected to the server PLC, it would send a request to read from the register associated with that sensor. The server PLC would then respond with the current value of that register, allowing the client PLC to use that data in its control logic.\nModbus addresses have their **own unique register map**, which can be shown by opening the \`address picker\` and checking the \`Display Modbus Addresses\` checkbox.'},
+                  {id: 'indnet-modbus-click-7', type: 'image', content: 'plcs_click_networking_addressing.png', metadata: { alt: 'Diagram of Click PLC Modbus Register Addressing', format: 'no-shadow', maxWidth: 'full'}},
+                  {id: 'indnet-modbus-click-8', type: 'markdown', content: '## Modbus Communication Functions\n\nIn order to perform communication between two PLCs, the modbus settings ***must*** match between the two devices, save a signle setting called \`Node Address\`\n\n The **Node Address** is a unique identifier for each PLC on the Modbus network. It allows the client PLC to specify which server PLC it wants to communicate with. Each server PLC must have a unique Node Address to avoid conflicts on the network\n\n **All other settings** must be identical between the two PLCs to ensure proper communication. A few settings of note:\n - The \`Baudrate\` defines the speed at which the PLCs will transmit signals\n - The \`Parity\` setting ensures that the data integrity is maintained during transmission\n - The \`Stop Bits\` setting defines the end of a data packet\n - The \`Data Bits\` setting defines the size of each data packet.\n - The \`Time-out setting\` defines the maximum time the client PLC will wait for a response from the server PLC.'},
+                  {id: 'indnet-modbus-click-9', type: 'image', content: 'plcs_click_networking_comsetup.png', metadata: { alt: 'Diagram of Click PLC Modbus Communication Functions', format: 'no-shadow', maxWidth: 'full'} },
+                  {id: 'indnet-modbus-click-10', type: 'markdown', content: 'To actually send and recieve data, the **client PLC** will utilize the **\`Recieve\`** and **\`Send\`** instructions found in the **Instruction List**.'},
+                  {id: 'indnet-modbus-click-11', type: 'markdowntooltip', content: '## Recieving Data\n\nThe **\`Recieve\`** instruction allows the client PLC to read data from the server PLC. To correctly set up the recieve instruction, the client PLC must specify the following parameters:\n- The **Node Address** of the server PLC it wants to communicate with.\n- The **Function Code** that specifies the type of Modbus operation. This could be \`Reading a Coil\`, \`Reading an Input\`, \`Reading a Register\`, or \`Reading an input Register\`.\n- The **Starting Register Address** on the server PLC from which to begin reading data.\n- The **Number of Registers** to read from the server PLC. (i.e. how many registers after the starting register address should be read? This can be thought of as the size of the data packet being sent.)', metadata: {
+                    'parts' : [
+                      {
+                        text: 'Reading a Coil',
+                        blocks: [{type: 'markdown', content: 'Reads a single \`boolean\` value from a \`coil\` (*such as C1*).'}]
+                      },
+                      {
+                        text: 'Reading an Input',
+                        blocks: [{type: 'markdown', content: 'Reads a single \`boolean\` value from an \`input\` (*such as X1*).'}]
+                      },
+                      {text: 'Reading a Register', blocks: [{type: 'markdown', content: 'Reads a \`byte\` or \`word\` value from a \`register\` (*such as R1*).'}]},
+                      {text: 'Reading an input Register', blocks: [{type: 'markdown', content: 'Reads a \`byte\` or \`word\` value from an \`input register\` (*such as IR1*). This is useful for sending over a **list** of several inputs (i.e. X1, X2, X3, ...)'}]}
+                    ]
+                  }},
+                  {id: 'indnet-modbus-click-12', type: 'image', content: 'plcs_click_networking_recievecmd.png', metadata: { alt: 'Diagram of Click PLC Recieve Command', format: 'no-shadow', maxWidth: 'full'}},
+                  {id: 'indnet-modbus-click-13', type: 'markdown', content: '## Sending Data\n\nThe **\`Send\`** instruction allows the client PLC to write data to the server PLC. The parameters are nearly identical to those of the **\`Recieve\`** instruction.\n\nBelow is an illustration of an example program that will take a piece of data from.'},
+                  {id: 'indnet-modbus-click-14', type: 'image', content: 'plcs_click_networking_lld.png', metadata: { alt: 'Diagram of Click PLC Send Command', format: 'no-shadow', maxWidth: 'full'}},
+                  {id: 'indnet-modbus-click-15', type: 'markdown', content: '## 📺Youtube Video Demonstration\n\nBelow is a youtube video demonstration showing how RS-485 can be used to communicate between two videos, as well as an elaboration on the \`status flags\` properties of the send and recieve commands.'},
+                  {id: 'indnet-modbus-click-16', type: 'video', content: 'https://www.youtube.com/embed/EySxKZjm6uE?si=hf8fRJxWRFEAXDxk'}
+                ]
+              },
+            ]
+          }
+        ]
       }
     ]
   },
