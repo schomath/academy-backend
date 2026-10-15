@@ -479,22 +479,38 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-alg-terms-1', type: 'markdown', content: '## 🔤 Variables, Terms, and Like Terms'},
                     {id: 'atm-alg-terms-2', type: 'markdown', content: 'One of the most useful applications of mathematics is using *known numbers* to figure out *unkown numbers*. We already know that to represent known numbers, we use, well, numbers - but to represent unkown numbers, we use *variables*. Variables are symbols, usually letters latin or greek letters, that stand in for unknown values. We can also attatch sub-scripts to these variables to give more details about what an unkown number is. For example:'},
                     {id: 'atm-alg-terms-cols', type: 'columns', content: '', metadata: {columns: [[
-                      {id: 'atm-alg-terms-c1a', type: 'markdown', content: 'Placeholder 1'},
-                      {id: 'atm-alg-terms-c1b', type: 'markdown', content: 'Placeholder 2'},
-                      {id: 'atm-alg-terms-c1c', type: 'markdown', content: 'Placeholder 3'},
-                      {id: 'atm-alg-terms-c1d', type: 'markdown', content: 'Placeholder 4'},
+                      {id: 'atm-alg-terms-c1a', type: 'markdown', content: '**Expression 1**: The first expression tells us that the variable `h` represents height, and the value of `h` is given as `15 ft`.'},
+                      {id: 'atm-alg-terms-c1b', type: 'markdown', content: '**Expression 2**: The second expression represents the area of a rectangle with base `b` and height `h`. Again, we don\'t know what the exact lengths of `b` and `h` are, but we understand the relationship between them.'},
+                      {id: 'atm-alg-terms-c1c', type: 'markdown', content: '**Expression 3**: The third expression tells us that P_1, likely some unkown pressure, is the same as P_2. While we don\'t know the exact values, we *do* know they are the same at points `1` and `2`'},
+                      {id: 'atm-alg-terms-c1d', type: 'markdown', content: '**Expression 4**: The fourth expression says the kinetic energy of an object is given by `1/2` times its mass `m` and the square of its velocity `v`.'},
                     ], [
-                      {id: 'atm-alg-terms-c2a', type: 'latex', content: 'A = b \\times h'},
-                      {id: 'atm-alg-terms-c2b', type: 'latex', content: 'y'},
-                      {id: 'atm-alg-terms-c2c', type: 'latex', content: 'z'},
-                      {id: 'atm-alg-terms-c2d', type: 'latex', content: 'w'},
+                      {id: 'atm-alg-terms-c2a', type: 'latex', content: 'h = 15 \\text{ft}'},
+                      {id: 'atm-alg-terms-c2b', type: 'latex', content: 'b \\times h'},
+                      {id: 'atm-alg-terms-c2c', type: 'latex', content: 'P_1 = P_2'},
+                      {id: 'atm-alg-terms-c2d', type: 'latex', content: 'E_{kinetic} = \\frac{1}{2} m v^2'},
                     ]], widths: [1, 1]}},
+                    {id: 'atm-alg-terms-3', type: 'markdown', content: '✨**Terms**: A term is a single number or a product of a number and one or more letters (variables) raised to some power. The following are examples of terms:\n\n- `5x^2` (a number multiplied by a variable squared)\n- `3ab` (a number multiplied by two variables)\n- `7` (a single number)'},
+                    {id: 'atm-alg-terms-4', type: 'markdown', content: '✨**Coefficients**: Within a **term**, the number part is called the **coefficient** and the variable part is called the **literal**. For example:\n\n- In `5x^2`, `5` is the coefficient and `x^2` is the literal.\n- In `-3ab`, `-3` is the coefficient and `ab` is the literal.\n- In `x`, `x` is the literal and the coefficient is `1`.'},
+                    {id: 'atm-alg-terms-5', type: 'markdown', content: '✨**Expressions**: An **expression** is a combination of terms connected by addition or subtraction. For example:\n\n- `5x^2 + 3ab - 7` is an expression consisting of three terms.\n- `2a + 3b` is an expression with two terms.'},
 
                     {id: 'atm-alg-simp', type: 'hline', content: ''},
-                    {id: 'atm-alg-simp-1', type: 'markdown', content: '## ✨ Simplifying and Evaluating Expressions'},
+                    {id: 'atm-alg-simp-1', type: 'markdown', content: '## 🎈 Simplifying and Evaluating Expressions'},
+                    {id: 'atm-alg-simp-2', type: 'markdown', content: '**Removing Parenthesis**: To remove parenthesis, we can apply the distributive property as mentioined in [our unit on math properties](https://schomath.github.io/academy-backend/?course=math&module=atm-property).\n- For terms with only a `+` infront of the parentehsis, we can simply remove them.\n- For terms with a `-` infront of the parenthesis, we need to distribute the negative sign to each term inside the parenthesis - essentially changing the sign of every term within.\n- For terms with a coefficient infront of the parenthesis, we must distribute the term into each term within the parenthesis (see [Distributive Property](https://schomath.github.io/academy-backend/?course=math&module=atm-property) for more).'},
+                    {id: 'atm-alg-simp-7', type: 'markdown', content: '**Combining Like Terms**: Like terms are terms that have the same literal part. To combine like terms, we **add or subtract** their **coefficients** while keeping the literal part unchanged.'},
+                    {id: 'atm-alg-simp-8', type: 'dropdown', content: 'Simplifying Expressions', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-alg-simp-8a', type: 'markdown', content: '**Example: Simplify the expression `2x + 3x - 5` by combining like terms.**\n\n- Since `2x` and `3x` are like terms, we add their coefficients: `2 + 3 = 5`.\n- Therefore, the simplified expression is `5x - 5`.'}
+                    ]},
+                    {id: 'atm-alg-simp-9', type: 'dropdown', content: 'Simplyfing Advanced Expressions', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-alg-simp-9a', type: 'markdown', content: '**Example: Simplify the expression `5xy^2 + 3x^2y - xy^2 + x + 2x^2 + 3x + 4x^2 + 5xy` by combining like terms.**'},
+                      {id: 'atm-alg-simp-9b', type: 'note', content: 'To begin, I suggest going one by one through each term and identifying any other term with the same variables and powers. For example, maybe I would put a "✔️" above any term that *just* contains an `x` (in this case, `x` and `3x`), and a '},
+                      {id: 'atm-alg-simp-9c', type: 'markdown', content: '\n\n- Combine like terms for `xy^2`: `5xy^2 - xy^2 = 4xy^2`.\n- Combine like terms for `x^2y`: `3x^2y` (no other like terms).\n- Combine like terms for `x`: `x + 3x = 4x`.\n- Combine like terms for `x^2`: `2x^2 + 4x^2 = 6x^2`.\n- Combine like terms for `xy`: `5xy` (no other like terms).\n- Therefore, the simplified expression is `4xy^2 + 3x^2y + 4x + 6x^2 + 5xy`.'}
+                    ]},
+                    {id: 'atm-alg-simp-14', type: 'markdown', content: '**Distributive Property**: '},
 
                     {id: 'atm-alg-poly', type: 'hline', content: ''},
                     {id: 'atm-alg-poly-1', type: 'markdown', content: '## ➗ Polynomial Operations'},
+                    {id: 'atm-alg-poly-5', type: 'markdown', content: '**Adding and Subtracting Polynomials**: '},
+                    {id: 'atm-alg-poly-10', type: 'markdown', content: '**Multiplying & Raising Polynomials**: '},
                 ]
               },
 
