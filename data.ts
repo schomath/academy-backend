@@ -635,7 +635,7 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-eqf-eq-3', type: 'markdown', content: 'Of course, the above examples are rather easy. The first directly tells us that `x` is, infact, known to be `5`. For the second, we can reason that because `5` times `2` is `10`, `x` must be `5`. The third tells us that whatever `a` is should be multiplied by `5` in order to find what `x` is. However, this intuition doesn\'t really help us when it comes to more complex problems. Consider the following equation:'},
                     {id: 'atm-eqf-eq-4', type: 'latex', content: '12x - 2x + 20 = 131'},
                     {id: 'atm-eqf-eq-5', type: 'markdown', content: 'While this equation is quite difficult to do in our heads, we can use the both algebra techniques and the **golden rule of equations** to re-arrange our equation to look like `x = ...`.'},
-                    {id: 'atm-eqf-eq-6', type: 'note', content: '**Golden Rule of Equations**: Whatever we do to one side of an equation, we must do to the other side.'},
+                    {id: 'atm-eqf-eq-6', type: 'note', content: 'While solving equations, there is a **goal** and a **rule** to persue and follow:\n\n- **Goal**: Isolate the unknown variable on one side of the equation (i.e. `x = ...`).\n- **Rule**: Whatever operation we perform on one side of the equation, we must perform on the other side as well.'},
                     {id: 'atm-eqf-eq-7', type: 'markdown', content: 'First, let\'s move everything that doesn\'t have the term `x` to the left side of the equation. We can do this by **subtracting `20` from both sides of the equal sign:'},
                     {id: 'atm-eqf-eq-8', type: 'latex', content: '12x - 2x + 20 - 20 = 131 - 20 \\\\ 12x - 2x + 0 = 111 \\\\ 12x - 2x = 111'},
                     {id: 'atm-eqf-eq-9', type: 'dropdown', content: 'Why are we allowed to do this?', metadata: {bg: 'blue'}, children: [
@@ -704,12 +704,68 @@ export const CATEGORIES: Category[] = [
 
                     {id: 'atm-eqf-word', type: 'hline', content: ''},
                     {id: 'atm-eqf-word', type: 'markdown', content: '## 🗣️ Translating and Modeling with Equations'},
+                    {id: 'atm-eqf-word-1', type: 'markdown', content: 'In real life, we are often not given equations directly. Instead, we need to **translate** word problems into mathematical equations before we can solve them. To do so, we can look for **keywords** that describe how an equation is laid out:'},
+                    {id: 'atm-eqf-word-2', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-eqf-word-2a1', type: 'latex', content: '+'},
+                      {id: 'atm-eqf-word-2a2', type: 'markdown', content: '- Plus\n- Increased by\n- Added to\n - More than\n- Sum of'}
+                    ], [
+                      {id: 'atm-eqf-word-2b1', type: 'latex', content: '-'},
+                      {id: 'atm-eqf-word-2b2', type: 'markdown', content: '- Minus\n- Decreased by\n- Subtracted from\n- Less than\n- Difference of'}
+                    ], [
+                      {id: 'atm-eqf-word-2c1', type: 'latex', content: '\\times'},
+                      {id: 'atm-eqf-word-2c2', type: 'markdown', content: '- Times\n- Multiplied by\n- Product of\n- Double, Twice, Thrice, etc.'}
+                    ], [
+                      {id: 'atm-eqf-word-2d1', type: 'latex', content: '\\div'},
+                      {id: 'atm-eqf-word-2d2', type: 'markdown', content: '- Divided by\n- Quotient of\n- Half, Third, Quarter, etc.'}
+                    ], [
+                      {id: 'atm-eqf-word-2e1', type: 'latex', content: '='},
+                      {id: 'atm-eqf-word-2e2', type: 'markdown', content: '- Equals\n- Is\n- Is equal to\n- Results in'}
+                    ]], widths: [1, 1, 1, 1, 1]}},
+                    {id: 'atm-eqf-word-3', type: 'dropdown', content: 'Word Problem 1', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-word-3a', type: 'markdown', content: 'Translate the following word problem into an equation: The sum of a number and 12, divided by 4, is 4.'},
+                      {id: 'atm-eqf-word-3b', type: 'markdown', content: '`The sum of a number and 12` gives us a starting point:'},
+                      {id: 'atm-eqf-word-3c', type: 'latex', content: 'x + 12'},
+                      {id: 'atm-eqf-word-3d', type: 'markdown', content: 'Next, we divide by 4:'},
+                      {id: 'atm-eqf-word-3e', type: 'latex', content: '\\frac{x + 12}{4}'},
+                      {id: 'atm-eqf-word-3f', type: 'markdown', content: 'Finally, we set it equal to 4:'},
+                      {id: 'atm-eqf-word-3g', type: 'latex', content: '\\frac{x + 12}{4} = 4'},
+                      {id: 'atm-eqf-word-3h', type: 'markdown', content: 'To solve for x, multiply both sides by 4 and then subtract 12:'},
+                      {id: 'atm-eqf-word-3i', type: 'latex', content: 'x + 12 = 16'},
+                      {id: 'atm-eqf-word-3j', type: 'latex', content: 'x + 12 - 12 = 16 - 12'},
+                      {id: 'atm-eqf-word-3k', type: 'latex', content: 'x = 4'}
+                    ]},
+                    {id: 'atm-eqf-word-4', type: 'dropdown', content: 'Word Problem 2', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-word-4a', type: 'markdown', content: 'Translate the following word problem into an equation: Three times a number, increased by 5, is 20.'},
+                      {id: 'atm-eqf-word-4b', type: 'markdown', content: '`Three times a number` gives us a starting point:'},
+                      {id: 'atm-eqf-word-4c', type: 'latex', content: '3x'},
+                      {id: 'atm-eqf-word-4d', type: 'markdown', content: 'Next, we increase it by 5:'},
+                      {id: 'atm-eqf-word-4e', type: 'latex', content: '3x + 5'},
+                      {id: 'atm-eqf-word-4f', type: 'markdown', content: 'Finally, we set it equal to 20:'},
+                      {id: 'atm-eqf-word-4g', type: 'latex', content: '3x + 5 = 20'},
+                      {id: 'atm-eqf-word-4h', type: 'markdown', content: 'To solve for x, subtract 5 from both sides and then divide by 3:'},
+                      {id: 'atm-eqf-word-4i', type: 'latex', content: '3x = 15'},
+                      {id: 'atm-eqf-word-4j', type: 'latex', content: '\\frac{3x}{3} = \\frac{15}{3}'},
+                      {id: 'atm-eqf-word-4k', type: 'latex', content: 'x = 5'}
+                    ]},
+                    {id: 'atm-eqf-word-5', type: 'dropdown', content: 'Word Problem 3', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-word-5a', type: 'markdown', content: 'Translate the following word problem into an equation: Seven less than twice a number is 15.'},
+                      {id: 'atm-eqf-word-5b', type: 'markdown', content: '`Twice a number` gives us a starting point:'},
+                      {id: 'atm-eqf-word-5c', type: 'latex', content: '2x'},
+                      {id: 'atm-eqf-word-5d', type: 'markdown', content: 'Next, we subtract 7:'},
+                      {id: 'atm-eqf-word-5e', type: 'latex', content: '2x - 7'},
+                      {id: 'atm-eqf-word-5f', type: 'markdown', content: 'Finally, we set it equal to 15:'},
+                      {id: 'atm-eqf-word-5g', type: 'latex', content: '2x - 7 = 15'},
+                      {id: 'atm-eqf-word-5h', type: 'markdown', content: 'To solve for x, add 7 to both sides and then divide by 2:'},
+                      {id: 'atm-eqf-word-5i', type: 'latex', content: '2x = 22'},
+                      {id: 'atm-eqf-word-5j', type: 'latex', content: '\\frac{2x}{2} = \\frac{22}{2}'},
+                      {id: 'atm-eqf-word-5k', type: 'latex', content: 'x = 11'}
+                    ]},
 
                     {id: 'atm-eqf-form', type: 'hline', content: ''},
                     {id: 'atm-eqf-form-1', type: 'markdown', content: '## 🔄 Formulas'},
 
                     {id: 'atm-eqf-sub', type: 'hline', content: ''},
-                    {id: 'atm-eqf-sub'}
+                    // {id: 'atm-eqf-sub'}
                 ]
               },
 
