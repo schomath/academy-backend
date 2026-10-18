@@ -589,6 +589,30 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-alg-poly-13', type: 'latex', content: 'x^a \\times x^b = x^{a+b}'},
 
                     {id: 'atm-alg-poly-15', type: 'markdown', content: '✨**Multiplying & Raising Polynomials**: Multiplying polynomials becomes a little complicated as we must obay the **distributive property** rule. In general, when multiplying two polynomials, **every term** in the *first polynomial* has to be multiplied with **every term** in the *second polynomial*.'},
+                    {id: 'atm-alg-poly-16', type: 'dropdown', content: 'Example: Multiplying Polynomials', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-alg-poly-16a', type: 'markdown', content: 'Multiply the following polynomials together:'},
+                      {id: 'atm-alg-poly-16b', type: 'latex', content: '(x + 2)(x - 3)'},
+                      {id: 'atm-alg-poly-16c', type: 'markdown', content: 'We will multiply each term in the second polynomial by each of the first. Let\'s start with the `x` in the first one:\n- `x` times `x` and `x` times `-3`.\n- Next, take the `2` in the first polynomial: `2` times `x` and `2` times `-3`.'},
+                      {id: 'atm-alg-poly-16d', type: 'latex', content: '(x\\times x) + (x\\times -3) + (2\\times x) + (2\\times -3)'},
+                      {id: 'atm-alg-poly-16e', type: 'markdown', content: 'This results in...'},
+                      {id: 'atm-alg-poly-16f', type: 'latex', content: 'x^2 - 3x + 2x - 6'},
+                      {id: 'atm-alg-poly-16g', type: 'markdown', content: 'Simplify the expression by combining like terms.'},
+                      {id: 'atm-alg-poly-16h', type: 'latex', content: 'x^2 - x - 6'}
+                    ]},
+                    {id: 'atm-alg-poly-17', type: 'dropdown', content: 'Example: More Polynomial operations', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-alg-poly-17a', type: 'markdown', content: 'Evaluate the following expression: '},
+                      {id: 'atm-alg-poly-17b', type: 'latex', content: '3(x^2 + 4)(x - 2) + 2x \\times x^2'},
+                      {id: 'atm-alg-poly-17c', type: 'markdown', content: 'First, we\'ll start with distributing the `3` into the first polynomial `x^2 + 4` by multiplying each term within the first polynomial by `3`:'},
+                      {id: 'atm-alg-poly-17d3', type: 'latex', content: '(3x^2 + 12)(x - 2) + 2x \\times x^2'},
+                      {id: 'atm-alg-poly-17e', type: 'markdown', content: 'Next, we multiply together the terms in `(3x^2 + 12)` and `(x - 2)`. Remember, we are multiplying each term in the first polynomial by each term in the second polynomial:'},
+                      {id: 'atm-alg-poly-17f', type: 'latex', content: '(3x^2 + 12)(x - 2) = (3x^2 \\times x) + (3x^2 \\times -2) + (12 \\times x) + (12 \\times -2)'},
+                      {id: 'atm-alg-poly-17g', type: 'latex', content: '3x^3 - 6x^2 + 12x - 24'},
+                      {id: 'atm-alg-poly-17h', type: 'markdown', content: 'Don\'t forget about the two terms at the end! Since they are multiplied together, we can simplify them as well by combining `2x` times `x^2` (think of it as `2 * x * x * x`):'},
+                      {id: 'atm-alg-poly-17i', type: 'latex', content: '3x^3 - 6x^2 + 12x - 24 + 2x \\times x^2 = 3x^3 - 6x^2 + 12x - 24 + 2x^3'},
+                      {id: 'atm-alg-poly-17j', type: 'markdown', content: 'Combine like terms to get the final result.'},
+                      {id: 'atm-alg-poly-17k', type: 'latex', content: '5x^3 - 6x^2 + 12x - 24'}
+                    ]},
+                    
                 ]
               },
 
@@ -596,10 +620,96 @@ export const CATEGORIES: Category[] = [
                 title: 'Equations & Formulas',
                 description: 'Understanding and applying equations and formulas in various contexts.',
                 blocks: [
-                    {id: 'atm-eqf-1', type: 'markdown', content: '## 🟰 Solving Linear Equations'},
-                    {id: 'atm-eqf-2', type: 'markdown', content: '## ➗ Equations with Parentheses and Fractions'},
-                    {id: 'atm-eqf-3', type: 'markdown', content: '## 🗣️ Translating and Modeling with Equations'},
-                    {id: 'atm-eqf-4', type: 'markdown', content: '## 🔄 Formulas, Substitution, and Rearrangement'},
+                    {id: 'atm-eqf-eq', type: 'markdown', content: '## 🟰 Equations'},
+                    {id: 'atm-eqf-eq-1', type: 'markdown', content: 'So, what\'s the point of simplifying and solving linear equations? Why\'d we just do all that? Well, this brings us to the core principle of why we even bother with math at all: **We want to be able to find unkown values from values that are known.** This is the essence of solving equations.\n\nThe primary way of doing this is by creating an **equation**, which is two expressions that are equal to one another. By manipulating the equation using algebraic operations, we can isolate the unknown variable and solve for it. Some simple equations are:'},
+                    {id: 'atm-eqf-eq-2', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-eqf-eq-2a', type: 'markdown', content: 'This states that the unkown `x` is in fact `5`'},
+                      {id: 'atm-eqf-eq-2b', type: 'latex', content: 'x = 5'},
+                    ], [
+                      {id: 'atm-eqf-eq-2c', type: 'markdown', content: 'This states that the unkown `x`, when multiplied by `2`, must equal `10`'},
+                      {id: 'atm-eqf-eq-2d', type: 'latex', content: '2 \\times x = 10'},
+                    ], [
+                      {id: 'atm-eqf-eq-2e', type: 'markdown', content: 'This states that the unkown `x` is whatever another unkown `a` is, mutliplied by 5'},
+                      {id: 'atm-eqf-eq-2f', type: 'latex', content: 'x = 5 \\times a'},
+                    ]], widths: [1, 1, 1]}},
+                    {id: 'atm-eqf-eq-3', type: 'markdown', content: 'Of course, the above examples are rather easy. The first directly tells us that `x` is, infact, known to be `5`. For the second, we can reason that because `5` times `2` is `10`, `x` must be `5`. The third tells us that whatever `a` is should be multiplied by `5` in order to find what `x` is. However, this intuition doesn\'t really help us when it comes to more complex problems. Consider the following equation:'},
+                    {id: 'atm-eqf-eq-4', type: 'latex', content: '12x - 2x + 20 = 131'},
+                    {id: 'atm-eqf-eq-5', type: 'markdown', content: 'While this equation is quite difficult to do in our heads, we can use the both algebra techniques and the **golden rule of equations** to re-arrange our equation to look like `x = ...`.'},
+                    {id: 'atm-eqf-eq-6', type: 'note', content: '**Golden Rule of Equations**: Whatever we do to one side of an equation, we must do to the other side.'},
+                    {id: 'atm-eqf-eq-7', type: 'markdown', content: 'First, let\'s move everything that doesn\'t have the term `x` to the left side of the equation. We can do this by **subtracting `20` from both sides of the equal sign:'},
+                    {id: 'atm-eqf-eq-8', type: 'latex', content: '12x - 2x + 20 - 20 = 131 - 20 \\\\ 12x - 2x + 0 = 111 \\\\ 12x - 2x = 111'},
+                    {id: 'atm-eqf-eq-9', type: 'dropdown', content: 'Why are we allowed to do this?', metadata: {bg: 'blue'}, children: [
+                      {id: 'atm-eqf-eq-9a', type: 'markdown', content: 'consider the expression `20 = 20`. Our goal is to **make sure this equation stays *true***. Let\'s see what happens if we subtract, for example, `5` from each side:'},
+                      {id: 'atm-eqf-eq-9b', type: 'latex', content: '20 = 20 \\\\ 20 - 5 = 20 - 5 \\\\ 15 = 15'},
+                      {id: 'atm-eqf-eq-9c', type: 'markdown', content: 'Notice how, even when we subtract `5` from both sides, our equation still holds true. **This is the essense of solveing equations** - we *must* maintain the **truth** of an quality.\n\nIf we only subtract 5 from one side, we get `20 - 5 = 20`, which comes out to be `15 = 20`, and I am sure you can see the problem here...' }
+                    ]},
+                    {id: 'atm-eqf-eq-10', type: 'markdown', content: 'So, now we\'re left with `12x - 2x = 111`. Well, algebra tells us we can **combine like terms** next:'},
+                    {id: 'atm-eqf-eq-11', type: 'latex', content: '12x - 2x = 111 \\\\ 10x = 111'},
+                    {id: 'atm-eqf-eq-12', type: 'markdown', content: 'Finally, we can again perform an operation to both sides of the equal sign to isolate `x`: divide both sides by 10:'},
+                    {id: 'atm-eqf-eq-13', type: 'latex', content: '10x = 111 \\\\ \\frac{10x}{10} = \\frac{111}{10} \\\\ x = \\frac{111}{10} \\\\ x = 11.1'},
+                    {id: 'atm-eqf-eq-14', type: 'markdown', content: 'Finally, we have isolated `x` and found its value: `x = 11.1`. For a few more simple examples, check below:'},
+                    {id: 'atm-eqf-eq-15', type: 'dropdown', content: 'Example 1: Solve 3x + 2x + 4 = 19', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-eq-15a', type: 'markdown', content: 'Start with the equation:'},
+                      {id: 'atm-eqf-eq-15b', type: 'latex', content: '3x + 2x + 4 = 19'},
+                      {id: 'atm-eqf-eq-15c', type: 'markdown', content: 'First, combine the like terms `3x` and `2x`:'},
+                      {id: 'atm-eqf-eq-15d', type: 'latex', content: '5x + 4 = 19'},
+                      {id: 'atm-eqf-eq-15e', type: 'markdown', content: 'Subtract `4` from both sides to leave the term with `x` by itself:'},
+                      {id: 'atm-eqf-eq-15f', type: 'latex', content: '5x + 4 - 4 = 19 - 4 \\\\ 5x = 15'},
+                      {id: 'atm-eqf-eq-15g', type: 'markdown', content: 'Divide both sides by `5` to solve for `x`:'},
+                      {id: 'atm-eqf-eq-15h', type: 'latex', content: '\\frac{5x}{5} = \\frac{15}{5} \\\\ x = 3'},
+                    ]},
+                    {id: 'atm-eqf-eq-16', type: 'dropdown', content: 'Example 2: Solve 2(x + 3) + x = 18', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-eq-16a', type: 'markdown', content: 'Start with the equation:'},
+                      {id: 'atm-eqf-eq-16b', type: 'latex', content: '2(x + 3) + x = 18'},
+                      {id: 'atm-eqf-eq-16c', type: 'markdown', content: 'Distribute `2` to both terms inside the parentheses:'},
+                      {id: 'atm-eqf-eq-16d', type: 'latex', content: '2x + 6 + x = 18'},
+                      {id: 'atm-eqf-eq-16e', type: 'markdown', content: 'Combine the like terms `2x` and `x`:'},
+                      {id: 'atm-eqf-eq-16f', type: 'latex', content: '3x + 6 = 18'},
+                      {id: 'atm-eqf-eq-16g', type: 'markdown', content: 'Subtract `6` from both sides, then divide both sides by `3`:'},
+                      {id: 'atm-eqf-eq-16h', type: 'latex', content: '3x + 6 - 6 = 18 - 6 \\\\ 3x = 12 \\\\ \\frac{3x}{3} = \\frac{12}{3} \\\\ x = 4'},
+                    ]},
+                    {id: 'atm-eqf-eq-17', type: 'dropdown', content: 'Example 3: Solve 3(x + 2) - 2x = 14', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-eq-17a', type: 'markdown', content: 'Start with the equation:'},
+                      {id: 'atm-eqf-eq-17b', type: 'latex', content: '3(x + 2) - 2x = 14'},
+                      {id: 'atm-eqf-eq-17c', type: 'markdown', content: 'Distribute `3` to both terms inside the parentheses:'},
+                      {id: 'atm-eqf-eq-17d', type: 'latex', content: '3x + 6 - 2x = 14'},
+                      {id: 'atm-eqf-eq-17e', type: 'markdown', content: 'Combine the like terms `3x` and `-2x`:'},
+                      {id: 'atm-eqf-eq-17f', type: 'latex', content: 'x + 6 = 14'},
+                      {id: 'atm-eqf-eq-17g', type: 'markdown', content: 'Subtract `6` from both sides to isolate `x`:'},
+                      {id: 'atm-eqf-eq-17h', type: 'latex', content: 'x + 6 - 6 = 14 - 6 \\\\ x = 8'},
+                    ]},
+
+                    {id: 'atm-eqf-eq-18', type: 'markdown', content: '**What if the `variable` is on both sides?** Well, as it turns out, we can still use our golden rule to *move the variables* to one side of the equation! Addition, subtraction, division, and multiplication all work the same way:'},
+                    {id: 'atm-eqf-eq-18a', type: 'dropdown', content: 'Example 4: Solve 2x + 3 = x + 7', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-eq-18a1', type: 'markdown', content: 'Start with the equation:'},
+                      {id: 'atm-eqf-eq-18a2', type: 'latex', content: '2x + 3 = x + 7'},
+                      {id: 'atm-eqf-eq-18a3', type: 'markdown', content: 'Subtract `x` from both sides to move the variable to one side:'},
+                      {id: 'atm-eqf-eq-18a4', type: 'latex', content: '2x - x + 3 = x - x + 7 \\\\ x + 3 = 7'},
+                      {id: 'atm-eqf-eq-18a5', type: 'markdown', content: 'Subtract `3` from both sides to isolate `x`:'},
+                      {id: 'atm-eqf-eq-18a6', type: 'latex', content: 'x + 3 - 3 = 7 - 3 \\\\ x = 4'}
+                    ]},
+
+                    {id: 'atm-eqf-eq-19', type: 'markdown', content: '**What if we have more complex equations?** We can still apply the same principles to solve them step by step. Let\'s see what happens if we have a variable in the denominator of a fraction:'},
+                    {id: 'amt-eqf-eq-20', type: 'dropdown', content: 'Example 5: Solve (2/x) + 5 = 20', metadata: {bg: 'pink'}, children: [
+                      {id: 'amt-eqf-eq-20a1', type: 'markdown', content: 'Start with the equation:'},
+                      {id: 'amt-eqf-eq-20a2', type: 'latex', content: '\\frac{2}{x} + 5 = 20'},
+                      {id: 'amt-eqf-eq-20a3', type: 'markdown', content: 'Subtract `5` from both sides:'},
+                      {id: 'amt-eqf-eq-20a4', type: 'latex', content: '\\frac{2}{x} + 5 - 5 = 20 - 5 \\\\ \\frac{2}{x} = 15'},
+                      {id: 'amt-eqf-eq-20a5', type: 'markdown', content: 'Multiply both sides by `x` to eliminate the fraction:'},
+                      {id: 'amt-eqf-eq-20a6', type: 'latex', content: 'x \\cdot \\frac{2}{x} = 15 \\cdot x \\\\ 2 = 15x'},
+                      {id: 'amt-eqf-eq-20a7', type: 'markdown', content: 'Divide both sides by `15` to solve for `x`:'},
+                      {id: 'amt-eqf-eq-20a8', type: 'latex', content: '\\frac{2}{15} = x \\\\ x = \\frac{2}{15}'}
+                    ]},
+
+
+                    {id: 'atm-eqf-word', type: 'hline', content: ''},
+                    {id: 'atm-eqf-word', type: 'markdown', content: '## 🗣️ Translating and Modeling with Equations'},
+
+                    {id: 'atm-eqf-form', type: 'hline', content: ''},
+                    {id: 'atm-eqf-form-1', type: 'markdown', content: '## 🔄 Formulas'},
+
+                    {id: 'atm-eqf-sub', type: 'hline', content: ''},
+                    {id: 'atm-eqf-sub'}
                 ]
               },
 
