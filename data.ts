@@ -168,7 +168,6 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-
               { id: 'atm-property',
                 title: 'Properties of Operations',
                 description: 'Understanding the fundamental properties of mathematical operations, such as commutative, associative, and distributive properties.',
@@ -216,7 +215,6 @@ export const CATEGORIES: Category[] = [
                   },
                 ]
               },
-
 
               { id: 'atm-sign',
                 title: 'Signed Numbers',
@@ -452,6 +450,11 @@ export const CATEGORIES: Category[] = [
                   ], [
                       {id: 'atm-measure-apm-4', type: 'image', content: 'math_simple_meas_rulers.png', metadata: {alt: 'Simple measurement rulers illustration', format: 'no-shadow'}},
                   ]], widths: [1, 2]}},
+                  {id: 'atm-measure-apm-4', type: 'dropdown', content: 'Example: Finding Precision', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-measure-apm-4a', type: 'markdown', content: '- **Example 1**: A metric ruler is used to make a measurement of 10.3 mm. What is the precision in mm? **Ans**: Since the last significant digit is the *three* in the *tenths* place, the precision of this measurement is the **tenths place**, or `0.1 mm`.\n- **Example 2**: A thermometer measures `22` degrees C. Find the precision in degrees celcius. **Ans**: Since the last significant figure is in the ones place (the second two), the precision is `1` degree celcius, or the **units place**.\n- **Example 3**: A measurement is made as `15.3 cm`. Find the precision in meters. **Ans**: In this case, we must first convert our measurement into meters. Since there are 100 cm in a meter, we can perform the following:'},
+                    {id: 'atm-measure-apm-4b', type: 'latex', content: '\\frac{15.4 \\sout{cm}}{1} \\times \\frac{1 \\text{m}}{100 \\sout{cm}} = \\frac{15.4}{100}\\text{m} = 0.154 \\text{m}'},
+                    {id: 'atm-measure-apm-4c', type: 'markdown', content: 'So, with `0.154` m, since our last significant digit is in the thousdandths place, our precision is **one thousandths**, or `0.001`.'},
+                  ]},
 
                   {id: 'atm-measure-gpe', type: 'hline', content: ''},
                   {id: 'atm-measure-gpe-1', type: 'markdown', content: '## ⚠️Greatest Possible Error\n\n The **greatest possible error (GPE)** in a measurement is the maximum amount by which the measured value could differ from the true value. It is often determined by the **precision of the measuring instrument**. For example, if a ruler has millimeter markings, the greatest possible error in a measurement taken with that ruler is typically ±0.5 mm.'},
@@ -3235,36 +3238,6 @@ export const CATEGORIES: Category[] = [
             ]
           },
 
-          // { id: 'robai-arch-dyn',
-          //   title: 'Dynamics & Planning',
-          //   emoji: '⚽',
-          //   modules: [
-          //     { id: 'robai-arch-dyn-open',
-          //       title: 'Dynamics of Open Chains',
-          //       description: 'Modeling the dynamics of robotic arms and manipulators with open kinematic chains.',
-          //       blocks: [
-
-          //       ]
-          //     },
-
-          //     { id: 'robai-arch-dyn-traj',
-          //       title: 'Trajectory Planning',
-          //       description: 'Planning and optimizing the path of a robot\'s end-effector.',
-          //       blocks: [
-
-          //       ]
-          //     },
-
-          //     { id: 'robai-arch-dyn-mp',
-          //       title: 'Motion Planning',
-          //       description: 'Algorithms for motion planning in complex environments, including obstacle avoidance.',
-          //       blocks: [
-
-          //       ]
-          //     },
-          //   ]
-          // },
-
           { id: 'robai-arch-control',
             title: 'Control Systems for Robotics',
             emoji: '🎮',
@@ -3276,22 +3249,6 @@ export const CATEGORIES: Category[] = [
 
                 ]
               }
-
-              // { id: 'robai-arch-control-feedback',
-              //   title: 'Feedback Control',
-              //   description: 'Designing feedback control systems for stable and responsive robot behavior.',
-              //   blocks: [
-
-              //   ]
-              // },
-
-              // { id: 'robai-arch-control-march',
-              //   title: 'Modern Robotic Architecture',
-              //   description: 'Exploring modern robotic architectures and their applications in industry.',
-              //   blocks: [
-
-              //   ]
-              // }
             ]
           }
         ]
@@ -3345,6 +3302,7 @@ export const CATEGORIES: Category[] = [
       },
       
       // Course: Java Data Structures
+      
       { id: 'java-ds', 
         title: 'Data Structures in Java', 
         emoji: '🧬', 
