@@ -763,8 +763,30 @@ export const CATEGORIES: Category[] = [
 
                     {id: 'atm-eqf-form', type: 'hline', content: ''},
                     {id: 'atm-eqf-form-1', type: 'markdown', content: '## 🔄 Formulas'},
+                    {id: 'atm-eqf-form-2', type: 'markdown', content: 'While we must often translate words into equations, there are many situations where the equation has already been created for us - called a **formula**. Our job is to "substitute" known values into the formula to find the unknown. Some rather common examples are:'},
+                    {id: 'atm-eqf-form-3', type: 'columns', content: '', metadata: {columns: [
+                      [
+                        {id: 'atm-eqf-form-3-rectangle-description', type: 'markdown', content: 'The area of a rectangle is its length multiplied by its width.'},
+                        {id: 'atm-eqf-form-3-rectangle-formula', type: 'latex', content: 'A = l \\times w'},
+                      ],
+                      [
+                        {id: 'atm-eqf-form-3-circle-description', type: 'markdown', content: 'The area of a circle is pi multiplied by the square of its radius.'},
+                        {id: 'atm-eqf-form-3-circle-formula', type: 'latex', content: 'A = \\pi r^2'},
+                      ],
+                      [
+                        {id: 'atm-eqf-form-3-torque-description', type: 'markdown', content: 'Torque is the applied force multiplied by the perpendicular distance from the pivot to the force line of action (the lever arm).'},
+                        {id: 'atm-eqf-form-3-torque-formula', type: 'latex', content: '\\tau = F \\times d_\\perp'},
+                      ],
+                    ], widths: [1, 1, 1]}},
+                    {id: 'amt-eqf-form-4', type: 'markdown', content: 'You may notice that the above formulas all have **three unknowns each**. A formula may have any number of unkowns, however, we can **only solve for an unkown variable if we know all the other variables of a formula**. Sometimes, we must also use additional formulas to solve for other unkowns within a given formula.'},
+                    {id: 'atm-eqf-form-5', type: 'note', content: 'Remember to always check the units when substituting values into formulas! Most formulas are built around specific units, and have alternate versions of them for different unit systems.'},
+                    {id: 'atm-eqf-form-6', type: 'dropdown', content: 'Formula example 1: Resistance of a Wire', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-eqf-form-6-1', type: 'latex', content: 'R = \\frac{\\rho L}{A}'},
+                      {id: 'atm-eqf-form-6-2', type: 'markdown', content: 'The above formula describes the resistance, in ohms, of a wire with material resistivity \\(\\rho\\), length \\(L\\), and cross-sectional area \\(A\\). Note, all quantities must be in base SI units. Let\'s say we have a wire with resistivity 1.68 times 10^-8, a length of 2 meters, and cross-sectional area of 10^{-6} square meters. Substituting these values into the formula gives:'},
+                      {id: 'atm-eqf-form-6-3', type: 'latex', content: 'R = \\frac{(1.68 \\times 10^{-8}) (2)}{10^{-6}} = 0.0336 \\text{ ohms}'},
+                    ]},
 
-                    {id: 'atm-eqf-sub', type: 'hline', content: ''},
+                    // {id: 'atm-eqf-sub', type: 'hline', content: ''},
                     // {id: 'atm-eqf-sub'}
                 ]
               },
