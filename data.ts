@@ -793,13 +793,20 @@ export const CATEGORIES: Category[] = [
 
               {
                 id: 'atm-slope',
-                title: 'Ratios, Functions, and Linear Relationships',
+                title: 'Linear Relationships',
                 description: 'Modeling proportional and linear relationships with equations and graphs.',
                 blocks: [
-                    {id: 'atm-slope-1', type: 'markdown', content: '## ⚖️ Ratios, Rates, and Proportions'},
-                    {id: 'atm-slope-2', type: 'markdown', content: '## 🔁 Direct and Inverse Variation'},
-                    {id: 'atm-slope-3', type: 'markdown', content: '## 📈 Linear Functions and Their Graphs'},
-                    {id: 'atm-slope-4', type: 'markdown', content: '## 📉 Slope and Forms of a Line'},
+                    {id: 'atm-slope-tv-1', type: 'markdown', content: '## ⚖️ Equations with Two Variables'},
+                    {id: 'atm-slope-tv-2', type: 'markdown', content: 'So far, we\'ve taken a look at solving equations with just one unkown variable. Specifically, we\'ve set all the other variables in the equation or formula to known numbers and re-arranged it for one specific value. For example, take the following equation which relates the pressure of a fluid to its depth and density:'},
+                    {id: 'atm-slope-tv-3', type: 'latex', content: 'P = \\rho g h'},
+                    {id: 'atm-slope-tv-4', type: 'markdown', content: 'So far, if we wanted to find **the pressure** at a certain depth, we would need to know the fluid\'s density (rho), gravitational acceleration (g), and the depth (h). If we wanted to know the pressure at **multiple depths**, we\'d have to repeat this process for each depth we\'re interested in.'},
+                    {id: 'atm-slope-tv-5', type: 'note', content: 'What if there was an easier way to represent the **relationship** between two or more variables?\n\n*In this case, a relationship between the depth of the fluid and the pressure it exerts can be represented as a linear equation.*'},
+
+                    {id: 'atm-slope-eq', type: 'hline', content: ''},
+                    {id: 'atm-slope-eq-1', type: 'markdown', content: '## 🔁 Equation of a Line'},
+
+                    {id: 'atm-slope-graph', type: 'hline', content: ''},
+                    {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Graphing'},
                 ]
               },
 
