@@ -5,6 +5,19 @@ import ReactMarkdown from 'react-markdown';
 import Plot from 'react-plotly.js';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+const mdMathPlugins = {
+  remarkPlugins: [remarkMath],
+  rehypePlugins: [[rehypeKatex, { throwOnError: false, strict: false }]] as any,
+};
+
+// Converts \(...\) and \[...\] delimiters to $...$ and $$...$$ for remark-math
+const normalizeMath = (s: string) =>
+  (s || '')
+    .replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => `$$${m}$$`)
+    .replace(/\\\((.+?)\\\)/g, (_, m) => `$${m}$`);
 import { useInView } from '../hooks/useInView';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, Html, Center, Bounds } from '@react-three/drei';
@@ -519,6 +532,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
             </div>
             <div className={noteBgGradient ? 'text-slate-900' : 'text-yellow-900'}>
               <ReactMarkdown
+                {...mdMathPlugins}
                 components={{
                   p: ({ node, ...props }) => <p className={`${noteBgGradient ? 'text-slate-900' : 'text-yellow-900'} my-1`} {...props} />,
                   strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
@@ -530,7 +544,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
                   li: ({ node, ...props }) => <li className="my-0.5" {...props} />,
                 }}
               >
-                {block.content}
+                {normalizeMath(block.content)}
               </ReactMarkdown>
             </div>
           </div>
@@ -774,6 +788,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
         <AnimatedBlock>
           <div className="my-6 text-gray-700 leading-relaxed">
             <ReactMarkdown
+              {...mdMathPlugins}
               components={{
                 h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mt-6 mb-4 hover:text-gray-900 transition-colors" {...props} />,
                 h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-5 mb-3 hover:text-gray-900 transition-colors" {...props} />,
@@ -787,7 +802,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
                 strong: ({ node, ...props }) => <strong className="text-lg font-bold" {...props} />,
               }}
             >
-              {block.content}
+              {normalizeMath(block.content)}
             </ReactMarkdown>
           </div>
         </AnimatedBlock>
@@ -960,8 +975,8 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       return (
         <AnimatedBlock>
           <div className="my-6 text-gray-700 leading-relaxed">
-            <ReactMarkdown components={markdownComponents}>
-              {block.content}
+            <ReactMarkdown {...mdMathPlugins} components={markdownComponents}>
+              {normalizeMath(block.content)}
             </ReactMarkdown>
           </div>
         </AnimatedBlock>
@@ -982,7 +997,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
       return (
         <AnimatedBlock>
           <div className="my-6 text-gray-700 leading-relaxed">
-            <ReactMarkdown components={{
+            <ReactMarkdown {...mdMathPlugins} components={{
                 h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mt-6 mb-4 hover:text-gray-900 transition-colors" {...props} />,
                 h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-5 mb-3 hover:text-gray-900 transition-colors" {...props} />,
                 h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-4 mb-2 hover:text-gray-900 transition-colors" {...props} />,
@@ -995,7 +1010,7 @@ const BlockRenderer: React.FC<{ block: ContentBlock }> = ({ block }) => {
                 strong: ({ node, ...props }) => <strong className="text-lg font-bold" {...props} />,
               }}
               >
-              {mdContent}
+              {normalizeMath(mdContent)}
             </ReactMarkdown>
           </div>
         </AnimatedBlock>

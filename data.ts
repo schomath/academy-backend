@@ -785,7 +785,31 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-eqf-form-6-2', type: 'markdown', content: 'The above formula describes the resistance, in ohms, of a wire with material resistivity \\(\\rho\\), length \\(L\\), and cross-sectional area \\(A\\). Note, all quantities must be in base SI units. Let\'s say we have a wire with resistivity 1.68 times 10^-8, a length of 2 meters, and cross-sectional area of 10^{-6} square meters. Substituting these values into the formula gives:'},
                       {id: 'atm-eqf-form-6-3', type: 'latex', content: 'R = \\frac{(1.68 \\times 10^{-8}) (2)}{10^{-6}} = 0.0336 \\text{ ohms}'},
                     ]},
+                    {id: 'atm-eqf-form-6', type: 'markdown', content: 'Sometimes, in order to evaulate an unkown quantity, we must use other formulas and "substitute" existing formulas into other formulas. As an example, let\'s look at the formula for calculating pressure on a surface:'},
+                    {id: 'atm-eqf-form-7', type: 'latex', content: 'P = \\frac{F}{A}'},
+                    {id: 'atm-eqf-form-7-1', type: 'markdown', content: 'Here, \\(P\\) is the pressure on a surface, \\(F\\) is the applied force, and \\(A\\) is the area of the surface. If we know the force and the area, we can substitute these values into the formula to find the pressure. However, in some cases, we may not be given the area directly - for example, we may be given the dimensions of a rectangle, a circle, or another shape.\n\n- The area of a rectangle is \\(A = l \\times w\\), where \\(l\\) is the length and \\(w\\) is the width.\n- The area of a circle is \\(A = \\pi r^2\\), where \\(r\\) is the radius.\n\nBy substituting these area formulas into the pressure formula, we can calculate the pressure even when the area is not directly given:'},
+                    {id: 'atm-eqf-form-8', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-eqf-form-8-0', type: 'markdown', content: 'For a rectangle:'},
+                      {id: 'atm-eqf-form-8-1', type: 'latex', content: 'P = \\frac{F}{l \\times w}'}
+                    ],[
+                      {id: 'atm-eqf-form-8-2', type: 'markdown', content: 'For a circle:'},
+                      {id: 'atm-eqf-form-8-3', type: 'latex', content: 'P = \\frac{F}{\\pi r^2}'}
+                    ]], widths: [1, 1]}},
 
+                    {id: 'atm-eqf-funit', type: 'hline', content: ''},
+                    {id: 'atm-eqf-funit-1', type: 'markdown', content: '## ⚙️ Formula Units\n\nUnits it formulas are exteremly important - many formulas are designed for specific combinations of units. As a general rule:\n\n- Most equations are designed for **metric, SI** units. Kilometers must be converted to meters, Gigawatts must be converted to watts, etc.\n- Imperial units typically feature an extra coefficient to account for the differences in unit systems. As an example:'},
+                    {id: 'atm-eqf-funit-2', type: 'columns', content: '', metadata: {columns: [
+                      [
+                        {id: 'atm-eqf-funit-2-1', type: 'markdown', content: '**Metric (SI): Hydraulic Power**'},
+                        {id: 'atm-eqf-funit-2-2', type: 'latex', content: 'P = Q \\cdot \\Delta p'},
+                        {id: 'atm-eqf-funit-2-5', type: 'markdown', content: '- \\(P\\) is the hydraulic power in **watts (W)**\n- \\(Q\\) is the flow rate in **cubic meters per second (m³/s)**\n- \\(\\Delta p\\) is the pressure difference in **pascals (Pa)**\n\nNo extra coefficient is needed, because the SI units combine directly: Pa · m³/s = W.'}
+                      ],
+                      [
+                        {id: 'atm-eqf-funit-2-3', type: 'markdown', content: '**Imperial: Hydraulic Horsepower**'},
+                        {id: 'atm-eqf-funit-2-4', type: 'latex', content: 'P = \\frac{Q \\cdot \\Delta p}{1714}'},
+                        {id: 'atm-eqf-funit-2-6', type: 'markdown', content: '- \\(P\\) is the hydraulic power in **horsepower (hp)**\n- \\(Q\\) is the flow rate in **gallons per minute (gpm)**\n- \\(\\Delta p\\) is the pressure difference in **pounds per square inch (psi)**\n- \\(1714\\) is the **conversion factor** that turns psi · gpm into horsepower\n\nThe formula has the same form, but the mixed units (gpm, psi, hp) require the extra constant.'}
+                      ]
+                    ], widths: [1, 1]}},
                     // {id: 'atm-eqf-sub', type: 'hline', content: ''},
                     // {id: 'atm-eqf-sub'}
                 ]
@@ -801,12 +825,20 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-slope-tv-3', type: 'latex', content: 'P = \\rho g h'},
                     {id: 'atm-slope-tv-4', type: 'markdown', content: 'So far, if we wanted to find **the pressure** at a certain depth, we would need to know the fluid\'s density (rho), gravitational acceleration (g), and the depth (h). If we wanted to know the pressure at **multiple depths**, we\'d have to repeat this process for each depth we\'re interested in.'},
                     {id: 'atm-slope-tv-5', type: 'note', content: 'What if there was an easier way to represent the **relationship** between two or more variables?\n\n*In this case, a relationship between the depth of the fluid and the pressure it exerts can be represented as a linear equation.*'},
+                    {id: 'atm-slope-tv-6', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-slope-tv-6a', type: 'plotly', title: 'One Pressure at One Depth', content: 'atm_pressure_point.json', metadata: { height: 400, showModeBar: false }},
+                      {id: 'atm-slope-tv-6b', type: 'markdown', content: 'So far, what we\'ve been looking for is a **single point**. In other words, **one value for depth** gives **one value for pressure**.'}
+                    ], [
+                      {id: 'atm-slope-tv-6c', type: 'plotly', title: 'Pressure at Many Depths', content: 'atm_pressure_line.json', metadata: { height: 400, showModeBar: false }},
+                      {id: 'atm-slope-tv-6d', type: 'markdown', content: 'Now, if we want to see how pressure changes with depth, we can look at **multiple points**. In other words, **many values for depth** give **many values for pressure**. Since \\(g\\) is acceleration due to gravity \\(9.81 \\text{ m/s}^2\\) and \\(\\rho\\) is the fluid density, both are constants. This gives us the **linear equation** of:\n\n\\[ P =9810 h \\]'}
+                    ]], widths: [1, 1]}
+                    },
 
                     {id: 'atm-slope-eq', type: 'hline', content: ''},
-                    {id: 'atm-slope-eq-1', type: 'markdown', content: '## 🔁 Equation of a Line'},
+                    {id: 'atm-slope-eq-1', type: 'markdown', content: '## 🔁 Equation of a Line\n\n- y=mx+b\n\n- what is m\n\n- what is b\n\n- how do we graph it?'},
 
                     {id: 'atm-slope-graph', type: 'hline', content: ''},
-                    {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Graphing'},
+                    {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Linear Interpolation / Scaling'},
                 ]
               },
 
