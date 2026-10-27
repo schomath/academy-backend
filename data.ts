@@ -701,66 +701,6 @@ export const CATEGORIES: Category[] = [
                       {id: 'amt-eqf-eq-20a8', type: 'latex', content: '\\frac{2}{15} = x \\\\ x = \\frac{2}{15}'}
                     ]},
 
-
-                    {id: 'atm-eqf-word', type: 'hline', content: ''},
-                    {id: 'atm-eqf-word', type: 'markdown', content: '## 🗣️ Translating and Modeling with Equations'},
-                    {id: 'atm-eqf-word-1', type: 'markdown', content: 'In real life, we are often not given equations directly. Instead, we need to **translate** word problems into mathematical equations before we can solve them. To do so, we can look for **keywords** that describe how an equation is laid out:'},
-                    {id: 'atm-eqf-word-2', type: 'columns', content: '', metadata: {columns: [[
-                      {id: 'atm-eqf-word-2a1', type: 'latex', content: '+'},
-                      {id: 'atm-eqf-word-2a2', type: 'markdown', content: '- Plus\n- Increased by\n- Added to\n - More than\n- Sum of'}
-                    ], [
-                      {id: 'atm-eqf-word-2b1', type: 'latex', content: '-'},
-                      {id: 'atm-eqf-word-2b2', type: 'markdown', content: '- Minus\n- Decreased by\n- Subtracted from\n- Less than\n- Difference of'}
-                    ], [
-                      {id: 'atm-eqf-word-2c1', type: 'latex', content: '\\times'},
-                      {id: 'atm-eqf-word-2c2', type: 'markdown', content: '- Times\n- Multiplied by\n- Product of\n- Double, Twice, Thrice, etc.'}
-                    ], [
-                      {id: 'atm-eqf-word-2d1', type: 'latex', content: '\\div'},
-                      {id: 'atm-eqf-word-2d2', type: 'markdown', content: '- Divided by\n- Quotient of\n- Half, Third, Quarter, etc.'}
-                    ], [
-                      {id: 'atm-eqf-word-2e1', type: 'latex', content: '='},
-                      {id: 'atm-eqf-word-2e2', type: 'markdown', content: '- Equals\n- Is\n- Is equal to\n- Results in'}
-                    ]], widths: [1, 1, 1, 1, 1]}},
-                    {id: 'atm-eqf-word-3', type: 'dropdown', content: 'Word Problem 1', metadata: {bg: 'pink'}, children: [
-                      {id: 'atm-eqf-word-3a', type: 'markdown', content: 'Translate the following word problem into an equation: The sum of a number and 12, divided by 4, is 4.'},
-                      {id: 'atm-eqf-word-3b', type: 'markdown', content: '`The sum of a number and 12` gives us a starting point:'},
-                      {id: 'atm-eqf-word-3c', type: 'latex', content: 'x + 12'},
-                      {id: 'atm-eqf-word-3d', type: 'markdown', content: 'Next, we divide by 4:'},
-                      {id: 'atm-eqf-word-3e', type: 'latex', content: '\\frac{x + 12}{4}'},
-                      {id: 'atm-eqf-word-3f', type: 'markdown', content: 'Finally, we set it equal to 4:'},
-                      {id: 'atm-eqf-word-3g', type: 'latex', content: '\\frac{x + 12}{4} = 4'},
-                      {id: 'atm-eqf-word-3h', type: 'markdown', content: 'To solve for x, multiply both sides by 4 and then subtract 12:'},
-                      {id: 'atm-eqf-word-3i', type: 'latex', content: 'x + 12 = 16'},
-                      {id: 'atm-eqf-word-3j', type: 'latex', content: 'x + 12 - 12 = 16 - 12'},
-                      {id: 'atm-eqf-word-3k', type: 'latex', content: 'x = 4'}
-                    ]},
-                    {id: 'atm-eqf-word-4', type: 'dropdown', content: 'Word Problem 2', metadata: {bg: 'pink'}, children: [
-                      {id: 'atm-eqf-word-4a', type: 'markdown', content: 'Translate the following word problem into an equation: Three times a number, increased by 5, is 20.'},
-                      {id: 'atm-eqf-word-4b', type: 'markdown', content: '`Three times a number` gives us a starting point:'},
-                      {id: 'atm-eqf-word-4c', type: 'latex', content: '3x'},
-                      {id: 'atm-eqf-word-4d', type: 'markdown', content: 'Next, we increase it by 5:'},
-                      {id: 'atm-eqf-word-4e', type: 'latex', content: '3x + 5'},
-                      {id: 'atm-eqf-word-4f', type: 'markdown', content: 'Finally, we set it equal to 20:'},
-                      {id: 'atm-eqf-word-4g', type: 'latex', content: '3x + 5 = 20'},
-                      {id: 'atm-eqf-word-4h', type: 'markdown', content: 'To solve for x, subtract 5 from both sides and then divide by 3:'},
-                      {id: 'atm-eqf-word-4i', type: 'latex', content: '3x = 15'},
-                      {id: 'atm-eqf-word-4j', type: 'latex', content: '\\frac{3x}{3} = \\frac{15}{3}'},
-                      {id: 'atm-eqf-word-4k', type: 'latex', content: 'x = 5'}
-                    ]},
-                    {id: 'atm-eqf-word-5', type: 'dropdown', content: 'Word Problem 3', metadata: {bg: 'pink'}, children: [
-                      {id: 'atm-eqf-word-5a', type: 'markdown', content: 'Translate the following word problem into an equation: Seven less than twice a number is 15.'},
-                      {id: 'atm-eqf-word-5b', type: 'markdown', content: '`Twice a number` gives us a starting point:'},
-                      {id: 'atm-eqf-word-5c', type: 'latex', content: '2x'},
-                      {id: 'atm-eqf-word-5d', type: 'markdown', content: 'Next, we subtract 7:'},
-                      {id: 'atm-eqf-word-5e', type: 'latex', content: '2x - 7'},
-                      {id: 'atm-eqf-word-5f', type: 'markdown', content: 'Finally, we set it equal to 15:'},
-                      {id: 'atm-eqf-word-5g', type: 'latex', content: '2x - 7 = 15'},
-                      {id: 'atm-eqf-word-5h', type: 'markdown', content: 'To solve for x, add 7 to both sides and then divide by 2:'},
-                      {id: 'atm-eqf-word-5i', type: 'latex', content: '2x = 22'},
-                      {id: 'atm-eqf-word-5j', type: 'latex', content: '\\frac{2x}{2} = \\frac{22}{2}'},
-                      {id: 'atm-eqf-word-5k', type: 'latex', content: 'x = 11'}
-                    ]},
-
                     {id: 'atm-eqf-form', type: 'hline', content: ''},
                     {id: 'atm-eqf-form-1', type: 'markdown', content: '## 🔄 Formulas'},
                     {id: 'atm-eqf-form-2', type: 'markdown', content: 'While we must often translate words into equations, there are many situations where the equation has already been created for us - called a **formula**. Our job is to "substitute" known values into the formula to find the unknown. Some rather common examples are:'},
@@ -815,8 +755,123 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'atm-slope',
+              { id: 'atm-word',
+                title: 'Word Problems',
+                description: 'Solving real-world problems using equations and mathematical reasoning.',
+                blocks: [
+                  {id: 'atm-word', type: 'markdown', content: '## 🗣️ Translating and Modeling with Equations'},
+                  {id: 'atm-word-1', type: 'markdown', content: 'In real life, we are often not given equations directly. Instead, we need to **translate** word problems into mathematical equations before we can solve them. To do so, we can look for **keywords** that describe how an equation is laid out:'},
+                  {id: 'atm-word-2', type: 'columns', content: '', metadata: {columns: [[
+                    {id: 'atm-word-2a1', type: 'latex', content: '+'},
+                    {id: 'atm-word-2a2', type: 'markdown', content: '- Plus\n- Increased by\n- Added to\n - More than\n- Sum of'}
+                  ], [
+                    {id: 'atm-word-2b1', type: 'latex', content: '-'},
+                    {id: 'atm-word-2b2', type: 'markdown', content: '- Minus\n- Decreased by\n- Subtracted from\n- Less than\n- Difference of'}
+                  ], [
+                    {id: 'atm-word-2c1', type: 'latex', content: '\\times'},
+                    {id: 'atm-word-2c2', type: 'markdown', content: '- Times\n- Multiplied by\n- Product of\n- Double, Twice, Thrice, etc.'}
+                  ], [
+                    {id: 'atm-word-2d1', type: 'latex', content: '\\div'},
+                    {id: 'atm-word-2d2', type: 'markdown', content: '- Divided by\n- Quotient of\n- Half, Third, Quarter, etc.'}
+                  ], [
+                    {id: 'atm-word-2e1', type: 'latex', content: '='},
+                    {id: 'atm-word-2e2', type: 'markdown', content: '- Equals\n- Is\n- Is equal to\n- Results in'}
+                  ]], widths: [1, 1, 1, 1, 1]}},
+
+                  {id: 'atm-word-2f', type: 'hline', content: ''},
+                  {id: 'atm-word-2f-1', type: 'markdown', content: '## General Approach\n\nIn general, we can follow these steps to set up equations from word problems:\n\n1. **Identify the unknowns**: Determine what quantities the problem is asking for and assign variables to them. Create variables for these unknowns such as `x` for the unknown number.\n2. **Look for a governing equation**: Identify the relationship between the unknowns and translate it into a mathematical equation - a good place to start is looking for a total or result, and working backwards to express the `total` being equal to `...`.'},
+
+                  {id: 'atm-word-3-0', type: 'hline', content: ''},
+                  {id: 'atm-word-301', type: 'markdown', content: '## Word Problems with Direct Wording'},
+                  {id: 'atm-word-3', type: 'dropdown', content: 'Word Problem 1', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-word-3a', type: 'markdown', content: 'Translate the following word problem into an equation: The sum of a number and 12, divided by 4, is 4.'},
+                    {id: 'atm-eqf-3b', type: 'markdown', content: '`The sum of a number and 12` gives us a starting point:'},
+                    {id: 'atm-word-3c', type: 'latex', content: 'x + 12'},
+                    {id: 'atm-word-3d', type: 'markdown', content: 'Next, we divide by 4:'},
+                    {id: 'atm-word-3e', type: 'latex', content: '\\frac{x + 12}{4}'},
+                    {id: 'atm-word-3f', type: 'markdown', content: 'Finally, we set it equal to 4:'},
+                    {id: 'atm-word-3g', type: 'latex', content: '\\frac{x + 12}{4} = 4'},
+                    {id: 'atm-word-3h', type: 'markdown', content: 'To solve for x, multiply both sides by 4 and then subtract 12:'},
+                    {id: 'atm-word-3i', type: 'latex', content: 'x + 12 = 16'},
+                    {id: 'atm-word-3j', type: 'latex', content: 'x + 12 - 12 = 16 - 12'},
+                    {id: 'atm-word-3k', type: 'latex', content: 'x = 4'}
+                  ]},
+                  {id: 'atm-word-4', type: 'dropdown', content: 'Word Problem 2', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-word-4a', type: 'markdown', content: 'Translate the following word problem into an equation: Three times a number, increased by 5, is 20.'},
+                    {id: 'atm-word-4b', type: 'markdown', content: '`Three times a number` gives us a starting point:'},
+                    {id: 'atm-word-4c', type: 'latex', content: '3x'},
+                    {id: 'atm-word-4d', type: 'markdown', content: 'Next, we increase it by 5:'},
+                    {id: 'atm-word-4e', type: 'latex', content: '3x + 5'},
+                    {id: 'atm-word-4f', type: 'markdown', content: 'Finally, we set it equal to 20:'},
+                    {id: 'atm-word-4g', type: 'latex', content: '3x + 5 = 20'},
+                    {id: 'atm-word-4h', type: 'markdown', content: 'To solve for x, subtract 5 from both sides and then divide by 3:'},
+                    {id: 'atm-word-4i', type: 'latex', content: '3x = 15'},
+                    {id: 'atm-word-4j', type: 'latex', content: '\\frac{3x}{3} = \\frac{15}{3}'},
+                    {id: 'atm-word-4k', type: 'latex', content: 'x = 5'}
+                  ]},
+                  {id: 'atm-word-5', type: 'dropdown', content: 'Word Problem 3', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-word-5a', type: 'markdown', content: 'Translate the following word problem into an equation: Seven less than twice a number is 15.'},
+                    {id: 'atm-word-5b', type: 'markdown', content: '`Twice a number` gives us a starting point:'},
+                    {id: 'atm-word-5c', type: 'latex', content: '2x'},
+                    {id: 'atm-word-5d', type: 'markdown', content: 'Next, we subtract 7:'},
+                    {id: 'atm-word-5e', type: 'latex', content: '2x - 7'},
+                    {id: 'atm-word-5f', type: 'markdown', content: 'Finally, we set it equal to 15:'},
+                    {id: 'atm-word-5g', type: 'latex', content: '2x - 7 = 15'},
+                    {id: 'atm-word-5h', type: 'markdown', content: 'To solve for x, add 7 to both sides and then divide by 2:'},
+                    {id: 'atm-word-5i', type: 'latex', content: '2x = 22'},
+                    {id: 'atm-word-5j', type: 'latex', content: '\\frac{2x}{2} = \\frac{22}{2}'},
+                    {id: 'atm-word-5k', type: 'latex', content: 'x = 11'}
+                  ]},
+
+                  {id: 'atm-word-6', type: 'hline', content: ''},
+                  {id: 'atm-word-6-1', type: 'markdown', content: '## Real-World Word Problems'},
+                  {id: 'atm-word-6-2', type: 'dropdown', content: 'Word Problem 4', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-word-6-2a', type: 'markdown', content: 'A triangular garden has a shortest side that is half the length of another side. Its third side is 6 meters longer than the shortest side. If the perimeter is 36 meters, find the length of each side.'},
+                    {id: 'atm-word-6-2b', type: 'markdown', content: 'Let `x` be the length of the shortest side. The second side is twice as long:'},
+                    {id: 'atm-word-6-2c', type: 'latex', content: '2x'},
+                    {id: 'atm-word-6-2d', type: 'markdown', content: 'The third side is 6 meters longer than the shortest side:'},
+                    {id: 'atm-word-6-2e', type: 'latex', content: 'x + 6'},
+                    {id: 'atm-word-6-2f', type: 'markdown', content: 'The perimeter is the sum of all three sides, so we can write:'},
+                    {id: 'atm-word-6-2g', type: 'latex', content: 'x + 2x + (x + 6) = 36'},
+                    {id: 'atm-word-6-2h', type: 'markdown', content: 'Combine like terms and subtract 6 from both sides:'},
+                    {id: 'atm-word-6-2i', type: 'latex', content: '4x + 6 = 36'},
+                    {id: 'atm-word-6-2j', type: 'latex', content: '4x = 30'},
+                    {id: 'atm-word-6-2k', type: 'markdown', content: 'Now divide both sides by 4:'},
+                    {id: 'atm-word-6-2l', type: 'latex', content: 'x = 7.5'},
+                    {id: 'atm-word-6-2m', type: 'markdown', content: 'The sides are 7.5 m, 15 m, and 13.5 m. They add to 36 m, so the garden dimensions satisfy the perimeter.'}
+                  ]},
+                  {id: 'atm-word-6-3', type: 'dropdown', content: 'Word Problem 5', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-word-6-3a', type: 'markdown', content: 'A landowner sold 50 acres of property in two parcels. One parcel sold for $7,200$ per acre and the other for $4,800$ per acre. The total sale brought in $288,000. How many acres were sold at each price?'},
+                    {id: 'atm-word-6-3b', type: 'markdown', content: 'Let `x` be the number of acres sold for $7,200$ per acre. Since 50 acres were sold altogether, the number sold for $4,800$ per acre is:'},
+                    {id: 'atm-word-6-3c', type: 'latex', content: '50 - x'},
+                    {id: 'atm-word-6-3d', type: 'markdown', content: 'We can then represent the total amount earned as the number of acres sold at one price plus the number sold at the other price multiplied by their respective prices:'},
+                    {id: 'atm-word-6-3e', type: 'latex', content: '7200x + 4800(50 - x) = 288000'},
+                    {id: 'atm-word-6-3f', type: 'markdown', content: 'Distribute 4,800 and combine like terms:'},
+                    {id: 'atm-word-6-3g', type: 'latex', content: '7200x + 240000 - 4800x = 288000'},
+                    {id: 'atm-word-6-3h', type: 'latex', content: '2400x + 240000 = 288000'},
+                    {id: 'atm-word-6-3i', type: 'markdown', content: 'Subtract 240,000 from both sides, then divide by 2,400:'},
+                    {id: 'atm-word-6-3j', type: 'latex', content: '2400x = 48000'},
+                    {id: 'atm-word-6-3k', type: 'latex', content: 'x = 20'},
+                    {id: 'atm-word-6-3l', type: 'markdown', content: 'So 20 acres sold for $7,200$ per acre, and the remaining 30 acres sold for $4,800$ per acre.'}
+                  ]},
+                  {id: 'atm-word-6-4', type: 'dropdown', content: 'Word Problem 6', metadata: {bg: 'pink'}, children: [
+                    {id: 'atm-word-6-4a', type: 'markdown', content: 'A lab has 300 mL of a solution that is 10% alcohol. How many milliliters of pure alcohol should be added to make the mixture 25% alcohol? Assume the volumes add when mixed.'},
+                    {id: 'atm-word-6-4b', type: 'markdown', content: 'Let `x` be the milliliters of pure alcohol added. The original solution contains 30 mL of alcohol:'},
+                    {id: 'atm-word-6-4c', type: 'latex', content: '0.10(300) = 30'},
+                    {id: 'atm-word-6-4d', type: 'markdown', content: 'After adding pure alcohol, the amount of alcohol is `30 + x`, and the total volume is `300 + x`. For that to be 25% alcohol:'},
+                    {id: 'atm-word-6-4e', type: 'latex', content: '30 + x = 0.25(300 + x)'},
+                    {id: 'atm-word-6-4f', type: 'markdown', content: 'Distribute 0.25 and subtract 0.25x from both sides:'},
+                    {id: 'atm-word-6-4g', type: 'latex', content: '30 + x = 75 + 0.25x'},
+                    {id: 'atm-word-6-4h', type: 'latex', content: '0.75x = 45'},
+                    {id: 'atm-word-6-4i', type: 'markdown', content: 'Divide both sides by 0.75:'},
+                    {id: 'atm-word-6-4j', type: 'latex', content: 'x = 60'},
+                    {id: 'atm-word-6-4k', type: 'markdown', content: 'Add 60 mL of pure alcohol. The mixture then has 90 mL of alcohol in 360 mL total, which is 25%.'}
+                  ]},
+                  
+                ]
+              },
+
+              { id: 'atm-slope',
                 title: 'Linear Relationships',
                 description: 'Modeling proportional and linear relationships with equations and graphs.',
                 blocks: [
@@ -842,8 +897,7 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'atm-systems',
+              { id: 'atm-systems',
                 title: 'Systems of Equations',
                 description: 'Understanding systems of equations and methods for solving them.',
                 blocks: [
@@ -854,8 +908,7 @@ export const CATEGORIES: Category[] = [
                 ]
               },
 
-              {
-                id: 'atm-quad',
+              { id: 'atm-quad',
                 title: 'Factoring and Quadratic Equations',
                 description: 'Factoring expressions and solving, graphing, and applying quadratic equations.',
                 blocks: [
