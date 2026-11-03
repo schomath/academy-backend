@@ -870,7 +870,13 @@ export const CATEGORIES: Category[] = [
                   
                 ]
               },
+            ]
+          },
 
+          { id: 'advtm',
+            title: 'Applied Technical Math 2',
+            emoji: '🧮',
+            modules: [
               { id: 'atm-slope',
                 title: 'Linear Relationships',
                 description: 'Modeling proportional and linear relationships with equations and graphs.',
@@ -890,7 +896,21 @@ export const CATEGORIES: Category[] = [
                     },
 
                     {id: 'atm-slope-eq', type: 'hline', content: ''},
-                    {id: 'atm-slope-eq-1', type: 'markdown', content: '## 🔁 Equation of a Line\n\n- y=mx+b\n\n- what is m\n\n- what is b\n\n- how do we graph it?'},
+                    {id: 'atm-slope-eq-1', type: 'markdown', content: '## 🧮 Equation of a Line\n\nWe can define the equation of a line as any equality with two unkown variables - that being said, it is important to note that there are **different types of lines**, as well as a **standard way to represent them**.\n\n**Linear Equations** are equations where the highest power of the variables is 1 (i.e. no \\(x^2\\) or \\(y^2\\) terms). You may find linear equations in many different forms:'},
+                    {id: 'atm-slope-eq-3', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-slope-eq-3a', type: 'markdown', content: '\\(x + y = 20\\)'},
+                    ],
+                    [
+                      {id: 'atm-slope-eq-3b', type: 'markdown', content: '\\(y - 10 = x \\cdot 5\\)'}
+                    ],
+                    [
+                      {id: 'atm-slope-eq-3e', type: 'markdown', content: '\\(Ax + By = C\\)'}
+                    ]], widths: [1, 1, 1]}
+                    },
+                    {id: 'atm-slope-eq-4', type: 'markdown', content: 'While all of the above examples are *valid expressions of a linear equation*, they are not formatted in what we call **standard form**:'},
+                    {id: 'atm-slope-eq-5', type: 'latextooltip', content: 'y = mx + b'},
+
+                    {id: 'atm-slope-TEMPTEMPTTEMPTEMPTEMEPTME', type: 'markdown', content: '## 🔁 Equation of a Line\n\n- y=mx+b\n\n- what is m\n\n- what is b\n\n- how do we graph it?'},
 
                     {id: 'atm-slope-graph', type: 'hline', content: ''},
                     {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Linear Interpolation / Scaling'},
