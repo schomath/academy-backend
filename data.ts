@@ -907,10 +907,44 @@ export const CATEGORIES: Category[] = [
                       {id: 'atm-slope-eq-3e', type: 'markdown', content: '\\(Ax + By = C\\)'}
                     ]], widths: [1, 1, 1]}
                     },
-                    {id: 'atm-slope-eq-4', type: 'markdown', content: 'While all of the above examples are *valid expressions of a linear equation*, they are not formatted in what we call **standard form**:'},
-                    {id: 'atm-slope-eq-5', type: 'latextooltip', content: 'y = mx + b'},
+                    {id: 'atm-slope-eq-4', type: 'markdown', content: 'While all of the above examples are *valid expressions of a linear equation*, they are not formatted in what we call **standard form**, shown below. *Hover over each variable to learn more!*'},
+                    {id: 'h-mod-cont-2', type: 'latextooltip', content: '', metadata: {
+                      displayMode: true,
+                      parts: [
+                        {expression: 'y ', blocks: [{id: 'a1', type: 'markdown', content: '`y` is the **dependant variable** - in other words, the "output" of the equation. It can represent multiple things such as pressure, depth, number of people, or anything!'}]},
+                        {expression: ' = ', blocks: []},
+                        {expression: 'm', blocks: [{id: 'c3', type: 'markdown', content: '`m` is the **slope** of the line. It defines how quickly the output changes depending on the input `x`.'}]},
+                        {expression: 'x ', blocks: [{id: 'v3', type: 'markdown', content: '`x` is the **independent variable** - in other words, the "input" of the equation. It can represent multiple things such as time, distance, or any other quantity that affects the output `y`.'}]},
+                        {expression: ' + ', blocks: []},
+                        {expression: 'b', blocks: [{id: 'v3', type: 'markdown', content: '`b` is the **y-intercept** of the line. It represents the value of `y` when `x` is 0. It can also be thought of as an `offset`.'}]}
+                      ]
+                      }
+                    },
+                    {id: 'atm-slope-eq-5', type: 'markdown', content: 'Let\'s discuss the four components of the slope-intercept form of a linear equation: `y`, `m`, `x`, and `b`. \n\n- \\(y\\) is the "result" or "output" variable. It represents one of the quantities we are trying to determine. *For example, if the pressure on a submarine is dependant on its depth, \\(y\\) would represent the pressure.*\n- \\(x\\) is the independent variable. It represents the "input" that affects the output. *For example, if the pressure of a submarine depends on the depth it currently sits at, \\(x\\) would represent the depth.*\n- \\(m\\) is the slope of the line, and tells us how quickly the output changes with respect to the input. *For example, in the submarine example, it would represent how quickly the pressure changes as the depth changes.*\n- \\(b\\) is the y-intercept. It represents the value of \\(y\\) when \\(x\\) is 0, and can be thought of as an offset for the line. *For example, at a depth of zero, the submarine still feels atmospheric pressure, so \\(b\\) would be that initial pressure.*'},
 
-                    {id: 'atm-slope-TEMPTEMPTTEMPTEMPTEMEPTME', type: 'markdown', content: '## 🔁 Equation of a Line\n\n- y=mx+b\n\n- what is m\n\n- what is b\n\n- how do we graph it?'},
+                    
+
+                    {id: 'atm-slope-m-1', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-slope-m-1a', type: 'plotly', title: 'Steep Slope', content: 'slope_steep.json', metadata: { height: 400, showModeBar: false }},
+                      {id: 'atm-slope-m-1b', type: 'markdown', content: 'A **steep slope** means the output changes **quickly** for each step in the input. Here, \\(y\\) rises 3 units for every 1 unit of \\(x\\):\n\n\\[ y = 3x \\]'}
+                    ], [
+                      {id: 'atm-slope-m-1c', type: 'plotly', title: 'Shallow Slope', content: 'slope_shallow.json', metadata: { height: 400, showModeBar: false }},
+                      {id: 'atm-slope-m-1d', type: 'markdown', content: 'A **shallow slope** means the output changes **slowly** for each step in the input. Here, \\(y\\) rises only 0.2 units for every 1 unit of \\(x\\):\n\n\\[ y = 0.2x \\]'}
+                    ]], widths: [1, 1]}
+                    },
+
+                    {id: 'atm-slope-b-1', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-slope-b-1a', type: 'plotly', title: 'Positive Offset', content: 'offset_positive.json', metadata: { height: 400, showModeBar: false }},
+                      {id: 'atm-slope-b-1b', type: 'markdown', content: 'A **positive offset** shifts the whole line **up**. The line crosses the y-axis at \\(b = 5\\), so the output starts at 5 when \\(x = 0\\):\n\n\\[ y = 2x + 5 \\]'}
+                    ], [
+                      {id: 'atm-slope-b-1c', type: 'plotly', title: 'Negative Offset', content: 'offset_negative.json', metadata: { height: 400, showModeBar: false }},
+                      {id: 'atm-slope-b-1d', type: 'markdown', content: 'A **negative offset** shifts the whole line **down**. The line crosses the y-axis at \\(b = -5\\), so the output starts at -5 when \\(x = 0\\):\n\n\\[ y = 2x - 5 \\]'}
+                    ]], widths: [1, 1]}
+                    },
+
+                    {id: 'atm-slope-sol', type: 'hline', content: ''},
+                    {id: 'atm-slope-sol-1', type: 'markdown', content: '## 🧮 Solutions to Linear Equations\n\nPreviously, when solving algebraic expressions such as \\(2x + 3 = 7\\), we isolated the variable to find its value. In this case, we only had **one solution**. When working with more than one variable, instead have an **infinite number of solutions**, which come in **pairs**.\n\nFor example, take the linear equation \\(y = 2x + 3\\). For every value of \\(x\\), there is a corresponding value of \\(y\\), giving us an infinite set of solutions in the form of \\((x, y)\\) pairs. A few examples are:\n- \\((0, 3)\\)\n- \\((1, 5)\\)\n- \\((2, 7)\\)'},
+
 
                     {id: 'atm-slope-graph', type: 'hline', content: ''},
                     {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Linear Interpolation / Scaling'},

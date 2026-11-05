@@ -1,0 +1,1 @@
+{"data":[{"type":"scatter","mode":"lines","x":[0,1,2,3,4,5],"y":[0,0.2,0.4,0.6,0.8,1],"line":{"color":"#dc2626","width":3},"hovertemplate":"x: %{x}<br>y: %{y}<extra></extra>"}],"layout":{"title":{"text":"Shallow Slope (m = 0.2)"},"xaxis":{"title":{"text":"x"},"range":[0,5]},"yaxis":{"title":{"text":"y"},"range":[0,15]},"showlegend":false,"margin":{"t":50,"l":60,"r":20,"b":50}}}
