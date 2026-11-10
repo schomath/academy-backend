@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines+markers",
+      "x": [0, 1, 2, 3, 4, 5, 6],
+      "y": [4, 4, 4, 4, 4, 4, 4],
+      "line": {"color": "#10b981", "width": 3},
+      "marker": {"size": 8, "color": "#10b981"},
+      "hovertemplate": "x: %{x}<br>y: %{y}<extra></extra>"
+    },
+    {
+      "type": "scatter",
+      "mode": "markers",
+      "x": [1, 5],
+      "y": [4, 4],
+      "marker": {"size": 12, "color": "#ef4444", "symbol": "circle", "line": {"width": 2, "color": "#7f1d1d"}},
+      "showlegend": false,
+      "hovertemplate": "Point: (%{x}, %{y})<extra></extra>"
+    }
+  ],
+  "layout": {
+    "title": {"text": "Horizontal Line: Zero Slope (m = 0)"},
+    "xaxis": {"title": {"text": "x"}, "range": [-0.5, 6.5], "gridcolor": "#e5e7eb"},
+    "yaxis": {"title": {"text": "y"}, "range": [0, 6], "gridcolor": "#e5e7eb"},
+    "showlegend": false,
+    "margin": {"t": 60, "l": 60, "r": 20, "b": 50},
+    "plot_bgcolor": "#f9fafb",
+    "hovermode": "closest"
+  }
+}
