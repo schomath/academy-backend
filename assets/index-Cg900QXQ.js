@@ -424,7 +424,114 @@ y = 0.0000504(32768)
 y ≈ 1.65V
 \\]
 
-**Answer:** A digital sample value of 32,768 outputs approximately **1.65 volts**. (This represents the midpoint of the voltage range!)`}]}]},{id:"atm-systems",title:"Systems of Equations",description:"Understanding systems of equations and methods for solving them.",blocks:[{id:"atm-systems-1",type:"markdown",content:"## 📊 Solving Systems by Graphing"},{id:"atm-systems-2",type:"markdown",content:"## ➕ Solving Systems by Elimination"},{id:"atm-systems-3",type:"markdown",content:"## 🔁 Solving Systems by Substitution"},{id:"atm-systems-4",type:"markdown",content:"## 🧩 Modeling with Systems of Equations"}]},{id:"atm-quad",title:"Factoring and Quadratic Equations",description:"Factoring expressions and solving, graphing, and applying quadratic equations.",blocks:[{id:"atm-quad-1",type:"markdown",content:"## 🧩 Factoring Polynomials and Special Products"},{id:"atm-quad-2",type:"markdown",content:"## ✖️ Solving Quadratic Equations by Factoring"},{id:"atm-quad-3",type:"markdown",content:"## 🧮 The Quadratic Formula and Complex Solutions"},{id:"atm-quad-4",type:"markdown",content:"## 📈 Graphing and Applying Quadratic Functions"}]}]},{id:"geotrig",title:"Geometry & Trigonometry",emoji:"📐",modules:[{id:"gt-geom",title:"Geometry",description:"Understanding geometric concepts, shapes, and their properties.",blocks:[{id:"gt-geom-1",type:"markdown",content:"## 📐 Angles, Polygons, and Quadrilaterals"},{id:"gt-geom-2",type:"markdown",content:"## 🔺 Triangles and Similarity"},{id:"gt-geom-3",type:"markdown",content:"## ⭕ Circles and Radian Measure"},{id:"gt-geom-4",type:"markdown",content:"## 🧊 Area and Volume of Three-Dimensional Figures"}]},{id:"gt-trig",title:"Trigonometry",description:"Understanding trigonometric functions, identities, and applications.",blocks:[{id:"gt-trig-1",type:"columns",content:"",metadata:{columns:[[{id:"gt-trig-1a",type:"markdown",content:"## 📐Units of a Circle\n\nMost folks are familiar with using **degrees** to measure angles, where `360°` represents a full circle, `180°` represents a half circle, and `90°` represents a right angle. However, in trigonometry, we often use **radians** instead.\n\n**✏️Radians are defined as a pure ratio with regards to an arc length over a circle’s radius.**\n\nRadians can feel a bit abstract and unintuitive to use at first, but then again, *degrees are also somewhat arbitrary*, you're just more used to using them in day-to-day life.\n\n**Radians** are another way to measure angles, where `2π` radians represents a full circle, `π` radians represents a half circle, and `π/2` radians represents a right angle. We use radians as they make future computations involving physics and pure mathematics far easier."},{id:"gt-trig-1b",type:"note",content:"The image to the right illustrates what's know as the **unit circle** and how **angles in radians correspond to points on the circle.** For now, ignore the numbers in parenthesis on the outside of the circle (we'll cover this soon!"}],[{id:"gt-trig-1-c",type:"webimage",content:"https://helpingwithmath.com/wp-content/uploads/2021/10/Unit-Circle-6-768x768.png",metadata:{alt:"Unit Circle Illustration"}}]],widths:[2,1]}},{id:"gt-trig-1-2",type:"video",content:"https://www.youtube.com/embed/fmeHBSe6MbM?si=C77sj2-KcEvNu958",metadata:{autoplay:!0,hideControls:!0,loop:!0,allowFullscreen:!0}},{id:"gt-trig-2",type:"markdown",content:`## 📐 Right-Triangle Trigonometry
+**Answer:** A digital sample value of 32,768 outputs approximately **1.65 volts**. (This represents the midpoint of the voltage range!)`}]}]},{id:"atm-linsys",title:"Systems of Equations",description:"Understanding systems of equations and methods for solving them.",blocks:[{id:"atm-linsys-0",type:"markdown",content:"A **system of linear equations** simply means two or more linear equations that follow our \\(y = mx + b\\) form and are considered together as a set. When we say we're *solving* these equations, we really mean finding where these two lines intersect - i.e. one signle point (pair of values) that satisfies both equations."},{id:"atm-linsys-1",type:"markdown",content:"## 📊 Solving Systems by Graphing"},{id:"atm-linsys-1a",type:"markdown",content:`### Example: Solving by Graphing
+Consider the system:
+\\[
+y = 2x + 1
+\\]
+\\[
+y = -x + 4
+\\]
+Graph both lines and find the intersection point. The solution is the point where both lines cross, which is **(1, 3)**. We can verify: when x = 1, both equations give y = 3.`},{id:"atm-linsys-1b",type:"plotly",content:"atm_linsys_intersection.json"},{id:"atm-linsys-2",type:"markdown",content:`## ➕ Solving Systems by Elimination
+
+The **elimination method** (also called the addition/subtraction method) works by eliminating one variable so we can solve for the other. The key idea is to add or subtract the equations strategically so that one variable cancels out.
+
+### Steps:
+1. Arrange both equations in standard form \\(Ax + By = C\\)
+2. Multiply one or both equations by constants so that the coefficients of one variable are opposites
+3. Add the equations together to eliminate that variable
+4. Solve the resulting equation for the remaining variable
+5. Substitute back into either original equation to find the other variable
+
+### Example: Solving by Elimination
+
+Consider the system:
+\\[
+3x + 2y = 12
+\\]
+\\[
+2x - 2y = 8
+\\]
+
+**Step 1:** Notice that the y-coefficients are already opposites (2 and -2). Add the equations:
+\\[
+(3x + 2y) + (2x - 2y) = 12 + 8
+\\]
+\\[
+5x = 20
+\\]
+\\[
+x = 4
+\\]
+
+**Step 2:** Substitute x = 4 into the first equation:
+\\[
+3(4) + 2y = 12
+\\]
+\\[
+12 + 2y = 12
+\\]
+\\[
+2y = 0
+\\]
+\\[
+y = 0
+\\]
+
+**Solution:** The system is solved at the point **(4, 0)**.`},{id:"atm-linsys-2b",type:"plotly",content:"atm_linsys_elimination.json"},{id:"atm-linsys-3",type:"markdown",content:`## 🔁 Solving Systems by Substitution
+
+The **substitution method** works by solving one equation for one variable, then substituting that expression into the other equation. This reduces the system to a single equation with one variable.
+
+### Steps:
+1. Solve one equation for one variable (choose the one that's easiest to isolate)
+2. Substitute that expression into the other equation
+3. Solve the resulting single-variable equation
+4. Substitute the solution back into either original equation to find the other variable
+5. Check your solution
+
+### Example: Solving by Substitution
+
+Consider the system:
+\\[
+y = 2x - 1
+\\]
+\\[
+3x + 2y = 16
+\\]
+
+**Step 1:** The first equation is already solved for y: \\(y = 2x - 1\\)
+
+**Step 2:** Substitute this expression into the second equation:
+\\[
+3x + 2(2x - 1) = 16
+\\]
+
+**Step 3:** Expand and solve:
+\\[
+3x + 4x - 2 = 16
+\\]
+\\[
+7x - 2 = 16
+\\]
+\\[
+7x = 18
+\\]
+\\[
+x = \\frac{18}{7}
+\\]
+
+**Step 4:** Substitute back into \\(y = 2x - 1\\):
+\\[
+y = 2\\left(\\frac{18}{7}\\right) - 1
+\\]
+\\[
+y = \\frac{36}{7} - \\frac{7}{7}
+\\]
+\\[
+y = \\frac{29}{7}
+\\]
+
+**Solution:** The system is solved at the point \\(\\left(\\frac{18}{7}, \\frac{29}{7}\\right)\\) or approximately **(2.57, 4.14)**.`},{id:"atm-linsys-3b",type:"plotly",content:"atm_linsys_substitution.json"},{id:"atm-linsys-4",type:"markdown",content:"## 🧩 Modeling with Systems of Equations"}]},{id:"atm-quad",title:"Factoring and Quadratic Equations",description:"Factoring expressions and solving, graphing, and applying quadratic equations.",blocks:[{id:"atm-quad-1",type:"markdown",content:"## 🧩 Factoring Polynomials and Special Products"},{id:"atm-quad-2",type:"markdown",content:"## ✖️ Solving Quadratic Equations by Factoring"},{id:"atm-quad-3",type:"markdown",content:"## 🧮 The Quadratic Formula and Complex Solutions"},{id:"atm-quad-4",type:"markdown",content:"## 📈 Graphing and Applying Quadratic Functions"}]}]},{id:"geotrig",title:"Geometry & Trigonometry",emoji:"📐",modules:[{id:"gt-geom",title:"Geometry",description:"Understanding geometric concepts, shapes, and their properties.",blocks:[{id:"gt-geom-1",type:"markdown",content:"## 📐 Angles, Polygons, and Quadrilaterals"},{id:"gt-geom-2",type:"markdown",content:"## 🔺 Triangles and Similarity"},{id:"gt-geom-3",type:"markdown",content:"## ⭕ Circles and Radian Measure"},{id:"gt-geom-4",type:"markdown",content:"## 🧊 Area and Volume of Three-Dimensional Figures"}]},{id:"gt-trig",title:"Trigonometry",description:"Understanding trigonometric functions, identities, and applications.",blocks:[{id:"gt-trig-1",type:"columns",content:"",metadata:{columns:[[{id:"gt-trig-1a",type:"markdown",content:"## 📐Units of a Circle\n\nMost folks are familiar with using **degrees** to measure angles, where `360°` represents a full circle, `180°` represents a half circle, and `90°` represents a right angle. However, in trigonometry, we often use **radians** instead.\n\n**✏️Radians are defined as a pure ratio with regards to an arc length over a circle’s radius.**\n\nRadians can feel a bit abstract and unintuitive to use at first, but then again, *degrees are also somewhat arbitrary*, you're just more used to using them in day-to-day life.\n\n**Radians** are another way to measure angles, where `2π` radians represents a full circle, `π` radians represents a half circle, and `π/2` radians represents a right angle. We use radians as they make future computations involving physics and pure mathematics far easier."},{id:"gt-trig-1b",type:"note",content:"The image to the right illustrates what's know as the **unit circle** and how **angles in radians correspond to points on the circle.** For now, ignore the numbers in parenthesis on the outside of the circle (we'll cover this soon!"}],[{id:"gt-trig-1-c",type:"webimage",content:"https://helpingwithmath.com/wp-content/uploads/2021/10/Unit-Circle-6-768x768.png",metadata:{alt:"Unit Circle Illustration"}}]],widths:[2,1]}},{id:"gt-trig-1-2",type:"video",content:"https://www.youtube.com/embed/fmeHBSe6MbM?si=C77sj2-KcEvNu958",metadata:{autoplay:!0,hideControls:!0,loop:!0,allowFullscreen:!0}},{id:"gt-trig-2",type:"markdown",content:`## 📐 Right-Triangle Trigonometry
 
 WIP`},{id:"gt-trig-3",type:"markdown",content:`## 🧭 Solving Right Triangles and Applications
 
