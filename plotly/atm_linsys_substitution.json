@@ -1,0 +1,77 @@
+{
+  "data": [
+    {
+      "x": [-1, 5],
+      "y": [-3, 9],
+      "mode": "lines",
+      "name": "y = 2x - 1",
+      "line": {
+        "color": "#06b6d4",
+        "width": 3
+      }
+    },
+    {
+      "x": [-1, 5],
+      "y": [9.5, 0.5],
+      "mode": "lines",
+      "name": "3x + 2y = 16",
+      "line": {
+        "color": "#ec4899",
+        "width": 3
+      }
+    },
+    {
+      "x": [2.571428571],
+      "y": [4.142857143],
+      "mode": "markers",
+      "name": "Intersection Point (18/7, 29/7)",
+      "marker": {
+        "size": 12,
+        "color": "#10b981",
+        "symbol": "circle",
+        "line": {
+          "color": "#047857",
+          "width": 2
+        }
+      },
+      "text": ["(18/7 ≈ 2.57, 29/7 ≈ 4.14)"],
+      "hovertemplate": "%{text}<extra></extra>"
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Solution by Substitution: y = 2x - 1 and 3x + 2y = 16",
+      "font": {
+        "size": 18
+      }
+    },
+    "xaxis": {
+      "title": "x",
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af",
+      "range": [-2, 5]
+    },
+    "yaxis": {
+      "title": "y",
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af",
+      "range": [-4, 11]
+    },
+    "hovermode": "closest",
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 60,
+      "r": 40,
+      "t": 80,
+      "b": 60
+    }
+  }
+}

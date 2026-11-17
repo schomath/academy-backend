@@ -1,0 +1,52 @@
+{
+  "interactive": {
+    "type": "quadratic",
+    "xRange": [-10, 10],
+    "yRange": [-20, 20],
+    "points": 201,
+    "params": {
+      "a": {"min": -3, "max": 3, "step": 0.1, "value": 1},
+      "b": {"min": -10, "max": 10, "step": 0.5, "value": 0},
+      "c": {"min": -10, "max": 10, "step": 0.5, "value": 0}
+    }
+  },
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [],
+      "y": [],
+      "line": {"color": "#3b82f6", "width": 3},
+      "name": "y = ax² + bx + c",
+      "hovertemplate": "x: %{x:.2f}<br>y: %{y:.2f}<extra></extra>"
+    },
+    {
+      "type": "scatter",
+      "mode": "markers",
+      "x": [],
+      "y": [],
+      "marker": {"size": 12, "color": "#ef4444", "line": {"width": 2, "color": "#7f1d1d"}},
+      "name": "Vertex",
+      "hovertemplate": "Vertex: (%{x:.2f}, %{y:.2f})<extra></extra>"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [],
+      "y": [],
+      "line": {"color": "#9ca3af", "width": 2, "dash": "dash"},
+      "name": "Axis of symmetry",
+      "hoverinfo": "skip"
+    }
+  ],
+  "layout": {
+    "title": {"text": "y = x²"},
+    "xaxis": {"title": {"text": "x"}, "range": [-10, 10], "gridcolor": "#e5e7eb", "zeroline": true, "zerolinecolor": "#374151"},
+    "yaxis": {"title": {"text": "y"}, "range": [-20, 20], "gridcolor": "#e5e7eb", "zeroline": true, "zerolinecolor": "#374151"},
+    "showlegend": true,
+    "legend": {"orientation": "h", "y": -0.2},
+    "margin": {"t": 60, "l": 60, "r": 20, "b": 60},
+    "plot_bgcolor": "#f9fafb",
+    "hovermode": "closest"
+  }
+}

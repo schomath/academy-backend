@@ -945,20 +945,73 @@ export const CATEGORIES: Category[] = [
                     {id: 'atm-slope-sol', type: 'hline', content: ''},
                     {id: 'atm-slope-sol-1', type: 'markdown', content: '## 🧮 Solutions to Linear Equations\n\nPreviously, when solving algebraic expressions such as \\(2x + 3 = 7\\), we isolated the variable to find its value. In this case, we only had **one solution**. When working with more than one variable, instead have an **infinite number of solutions**, which come in **pairs**.\n\nFor example, take the linear equation \\(y = 2x + 3\\). For every value of \\(x\\), there is a corresponding value of \\(y\\), giving us an infinite set of solutions in the form of \\((x, y)\\) pairs. A few examples are:\n- \\((0, 3)\\)\n- \\((1, 5)\\)\n- \\((2, 7)\\)'},
 
+                    {id: 'atm-slope-spc', type: 'hline', content: ''},
+                    {id: 'atm-slope-spc-1', type: 'markdown', content: '## Special Cases of Slopes:\n\n- There are two *special* cases for slopes:'},
+                    {id: 'atm-slope-spc-2', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-slope-spc-2a', type: 'markdown', content: '### Horizontal Slope (Zero Slope)\n\nWhen a line is **perfectly horizontal**, it has a slope of **0**. No matter how much \\(x\\) changes, \\(y\\) stays the same.\n\n**Example Points:** \\((1, 4)\\) and \\((5, 4)\\)\n\n**Slope Calculation:**\n\\[\n\\text{slope} = \\frac{\\Delta y}{\\Delta x} = \\frac{4 - 4}{5 - 1} = \\frac{0}{4} = 0\n\\]\n\nThe equation is \\(y = 4\\) (a constant function).'},
+                      {id: 'atm-slope-spc-2b', type: 'plotly', content: 'slope_horizontal.json', metadata: { height: 300, showModeBar: false }},
+                    ],[
+                      {id: 'atm-slope-spc-2c', type: 'markdown', content: '### Vertical Slope (Undefined Slope)\n\nWhen a line is **perfectly vertical**, the slope is **undefined**. The \\(x\\) value never changes, so we cannot divide by zero.\n\n**Example Points:** \\((3, 1)\\) and \\((3, 5)\\)\n\n**Slope Calculation:**\n\\[\n\\text{slope} = \\frac{\\Delta y}{\\Delta x} = \\frac{5 - 1}{3 - 3} = \\frac{4}{0} = \\text{undefined}\n\\]\n\nThe equation is \\(x = 3\\) (not a function).'},
+                      {id: 'atm-slope-spc-2d', type: 'plotly', content: 'slope_vertical.json', metadata: { height: 300, showModeBar: false }},
+                    ]], widths: [1, 1]}},
+
+                    {id: 'atm-slope-spc-3', type: 'markdown', content: 'In addition, we can also describe two lines (equations) that are **parallel** and **perpendicular**:'},
+
+                    {id: 'atm-slope-spc-4', type: 'columns', content: '', metadata: {columns: [[
+                      {id: 'atm-slope-spc-4a', type: 'markdown', content: '### Parallel Lines (Same Slope)\n\nTwo lines are **parallel** when they have the **same slope** and **never intersect**. They always maintain the same distance apart.\n\n**Example Lines:** \\(y = 2x\\) and \\(y = 2x + 2\\)\n\n**Slope Comparison:**\n- Line 1: \\(m_1 = 2\\)\n- Line 2: \\(m_2 = 2\\)\n\n**Relationship:** \\(m_1 = m_2\\)\n\nBecause both lines have the same slope of 2, they are parallel and will never cross.'},
+                      {id: 'atm-slope-spc-4b', type: 'plotly', content: 'slope_parallel.json', metadata: { height: 300, showModeBar: false }},
+                    ],[
+                      {id: 'atm-slope-spc-4c', type: 'markdown', content: '### Perpendicular Lines (Negative Reciprocal Slopes)\n\nTwo lines are **perpendicular** when they meet at a **90° angle**. Their slopes are **negative reciprocals** of each other.\n\n**Example Lines:** \\(y = 2x + 2\\) and \\(y = -\\frac{1}{2}x + 6\\)\n\n**Slope Comparison:**\n- Line 1: \\(m_1 = 2\\)\n- Line 2: \\(m_2 = -\\frac{1}{2}\\)\n\n**Relationship:** \\(m_1 \\cdot m_2 = 2 \\cdot (-\\frac{1}{2}) = -1\\)\n\nWhen the product of two slopes equals -1, the lines are perpendicular.'},
+                      {id: 'atm-slope-spc-4d', type: 'plotly', content: 'slope_perpendicular.json', metadata: { height: 300, showModeBar: false }},
+                    ]], widths: [1, 1]}},
 
                     {id: 'atm-slope-graph', type: 'hline', content: ''},
-                    {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Linear Interpolation / Scaling'},
+                    {id: 'atm-slope-graph-1', type: 'markdown', content: '## 📈 Linear Interpolation / Scaling\n\n**Linear interpolation** is the process of translating one range of numbers (i.e. our x axis) and transforming it (through the equation of a line) to another range (i.e. our y axis). This allows us to estimate values within the range of known data points. The following are examples of linear interpolation:'},
+                    
+                    {id: 'atm-slope-graph-2', type: 'dropdown', content: 'Example 1: Temperature Sensor (°C to Voltage)', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-slope-graph-2-1', type: 'markdown', content: '### Problem\nA temperature sensor measures temperatures from **0°C to 100°C** and converts them to voltages from **0V to 5V**. If the sensor reads **35°C**, what voltage should it output?\n\n**Given Information:**\n- Input range (x-axis): 0°C to 100°C\n- Output range (y-axis): 0V to 5V\n- We need to find the voltage (y) when temperature (x) = 35°C'},
+                      {id: 'atm-slope-graph-2-2', type: 'markdown', content: '### Solution: Step 1 - Find the Slope\nIdentify two points:\n- Point 1: (0°C, 0V)\n- Point 2: (100°C, 5V)\n\nCalculate the slope:\n\\[\nm = \\frac{\\Delta y}{\\Delta x} = \\frac{5V - 0V}{100°C - 0°C} = \\frac{5V}{100°C} = 0.05 \\text{ V/°C}\n\\]'},
+                      {id: 'atm-slope-graph-2-3', type: 'markdown', content: '### Solution: Step 2 - Find the Linear Equation\nUsing point-slope form with point (0, 0):\n\\[\ny = mx + b\n\\]\n\\[\ny = 0.05x + 0\n\\]\n\\[\ny = 0.05x\n\\]\n\nWhere:\n- y = voltage (V)\n- x = temperature (°C)'},
+                      {id: 'atm-slope-graph-2-4', type: 'markdown', content: '### Solution: Step 3 - Substitute the Given Value\nWhen temperature x = 35°C:\n\\[\ny = 0.05(35)\n\\]\n\\[\ny = 1.75V\n\\]\n\n**Answer:** When the sensor reads 35°C, it outputs **1.75 volts**.'},
+                    ]},
+                    
+                    {id: 'atm-slope-graph-3', type: 'dropdown', content: 'Example 2: Pressure Transducer (PSI to mA Output)', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-slope-graph-3-1', type: 'markdown', content: '### Problem\nA pressure transducer converts pressures from **0 PSI to 200 PSI** into a standard industrial 4-20 mA signal. If the transducer measures **120 PSI**, what current (in mA) should it output?\n\n**Given Information:**\n- Input range (x-axis): 0 PSI to 200 PSI\n- Output range (y-axis): 4 mA to 20 mA\n- We need to find the current (y) when pressure (x) = 120 PSI'},
+                      {id: 'atm-slope-graph-3-2', type: 'markdown', content: '### Solution: Step 1 - Find the Slope\nIdentify two points:\n- Point 1: (0 PSI, 4 mA)\n- Point 2: (200 PSI, 20 mA)\n\nCalculate the slope:\n\\[\nm = \\frac{\\Delta y}{\\Delta x} = \\frac{20 \\text{ mA} - 4 \\text{ mA}}{200 \\text{ PSI} - 0 \\text{ PSI}} = \\frac{16 \\text{ mA}}{200 \\text{ PSI}} = 0.08 \\text{ mA/PSI}\n\\]'},
+                      {id: 'atm-slope-graph-3-3', type: 'markdown', content: '### Solution: Step 2 - Find the Linear Equation\nUsing point-slope form with point (0, 4):\n\\[\ny - y_1 = m(x - x_1)\n\\]\n\\[\ny - 4 = 0.08(x - 0)\n\\]\n\\[\ny = 0.08x + 4\n\\]\n\nWhere:\n- y = current (mA)\n- x = pressure (PSI)'},
+                      {id: 'atm-slope-graph-3-4', type: 'markdown', content: '### Solution: Step 3 - Substitute the Given Value\nWhen pressure x = 120 PSI:\n\\[\ny = 0.08(120) + 4\n\\]\n\\[\ny = 9.6 + 4\n\\]\n\\[\ny = 13.6 \\text{ mA}\n\\]\n\n**Answer:** When the transducer measures 120 PSI, it outputs **13.6 milliamps**.'},
+                    ]},
+                    
+                    {id: 'atm-slope-graph-4', type: 'dropdown', content: 'Example 3: Motion Scaling (Pixels to Real World Distance)', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-slope-graph-4-1', type: 'markdown', content: '### Problem\nIn a robotics application, a camera tracks object positions in pixels, but we need to convert to real-world centimeters. The camera can see from **0 to 640 pixels** horizontally, which corresponds to **0 cm to 32 cm** in reality. If an object is detected at **480 pixels**, how many centimeters is it from the origin?\n\n**Given Information:**\n- Input range (x-axis): 0 to 640 pixels\n- Output range (y-axis): 0 to 32 cm\n- We need to find the distance (y) when position (x) = 480 pixels'},
+                      {id: 'atm-slope-graph-4-2', type: 'markdown', content: '### Solution: Step 1 - Find the Slope\nIdentify two points:\n- Point 1: (0 pixels, 0 cm)\n- Point 2: (640 pixels, 32 cm)\n\nCalculate the slope:\n\\[\nm = \\frac{\\Delta y}{\\Delta x} = \\frac{32 \\text{ cm} - 0 \\text{ cm}}{640 \\text{ pixels} - 0 \\text{ pixels}} = \\frac{32}{640} = 0.05 \\text{ cm/pixel}\n\\]'},
+                      {id: 'atm-slope-graph-4-3', type: 'markdown', content: '### Solution: Step 2 - Find the Linear Equation\nUsing point-slope form with point (0, 0):\n\\[\ny = mx + b\n\\]\n\\[\ny = 0.05x + 0\n\\]\n\\[\ny = 0.05x\n\\]\n\nWhere:\n- y = distance (cm)\n- x = pixel position'},
+                      {id: 'atm-slope-graph-4-4', type: 'markdown', content: '### Solution: Step 3 - Substitute the Given Value\nWhen pixel position x = 480:\n\\[\ny = 0.05(480)\n\\]\n\\[\ny = 24 \\text{ cm}\n\\]\n\n**Answer:** An object at 480 pixels in the camera view is **24 centimeters** from the origin.'},
+                    ]},
+                    
+                    {id: 'atm-slope-graph-5', type: 'dropdown', content: 'Example 4: Audio Signal Scaling (Digital to Analog Levels)', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-slope-graph-5-1', type: 'markdown', content: '### Problem\nA digital audio converter processes 16-bit audio samples (0 to 65,535) and converts them to analog voltage levels (0V to 3.3V). If a digital sample value is **32,768**, what should the corresponding analog output voltage be?\n\n**Given Information:**\n- Input range (x-axis): 0 to 65,535 (digital)\n- Output range (y-axis): 0V to 3.3V (analog)\n- We need to find the voltage (y) when sample value (x) = 32,768'},
+                      {id: 'atm-slope-graph-5-2', type: 'markdown', content: '### Solution: Step 1 - Find the Slope\nIdentify two points:\n- Point 1: (0 digital, 0V)\n- Point 2: (65,535 digital, 3.3V)\n\nCalculate the slope:\n\\[\nm = \\frac{\\Delta y}{\\Delta x} = \\frac{3.3V - 0V}{65535 - 0} = \\frac{3.3}{65535} ≈ 0.0000504 \\text{ V/digital unit}\n\\]'},
+                      {id: 'atm-slope-graph-5-3', type: 'markdown', content: '### Solution: Step 2 - Find the Linear Equation\nUsing point-slope form with point (0, 0):\n\\[\ny = mx + b\n\\]\n\\[\ny = 0.0000504x + 0\n\\]\n\\[\ny = 0.0000504x\n\\]\n\nWhere:\n- y = voltage (V)\n- x = digital sample value'},
+                      {id: 'atm-slope-graph-5-4', type: 'markdown', content: '### Solution: Step 3 - Substitute the Given Value\nWhen digital value x = 32,768:\n\\[\ny = 0.0000504(32768)\n\\]\n\\[\ny ≈ 1.65V\n\\]\n\n**Answer:** A digital sample value of 32,768 outputs approximately **1.65 volts**. (This represents the midpoint of the voltage range!)'},
+                    ]},
+                    
                 ]
               },
 
-              { id: 'atm-systems',
+              { id: 'atm-linsys',
                 title: 'Systems of Equations',
                 description: 'Understanding systems of equations and methods for solving them.',
                 blocks: [
-                    {id: 'atm-systems-1', type: 'markdown', content: '## 📊 Solving Systems by Graphing'},
-                    {id: 'atm-systems-2', type: 'markdown', content: '## ➕ Solving Systems by Elimination'},
-                    {id: 'atm-systems-3', type: 'markdown', content: '## 🔁 Solving Systems by Substitution'},
-                    {id: 'atm-systems-4', type: 'markdown', content: '## 🧩 Modeling with Systems of Equations'},
+                    {id: 'atm-linsys-0', type: 'markdown', content: 'A **system of linear equations** simply means two or more linear equations that follow our \\(y = mx + b\\) form and are considered together as a set. When we say we\'re *solving* these equations, we really mean finding where these two lines intersect - i.e. one signle point (pair of values) that satisfies both equations.'},
+                    {id: 'atm-linsys-1', type: 'markdown', content: '## 📊 Solving Systems by Graphing'},
+                    {id: 'atm-linsys-1a', type: 'markdown', content: '### Example: Solving by Graphing\nConsider the system:\n\\[\ny = 2x + 1\n\\]\n\\[\ny = -x + 4\n\\]\nGraph both lines and find the intersection point. The solution is the point where both lines cross, which is **(1, 3)**. We can verify: when x = 1, both equations give y = 3.'},
+                    {id: 'atm-linsys-1b', type: 'plotly', content: 'atm_linsys_intersection.json'},
+                    {id: 'atm-linsys-2', type: 'markdown', content: '## ➕ Solving Systems by Elimination\n\nThe **elimination method** (also called the addition/subtraction method) works by eliminating one variable so we can solve for the other. The key idea is to add or subtract the equations strategically so that one variable cancels out.\n\n### Steps:\n1. Arrange both equations in standard form \\(Ax + By = C\\)\n2. Multiply one or both equations by constants so that the coefficients of one variable are opposites\n3. Add the equations together to eliminate that variable\n4. Solve the resulting equation for the remaining variable\n5. Substitute back into either original equation to find the other variable\n\n### Example: Solving by Elimination\n\nConsider the system:\n\\[\n3x + 2y = 12\n\\]\n\\[\n2x - 2y = 8\n\\]\n\n**Step 1:** Notice that the y-coefficients are already opposites (2 and -2). Add the equations:\n\\[\n(3x + 2y) + (2x - 2y) = 12 + 8\n\\]\n\\[\n5x = 20\n\\]\n\\[\nx = 4\n\\]\n\n**Step 2:** Substitute x = 4 into the first equation:\n\\[\n3(4) + 2y = 12\n\\]\n\\[\n12 + 2y = 12\n\\]\n\\[\n2y = 0\n\\]\n\\[\ny = 0\n\\]\n\n**Solution:** The system is solved at the point **(4, 0)**.'},
+                    {id: 'atm-linsys-2b', type: 'plotly', content: 'atm_linsys_elimination.json'},
+                    {id: 'atm-linsys-3', type: 'markdown', content: '## 🔁 Solving Systems by Substitution\n\nThe **substitution method** works by solving one equation for one variable, then substituting that expression into the other equation. This reduces the system to a single equation with one variable.\n\n### Steps:\n1. Solve one equation for one variable (choose the one that\'s easiest to isolate)\n2. Substitute that expression into the other equation\n3. Solve the resulting single-variable equation\n4. Substitute the solution back into either original equation to find the other variable\n5. Check your solution\n\n### Example: Solving by Substitution\n\nConsider the system:\n\\[\ny = 2x - 1\n\\]\n\\[\n3x + 2y = 16\n\\]\n\n**Step 1:** The first equation is already solved for y: \\(y = 2x - 1\\)\n\n**Step 2:** Substitute this expression into the second equation:\n\\[\n3x + 2(2x - 1) = 16\n\\]\n\n**Step 3:** Expand and solve:\n\\[\n3x + 4x - 2 = 16\n\\]\n\\[\n7x - 2 = 16\n\\]\n\\[\n7x = 18\n\\]\n\\[\nx = \\frac{18}{7}\n\\]\n\n**Step 4:** Substitute back into \\(y = 2x - 1\\):\n\\[\ny = 2\\left(\\frac{18}{7}\\right) - 1\n\\]\n\\[\ny = \\frac{36}{7} - \\frac{7}{7}\n\\]\n\\[\ny = \\frac{29}{7}\n\\]\n\n**Solution:** The system is solved at the point \\(\\left(\\frac{18}{7}, \\frac{29}{7}\\right)\\) or approximately **(2.57, 4.14)**.'},
+                    {id: 'atm-linsys-3b', type: 'plotly', content: 'atm_linsys_substitution.json'},
+                    {id: 'atm-linsys-4', type: 'markdown', content: '## 🧩 Modeling with Systems of Equations'},
                 ]
               },
 
@@ -966,10 +1019,115 @@ export const CATEGORIES: Category[] = [
                 title: 'Factoring and Quadratic Equations',
                 description: 'Factoring expressions and solving, graphing, and applying quadratic equations.',
                 blocks: [
-                    {id: 'atm-quad-1', type: 'markdown', content: '## 🧩 Factoring Polynomials and Special Products'},
-                    {id: 'atm-quad-2', type: 'markdown', content: '## ✖️ Solving Quadratic Equations by Factoring'},
-                    {id: 'atm-quad-3', type: 'markdown', content: '## 🧮 The Quadratic Formula and Complex Solutions'},
-                    {id: 'atm-quad-4', type: 'markdown', content: '## 📈 Graphing and Applying Quadratic Functions'},
+                    {id: 'atm-quad-mon', type: 'markdown', content: '## 🧮 Monomial Factoring'},
+                    {id: 'atm-quad-mon-1', type: 'markdown', content: 'Previously, we\'ve seen how to *distribute* a number into an algebraic expression: \\[\n3(x + 4) = 3x + 12\\]. In this example, we take the number outside of the parenthesis and multiply every number inside by it. Next, we\'ll take a look at how to do the opposite of this - a process called **factoring**.\n\n**Factoring** involves examining all numbers of an algebraic expression and finding *factors or variables that appear in all of them* - then dividing each expression by those. As an example, looking at the expression from above \\(3x + 12\\), we notice that each term can be cleanly divided by `3` - meaning *`3` is a factor*. Factoring out the 3 gives us \\(3(x + 4)\\).\n\nNote, we can also factor variables if they appear in all terms. For example, \\(x^2 + 3x\\) can be factored as \\(x(x + 3)\\).'},
+
+                    {id: 'atm-quad-mon-2', type: 'dropdown', content: 'Example 1: Monomial Factoring', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-quad-mon-2-1', type: 'markdown', content: 'Factor the expression \\(6x^2 + 9x\\).'},
+                      {id: 'atm-quad-mon-2-2', type: 'markdown', content: 'First, identify the greatest common factor (GCF) of the terms. Here, the GCF is `3x`.'},
+                      {id: 'atm-quad-mon-2-3', type: 'markdown', content: 'Next, divide each term by the GCF: \\(6x^2 ÷ 3x = 2x\\) and \\(9x ÷ 3x = 3\\).'},
+                      {id: 'atm-quad-mon-2-4', type: 'markdown', content: 'Finally, write the gratest common factor as a product of the results of the division from above:'},
+                      {id: 'atm-quad-mon-2-5', type: 'latex', content: '6x^2 + 9x = 3x(2x + 3)'},
+                      {id: 'atm-quad-mon-2-6', type: 'markdown', content: 'We can check our work by doing the reverse and checking to see if the result is the same as the expression we started with:'},
+                      {id: 'atm-quad-mon-2-7', type: 'latex', content: '3x\\times2x = 6x^2'},
+                      {id: 'atm-quad-mon-2-8', type: 'latex', content: '3x\\times3 = 9x'},
+                      {id: 'atm-quad-mon-2-9', type: 'latex', content: '3x\\times(2x + 3) = 6x^2 + 9x'},
+                    ]},
+                    {id: 'atm-quad-mon-3', type: 'dropdown', content: 'Example 2: Monomial Factoring', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-quad-mon-3-1', type: 'markdown', content: 'Factor the expression \\(16x^2y + 2xy^2 - 6x^2y^2 - 8xy\\)'},
+                      {id: 'atm-quad-mon-3-2', type: 'markdown', content: 'First, identify the greatest common factor (GCF) of the terms. In this case, we can note that every term contains:\n- at least 1 `x`\n- at least 1 `y`\n- a numerical factor of `2`\n\nThus, the GCF is `2xy`. Next, we want to divide each of the terms by the GCF and note down the result:'},
+                      {id: 'atm-quad-mon-3-3', type: 'latex', content: '16x^2y ÷ 2xy = 8x,\\\\ \\quad 2xy^2 ÷ 2xy = y,\\\\ \\quad -6x^2y^2 ÷ 2xy = -3xy,\\\\ \\quad -8xy ÷ 2xy = -4'},
+                      {id: 'atm-quad-mon-3-4', type: 'markdown', content: 'Finally, write the greatest common factor as a product of the results of the division from above:'},
+                      {id: 'atm-quad-mon-3-5', type: 'latex', content: '16x^2y + 2xy^2 - 6x^2y^2 - 8xy = 2xy(8x + y - 3xy - 4)'},
+                    ]},
+
+                    {id: 'atm-quad-poly', type: 'hline', content: ''},
+                    {id: 'atm-quad-poly-1', type: 'markdown', content: '## 3️⃣ Trinomial Factoring'},
+                    {id: 'atm-quad-poly-2', type: 'markdown', content: '**Trinomial Factoring** involves expressing a trinomial as a product of two binomials. The process is a bit more involved than monomial factoring, as it requires finding two numbers that multiply to give the constant term and add to give the coefficient of the middle term. Trimomials will often come in the form of:'},
+                    {id: 'atm-quad-poly-3', type: 'latex', content: 'ax^2 + bx + c'},
+                    {id: 'atm-quad-poly-4', type: 'markdown', content: 'To factor a trinomial of the form \\(ax^2 + bx + c\\), we look for two numbers that multiply to \\(a \\cdot c\\) and add to \\(b\\). (thankfully, a is typically just 1 most of the time). Once we find the required numbers, we can factor the expression as a product of two binomials, following the form of\n\n \\((x + \\text{number}_1)(x + \\text{number}_2)\\).\n\n As an example, consider the expression \\(x^2 + 15x + 56\\). First, we\'ll not down all two-number products that can make up the number 56: '},
+                    {id: 'atm-quad-poly-4-1', type: 'latex', content: '1 \\cdot 56 = 56,\\\\ 2 \\cdot 28 = 56,\\\\ 4 \\cdot 14 = 56,\\\\ 7 \\cdot 8 = 56'},
+                    {id: 'atm-quad-poly-4-2', type: 'markdown', content: 'Next, we look for the pair of numbers that add up to 15 (the coefficient of the middle term). In this case, we notice the last step of \\(7 \\times 8 = 56\\) also adds up to our `c` value: \\(7 + 8 = 15\\). This means that we can use the numbers `7` and `8` for our binomial factor:'},
+                    {id: 'atm-quad-poly-4-3', type: 'latex', content: 'x^2 + 15x + 56 = (x + 7)(x + 8)'},
+                    {id: 'atm-quad-poly-5', type: 'dropdown', content: 'Example 1: Trinomial Factoring', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-quad-poly-5-1', type: 'markdown', content: 'Factor the trinomial \\(x^2 + 11x + 24\\).'},
+                      {id: 'atm-quad-poly-5-2', type: 'markdown', content: 'First, we look for two numbers that multiply to 24 (the constant term) and add to 11 (the coefficient of the middle term). The pairs of numbers that multiply to 24 are:'},
+                      {id: 'atm-quad-poly-5-3', type: 'latex', content: '1 \\cdot 24 = 24,\\\\ 2 \\cdot 12 = 24,\\\\ 3 \\cdot 8 = 24,\\\\ 4 \\cdot 6 = 24'},
+                      {id: 'atm-quad-poly-5-4', type: 'markdown', content: 'Next, we look for the pair that adds up to 11. In this case, \\(3 + 8 = 11\\). Therefore, we can factor the trinomial as:'},
+                      {id: 'atm-quad-poly-5-5', type: 'latex', content: 'x^2 + 11x + 24 = (x + 3)(x + 8)'}
+                    ]},
+                    {id: 'atm-quad-poly-6', type: 'dropdown', content: 'Example 2: Trinomial Factoring', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-quad-poly-6-1', type: 'markdown', content: 'Factor the trinomial \\(x^2 - 13x + 36\\).'},
+                      {id: 'atm-quad-poly-6-2', type: 'markdown', content: 'First, we look for two numbers that multiply to 36 (the constant term) and add to -13 (the coefficient of the middle term). The pairs of numbers that multiply to 36 are:'},
+                      {id: 'atm-quad-poly-6-3', type: 'latex', content: '1 \\cdot 36 = 36,\\\\ 2 \\cdot 18 = 36,\\\\ 3 \\cdot 12 = 36,\\\\ 4 \\cdot 9 = 36,\\\\ 6 \\cdot 6 = 36'},
+                      {id: 'atm-quad-poly-6-4', type: 'markdown', content: 'An important distinction here is that there is a `-13` and a positive `36`. Since `36` is positive, we know eithre both numbers must be negative or both numbers must be positive. As such, we can then look for the pair that adds up to -13. In this case, \\(-4 + -9 = -13\\). Therefore, we can factor the trinomial as:'},
+                      {id: 'atm-quad-poly-6-5', type: 'latex', content: 'x^2 - 13x + 36 = (x - 4)(x - 9)'}
+                    ]},
+                    {id: 'atm-quad-poly-7', type: 'dropdown', content: 'Example 3: Trinomial Factoring', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-quad-poly-7-1', type: 'markdown', content: 'Factor the trinomial \\(2x^2 - 22x - 24\\).'},
+                      {id: 'atm-quad-poly-7-2', type: 'markdown', content: 'First, let\'s simplify the trinomial by factoring out the greatest common factor (GCF). The GCF of \\(2x^2 - 22x - 24\\) is 2:'},
+                      {id: 'atm-quad-poly-7-3', type: 'latex', content: '2x^2 - 22x - 24 = 2(x^2 - 11x - 12)'},
+                      {id: 'atm-quad-poly-7-4', type: 'markdown', content: 'Next, we factor the simplified trinomial \\(x^2 - 11x - 12\\). We look for two numbers that multiply to -12 and add to -11. The pairs of numbers that multiply to -12 are:'},
+                      {id: 'atm-quad-poly-7-5', type: 'latex', content: '1 \\cdot -12 = -12,\\\\ 2 \\cdot -6 = -12,\\\\ 3 \\cdot -4 = -12'},
+                      {id: 'atm-quad-poly-7-6', type: 'markdown', content: 'The pair that adds up to `-11` is \\( -12 + 1 = -11\\). Therefore, we can factor the trinomial as:'},
+                      {id: 'atm-quad-poly-7-7', type: 'latex', content: 'x^2 - 11x - 12 = (x - 12)(x + 1)'},
+                      {id: 'atm-quad-poly-7-8', type: 'markdown', content: 'Of course, we can\'t forget about our factor of `2` we took out at the beginning, meaning our final expression is:'},
+                      {id: 'atm-quad-poly-7-9', type: 'latex', content: '2x^2 - 22x - 24 = 2(x - 12)(x + 1)'}
+                    ]},
+
+                    // {id: 'atm-quad-spc', type: 'hline', content: ''},
+                    // {id: 'atm-quad-spc-1', type: 'markdown', content: '## 🧩 Special Trinomials'},
+                    // {id: 'atm-quad-spc-2', type: 'markdown', content: 'There are a few special types of trinomials that have recognizable factoring patterns, such as perfect square trinomials and difference of squares.'},
+                    // {id: 'atm-quad-spc-3', type: 'markdown', content: '### Perfect Square Trinomials'},
+                    // {id: 'atm-quad-spc-4', type: 'markdown', content: 'A perfect square trinomial is of the form \\(a^2 + 2ab + b^2\\) or \\(a^2 - 2ab + b^2\\), and it factors as \\((a + b)^2\\) or \\((a - b)^2\\) respectively.'},
+                    // {id: 'atm-quad-spc-5', type: 'markdown', content: '### Difference of Squares'},
+                    // {id: 'atm-quad-spc-6', type: 'markdown', content: 'A difference of squares is of the form \\(a^2 - b^2\\), and it factors as \\((a - b)(a + b)\\).'},
+
+                    {id: 'atm-quad-qf', type: 'hline', content: ''},
+                    {id: 'atm-quad-qf-1', type: 'markdown', content: '## 🧮 The Quadratic Formula and Complex Solutions'},
+                    {id: 'atm-quad-qf-2', type: 'markdown', content: 'The quadratic formula is used to find the solutions of a quadratic equation \\(ax^2 + bx + c = 0\\) and is given by:'},
+                    {id: 'atm-quad-qf-3', type: 'latex', content: 'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}'},
+                    {id: 'atm-quad-qf-4', type: 'note', content: 'If the discriminant \\(b^2 - 4ac\\) is negative, the solutions are **complex numbers**.\n\nSo, what are **complex numbers**?\n\nComplex numbers are numbers of the form \\(a + bi\\), where \\(a\\) and \\(b\\) are real numbers and \\(i\\) is the imaginary unit with the property \\(i^2 = -1\\). But why do we need to create a new type of number for this?\n\nWell, consider the expression \\(\\sqrt{-1}\\). Since the square root of a number requires us to find *two of the same numbers that multiply together to give us the original number*, no such number exists for \\(\\sqrt{-1}\\) (remember, when two numbers have the same sign, they always come out positive!). Therefore, we introduce \\(i\\) to represent whatever \\(\\sqrt{-1}\\) is equal to.'},
+                    {id: 'atm-quad-qf-5', type: 'markdown', content: 'Let\'s start with one of the examples we\'ve already tackled from above: \\(x^2 + 15x + 56\\). In this case, `a = 1`, `b = 15`, and `c = 56`. Plugging these into the quadratic formula gives us:'},
+                    {id: 'atm-quad-qf-6', type: 'latex', content: 'x = \\frac{-15 \\pm \\sqrt{15^2 - 4(1)(56)}}{2(1)} = \\frac{-15 \\pm \\sqrt{225 - 224}}{2} = \\frac{-15 \\pm 1}{2}'},
+                    {id: 'atm-quad-qf-7', type: 'markdown', content: 'Finally, we can use the plus or minus (\\(\\pm\\)) to find the two solutions:\n\n\\(x = \\frac{-15 + 1}{2} = \\frac{-14}{2} = -7\\) or \\(x = \\frac{-15 - 1}{2} = \\frac{-16}{2} = -8\\)'},
+
+                    {id: 'atm-quad-qf-8', type: 'dropdown', content: 'Example 1: Quadratic Formula', metadata: {bg: 'pink'}, children: [
+                      {id: 'atm-quad-qf-8-1', type: 'markdown', content: 'Solve the quadratic equation \\(2x^2 - x - 21\\) using the quadratic formula.'},
+                      {id: 'atm-quad-qf-8-2', type: 'markdown', content: 'Here, `a = 2`, `b = -1`, and `c = -21`. Plugging these into the quadratic formula gives us:'},
+                      {id: 'atm-quad-qf-8-3', type: 'latex', content: 'x = \\frac{-(-1) \\pm \\sqrt{(-1)^2 - 4(2)(-21)}}{2(2)} = \\frac{1 \\pm \\sqrt{1 + 168}}{4} = \\frac{1 \\pm \\sqrt{169}}{4} = \\frac{1 \\pm 13}{4}'},
+                      {id: 'atm-quad-qf-8-4', type: 'markdown', content: 'Finally, we find the two solutions:\n\n\\(x = \\frac{1 + 13}{4} = \\frac{14}{4} = 3.5\\) or \\(x = \\frac{1 - 13}{4} = \\frac{-12}{4} = -3\\)'},
+                      {id: 'atm-quad-qf-8-5', type: 'markdown', content: 'So the solutions to the quadratic equation:'},
+                      {id: 'atm-quad-qf-8-6', type: 'latex', content: '2x^2 - x - 21 = (x + 3.5)(x - 3)'}
+                    ]},
+
+                    {id: 'atm-quad-qf-9', type: 'dropdown', content: 'Example 2: Quadratic Formula with Complex Numbers', metadata: {bg: 'purple'}, children: [
+                      {id: 'atm-quad-qf-9-1', type: 'markdown', content: 'Solve the quadratic equation \\(x^2 + 2x + 5\\) using the quadratic formula.'},
+                      {id: 'atm-quad-qf-9-2', type: 'markdown', content: '**Step 1: Identify the coefficients**\n\nFrom the equation \\(x^2 + 2x + 5\\), we have:\n- \\(a = 1\\)\n- \\(b = 2\\)\n- \\(c = 5\\)'},
+                      {id: 'atm-quad-qf-9-3', type: 'markdown', content: '**Step 2: Apply the quadratic formula**\n\nSubstitute into the quadratic formula:'},
+                      {id: 'atm-quad-qf-9-4', type: 'latex', content: 'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}'},
+                      {id: 'atm-quad-qf-9-5', type: 'markdown', content: '**Step 3: Calculate the discriminant**\n\nFirst, we calculate the discriminant (the value under the square root):'},
+                      {id: 'atm-quad-qf-9-6', type: 'latex', content: 'b^2 - 4ac = (2)^2 - 4(1)(5) = 4 - 20 = -16'},
+                      {id: 'atm-quad-qf-9-7', type: 'markdown', content: '**Step 4: Recognize the negative discriminant**\n\nSince the discriminant is negative (\\(-16\\)), we know the solutions will be **complex numbers**. We express \\(\\sqrt{-16}\\) in terms of the imaginary unit \\(i\\), where \\(i = \\sqrt{-1}\\):'},
+                      {id: 'atm-quad-qf-9-8', type: 'latex', content: '\\sqrt{-16} = \\sqrt{16 \\cdot (-1)} = \\sqrt{16} \\cdot \\sqrt{-1} = 4i'},
+                      {id: 'atm-quad-qf-9-9', type: 'markdown', content: '**Step 5: Substitute and simplify**\n\nNow we substitute back into the quadratic formula:'},
+                      {id: 'atm-quad-qf-9-10', type: 'latex', content: 'x = \\frac{-2 \\pm 4i}{2(1)} = \\frac{-2 \\pm 4i}{2} = \\frac{-2}{2} \\pm \\frac{4i}{2} = -1 \\pm 2i'},
+                      {id: 'atm-quad-qf-9-11', type: 'markdown', content: '**Step 6: Write the two complex solutions**\n\nThe two solutions are **complex conjugates**:'},
+                      {id: 'atm-quad-qf-9-12', type: 'latex', content: 'x = -1 + 2i \\quad \\text{and} \\quad x = -1 - 2i'},
+                      {id: 'atm-quad-qf-9-13', type: 'markdown', content: '**Key Takeaway:**\n\nWhen the discriminant is negative, we get complex solutions. These solutions appear as a **conjugate pair** of the form \\(a + bi\\) and \\(a - bi\\), where both have the same real part (\\(-1\\)) and opposite imaginary parts (\\(\\pm 2i\\)).'}
+                    ]},
+
+                    {id: 'atm-quad-graph', type: 'hline', content: ''},
+                    {id: 'atm-quad-graph-1', type: 'markdown', content: '## 📈 Graphing Quadratic Functions'},
+                    {id: 'atm-quad-graph-2', type: 'markdown', content: 'Quadratic function produce a type of graph called a **parabola**. To graph a quadratic function of the form \\(y = ax^2 + bx + c\\), follow these steps:'},
+                    {id: 'atm-quad-graph-3', type: 'markdown', content: '1. Identify the vertex using \\(x = -\\frac{b}{2a}\\) and calculate \\(y\\) by substituting \\(x\\) into the function.'},
+                    {id: 'atm-quad-graph-4', type: 'markdown', content: '2. Determine the axis of symmetry, which is the vertical line passing through the vertex.'},
+                    {id: 'atm-quad-graph-5', type: 'markdown', content: '3. Find the y-intercept by evaluating \\(y\\) when \\(x = 0\\).'},
+                    {id: 'atm-quad-graph-6', type: 'markdown', content: '4. Find the x-intercepts (if any) by solving \\(ax^2 + bx + c = 0\\).'},
+                    {id: 'atm-quad-graph-7', type: 'markdown', content: '5. Plot the vertex, axis of symmetry, y-intercept, and x-intercepts on the coordinate plane.'},
+                    {id: 'atm-quad-graph-8', type: 'markdown', content: '6. Sketch the parabola opening upwards if \\(a > 0\\) or downwards if \\(a < 0\\).'},
+                    {id: 'atm-quad-graph-9', type: 'markdown', content: 'Use the sliders below to explore how changing the coefficients **a**, **b**, and **c** affect the shape and position of the parabola:'},
+                    {id: 'atm-quad-graph-10', type: 'plotly', title: 'Interactive Parabola', content: 'atm_quad_parabola.json',                     metadata: {height: 500, showModeBar: false}}
                 ]
               },
             ]

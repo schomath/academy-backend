@@ -1,0 +1,75 @@
+{
+  "data": [
+    {
+      "x": [-1, 6],
+      "y": [7.5, -3],
+      "mode": "lines",
+      "name": "3x + 2y = 12",
+      "line": {
+        "color": "#8b5cf6",
+        "width": 3
+      }
+    },
+    {
+      "x": [-1, 6],
+      "y": [-5, 2],
+      "mode": "lines",
+      "name": "2x - 2y = 8",
+      "line": {
+        "color": "#f59e0b",
+        "width": 3
+      }
+    },
+    {
+      "x": [4],
+      "y": [0],
+      "mode": "markers",
+      "name": "Intersection Point (4, 0)",
+      "marker": {
+        "size": 12,
+        "color": "#10b981",
+        "symbol": "circle",
+        "line": {
+          "color": "#047857",
+          "width": 2
+        }
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Solution by Elimination: 3x + 2y = 12 and 2x - 2y = 8",
+      "font": {
+        "size": 18
+      }
+    },
+    "xaxis": {
+      "title": "x",
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af",
+      "range": [-2, 7]
+    },
+    "yaxis": {
+      "title": "y",
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af",
+      "range": [-6, 9]
+    },
+    "hovermode": "closest",
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 60,
+      "r": 40,
+      "t": 80,
+      "b": 60
+    }
+  }
+}
