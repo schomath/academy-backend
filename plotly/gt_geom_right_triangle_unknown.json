@@ -1,0 +1,90 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 4, 0, 0],
+      "y": [0, 0, 2.8, 0],
+      "line": {
+        "color": "#FF0066",
+        "width": 4
+      },
+      "fill": "toself",
+      "fillcolor": "rgba(37, 99, 235, 0.08)",
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 0.45, 0.45, 0],
+      "y": [0.45, 0.45, 0, 0],
+      "line": {
+        "color": "#111827",
+        "width": 2
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Find x",
+      "font": {
+        "size": 16
+      }
+    },
+    "annotations": [
+      {
+        "x": 0.35,
+        "y": 2.15,
+        "text": "x",
+        "showarrow": false,
+        "font": {
+          "size": 18,
+          "color": "#dc2626"
+        }
+      },
+      {
+        "x": 3.45,
+        "y": 0.25,
+        "text": "35°",
+        "showarrow": false,
+        "font": {
+          "size": 16,
+          "color": "#15803d"
+        }
+      }
+    ],
+    "xaxis": {
+      "range": [-0.6, 4.5],
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "fixedrange": true
+    },
+    "yaxis": {
+      "range": [-0.6, 3.3],
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "scaleanchor": "x",
+      "scaleratio": 1,
+      "fixedrange": true
+    },
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 25,
+      "r": 25,
+      "t": 60,
+      "b": 25
+    },
+    "showlegend": false
+  }
+}

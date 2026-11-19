@@ -1,0 +1,75 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 2, 2, 0, 0],
+      "y": [0, 0, 2, 2, 0],
+      "line": {
+        "color": "#FF0066",
+        "width": 4
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "markers+text",
+      "x": [0, 2, 2, 0],
+      "y": [0, 0, 2, 2],
+      "text": ["A (0, 0)", "B (2, 0)", "C (2, 2)", "D (0, 2)"],
+      "textposition": ["top right", "top left", "bottom left", "bottom right"],
+      "marker": {
+        "size": 12,
+        "color": "#ef4444",
+        "line": {
+          "color": "#7f1d1d",
+          "width": 2
+        }
+      },
+      "hovertemplate": "%{text}<extra></extra>",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Square with Four Labeled Vertices",
+      "font": {
+        "size": 16
+      }
+    },
+    "xaxis": {
+      "title": "x",
+      "range": [-0.5, 2.5],
+      "dtick": 1,
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af"
+    },
+    "yaxis": {
+      "title": "y",
+      "range": [-0.5, 2.5],
+      "dtick": 1,
+      "scaleanchor": "x",
+      "scaleratio": 1,
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af"
+    },
+    "hovermode": "closest",
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 55,
+      "r": 30,
+      "t": 65,
+      "b": 55
+    },
+    "showlegend": false
+  }
+}

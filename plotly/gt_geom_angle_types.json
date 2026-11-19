@@ -1,0 +1,114 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [2.5, 0, 2.165, null, 6.5, 4, 4, null, 10.5, 8, 6.75],
+      "y": [0, 0, 1.25, null, 0, 0, 2.5, null, 0, 0, 2.165],
+      "line": {
+        "color": "#FF0066",
+        "width": 4
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0.85, 0.821, 0.736, null, 4.45, 4.45, 4, null, 8.75, 8.65, 8.375, 8, 7.625],
+      "y": [0, 0.221, 0.425, null, 0, 0.45, 0.45, null, 0, 0.375, 0.65, 0.75, 0.65],
+      "line": {
+        "color": "#16a34a",
+        "width": 3
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "markers",
+      "x": [0, 4, 8],
+      "y": [0, 0, 0],
+      "marker": {
+        "size": 11,
+        "color": "#ef4444",
+        "line": {
+          "color": "#7f1d1d",
+          "width": 2
+        }
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Acute, Right, and Obtuse Angles",
+      "font": {
+        "size": 16
+      }
+    },
+    "annotations": [
+      {
+        "x": 0.8,
+        "y": 1.15,
+        "text": "30°<br><b>Acute</b>",
+        "showarrow": false,
+        "font": {
+          "size": 13,
+          "color": "#15803d"
+        }
+      },
+      {
+        "x": 4.95,
+        "y": 0.42,
+        "text": "90°<br><b>Right</b>",
+        "showarrow": false,
+        "font": {
+          "size": 13,
+          "color": "#15803d"
+        }
+      },
+      {
+        "x": 9.3,
+        "y": 0.75,
+        "text": "120°<br><b>Obtuse</b>",
+        "showarrow": false,
+        "font": {
+          "size": 13,
+          "color": "#15803d"
+        }
+      }
+    ],
+    "xaxis": {
+      "range": [-0.5, 10.8],
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "fixedrange": true
+    },
+    "yaxis": {
+      "range": [-0.8, 3.0],
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "scaleanchor": "x",
+      "scaleratio": 1,
+      "fixedrange": true
+    },
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 15,
+      "r": 15,
+      "t": 60,
+      "b": 15
+    },
+    "showlegend": false
+  }
+}

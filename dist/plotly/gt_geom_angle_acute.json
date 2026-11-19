@@ -1,0 +1,101 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [3, 0, 2.8],
+      "y": [0, 0, 1.019],
+      "line": {
+        "color": "#FF0066",
+        "width": 4
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0.8, 0.798, 0.792, 0.783, 0.77, 0.752],
+      "y": [0, 0.056, 0.111, 0.167, 0.221, 0.274],
+      "line": {
+        "color": "#16a34a",
+        "width": 3
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "markers+text",
+      "x": [3, 0, 2.8],
+      "y": [0, 0, 1.019],
+      "text": ["A", "B", "C"],
+      "textposition": ["top", "top left", "top right"],
+      "marker": {
+        "size": 13,
+        "color": "#ef4444",
+        "line": {
+          "color": "#7f1d1d",
+          "width": 2
+        }
+      },
+      "hovertemplate": "Vertex %{text}<extra></extra>",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Acute Angle ABC",
+      "font": {
+        "size": 16
+      }
+    },
+    "annotations": [
+      {
+        "x": 1.0,
+        "y": 0.58,
+        "text": "20°",
+        "showarrow": false,
+        "font": {
+          "size": 16,
+          "color": "#15803d"
+        }
+      }
+    ],
+    "xaxis": {
+      "range": [-0.4, 3.4],
+      "dtick": 1,
+      "showgrid": true,
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af",
+      "ticks": ""
+    },
+    "yaxis": {
+      "range": [-0.5, 2.5],
+      "dtick": 1,
+      "scaleanchor": "x",
+      "scaleratio": 1,
+      "showgrid": true,
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#9ca3af",
+      "ticks": ""
+    },
+    "hovermode": "closest",
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 35,
+      "r": 25,
+      "t": 65,
+      "b": 35
+    },
+    "showlegend": false
+  }
+}

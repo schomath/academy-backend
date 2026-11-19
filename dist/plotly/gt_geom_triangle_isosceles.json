@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines+markers",
+      "x": [0.6, 3.4, 2, 0.6],
+      "y": [0, 0, 3.8, 0],
+      "line": {"color": "#FF0066", "width": 4},
+      "marker": {"size": 8, "color": "#ef4444"},
+      "fill": "toself",
+      "fillcolor": "rgba(37, 99, 235, 0.08)",
+      "hoverinfo": "skip",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "annotations": [
+      {"x": 1.0, "y": 2.0, "text": "equal", "textangle": 70, "showarrow": false},
+      {"x": 3.0, "y": 2.0, "text": "equal", "textangle": -70, "showarrow": false},
+      {"x": 0.8, "y": 0.4, "text": "base angle", "showarrow": false},
+      {"x": 3.2, "y": 0.4, "text": "base angle", "showarrow": false}
+    ],
+    "xaxis": {"range": [-0.7, 4.7], "showgrid": false, "zeroline": false, "showticklabels": false, "fixedrange": true},
+    "yaxis": {"range": [-0.7, 4.4], "showgrid": false, "zeroline": false, "showticklabels": false, "scaleanchor": "x", "scaleratio": 1, "fixedrange": true},
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {"family": "Arial, sans-serif", "size": 12, "color": "#1f2937"},
+    "margin": {"l": 15, "r": 15, "t": 20, "b": 15},
+    "showlegend": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines+markers",
+      "x": [0, 4, 2, 0],
+      "y": [0, 0, 3.464, 0],
+      "line": {"color": "#FF0066", "width": 4},
+      "marker": {"size": 8, "color": "#ef4444"},
+      "fill": "toself",
+      "fillcolor": "rgba(37, 99, 235, 0.08)",
+      "hoverinfo": "skip",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "annotations": [
+      {"x": 2, "y": -0.45, "text": "equal", "showarrow": false},
+      {"x": 0.55, "y": 1.95, "text": "equal", "textangle": 60, "showarrow": false},
+      {"x": 3.45, "y": 1.95, "text": "equal", "textangle": -60, "showarrow": false},
+      {"x": 0.35, "y": 0.38, "text": "60°", "showarrow": false},
+      {"x": 3.65, "y": 0.38, "text": "60°", "showarrow": false},
+      {"x": 2, "y": 2.65, "text": "60°", "showarrow": false}
+    ],
+    "xaxis": {"range": [-0.7, 4.7], "showgrid": false, "zeroline": false, "showticklabels": false, "fixedrange": true},
+    "yaxis": {"range": [-0.8, 4.1], "showgrid": false, "zeroline": false, "showticklabels": false, "scaleanchor": "x", "scaleratio": 1, "fixedrange": true},
+    "plot_bgcolor": "#f9fafb",
+    "paper_bgcolor": "white",
+    "font": {"family": "Arial, sans-serif", "size": 12, "color": "#1f2937"},
+    "margin": {"l": 15, "r": 15, "t": 20, "b": 15},
+    "showlegend": false
+  }
+}
