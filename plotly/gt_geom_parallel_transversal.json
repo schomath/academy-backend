@@ -1,0 +1,155 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 10],
+      "y": [7, 5],
+      "line": {
+        "color": "#FF0066",
+        "width": 3
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0.7, 10.7],
+      "y": [3, 1],
+      "line": {
+        "color": "#FF0066",
+        "width": 3
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [2.2, 6.2],
+      "y": [10, 0],
+      "line": {
+        "color": "#111827",
+        "width": 4
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Parallel Lines Cut by a Transversal",
+      "font": {
+        "size": 16
+      }
+    },
+    "annotations": [
+      {
+        "x": 3.1,
+        "y": 6.85,
+        "text": "1",
+        "showarrow": false
+      },
+      {
+        "x": 4.25,
+        "y": 6.65,
+        "text": "2",
+        "showarrow": false
+      },
+      {
+        "x": 3.42,
+        "y": 5.85,
+        "text": "3",
+        "showarrow": false
+      },
+      {
+        "x": 4.6,
+        "y": 5.65,
+        "text": "4",
+        "showarrow": false
+      },
+      {
+        "x": 4.55,
+        "y": 2.7,
+        "text": "5",
+        "showarrow": false
+      },
+      {
+        "x": 5.7,
+        "y": 2.5,
+        "text": "6",
+        "showarrow": false
+      },
+      {
+        "x": 4.88,
+        "y": 1.7,
+        "text": "7",
+        "showarrow": false
+      },
+      {
+        "x": 6.05,
+        "y": 1.5,
+        "text": "8",
+        "showarrow": false
+      },
+      {
+        "x": 2.05,
+        "y": 10.1,
+        "text": "<i>c</i>",
+        "showarrow": false,
+        "font": {
+          "size": 18
+        }
+      },
+      {
+        "x": 10.3,
+        "y": 5.1,
+        "text": "<i>a</i>",
+        "showarrow": false,
+        "font": {
+          "size": 18
+        }
+      },
+      {
+        "x": 11.0,
+        "y": 1.1,
+        "text": "<i>b</i>",
+        "showarrow": false,
+        "font": {
+          "size": 18
+        }
+      }
+    ],
+    "xaxis": {
+      "range": [-0.5, 11.5],
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "fixedrange": false
+    },
+    "yaxis": {
+      "range": [-0.5, 10.7],
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "scaleanchor": "x",
+      "scaleratio": 1,
+      "fixedrange": false
+    },
+    "plot_bgcolor": "white",
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 16,
+      "color": "#111827"
+    },
+    "margin": {
+      "l": 20,
+      "r": 20,
+      "t": 55,
+      "b": 20
+    },
+    "showlegend": false
+  }
+}

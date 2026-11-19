@@ -1,0 +1,99 @@
+{
+  "data": [
+    {
+      "type": "scatter3d",
+      "mode": "lines",
+      "x": [0, 2, 2, 0, 0, null, 0, 2, 2, 0, 0, null, 0, 0, null, 2, 2, null, 2, 2, null, 0, 0],
+      "y": [0, 0, 2, 2, 0, null, 0, 0, 2, 2, 0, null, 0, 0, null, 0, 0, null, 2, 2, null, 2, 2],
+      "z": [0, 0, 0, 0, 0, null, 2, 2, 2, 2, 2, null, 0, 2, null, 0, 2, null, 0, 2, null, 0, 2],
+      "line": {
+        "color": "#FF0066",
+        "width": 6
+      },
+      "hoverinfo": "skip",
+      "showlegend": false
+    },
+    {
+      "type": "scatter3d",
+      "mode": "markers+text",
+      "x": [0, 2, 2, 0, 0, 2, 2, 0],
+      "y": [0, 0, 2, 2, 0, 0, 2, 2],
+      "z": [0, 0, 0, 0, 2, 2, 2, 2],
+      "text": [
+        "A (0, 0, 0)",
+        "B (2, 0, 0)",
+        "C (2, 2, 0)",
+        "D (0, 2, 0)",
+        "E (0, 0, 2)",
+        "F (2, 0, 2)",
+        "G (2, 2, 2)",
+        "H (0, 2, 2)"
+      ],
+      "marker": {
+        "size": 6,
+        "color": "#ef4444",
+        "line": {
+          "color": "#7f1d1d",
+          "width": 1
+        }
+      },
+      "hovertemplate": "%{text}<extra></extra>",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Cube with Eight Labeled Vertices (Tip: click and drag me to rotate!)",
+      "font": {
+        "size": 16
+      }
+    },
+    "scene": {
+      "aspectmode": "cube",
+      "xaxis": {
+        "title": "x",
+        "range": [-0.25, 2.25],
+        "dtick": 1,
+        "backgroundcolor": "#f9fafb",
+        "gridcolor": "#d1d5db",
+        "zerolinecolor": "#9ca3af"
+      },
+      "yaxis": {
+        "title": "y",
+        "range": [-0.25, 2.25],
+        "dtick": 1,
+        "backgroundcolor": "#f9fafb",
+        "gridcolor": "#d1d5db",
+        "zerolinecolor": "#9ca3af"
+      },
+      "zaxis": {
+        "title": "z",
+        "range": [-0.25, 2.25],
+        "dtick": 1,
+        "backgroundcolor": "#f9fafb",
+        "gridcolor": "#d1d5db",
+        "zerolinecolor": "#9ca3af"
+      },
+      "camera": {
+        "eye": {
+          "x": 1.45,
+          "y": 1.45,
+          "z": 1.15
+        }
+      }
+    },
+    "paper_bgcolor": "white",
+    "font": {
+      "family": "Arial, sans-serif",
+      "size": 12,
+      "color": "#1f2937"
+    },
+    "margin": {
+      "l": 20,
+      "r": 20,
+      "t": 65,
+      "b": 20
+    },
+    "showlegend": false
+  }
+}
