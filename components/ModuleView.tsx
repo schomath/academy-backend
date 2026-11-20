@@ -76,22 +76,24 @@ const NOTE_BG_GRADIENTS: Record<string, { from: string; to: string; border: stri
   rose: { from: '#fff1f2', to: '#fecdd3', border: '#fb7185' },
 };
 
-type PlotlyQuadraticParam = {
+type PlotlySliderParam = {
   min: number;
   max: number;
   step: number;
   value: number;
 };
 
-// Optional "interactive" section of a plotly JSON file. For type "quadratic",
-// data[0] is the curve, data[1] the vertex and data[2] the axis of symmetry;
-// their coordinates are recomputed from the a/b/c slider values.
 type PlotlyInteractive = {
+  type: 'linear';
+  xRange: [number, number];
+  points?: number;
+  params: Record<'m' | 'b', PlotlySliderParam>;
+} | {
   type: 'quadratic';
   xRange: [number, number];
   points?: number;
   yRange: [number, number];
-  params: Record<'a' | 'b' | 'c', PlotlyQuadraticParam>;
+  params: Record<'a' | 'b' | 'c', PlotlySliderParam>;
 };
 
 type PlotlyFigure = {
@@ -112,6 +114,13 @@ const formatQuadraticEquation = (a: number, b: number, c: number) => {
   };
   const parts = [term(a, 'x²', true), term(b, 'x', !a), term(c, '', !a && !b)];
   return `y = ${parts.join('') || '0'}`;
+};
+
+const formatLinearEquation = (m: number, b: number) => {
+  const slope = m === 0 ? '' : m === 1 ? 'x' : m === -1 ? '-x' : `${m}x`;
+  if (m === 0) return `y = ${b}`;
+  if (b === 0) return `y = ${slope}`;
+  return `y = ${slope} ${b < 0 ? '-' : '+'} ${Math.abs(b)}`;
 };
 
 /**
@@ -325,18 +334,29 @@ const PlotlyFigureBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
 
   const resolvedParams = React.useMemo(() => {
     if (!interactive) return null;
+    if (interactive.type === 'linear') {
+      const read = (key: 'm' | 'b') => paramValues[key] ?? interactive.params[key].value;
+      return { type: 'linear' as const, values: { m: read('m'), b: read('b') } };
+    }
     const read = (key: 'a' | 'b' | 'c') => paramValues[key] ?? interactive.params[key].value;
-    return { a: read('a'), b: read('b'), c: read('c') };
+    return { type: 'quadratic' as const, values: { a: read('a'), b: read('b'), c: read('c') } };
   }, [interactive, paramValues]);
 
   const plotData = React.useMemo(() => {
     if (!figure || !Array.isArray(figure.data)) return null;
     if (!interactive || !resolvedParams) return figure.data;
 
-    const { a, b, c } = resolvedParams;
     const [xMin, xMax] = interactive.xRange;
     const count = interactive.points ?? 201;
     const xs = Array.from({ length: count }, (_, i) => xMin + ((xMax - xMin) * i) / (count - 1));
+    if (resolvedParams.type === 'linear') {
+      const { m, b } = resolvedParams.values;
+      const data = figure.data.map((trace) => ({ ...trace }));
+      data[0] = { ...data[0], x: xs, y: xs.map((x) => m * x + b) };
+      return data;
+    }
+
+    const { a, b, c } = resolvedParams.values;
     const ys = xs.map((x) => a * x * x + b * x + c);
     const hasVertex = a !== 0;
     const vx = hasVertex ? -b / (2 * a) : 0;
@@ -396,7 +416,11 @@ const PlotlyFigureBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
 
   delete layout.width;
   if (interactive && resolvedParams) {
-    layout.title = { text: formatQuadraticEquation(resolvedParams.a, resolvedParams.b, resolvedParams.c) };
+    layout.title = {
+      text: resolvedParams.type === 'linear'
+        ? formatLinearEquation(resolvedParams.values.m, resolvedParams.values.b)
+        : formatQuadraticEquation(resolvedParams.values.a, resolvedParams.values.b, resolvedParams.values.c),
+    };
     layout.uirevision = 'keep';
   }
   if (block.metadata?.height) {
@@ -429,20 +453,28 @@ const PlotlyFigureBlock: React.FC<{ block: ContentBlock }> = ({ block }) => {
           />
         </div>
         {interactive && resolvedParams ? (
-          <div className="mt-4 grid gap-4 sm:grid-cols-3">
-            {(['a', 'b', 'c'] as const).map((key) => {
-              const param = interactive.params[key];
+          <div className={`mt-4 grid gap-4 ${interactive.type === 'linear' ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+            {(interactive.type === 'linear'
+              ? [
+                  { key: 'm' as const, param: interactive.params.m, value: resolvedParams.values.m },
+                  { key: 'b' as const, param: interactive.params.b, value: resolvedParams.values.b },
+                ]
+              : [
+                  { key: 'a' as const, param: interactive.params.a, value: resolvedParams.values.a },
+                  { key: 'b' as const, param: interactive.params.b, value: resolvedParams.values.b },
+                  { key: 'c' as const, param: interactive.params.c, value: resolvedParams.values.c },
+                ]).map(({ key, param, value }) => {
               return (
                 <label key={key} className="flex flex-col text-sm font-medium text-slate-700">
                   <span className="mb-1">
-                    {key} = <span className="font-mono">{resolvedParams[key]}</span>
+                    {key} = <span className="font-mono">{value}</span>
                   </span>
                   <input
                     type="range"
                     min={param.min}
                     max={param.max}
                     step={param.step}
-                    value={resolvedParams[key]}
+                    value={value}
                     onChange={(e) => setParamValues((prev) => ({ ...prev, [key]: Number(e.target.value) }))}
                     className="w-full accent-blue-500"
                   />

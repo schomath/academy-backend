@@ -1,0 +1,52 @@
+{
+  "interactive": {
+    "type": "linear",
+    "xRange": [-10, 10],
+    "points": 201,
+    "params": {
+      "m": {"min": -10, "max": 10, "step": 0.1, "value": 1},
+      "b": {"min": -10, "max": 10, "step": 0.1, "value": 0}
+    }
+  },
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "orientation": "h",
+      "xaxis": "x",
+      "yaxis": "y",
+      "x": [],
+      "y": [],
+      "line": {"color": "#2563eb", "width": 3},
+      "name": "y = mx + b",
+      "hovertemplate": "x: %{x:.2f}<br>y: %{y:.2f}<extra></extra>"
+    }
+  ],
+  "layout": {
+    "title": {"text": "y = x"},
+    "xaxis": {
+      "title": {"text": "y"},
+      "side": "bottom",
+      "anchor": "y",
+      "range": [-10, 10],
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#374151"
+    },
+    "yaxis": {
+      "title": {"text": "x"},
+      "side": "left",
+      "anchor": "x",
+      "range": [-20, 20],
+      "scaleanchor": "x",
+      "scaleratio": 1,
+      "gridcolor": "#e5e7eb",
+      "zeroline": true,
+      "zerolinecolor": "#374151"
+    },
+    "showlegend": false,
+    "margin": {"t": 60, "l": 60, "r": 20, "b": 60},
+    "plot_bgcolor": "#f9fafb",
+    "hovermode": "closest"
+  }
+}
